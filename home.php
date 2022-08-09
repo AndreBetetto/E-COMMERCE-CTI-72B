@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="home.css">
-    <title>KeyFriends</title>
+    <title>HOME | KeyFriends</title>
 </head>
 <body>
     <header>
         <nav>
             <div class="menu">
                 <input type="checkbox" id="check">
-                <label for="check"> <img src="iconMenu.png" id="iconMenu"> </label>
-                
-                    <ul>
-                        <li> <a href="#"> HOME </a> </li>
-                        <li> <a href="#"> PRODUTOS </a> </li>
-                        <li> <a href="#"> CADASTRAR </a> </li>
-                        <li> <a href="#"> SOBRE </a> </li>
-                    </ul>
+                <label for="check" id="icone"><img src="iconeMenu.png"/></label>
+                <div class="barra">	
+                    <nav class="links">
+                        <a href="home.php"><div class="link">Home</div></a>
+                        <a href=""><div class="link">Produtos</div></a>
+                        <a href=""><div class="link">Cadastrar</div></a>
+                        <a href=""><div class="link">Contato</div></a>
+                    </nav>	
+                </div>
             </div>
 
             <div class="navbar">
@@ -26,15 +27,15 @@
                     <div class="search">
                         <!-- <h1>Click para pesquisar</h1> -->
                         <div>
-                            <input type="text" placeholder="Search..." required>
+                            <input type="text" placeholder="Pesquisar..." required>
                         </div>
                     </div>
                 </div>
 
                 <div class="icons">
-                    <i id="icon" class="fa-solid fa-gear fa-3x"></i>
-                    <i id="icon" class="fa-solid fa-cart-shopping fa-3x"></i>
-                    <i id="icon" class="fa-solid fa-circle-user fa-3x"></i>
+                    <a href="#config"> <i id="icon" class="fa-solid fa-gear fa-2x"> </i> </a>
+                    <a href="#carrinho"> <i id="icon" class="fa-solid fa-cart-shopping fa-2x"> </i> </a>
+                    <a href="#perfil"> <i id="icon" class="fa-solid fa-circle-user fa-2x"> </i> </a>
                 </div>
             </div>
         </nav>
