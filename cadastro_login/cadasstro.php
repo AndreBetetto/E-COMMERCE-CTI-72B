@@ -9,12 +9,12 @@
   <body>
     <div class="container">
       <div class="center">
-          <h1>Register</h1>
+          <h1>Cadastrar</h1>
           <form method="POST" action="cadastrar.php">
               <div class="txt_field">
                   <input type="text" name="name" required>
                   <span></span>
-                  <label>Name</label>
+                  <label>Nome</label>
               </div>
               <div class="txt_field">
                   <input type="email" name="email" required>
@@ -24,7 +24,7 @@
               <div class="txt_field">
                   <input type="password" name="password" required>
                   <span></span>
-                  <label>Password</label>
+                  <label>Senha</label>
               </div>
 
               <!--<div class="txt_field">
@@ -33,9 +33,9 @@
                   <label>Confirm Password</label>
               </div>-->
 
-              <input name="submit" type="Submit" value="Sign Up">
+              <input name="submit" type="Submit" value="Cadastrar">
               <div class="signup_link">
-                  Have an Account ? <a href="paginalogin.php">Login Here</a>
+                  Já tem uma conta ? <a href="paginalogin.php">Login aqui</a>
               </div>
           </form>
       </div>

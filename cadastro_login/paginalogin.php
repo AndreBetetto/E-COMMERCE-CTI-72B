@@ -4,7 +4,7 @@
     <title>Home</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="csscadastro.css" />
   </head>
   <body>
     <div class="container">
@@ -19,12 +19,12 @@
               <div class="txt_field">
                   <input type="password" name="password" required>
                   <span></span>
-                  <label>Password</label>
+                  <label>Senha</label>
               </div>
-              <div class="pass">Forget Password?</div>
-              <input name="submit" type="Submit" value="Login">
+              <div class="pass">Esqueceu a senha?</div>
+              <input name="submit" type="Submit" value="Entrar">
               <div class="signup_link">
-                  Not a Member ? <a href="cadasstro.php">Signup</a>
+                  Não foi cadastrado ? <a href="cadasstro.php">Cadastre-se</a>
               </div>
           </form>
       </div>
