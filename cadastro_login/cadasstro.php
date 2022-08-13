@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
-    <title>Home</title>
+    <title>Cadastro</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="csscadastro.css" />
@@ -9,22 +9,22 @@
   <body>
     <div class="container">
       <div class="center">
-          <h1>Register</h1>
-          <form method="POST" action="login.php">
+          <h1>Registro</h1>
+          <form method="POST" action="cadastrar.php">
               <div class="txt_field">
-                  <input type="text" name="name" placeholder="Nome..." required>
+                  <input type="text" name="name" required>
                   <span></span>
-                  <label>Name</label>
+                  <label>Nome</label>
               </div>
               <div class="txt_field">
-                  <input type="email" name="email" placeholder="E-mail..." required>
+                  <input type="email" name="email" required>
                   <span></span>
                   <label>Email</label>
               </div>
               <div class="txt_field">
-                  <input type="password" name="password" placeholder="Senha..." required>
+                  <input type="password" name="password" required>
                   <span></span>
-                  <label>Password</label>
+                  <label>Senha</label>
               </div>
 
               <!--<div class="txt_field">
@@ -35,7 +35,10 @@
 
               <input name="submit" type="Submit" value="Sign Up">
               <div class="signup_link">
-                  Have an Account ? <a href="paginalogin.php">Login Here</a>
+                  Já possui uma conta? <a href="paginalogin.php">Entrar</a>
+              </div>
+              <div class="signup_link">
+                <a href="home.php">Página inicial</a>
               </div>
           </form>
       </div>
