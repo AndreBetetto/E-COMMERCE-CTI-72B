@@ -2,27 +2,31 @@
 session_start();
 include('conexao.php');
 
-$nome = pg_escape_string(trim($_POST['name']));
-$email = pg_escape_string(trim($_POST['email']));
-$senha = pg_escape_string(trim(md5($_POST['password'])));
+$nome = pg_escape_string($conexao, trim($_POST['name']));
+$email = pg_escape_string($conexao, trim($_POST['email']));
+$senha = pg_escape_string($conexao, trim(md5($_POST['password'])));
 
-$sql = "select count(*) as total from usuarioandre where login = '$email'";
-$result = pg_query($conexao, $sql);
-$row = pg_fetch_assoc($result);
+$sql = "SELECT COUNT(*) as total FROM usuarioandre WHERE login = '$email'";
 
-if($row['total'] == 1){
+$row = pg_fetch_row(pg_query($sql));
+
+if($row[0] == 1){
     $_SESSION['user_existe'] = true;
     header('Location: cadasstro.php');
+
+    /*aparecer erro que usuario ja existe*/
+
     exit;
+
+} else {
+    $sql = "INSERT INTO usuarioandre (login, senha, nome) VALUES ('$email', '$senha', '$nome')";
+
+    pg_query($conexao, $sql);
+    /*aparecer mensagem que o usuario foi cadastrado com sucesso*/
 }
 
-$sql = "INSERT INTO usuarioandre (login, senha, nome) VALUES ('$email', '$senha', '$nome')";
-
-if($conexao->pg_query($sql) === TRUE) {
-    $_SESSION['status_cadastro'] = true;  
-}
-
-$conexao->close();
+    
+pg_close($conexao);
 
 header('Location: cadasstro.php');
 exit;

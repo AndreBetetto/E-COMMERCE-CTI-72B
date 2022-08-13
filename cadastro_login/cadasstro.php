@@ -10,19 +10,19 @@
     <div class="container">
       <div class="center">
           <h1>Register</h1>
-          <form method="POST" action="login.php">
+          <form method="POST" action="cadastrar.php">
               <div class="txt_field">
-                  <input type="text" name="name" placeholder="Nome..." required>
+                  <input type="text" name="name" required>
                   <span></span>
                   <label>Name</label>
               </div>
               <div class="txt_field">
-                  <input type="email" name="email" placeholder="E-mail..." required>
+                  <input type="email" name="email" required>
                   <span></span>
                   <label>Email</label>
               </div>
               <div class="txt_field">
-                  <input type="password" name="password" placeholder="Senha..." required>
+                  <input type="password" name="password" required>
                   <span></span>
                   <label>Password</label>
               </div>
