@@ -28,7 +28,7 @@
         header('Location: home.php');
         exit();
     } else {
-        $_SESSION['sem_login'] = true;
+        $_SESSION['erro_login'] = true;
         header('Location: paginalogin.php');
         exit();
     }
