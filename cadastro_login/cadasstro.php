@@ -9,7 +9,11 @@
   <body>
     <div class="container">
       <div class="center">
+<<<<<<< HEAD
           <h1>Registro</h1>
+=======
+          <h1>Cadastrar</h1>
+>>>>>>> main
           <form method="POST" action="cadastrar.php">
               <div class="txt_field">
                   <input type="text" name="name" required>
@@ -33,7 +37,7 @@
                   <label>Confirm Password</label>
               </div>-->
 
-              <input name="submit" type="Submit" value="Sign Up">
+              <input name="submit" type="Submit" value="Cadastrar">
               <div class="signup_link">
                   Possui uma conta? <a href="paginalogin.php">Faça login!</a>
               </div>
