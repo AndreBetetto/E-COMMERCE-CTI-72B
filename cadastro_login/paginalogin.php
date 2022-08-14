@@ -1,14 +1,23 @@
+<?php
+  session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <title>PaginaLogin</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="csscadastro.css" />
   </head>
   <body>
     <div class="container">
       <div class="center">
+        <h2> <?php if($_SESSION['sem_login'] = true;)?>
+          Erro: Login ou senha incorretos! <?php endif; ?>
+        </h2>
+          
           <h1>Login</h1>
           <form action="login.php" method="POST">
               <div class="txt_field">
