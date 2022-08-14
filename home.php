@@ -3,9 +3,6 @@
 
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,13 +17,13 @@
             <div class="menu">
                 <input type="checkbox" id="check">
                 <label for="check" id="icone"><img src="iconeMenu.png"/></label>
-                <div class="barra">
+                <div class="barra">	
                     <nav class="links">
                         <a href="home.php"><div class="link">Home</div></a>
                         <a href=""><div class="link">Produtos</div></a>
                         <a href=""><div class="link">Cadastrar</div></a>
                         <a href=""><div class="link">Contato</div></a>
-                    </nav>
+                    </nav>	
                 </div>
             </div>
 
@@ -48,7 +45,7 @@
             </div>
         </nav>
     </header>
-<?php
+    <?php
     $nome = $_SESSION['name'];
     if($nome == '') : ?>
         <h2>Bem vindo(a)! Faça <a href="paginalogin.php">Login</a> ou <a href="cadasstro.php">Cadastre-se</a></h2>
@@ -56,8 +53,6 @@
     <?php if($nome != '') : ?>
     <h2>Bem vindo(a), <?php echo $_SESSION['name']; endif;?>
     
-
-
 
     <!-- <section>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint totam dolorem veritatis sed distinctio quaerat animi repudiandae quas est. Eaque corrupti quos dolor, similique error aspernatur tenetur? Doloremque, est explicabo?
