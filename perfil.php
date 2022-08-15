@@ -1,15 +1,43 @@
 <?php
     session_start();
+    include('conexao.php');
+    /*//upload
+    if(isset($_POST['salvar'])) {
+        //imagem enviada
+        $imagem = $_FILES['image'];
+        $imagem = explode('.',$imagem['name']);
+        echo $imagem[sizeof($imagem)-1];
+        if($imagem[sizeof($imagem)-1] != 'jpg') {
+            die('Coloque arquivos apenas no formato .jpg ou .png');
+        } else {
+            move_uploaded_file($imagem['tmp_name'], 'uploads/'.$imagem['name']);
+        }
+    }*/
 
-
-    //upload
+    echo getcwd();
+    $uploaded = false;
     if(isset($_POST['salvar']) && $_POST['salvar'] == 'Salvar') {
-        $upload_folder = getcw().DIRECTORY_SEPARATOR.'/uploads/';
-        
+        $upload_folder = getcwd().DIRECTORY_SEPARATOR.'/uploads/';
 
 
+        /*if($_FILES['img']['error'] == UPLOAD_ERR_OK) {
+            $temp_name = $_FILES['img']['tmp_name'];
+            $name = basename($_FILES['img']['name']);
+            $save_path = $upload_folder.$name;
+            move_uploaded_file($temp_name,$save_path);
+            $uploaded = true;
+        }*/
+
+        /*if($uploaded == TRUE) {
+            echo "uploaded";
+            $fh = fopen($save_path,'rb');
+            $fbytes = fread($fh, filesize($save_path));
+            $query2 = "insert into usuarioandre (imagem) where id = $id VALLUES ($fh)";
+            $query = "call salvar_foto($1,$2)";
+            $res = pg_query_params($conexao, $query, 2);
+
+        }*/
     }
-
 
 
 ?>
@@ -28,13 +56,13 @@
             <div class="menu">
                 <input type="checkbox" id="check">
                 <label for="check" id="icone"><img src="iconeMenu.png"/></label>
-                <div class="barra">	
+                <div class="barra">
                     <nav class="links">
                         <a href="home.php"><div class="link">Home</div></a>
                         <a href=""><div class="link">Produtos</div></a>
                         <a href=""><div class="link">Cadastrar</div></a>
                         <a href=""><div class="link">Contato</div></a>
-                    </nav>	
+                    </nav>
                 </div>
             </div>
 
@@ -60,8 +88,8 @@
     $nome = $_SESSION['name'];
     ?>
 
-    <form action="" method="POST">
-        <label>Coloque aqui uma imagem: <input type="file" name="image"></label>
+    <form action="" method="post" enctype="multipart/form-data">
+        <label>Coloque aqui uma imagem: <input type="file" name="img"></label>
         <input type="submit" name="salvar" valor="Salvar">
     </form>
 
