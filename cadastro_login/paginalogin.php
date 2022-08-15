@@ -12,18 +12,19 @@
     <link rel="stylesheet" href="csscadastro.css" />
   </head>
   <body>
-    <div class="alert">
-    <?php if($_SESSION['erro_login'] == false): ?> 
-	
-		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-	Erro ou login incorretos!
-	</div>  
-	<?php 
-		endif; 
-	?>      
+	      
     <div class="container">
       <div class="center">
-      
+      <?php 
+	if($_SESSION['erro_login'] == true): 
+	?> 
+	
+      <div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+	Erro: login ou senha incorretos!</div>
+	<?php 
+		endif; 
+		unset($_SESSION['erro_login']);
+	?>
           <h1>Login</h1>
           <form action="login.php" method="POST">
               <div class="txt_field">
