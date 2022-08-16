@@ -1,6 +1,7 @@
 <?php
     session_start();
     include('conexao.php');
+    $foto = $_SESSION['pathimagem'];
     /*//upload
     if(isset($_POST['salvar'])) {
         //imagem enviada
@@ -89,7 +90,21 @@
         <label>Coloque aqui uma imagem: <input type="file" name="fileToUpload" id="fileToUpload">
   <input type="submit" value="Upload Image" name="submit">
     </form>
+        <br><br><br>
+    <?php
+        echo $photo;
+        $target = "uploads/" . $foto;
+        if(file_exists($target)):
+            $photo = $target; ?>
+            
+            <img src="<?php$photo?>">
+            <?php endif;
+            ?>
+            
+        <?php if(!file_exists($target)): ?>
+            <img src="/public_sites/andrebetetto/3bim/loja/uploads/default.png"> <?php endif; ?>
 
+            <img src="<?php echo $target; ?>" />
     <!-- <section>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint totam dolorem veritatis sed distinctio quaerat animi repudiandae quas est. Eaque corrupti quos dolor, similique error aspernatur tenetur? Doloremque, est explicabo?
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur cum earum magni eligendi quibusdam vero ducimus impedit, quas explicabo ea, adipisci quidem dolorem voluptas a iusto nostrum quos doloremque id!

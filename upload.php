@@ -1,6 +1,23 @@
 <?php
-$target_dir = "uploads/";
+  session_start();
+  include('conexao.php');
+  $email = str_replace('.', '_', $_SESSION['email']);
+  if($email == " ") {
+
+  }
+$target_dir = "/public_sites/andrebetetto/3bim/loja/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+
+
+$filename   = $email; // 5dab1961e93a7-1571494241
+$extension  = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); // jpg
+$basename   = $filename . "." . $extension; // 5dab1961e93a7_1571494241.jpg
+$source       = $_FILES["fileToUpload"]["tmp_name"];
+$_SESSION['pathimagem'] = $basename;
+$destination  = $target_dir . "{$basename}";
+/*move_uploaded_file( $_FILES["fileToUpload"]["tmp_name"], $destination );
+exit;*/
+
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -22,6 +39,11 @@ if (file_exists($target_file)) {
   $uploadOk = 0;
 }
 
+if($email == " ") {
+  echo "Voce nao esta logado.";
+  $uploadOk = 0;
+}
+
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
   echo "Sorry, your file is too large.";
@@ -38,12 +60,23 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
+  sleep(5);
+  header('Location: perfil.php');
+  exit;
 // if everything is ok, try to upload file
 } else {
-  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $destination)) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    sleep(5);
+    header('Location: perfil.php');
+    exit; 
   } else {
     echo "Sorry, there was an error uploading your file.";
+    sleep(5);
+    header('Location: perfil.php');
+    exit;
   }
 }
+
+
 ?>
