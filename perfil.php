@@ -45,6 +45,13 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/css/jquery.Jcrop.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/js/jquery.Jcrop.js"></script>
+    <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
+    <script src="jquery.min.js"></script>
+    <script src="jquery.Jcrop.min.js"></script>
+   
     <link rel=stylesheet type="text/css" href="home.css">
     <title>HOME | KeyFriends</title>
 </head>
@@ -87,9 +94,17 @@
     ?>
 
     <form action="upload.php" method="post" enctype="multipart/form-data">
-        <label>Coloque aqui uma imagem: <input type="file" name="fileToUpload" id="fileToUpload">
+        <label>Coloque aqui uma imagem: <input type="file" name="fileToUpload" id="fileToUpload"></label>
+  
+  <br><br><br>
+  <img src="<?php echo $imagePath; ?>" id="cropbox">
+  <br><br>
+  <input type='button' id="crop" value='CROP'>
+  <br>
   <input type="submit" value="Upload Image" name="submit">
     </form>
+        <br><br><br>
+        <img src="#" id="cropped_img" style="display: none;">
         <br><br><br>
     <?php
         echo $photo;
@@ -97,21 +112,22 @@
         if(file_exists($target)):
             $photo = $target; ?>
             
-            <img src="<?php$photo?>">
+            <img src="<?php echo $target; ?>" width="100" height="100"/>
             <?php endif;
             ?>
             
         <?php if(!file_exists($target)): ?>
-            <img src="/public_sites/andrebetetto/3bim/loja/uploads/default.png"> <?php endif; ?>
+            <img src="fotosPadrao/default.png" width="100" height="100"/> <?php endif; ?>
 
-            <img src="<?php echo $target; ?>" />
+            <img src="fotosPadrao/default.png" id="image" alt ="">
+            
     <!-- <section>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint totam dolorem veritatis sed distinctio quaerat animi repudiandae quas est. Eaque corrupti quos dolor, similique error aspernatur tenetur? Doloremque, est explicabo?
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur cum earum magni eligendi quibusdam vero ducimus impedit, quas explicabo ea, adipisci quidem dolorem voluptas a iusto nostrum quos doloremque id!
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, cumque fugiat. Eum delectus cum eveniet adipisci saepe possimus voluptatibus. Reiciendis quo itaque perferendis odio quis sint rerum, perspiciatis ratione dicta.
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo commodi officiis tempore iusto, eveniet veritatis dolorem beatae reiciendis, minima earum quas a harum! Labore ducimus neque sit ex. Tempora, id?
     </section> -->
-
+    
     <footer>
 
     </footer>
