@@ -14,10 +14,7 @@
         }
     }*/
 
-    echo getcwd();
-    $uploaded = false;
-    if(isset($_POST['salvar']) && $_POST['salvar'] == 'Salvar') {
-        $upload_folder = getcwd().DIRECTORY_SEPARATOR.'/uploads/';
+    
 
 
         /*if($_FILES['img']['error'] == UPLOAD_ERR_OK) {
@@ -37,7 +34,7 @@
             $res = pg_query_params($conexao, $query, 2);
 
         }*/
-    }
+    
 
 
 ?>
@@ -88,9 +85,9 @@
     $nome = $_SESSION['name'];
     ?>
 
-    <form action="" method="post" enctype="multipart/form-data">
-        <label>Coloque aqui uma imagem: <input type="file" name="img"></label>
-        <input type="submit" name="salvar" valor="Salvar">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <label>Coloque aqui uma imagem: <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
     </form>
 
     <!-- <section>
