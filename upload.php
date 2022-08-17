@@ -3,7 +3,8 @@
   include('conexao.php');
   $email = str_replace('.', '_', $_SESSION['email']);
   if($email == " ") {
-
+    header('Location: home.php');
+    exit;
   }
 $target_dir = "/public_sites/andrebetetto/3bim/loja/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);

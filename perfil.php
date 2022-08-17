@@ -97,17 +97,13 @@
         <label>Coloque aqui uma imagem: <input type="file" name="fileToUpload" id="fileToUpload"></label>
   
   <br><br><br>
-  <img src="<?php echo $imagePath; ?>" id="cropbox">
-  <br><br>
-  <input type='button' id="crop" value='CROP'>
   <br>
   <input type="submit" value="Upload Image" name="submit">
     </form>
-        <br><br><br>
-        <img src="#" id="cropped_img" style="display: none;">
+    
         <br><br><br>
     <?php
-        echo $photo;
+        
         $target = "uploads/" . $foto;
         if(file_exists($target)):
             $photo = $target; ?>
