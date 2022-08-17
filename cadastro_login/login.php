@@ -24,6 +24,7 @@
     if($row[0] == 1){
         $_SESSION['email'] = $user;
         $_SESSION['name'] = $nome_bd[0];
+        $_SESSION['logado'] = true;
         if($email != 'admin@gmail.com')
         {
             header('Location: adm.php');

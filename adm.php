@@ -64,7 +64,7 @@
 
 <!-- ------------------------------------------------------------------------------------------- -->
 
-    <?php/*
+    <?php /*
             $sqlLogin = "Select login from usuarioandre where id = 26";
             $mostraLogin = pg_fetch_row(pg_query($sqlLogin));
             echo $mostraLogin[0];

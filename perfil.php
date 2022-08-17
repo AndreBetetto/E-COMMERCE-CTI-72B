@@ -60,46 +60,63 @@
     $nome = $_SESSION['name'];
     ?>
 
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <label>Coloque aqui uma imagem: <input type="file" name="fileToUpload" id="fileToUpload"></label>
-
-  <br><br><br>
-  <br>
-  <input type="submit" value="salvar" name="salvarS">
-    </form>
+    
 
         <br><br><br>
     <?php
         $email = $_SESSION['email'];
         $nome = $_SESSION['name'];
-
-
         $target = "uploads/" . $foto;
-        if(strlen($target) > 8):
-            $photo = $target; ?>
+        if($nome == '') : ?>
+                <h2>Faça <a href="paginalogin.php">Login</a> ou <a href="cadasstro.php">Cadastre-se</a> para acessar seu perfil!</h2>
+            <?php exit; endif; ?>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <label>Coloque aqui uma imagem: <input type="file" name="fileToUpload" id="fileToUpload"></label><br>
+            <input type="submit" value="salvar" name="salvarS">
+        </form>
+        
+       
+        <?php if(strlen($target) > 8):
+        $photo = $target;?>
 
             <img src="<?php echo $target; ?>" width="100" height="100"/>
             <br>
+        
+            <?php endif; ?>
+
+        <?php 
+        if($target == "uploads/"): ?>
+            <img src="fotosPadrao/default.png" width="100" height="100"/> <?php endif; ?> <br><br>
+        
+            <?php if($nome != '') : ?>
         Nome: <?php echo $nome; ?> <br>
         email: <?php echo $email; ?><br><br><br>
 
             <label>Telefone (celular):
                 <?php
                     $sqlID = "SELECT id from usuarioandre where login = '$email'";
-                    $ID = pg_query($conexao, $sqlID);
-                    $pegaNum = "SELECT COUNT(*) as total FROM telefoneandre where id = $ID";
-                    if($pegaNum <= 0){
+
+                    $ID = pg_fetch_row(pg_query($conexao, $sqlID));
+                    $idreal = $ID[0];
+                    $_SESSION['id'] = $idreal;
+                    $pegaNumSQL = "SELECT COUNT(*) as total FROM telefoneandre where id_user = $idreal";
+                    $pegaNum = pg_fetch_row(pg_query($conexao, $pegaNumSQL));
+                    
+                    if(intval($pegaNum[0]) <= 0){
                         echo "Nenhum número cadastrado.";
                     }
-                    else
-                    for($i=0; $i < $pegaNum; $i++) {
-                        $sqlDDD = "select ddd from telefoneandre where id = $ID";
-                        $sqlNum = "select num from telefoneandre where id = $ID";
-                        $mostraDDD = pg_fetch_row(pg_query($conexao, $sqlDDD));
-                        $mostraNum = pg_fetch_row(pg_query($conexao, $sqlNum));
-                        echo "<br>" . $mostraDDD[0] . " - " . $mostraNum[0];
-                    }
-                ?></label> <br>
+                    if(intval($pegaNum[0]) > 0):
+                        for($i=1; $i <= intval($pegaNum[0]); $i++):
+                            $sqlDDD = "select ddd from telefoneandre where id_user = $idreal and qtd = $i";
+                            $sqlNum = "select num from telefoneandre where id_user = $idreal and qtd = $i";
+                            $mostraDDD = pg_fetch_row(pg_query($conexao, $sqlDDD));
+                            $mostraNum = pg_fetch_row(pg_query($conexao, $sqlNum));?>
+                            <br> Numero <?php echo $i.":".$mostraDDD[0]." - ".$mostraNum[0];?> <form action="apaganum.php" method="POST"><button type="submit" value="<?php echo $i; ?>" name="apagar" >apagar</button></form>
+
+                     <?php  endfor; endif; ?>   
+                    
+                        
+                </label> <br>
             <form action="" method="POST">
 
             <label>Adicionar número de telefone: </label> <input type="number" id="ddd" name="ddd" placeholder="ddd"> <input type="text" id="num" name="num" placeholder="numero de telefone">
@@ -109,24 +126,33 @@
             <?php 
                 $n = strval($_POST["num"]);
                 $ddd = $_POST["ddd"];
-                echo $n;
+                
                 if(intval($ddd) < 0 || intval($ddd) > 999 || strlen($n) < 8 || strlen($n) > 16) {
                     echo "erro, digite um numero válido.";
                     exit;
                 }
                 else {
+                    echo $n;
                     $ddd1 = intval($ddd);
-                    $sqlAdd = "insert into telefoneandre (id, num, ddd) values ($ID, '$n', $ddd1)";
-                    pg_query($conexao, $sqlAdd);
+                    $verifica = "select qtd from telefoneandre where id_user = $idreal order by qtd desc";
+                    $ver = pg_fetch_row(pg_query($conexao, $verifica));
+                    $numVer = intval($ver[0]);
+                    if($numVer > 4) {
+                        echo "Numero max. de telefones cadastrados alcançado.";
+                    } else {
+                        $qtdFinal = $numVer++;
+                        $sqlAdd = "insert into telefoneandre (id_user, num, ddd, qtd) values ($idreal, '$n', $ddd1, $numVer)";
+                        pg_query($conexao, $sqlAdd);
+                        header("Refresh: 0");
+                    }
+                    
                 }
             ?>
         Telefone (celular):
         Endereços:
             <?php endif;
             ?>
-
-        <?php if($target == "uploads/"): ?>
-            <img src="fotosPadrao/default.png" width="100" height="100"/> <?php endif; ?>
+            
 
 
 
