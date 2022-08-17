@@ -25,7 +25,7 @@ if($row[0] == 1){
     /*aparecer mensagem que o usuario foi cadastrado com sucesso*/
 }
 
-    
+
 pg_close($conexao);
 
 header('Location: cadasstro.php');

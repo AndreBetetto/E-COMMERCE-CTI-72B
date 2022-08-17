@@ -16,6 +16,7 @@ $basename   = $filename . "." . $extension; // 5dab1961e93a7_1571494241.jpg
 $source       = $_FILES["fileToUpload"]["tmp_name"];
 $_SESSION['pathimagem'] = $basename;
 $destination  = $target_dir . "{$basename}";
+
 /*move_uploaded_file( $_FILES["fileToUpload"]["tmp_name"], $destination );
 exit;*/
 
@@ -35,7 +36,7 @@ if(isset($_POST["submit"])) {
 }
 
 // Check if file already exists
-if (file_exists($target_file)) {
+if (file_exists($basename)) {
   echo "Sorry, file already exists.";
   $uploadOk = 0;
 }
@@ -46,7 +47,7 @@ if($email == " ") {
 }
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 50000000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
@@ -61,23 +62,16 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
-  sleep(5);
-  header('Location: perfil.php');
-  exit;
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $destination)) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-    sleep(5);
-    header('Location: perfil.php');
-    exit; 
   } else {
     echo "Sorry, there was an error uploading your file.";
-    sleep(5);
-    header('Location: perfil.php');
-    exit;
   }
 }
 
+header('Location: perfil.php');
+exit;
 
 ?>

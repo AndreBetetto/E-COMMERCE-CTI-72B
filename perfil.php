@@ -2,40 +2,7 @@
     session_start();
     include('conexao.php');
     $foto = $_SESSION['pathimagem'];
-    /*//upload
-    if(isset($_POST['salvar'])) {
-        //imagem enviada
-        $imagem = $_FILES['image'];
-        $imagem = explode('.',$imagem['name']);
-        echo $imagem[sizeof($imagem)-1];
-        if($imagem[sizeof($imagem)-1] != 'jpg') {
-            die('Coloque arquivos apenas no formato .jpg ou .png');
-        } else {
-            move_uploaded_file($imagem['tmp_name'], 'uploads/'.$imagem['name']);
-        }
-    }*/
 
-    
-
-
-        /*if($_FILES['img']['error'] == UPLOAD_ERR_OK) {
-            $temp_name = $_FILES['img']['tmp_name'];
-            $name = basename($_FILES['img']['name']);
-            $save_path = $upload_folder.$name;
-            move_uploaded_file($temp_name,$save_path);
-            $uploaded = true;
-        }*/
-
-        /*if($uploaded == TRUE) {
-            echo "uploaded";
-            $fh = fopen($save_path,'rb');
-            $fbytes = fread($fh, filesize($save_path));
-            $query2 = "insert into usuarioandre (imagem) where id = $id VALLUES ($fh)";
-            $query = "call salvar_foto($1,$2)";
-            $res = pg_query_params($conexao, $query, 2);
-
-        }*/
-    
 
 
 ?>
@@ -51,7 +18,7 @@
     <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
     <script src="jquery.min.js"></script>
     <script src="jquery.Jcrop.min.js"></script>
-   
+
     <link rel=stylesheet type="text/css" href="home.css">
     <title>HOME | KeyFriends</title>
 </head>
@@ -95,35 +62,82 @@
 
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <label>Coloque aqui uma imagem: <input type="file" name="fileToUpload" id="fileToUpload"></label>
-  
+
   <br><br><br>
   <br>
-  <input type="submit" value="Upload Image" name="submit">
+  <input type="submit" value="salvar" name="salvarS">
     </form>
-    
+
         <br><br><br>
     <?php
-        
+        $email = $_SESSION['email'];
+        $nome = $_SESSION['name'];
+
+
         $target = "uploads/" . $foto;
-        if(file_exists($target)):
+        if(strlen($target) > 8):
             $photo = $target; ?>
-            
+
             <img src="<?php echo $target; ?>" width="100" height="100"/>
+            <br>
+        Nome: <?php echo $nome; ?> <br>
+        email: <?php echo $email; ?><br><br><br>
+
+            <label>Telefone (celular):
+                <?php
+                    $sqlID = "SELECT id from usuarioandre where login = '$email'";
+                    $ID = pg_query($conexao, $sqlID);
+                    $pegaNum = "SELECT COUNT(*) as total FROM telefoneandre where id = $ID";
+                    if($pegaNum <= 0){
+                        echo "Nenhum número cadastrado.";
+                    }
+                    else
+                    for($i=0; $i < $pegaNum; $i++) {
+                        $sqlDDD = "select ddd from telefoneandre where id = $ID";
+                        $sqlNum = "select num from telefoneandre where id = $ID";
+                        $mostraDDD = pg_fetch_row(pg_query($conexao, $sqlDDD));
+                        $mostraNum = pg_fetch_row(pg_query($conexao, $sqlNum));
+                        echo "<br>" . $mostraDDD[0] . " - " . $mostraNum[0];
+                    }
+                ?></label> <br>
+            <form action="" method="POST">
+
+            <label>Adicionar número de telefone: </label> <input type="number" id="ddd" name="ddd" placeholder="ddd"> <input type="text" id="num" name="num" placeholder="numero de telefone">
+            <input type="submit" value="add" name="Adicionar">
+
+            </form>
+            <?php 
+                $n = strval($_POST["num"]);
+                $ddd = $_POST["ddd"];
+                echo $n;
+                if(intval($ddd) < 0 || intval($ddd) > 999 || strlen($n) < 8 || strlen($n) > 16) {
+                    echo "erro, digite um numero válido.";
+                    exit;
+                }
+                else {
+                    $ddd1 = intval($ddd);
+                    $sqlAdd = "insert into telefoneandre (id, num, ddd) values ($ID, '$n', $ddd1)";
+                    pg_query($conexao, $sqlAdd);
+                }
+            ?>
+        Telefone (celular):
+        Endereços:
             <?php endif;
             ?>
-            
-        <?php if(!file_exists($target)): ?>
+
+        <?php if($target == "uploads/"): ?>
             <img src="fotosPadrao/default.png" width="100" height="100"/> <?php endif; ?>
 
-            <img src="fotosPadrao/default.png" id="image" alt ="">
-            
+
+
+
     <!-- <section>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint totam dolorem veritatis sed distinctio quaerat animi repudiandae quas est. Eaque corrupti quos dolor, similique error aspernatur tenetur? Doloremque, est explicabo?
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur cum earum magni eligendi quibusdam vero ducimus impedit, quas explicabo ea, adipisci quidem dolorem voluptas a iusto nostrum quos doloremque id!
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, cumque fugiat. Eum delectus cum eveniet adipisci saepe possimus voluptatibus. Reiciendis quo itaque perferendis odio quis sint rerum, perspiciatis ratione dicta.
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo commodi officiis tempore iusto, eveniet veritatis dolorem beatae reiciendis, minima earum quas a harum! Labore ducimus neque sit ex. Tempora, id?
     </section> -->
-    
+
     <footer>
 
     </footer>
