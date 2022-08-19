@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include('conexao.php');
     $user = $_POST["email"];
     $senha  = $_POST["password"];
@@ -12,16 +13,29 @@
     $usuario = pg_escape_string($conexao, $user);
     $password = pg_escape_string($conexao, $senha);
 
-    $query = "select id, login from usuarioandre where login = '{$usuario}' and senha = md5('{$senha}')";
-    $result = pg_query($conexao, $query);
+    $query = "select nome from usuarioandre where login = '{$usuario}' and senha = md5('{$password}')";
 
-    $row = pg_num_rows($result);
+    $nome_bd = pg_fetch_row(pg_query($query));
 
-    if($row == 1){
-        $_SESSION['usuario'] = $usuario;
-        header('Location: home.php');
-        exit();
+    $sql = "SELECT COUNT(*) as total FROM usuarioandre WHERE login = '$usuario' and senha = md5('{$password}')";
+
+    $row = pg_fetch_row(pg_query($sql));
+
+    if($row[0] == 1){
+        $_SESSION['email'] = $user;
+        $_SESSION['name'] = $nome_bd[0];
+        $_SESSION['logado'] = true;
+        if($email != 'admin@gmail.com')
+        {
+            header('Location: adm.php');
+            exit();
+        }
+        else {
+            header('Location: home.php');
+            exit();
+        }
     } else {
+        $_SESSION['erro_login'] = true;
         header('Location: paginalogin.php');
         exit();
     }

@@ -1,9 +1,14 @@
+<?php
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
-    <link rel=stylesheet type="text/css" href="home2.css">
+    <link rel=stylesheet type="text/css" href="home.css">
     <title>HOME | KeyFriends</title>
 </head>
 <body>
@@ -11,13 +16,13 @@
         <nav>
             <div class="menu">
                 <input type="checkbox" id="check">
-                <label for="check" id="icone"><img src="imagens/iconeMenu.png"/></label>
+                <label for="check" id="icone"><img src="iconeMenu.png"/></label>
                 <div class="barra">	
                     <nav class="links">
-                        <a href="home.php"><div class="link">HOME</div></a>
-                        <a href=""><div class="link">PRODUTOS</div></a>
-                        <a href="/beatrizsoche/Ecommerce/cadastro_login/cadasstro.php"><div class="link">CADASTRAR</div></a>
-                        <a href=""><div class="link">CONTATO</div></a>
+                        <a href="home.php"><div class="link">Home</div></a>
+                        <a href=""><div class="link">Produtos</div></a>
+                        <a href="logout.php"><div class="link">Cadastrar</div></a>
+                        <a href=""><div class="link">Contato</div></a>
                     </nav>	
                 </div>
             </div>
@@ -31,15 +36,23 @@
                         </div>
                     </div>
                 </div>
-                <h3>HOME</h3>
+
                 <div class="icons">
                     <a href="#config"> <i id="icon" class="fa-solid fa-gear fa-2x"> </i> </a>
                     <a href="#carrinho"> <i id="icon" class="fa-solid fa-cart-shopping fa-2x"> </i> </a>
-                    <a href="/beatrizsoche/Ecommerce/cadastro_login/paginalogin.php"> <i id="icon" class="fa-solid fa-circle-user fa-2x"> </i> </a>
+                    <a href="perfil.php"> <i id="icon" class="fa-solid fa-circle-user fa-2x"> </i> </a>
                 </div>
             </div>
         </nav>
     </header>
+    <?php
+    $nome = $_SESSION['name'];
+    if($nome == '') : ?>
+        <h2>Bem vindo(a)! Faça <a href="paginalogin.php">Login</a> ou <a href="cadasstro.php">Cadastre-se</a></h2>
+    <?php endif; ?>
+    <?php if($nome != '') : ?>
+    <h2>Bem vindo(a), <?php echo $_SESSION['name']; endif;?>
+    
 
     <!-- <section>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint totam dolorem veritatis sed distinctio quaerat animi repudiandae quas est. Eaque corrupti quos dolor, similique error aspernatur tenetur? Doloremque, est explicabo?

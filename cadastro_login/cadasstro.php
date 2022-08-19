@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
-    <title>Home</title>
+    <title>Cadastro</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="csscadastro.css" />
@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <div class="center">
-          <h1>Cadastrar</h1>
+          <h1>Registro</h1>
           <form method="POST" action="cadastrar.php">
               <div class="txt_field">
                   <input type="text" name="name" required>
@@ -19,7 +19,7 @@
               <div class="txt_field">
                   <input type="email" name="email" required>
                   <span></span>
-                  <label>Email</label>
+                  <label>E-mail</label>
               </div>
               <div class="txt_field">
                   <input type="password" name="password" required>
@@ -33,9 +33,12 @@
                   <label>Confirm Password</label>
               </div>-->
 
-              <input name="submit" type="Submit" value="Cadastrar">
+              <input name="submit" type="Submit" value="Sign Up">
               <div class="signup_link">
-                  Já tem uma conta ? <a href="paginalogin.php">Login aqui</a>
+                  Possui uma conta? <a href="paginalogin.php">Faça login!</a>
+              </div>
+              <div class="signup_link">
+                  <a href="home.php">Página inicial</a>
               </div>
           </form>
       </div>

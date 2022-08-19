@@ -148,3 +148,42 @@ h3{
 .search > div > input:not(:placeholder-shown){
     width: 350px;
 }
+
+/* ------------------- Teste do andre '-' ----------------------- */
+.boxScroll {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding:4px;
+    background-color: green;
+    width: 500px;
+    height: 110px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-align:justify;
+}
+
+.userDB {
+    margin-left: 10%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 12pt;
+}
+
+.titleDB {
+    margin-left: 15%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 16pt;
+    font-weight: bold;
+}
+
+.parentGrid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.div1Grid { grid-area: 1 / 1 / 2 / 2; }
+.div2Grid { grid-area: 1 / 2 / 2 / 3; }
+.div3Grid { grid-area: 1 / 3 / 2 / 4; }
+.div4Grid { grid-area: 1 / 4 / 2 / 5; }

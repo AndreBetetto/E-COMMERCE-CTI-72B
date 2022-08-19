@@ -1,7 +1,7 @@
 <?php
     session_start();
-    if(!$_SESSION['usuario']){
-        header('Location: paginalogin.php');
+    if(!$_SESSION['name']){
+        header('Location: paginalogin.php')
         exit();
     }
 ?>
