@@ -45,14 +45,15 @@
             </div>
         </nav>
     </header>
-    <?php
+    <!--
+    <?php /*
     $nome = $_SESSION['name'];
     if($nome == '') : ?>
         <h2>Bem vindo(a)! Faça <a href="paginalogin.php">Login</a> ou <a href="cadasstro.php">Cadastre-se</a></h2>
     <?php endif; ?>
     <?php if($nome != '') : ?>
-    <h2>Bem vindo(a), <?php echo $_SESSION['name']; endif;?>
-    
+    <h2>Bem vindo(a), <?php echo $_SESSION['name'];?> <br>Para sair, clique <a href="logout.php">aqui</a>.<?php endif; */?>
+    -->
 
     <!-- <section>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint totam dolorem veritatis sed distinctio quaerat animi repudiandae quas est. Eaque corrupti quos dolor, similique error aspernatur tenetur? Doloremque, est explicabo?

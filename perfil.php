@@ -32,7 +32,7 @@
                     <nav class="links">
                         <a href="home.php"><div class="link">Home</div></a>
                         <a href=""><div class="link">Produtos</div></a>
-                        <a href=""><div class="link">Cadastrar</div></a>
+                        <a href="logout.php"><div class="link">Cadastrar</div></a>
                         <a href=""><div class="link">Contato</div></a>
                     </nav>
                 </div>
@@ -51,7 +51,7 @@
                 <div class="icons">
                     <a href="#config"> <i id="icon" class="fa-solid fa-gear fa-2x"> </i> </a>
                     <a href="#carrinho"> <i id="icon" class="fa-solid fa-cart-shopping fa-2x"> </i> </a>
-                    <a href="#perfil"> <i id="icon" class="fa-solid fa-circle-user fa-2x"> </i> </a>
+                    <a href="perfil.php"> <i id="icon" class="fa-solid fa-circle-user fa-2x"> </i> </a>
                 </div>
             </div>
         </nav>
@@ -66,17 +66,21 @@
     <?php
         $email = $_SESSION['email'];
         $nome = $_SESSION['name'];
-        $target = "uploads/" . $foto;
+        $target = "/public_sites/andrebetetto/3bim/loja/uploads/" . $foto;
         if($nome == '') : ?>
-                <h2>Faça <a href="paginalogin.php">Login</a> ou <a href="cadasstro.php">Cadastre-se</a> para acessar seu perfil!</h2>
-            <?php exit; endif; ?>
+                <!--<h2>Faça <a href="paginalogin.php">Login</a> ou <a href="cadasstro.php">Cadastre-se</a> para acessar seu perfil!</h2>-->
+            <?php 
+                header('Location: paginalogin.php');
+                exit(); 
+            ?>    
+            <?php endif; ?>
         <form action="upload.php" method="post" enctype="multipart/form-data">
             <label>Coloque aqui uma imagem: <input type="file" name="fileToUpload" id="fileToUpload"></label><br>
             <input type="submit" value="salvar" name="salvarS">
         </form>
         
        
-        <?php if(strlen($target) > 8):
+        <?php if(strlen($target) > 46):
         $photo = $target;?>
 
             <img src="<?php echo $target; ?>" width="100" height="100"/>
@@ -85,7 +89,7 @@
             <?php endif; ?>
 
         <?php 
-        if($target == "uploads/"): ?>
+        if($target == "/public_sites/andrebetetto/3bim/loja/uploads/"): ?>
             <img src="fotosPadrao/default.png" width="100" height="100"/> <?php endif; ?> <br><br>
         
             <?php if($nome != '') : ?>
