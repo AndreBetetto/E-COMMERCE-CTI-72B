@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -8,7 +14,28 @@
   </head>
   <body>
     <div class="container">
-      <div class="center">
+      <div class="center"><?php
+
+      if($_SESSION['erro_cadastro'] == true):
+	?>
+
+      <div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+	Erro: Usuário já existe!</div>
+    <?php
+		endif;
+		unset($_SESSION['erro_cadastro']);
+	?>
+    <?php
+    if($_SESSION['erro_senha'] == true):
+	?>
+
+      <div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+	Erro: As senhas não coincidem</div>
+    <?php
+		endif;
+		unset($_SESSION['erro_senha']);
+        unset($_SESSION['erro_cadastro']);
+	?>
           <h1>Registro</h1>
           <form method="POST" action="cadastrar.php">
               <div class="txt_field">
@@ -27,11 +54,11 @@
                   <label>Senha</label>
               </div>
 
-              <!--<div class="txt_field">
+              <div class="txt_field">
                   <input type="password" name="cpassword" required>
                   <span></span>
                   <label>Confirm Password</label>
-              </div>-->
+              </div>
 
               <input name="submit" type="Submit" value="Sign Up">
               <div class="signup_link">

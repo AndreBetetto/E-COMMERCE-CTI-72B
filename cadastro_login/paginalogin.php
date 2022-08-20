@@ -19,7 +19,7 @@
 	if($_SESSION['erro_login'] == true): 
 	?> 
 	
-      <div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <div class="alert"><span >class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
 	Erro: login ou senha incorretos!</div>
 	<?php 
 		endif; 

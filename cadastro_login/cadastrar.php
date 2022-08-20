@@ -5,6 +5,7 @@ include('conexao.php');
 $nome = pg_escape_string($conexao, trim($_POST['name']));
 $email = pg_escape_string($conexao, trim($_POST['email']));
 $senha = pg_escape_string($conexao, trim(md5($_POST['password'])));
+$coonfirma = pg_escape_string($conexao, trim(md5($_POST['cpassword'])));
 
 $sql = "SELECT COUNT(*) as total FROM usuarioandre WHERE login = '$email'";
 
@@ -15,14 +16,20 @@ if($row[0] == 1){
     header('Location: cadasstro.php');
 
     /*aparecer erro que usuario ja existe*/
-
+    $_SESSION['erro_cadastro'] = true;
     exit;
 
 } else {
-    $sql = "INSERT INTO usuarioandre (login, senha, nome) VALUES ('$email', '$senha', '$nome')";
+    if($senha == $coonfirma)
+    {
+        $sql = "INSERT INTO usuarioandre (login, senha, nome) VALUES ('$email', '$senha', '$nome')";
+        pg_query($conexao, $sql);
+        header('Location: paginalogin.php');
+        exit;
+    }
+    else
+        $_SESSION['erro_senha'] = true;
 
-    pg_query($conexao, $sql);
-    /*aparecer mensagem que o usuario foi cadastrado com sucesso*/
 }
 
 
