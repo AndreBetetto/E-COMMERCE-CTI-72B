@@ -6,7 +6,16 @@ create table userinfos (
     /* Depois adicionar infos importantes para conclusão de cadastro */
 )
 
-
+create table produtosandre (
+	id serial not null primary key,
+	titulo varchar(45),
+	descricao varchar(300),
+	material varchar(35),
+	preco double precision,
+	estoque int,
+	promocao bool,
+	promoPorcentagem int
+)
 
 
 
