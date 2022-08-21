@@ -198,6 +198,18 @@
             echo "</table>";
             ?>
     </table>
+
+    <br><br><br><br>
+    <form action="addproduto.php" method="$_POST" enctype="multipart/form-data">
+        <label>Titulo do produto: <input type="text" name="titulo" placeholder="Titulo do produto..." required></label><br>
+        <label>Descrição do produto: <input type="text" name="desc" placeholder="Descrição do produto..." required></label><br>
+        <label>Material: <input type="text" name="material" placeholder="Material do produto..." required></label><br>
+        <label>Preço: <input type="number" name="preco" placeholder="Preço do produto..." min="0" required></label><br>
+        <label>Estoque: <input type="number" name="estoque" placeholder="Quantidade de estoque do produto..." min="0" required></label><br>
+        <label>Está em promoção?</label><label><select name="promocao" id = "promocao"><option value="sim">Sim</option><option value="nao">Não</option></select></label><br>
+        <label>Porcentagem da promoção: <input type="number" name="porcentagem" min="0" max="100" required></label><br><br>
+        <label><input type="submit" value="enviar"></label><br>
+    </form>
     
 
     
