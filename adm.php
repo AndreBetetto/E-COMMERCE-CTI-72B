@@ -152,7 +152,11 @@
             <th>Id</th>
             <th>Titulo</th>
             <th>Material</th>
-	    <th>Preco</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Promoção</th>
+            <th>Porcentagem Promo </th>
+	    
         </tr>
     <?php
             if(isset($_GET['termoProd'])) {
@@ -168,11 +172,20 @@
                         $sqlTitulo2Prod = "select titulo from produtosandre where id = {$idprod}";
                         $sqlMaterial2Prod = "select material from produtosandre where id = {$idprod}";
                         $sqlPreco2Prod = "select preco from produtosandre where id = {$idprod}";
+
+                        $sqlEstoque2Prod = "Select estoque from produtosandre where id = {$idprod}";
+                        $sqlPromocao2Prod = "Select promocao from produtosandre where id = {$idprod}";
+                        $sqlPromoporcentagem2Prod = "Select promoporcentagem from produtosandre where id = {$idprod}";
+
                         $mostraTitulo2Prod = pg_fetch_row(pg_query($conexao, $sqlTitulo2Prod));
                         $mostraMaterial2Prod = pg_fetch_row(pg_query($conexao, $sqlMaterial2Prod));
                         $mostraPreco2Prod = pg_fetch_row(pg_query($conexao, $sqlPreco2Prod));
 
-                        echo "<tr><td>" . $idprod . "</td><td>" .$mostraTitulo2Prod[0] . "</td><td>" . $mostraMaterial2Prod[0] . "</td><td>" . $mostraPreco2Prod[0] . "</td></tr>";
+                        $mostraEstoque2Prod = pg_fetch_row(pg_query($conexao, $sqlEstoque2Prod));
+                        $mostraPromocao2Prod = pg_fetch_row(pg_query($conexao, $sqlPromocao2Prod));
+                        $mostraPromoporcentagem2Prod = pg_fetch_row(pg_query($conexao, $sqlPromoporcentagem2Prod));
+
+                        echo "<tr><td>" . $idprod . "</td><td>" .$mostraTitulo2Prod[0] . "</td><td>" . $mostraMaterial2Prod[0] . "</td><td>" . $mostraPreco2Prod[0] . "</td><td>" . $mostraEstoque2Prod[0] . "</td><td>" . $mostraPromocao2Prod[0] . "</td><td>" . $mostraPromoporcentagem2Prod[0] . "</td></tr>";
                     }
 
                 } else {
@@ -188,11 +201,22 @@
                     $sqlTituloProd = "Select titulo from produtosandre where id = {$i}";
                     $sqlMaterialProd = "Select material from produtosandre where id = {$i}";
                     $sqlPrecoProd = "Select preco from produtosandre where id = {$i}";
+
+                    $sqlEstoqueProd = "Select estoque from produtosandre where id = {$i}";
+                    $sqlPromocaoProd = "Select promocao from produtosandre where id = {$i}";
+                    $sqlPromoporcentagemProd = "Select promoporcentagem from produtosandre where id = {$i}";
+
                     $mostraIDProd = pg_fetch_row(pg_query($conexao, $sqlIDProd));
                     $mostraTituloProd = pg_fetch_row(pg_query($conexao, $sqlTituloProd));
                     $mostraMaterialProd = pg_fetch_row(pg_query($conexao, $sqlMaterialProd));
                     $mostraPrecoProd = pg_fetch_row(pg_query($conexao, $sqlPrecoProd));
-                    echo "<tr><td>" . $mostraIDProd[0] . "</td><td>" . $mostraTituloProd[0] . "</td><td>" . $mostraMaterialProd[0] . "</td><td>" . $mostraPrecoProd[0] . "</td></tr>";
+
+                    $mostraEstoqueProd = pg_fetch_row(pg_query($conexao, $sqlEstoqueProd));
+                    $mostraPromocaoProd = pg_fetch_row(pg_query($conexao, $sqlPromocaoProd));
+                    $mostraPromoporcentagemProd = pg_fetch_row(pg_query($conexao, $sqlPromoporcentagemProd));
+
+
+                    echo "<tr><td>" . $mostraIDProd[0] . "</td><td>" . $mostraTituloProd[0] . "</td><td>" . $mostraMaterialProd[0] . "</td><td>" . $mostraPrecoProd[0] . "</td><td>" . $mostraEstoqueProd[0] . "</td><td>" . $mostraPromocaoProd[0] . "</td><td>" . $mostraPromoporcentagemProd[0] . "</td></tr>";
                 } 
             }
             echo "</table>";
@@ -200,11 +224,11 @@
     </table>
 
     <br><br><br><br>
-    <form action="addproduto.php" method="$_POST" enctype="multipart/form-data">
+    <form action="addproduto.php" method="post">
         <label>Titulo do produto: <input type="text" name="titulo" placeholder="Titulo do produto..." required></label><br>
         <label>Descrição do produto: <input type="text" name="desc" placeholder="Descrição do produto..." required></label><br>
         <label>Material: <input type="text" name="material" placeholder="Material do produto..." required></label><br>
-        <label>Preço: <input type="number" name="preco" placeholder="Preço do produto..." min="0" required></label><br>
+        <label>Preço: <input type="number" name="preco" placeholder="Preço do produto..." min="0" step="0.01" required></label><br>
         <label>Estoque: <input type="number" name="estoque" placeholder="Quantidade de estoque do produto..." min="0" required></label><br>
         <label>Está em promoção?</label><label><select name="promocao" id = "promocao"><option value="sim">Sim</option><option value="nao">Não</option></select></label><br>
         <label>Porcentagem da promoção: <input type="number" name="porcentagem" min="0" max="100" required></label><br><br>
