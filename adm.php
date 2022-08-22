@@ -189,7 +189,7 @@
                         $mostraPromocao2Prod = pg_fetch_row(pg_query($conexao, $sqlPromocao2Prod));
                         $mostraPromoporcentagem2Prod = pg_fetch_row(pg_query($conexao, $sqlPromoporcentagem2Prod));
 
-                        echo "<tr><td>" . $idprod . "</td><td>" .$mostraTitulo2Prod[0] . "</td><td>" . $mostraMaterial2Prod[0] . "</td><td>" . $mostraPreco2Prod[0] . "</td><td>" . $mostraEstoque2Prod[0] . "</td><td>" . $mostraPromocao2Prod[0] . "</td><td>" . $mostraPromoporcentagem2Prod[0]; ?>  </td><td> <form action="editarprod.php" method="post"> <input type="submit" name="editar" value ="<?php echo $idprod;?>"></form></td></tr>; 
+                        echo "<tr><td>" . $idprod . "</td><td>" .$mostraTitulo2Prod[0] . "</td><td>" . $mostraMaterial2Prod[0] . "</td><td>" . $mostraPreco2Prod[0] . "</td><td>" . $mostraEstoque2Prod[0] . "</td><td>" . $mostraPromocao2Prod[0] . "</td><td>" . $mostraPromoporcentagem2Prod[0]; ?>  </td><td> <form action="editarprod.php" method="post"> <button input type="submit" name="submit" id="<?php echo $idprod;?>-submit" value ="<?php echo $idprod;?>">editar</button></form></td></tr>; 
                         <?php endfor; endif;
                     
 
@@ -201,7 +201,7 @@
 
 		$contProd = "SELECT COUNT(*) as total FROM produtosandre";
                 $rowProd = pg_fetch_row(pg_query($conexao, $contProd));
-                for($i = 1000; $i <= $rowProd[0]+1000; $i++){
+                for($i = 1001; $i <= $rowProd[0]+1000; $i++):
                     $sqlIDProd = "Select id from produtosandre where id = {$i}";
                     $sqlTituloProd = "Select titulo from produtosandre where id = {$i}";
                     $sqlMaterialProd = "Select material from produtosandre where id = {$i}";
@@ -221,9 +221,10 @@
                     $mostraPromoporcentagemProd = pg_fetch_row(pg_query($conexao, $sqlPromoporcentagemProd));
 
 
-                    echo "<tr><td>" . $mostraIDProd[0] . "</td><td>" . $mostraTituloProd[0] . "</td><td>" . $mostraMaterialProd[0] . "</td><td>" . $mostraPrecoProd[0] . "</td><td>" . $mostraEstoqueProd[0] . "</td><td>" . $mostraPromocaoProd[0] . "</td><td>" . $mostraPromoporcentagemProd[0] . "</td></tr>";
+                    echo "<tr><td>" . $mostraIDProd[0] . "</td><td>" . $mostraTituloProd[0] . "</td><td>" . $mostraMaterialProd[0] . "</td><td>" . $mostraPrecoProd[0] . "</td><td>" . $mostraEstoqueProd[0] . "</td><td>" . $mostraPromocaoProd[0] . "</td><td>" . $mostraPromoporcentagem2Prod[0]; ?>  </td><td> <form action="editarprod.php" method="post"> <button type="submit" name="submit" id="<?php echo $mostraIDProd[0];?>-submit" value ="<?php echo $mostraIDProd[0];?>">editar</button></form></td></tr>;
+                    <?php endfor; ?> <?php
                 } 
-            }
+            
             echo "</table>";
             ?>
     </table>
