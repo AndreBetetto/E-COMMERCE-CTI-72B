@@ -49,7 +49,7 @@ echo $titulo[0];
         $promoget = $_GET['promo'];
         $promoporcentagemget = $_GET['porcentagem'];
 
-        $sql = "update produtosandre set titulo = '$tituloget', descricao = '$desc', preco='$precoget', estoque='$estoqueget', promo='$promoget'"
+        $sql = "update produtosandre set titulo = '$tituloget', descricao = '$desc', preco='$precoget', estoque='$estoqueget', promo='$promoget', promoporcentagem='$promoporcentagem' where id ='$id'";
 
 
     ?>
