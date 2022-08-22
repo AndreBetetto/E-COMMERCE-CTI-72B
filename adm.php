@@ -142,7 +142,7 @@
 <!-- ----------------------------------------------- PRODUTOS ------------------------------------>
 
     <form action="" method="GET">
-            <label>Busque um usuario: <input type="text" name="termoProd" required value="<?php if(isset($_GET['termoProd'])){echo $_GET['termoProd'];}?>"> </label>
+            <label>Busque por um produto: <input type="text" name="termoProd" required value="<?php if(isset($_GET['termoProd'])){echo $_GET['termoProd'];}?>"> </label>
             <input name="submit" type="Submit" value="buscar">
             <button onclick="location.href='adm.php'" type="button">Limpar</button>
         </form>
@@ -156,7 +156,11 @@
             <th>Estoque</th>
             <th>Promoção</th>
             <th>Porcentagem Promo </th>
+            <th>Editar</th>
+
 	    
+
+            
         </tr>
     <?php
             if(isset($_GET['termoProd'])) {
@@ -165,10 +169,10 @@
                 $sqlProdID = "select id from produtosandre where CONCAT(id, titulo, material, preco) LIKE '%$buscaProd%' ";
                 $queryProd = pg_query($conexao, $sqlProd);
 
-                if(pg_num_rows($queryProd) > 0) {
-                    for($i = 1000; $i <= pg_num_rows($queryProd)+999; $i++) {
-                        $idprodPG = pg_fetch_row(pg_query($conexao, $sqlProdID))[$i-1000];
-                        $idprod = intval($idprodPG[0]) + 1000;
+                if(pg_num_rows($queryProd) > 0):
+                    for($i = 1000; $i <= pg_num_rows($queryProd)+999; $i++):
+                        $idprodPG = pg_fetch_row(pg_query($conexao, $sqlProdID), $i-1000);
+                        $idprod = intval($idprodPG[0]);
                         $sqlTitulo2Prod = "select titulo from produtosandre where id = {$idprod}";
                         $sqlMaterial2Prod = "select material from produtosandre where id = {$idprod}";
                         $sqlPreco2Prod = "select preco from produtosandre where id = {$idprod}";
@@ -185,10 +189,11 @@
                         $mostraPromocao2Prod = pg_fetch_row(pg_query($conexao, $sqlPromocao2Prod));
                         $mostraPromoporcentagem2Prod = pg_fetch_row(pg_query($conexao, $sqlPromoporcentagem2Prod));
 
-                        echo "<tr><td>" . $idprod . "</td><td>" .$mostraTitulo2Prod[0] . "</td><td>" . $mostraMaterial2Prod[0] . "</td><td>" . $mostraPreco2Prod[0] . "</td><td>" . $mostraEstoque2Prod[0] . "</td><td>" . $mostraPromocao2Prod[0] . "</td><td>" . $mostraPromoporcentagem2Prod[0] . "</td></tr>";
-                    }
+                        echo "<tr><td>" . $idprod . "</td><td>" .$mostraTitulo2Prod[0] . "</td><td>" . $mostraMaterial2Prod[0] . "</td><td>" . $mostraPreco2Prod[0] . "</td><td>" . $mostraEstoque2Prod[0] . "</td><td>" . $mostraPromocao2Prod[0] . "</td><td>" . $mostraPromoporcentagem2Prod[0]; ?>  </td><td> <form action="editarprod.php" method="post"> <input type="submit" name="editar" value ="<?php echo $idprod;?>"></form></td></tr>; 
+                        <?php endfor; endif;
+                    
 
-                } else {
+                if(pg_num_rows($queryProd) <= 0)  {
                     echo "<tr><td colspan=4>" . "No Record Found" . "</td> </tr>";
                 
                 }
