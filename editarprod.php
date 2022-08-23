@@ -28,7 +28,8 @@ echo $titulo[0];
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="get">
+    <form action="sqledit.php" method="post">
+        <label>ID do produto: <input type="text" value="<?php echo $id;?>" name="id" readonly></label><br>
         <label>Titulo do produto: <input type="text" name="titulo" placeholder="Titulo do produto..." value="<?php echo $titulo[0]; ?>" required></label><br>
         <label>Descrição do produto: <input type="text" name="desc" placeholder="Descrição do produto..." value="<?php echo $desc[0]; ?>" required></label><br>
         <label>Material: <input type="text" name="material" placeholder="Material do produto..." value="<?php echo $material[0]; ?>" required></label><br>
@@ -39,19 +40,6 @@ echo $titulo[0];
         <label><input type="submit" value="enviar"></label><br>
     </form>
 
-    <?php
-
-        $tituloget = $_GET['titulo'];
-        $descget = $_GET['desc'];
-        $materialget = $_GET['material'];
-        $precoget = $_GET['preco'];
-        $estoqueget = $_GET['estoque'];
-        $promoget = $_GET['promo'];
-        $promoporcentagemget = $_GET['porcentagem'];
-
-        $sql = "update produtosandre set titulo = '$tituloget', descricao = '$desc', preco='$precoget', estoque='$estoqueget', promo='$promoget', promoporcentagem='$promoporcentagem' where id ='$id'";
-
-
-    ?>
+    
 </body>
 </html>
