@@ -16,7 +16,7 @@
         <nav>
             <div class="menu">
                 <input type="checkbox" id="check">
-                <label for="check" id="icone"><img src="iconeMenu.png"/></label>
+                <label for="check" id="icone"><i class="fa-solid fa-bars"></i></label>
                 <div class="barra">	
                     <nav class="links">
                         <a href="home.php"><div class="link">Home</div></a>
