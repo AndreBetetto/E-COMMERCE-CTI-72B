@@ -75,7 +75,7 @@
             <th>Id</th>
             <th>Nome</th>
             <th>Email</th>
-	    <th>Senha</th>
+	        <th>Data de Login</th>
         </tr>
             <?php
             if(isset($_GET['termo'])) {
@@ -94,7 +94,7 @@
                         $sqlSenha2 = "select senha from usuarioandre where id = {$id}";
                         $mostraNome2 = pg_fetch_row(pg_query($conexao, $sqlNome2));
                         $mostraLogin2 = pg_fetch_row(pg_query($conexao, $sqlLogin2));
-                        $mostraSenha2 = pg_fetch_row(pg_query($conexao, $sqlSenha2));
+                        // $mostraSenha2 = pg_fetch_row(pg_query($conexao, $sqlSenha2));
                         echo "<tr><td>" . $idPG[$i] . "</td><td>" . $mostraNome2[0] . "</td><td>" . $mostraLogin2[0] . "</td><td>" . $mostraSenha2[0] . "</td></tr>";
                    
                         
@@ -119,7 +119,7 @@
                         $mostraID = pg_fetch_row(pg_query($conexao, $sqlID));
                         $mostraNome = pg_fetch_row(pg_query($conexao, $sqlNome));
                         $mostraLogin = pg_fetch_row(pg_query($conexao, $sqlLogin));
-                        $mostraSenha = pg_fetch_row(pg_query($conexao, $sqlSenha));
+                        // $mostraSenha = pg_fetch_row(pg_query($conexao, $sqlSenha));
                         echo "<tr><td>" . $mostraID[0] . "</td><td>" . $mostraNome[0] . "</td><td>" . $mostraLogin[0] . "</td><td>" . $mostraSenha[0] . "</td></tr>";
                
                     }
@@ -240,16 +240,6 @@
         <label><input type="submit" value="enviar"></label><br>
     </form>
     
-
-    
-    
-        <!--
-    <section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint totam dolorem veritatis sed distinctio quaerat animi repudiandae quas est. Eaque corrupti quos dolor, similique error aspernatur tenetur? Doloremque, est explicabo?
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur cum earum magni eligendi quibusdam vero ducimus impedit, quas explicabo ea, adipisci quidem dolorem voluptas a iusto nostrum quos doloremque id!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, cumque fugiat. Eum delectus cum eveniet adipisci saepe possimus voluptatibus. Reiciendis quo itaque perferendis odio quis sint rerum, perspiciatis ratione dicta.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo commodi officiis tempore iusto, eveniet veritatis dolorem beatae reiciendis, minima earum quas a harum! Labore ducimus neque sit ex. Tempora, id?
-    </section> -->
     
     <footer>
 
