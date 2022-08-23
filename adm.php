@@ -75,6 +75,7 @@
             <th>Id</th>
             <th>Nome</th>
             <th>Email</th>
+	        <th>Data de Login</th>
 	        <th>Senha</th>
             <th>imagem</th>
         </tr>
@@ -281,16 +282,6 @@
         <label><input type="submit" value="enviar"></label><br>
     </form>
     
-
-    
-    
-        <!--
-    <section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint totam dolorem veritatis sed distinctio quaerat animi repudiandae quas est. Eaque corrupti quos dolor, similique error aspernatur tenetur? Doloremque, est explicabo?
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur cum earum magni eligendi quibusdam vero ducimus impedit, quas explicabo ea, adipisci quidem dolorem voluptas a iusto nostrum quos doloremque id!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, cumque fugiat. Eum delectus cum eveniet adipisci saepe possimus voluptatibus. Reiciendis quo itaque perferendis odio quis sint rerum, perspiciatis ratione dicta.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo commodi officiis tempore iusto, eveniet veritatis dolorem beatae reiciendis, minima earum quas a harum! Labore ducimus neque sit ex. Tempora, id?
-    </section> -->
     
     <footer>
 
