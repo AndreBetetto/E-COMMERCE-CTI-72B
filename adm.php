@@ -75,7 +75,8 @@
             <th>Id</th>
             <th>Nome</th>
             <th>Email</th>
-	    <th>Senha</th>
+	        <th>Senha</th>
+            <th>imagem</th>
         </tr>
             <?php
             if(isset($_GET['termo'])) {
@@ -86,8 +87,8 @@
 
                 if(pg_num_rows($query) > 0) {
                     for($i = 0; $i <= pg_num_rows($query); $i++) {
-                        $idPG = pg_fetch_row(pg_query($conexao, $sqlID2));
-                        echo $idPG[$i];
+                        $sqlquery = pg_query($conexao, $sqlID2);
+                        $idPG = pg_fetch_row($sqlquery, $i);
                         $id = intval($idPG[$i]);
                         $sqlNome2 = "select nome from usuarioandre where id = {$id}";
                         $sqlLogin2 = "select login from usuarioandre where id = {$id}";
@@ -95,9 +96,26 @@
                         $mostraNome2 = pg_fetch_row(pg_query($conexao, $sqlNome2));
                         $mostraLogin2 = pg_fetch_row(pg_query($conexao, $sqlLogin2));
                         $mostraSenha2 = pg_fetch_row(pg_query($conexao, $sqlSenha2));
-                        echo "<tr><td>" . $idPG[$i] . "</td><td>" . $mostraNome2[0] . "</td><td>" . $mostraLogin2[0] . "</td><td>" . $mostraSenha2[0] . "</td></tr>";
-                   
-                        
+
+                        $email = $mostraLogin2[0];
+                        $email2 = str_replace('.', '_', $email);
+                        $caminho = $email2.'.jpg';
+                        $caminho2 = $email2.'.png';
+                        $caminho3 = $email2.'.jpeg';
+                        $target = "uploads/" . $caminho;
+                        $target2 = "uploads/" . $caminho2;
+                        $target3 = "uploads/" . $caminho3;
+
+                        if(file_exists($target)){
+                            $img = "<img src='$target' width='70' height='70'/>";
+                        } elseif(file_exists($target2)) {
+                            $img = "<img src='$target2' width='70' height='70'/>";
+                        } elseif(file_exists($target3)) {
+                            $img = "<img src='$target3' width='70' height='70'/>";
+                        } else {
+                            $img = "<img src='fotosPadrao/default.png' width='70' height='70'/>";
+                        }
+                        echo "<tr><td>" . $idPG[$i] . "</td><td>" . $mostraNome2[0] . "</td><td>" . $mostraLogin2[0] . "</td><td>" . $mostraSenha2[0] . "</td><td>".$img."</td></tr>";
                      }
 
                 } else {
@@ -105,14 +123,14 @@
                 
                 }
             } else {
-
-		$cont = "SELECT COUNT(*) as total FROM usuarioandre";
+                
+		        $cont = "SELECT COUNT(*) as total FROM usuarioandre";
                 $row = pg_fetch_row(pg_query($conexao, $cont));
                 for($i = 2; $i <= $row[0]+1; $i++){
                     $sqlID = "Select id from usuarioandre where id = {$i}";
-                    if(pg_fetch_row(pg_query($conexao, $sqlID))[0] == '') {
-                        $f = 1;
-                    } else{
+                    
+                        
+
                         $sqlNome = "Select nome from usuarioandre where id = {$i}";
                         $sqlLogin = "Select login from usuarioandre where id = {$i}";
                         $sqlSenha = "Select senha from usuarioandre where id = {$i}";
@@ -120,11 +138,33 @@
                         $mostraNome = pg_fetch_row(pg_query($conexao, $sqlNome));
                         $mostraLogin = pg_fetch_row(pg_query($conexao, $sqlLogin));
                         $mostraSenha = pg_fetch_row(pg_query($conexao, $sqlSenha));
-                        echo "<tr><td>" . $mostraID[0] . "</td><td>" . $mostraNome[0] . "</td><td>" . $mostraLogin[0] . "</td><td>" . $mostraSenha[0] . "</td></tr>";
+
+                        $email = $mostraLogin[0];
+                        $email2 = str_replace('.', '_', $email);
+                        $caminho = $email2.'.jpg';
+                        $caminho2 = $email2.'.png';
+                        $caminho3 = $email2.'.jpeg';
+                        $target = "uploads/" . $caminho;
+                        $target2 = "uploads/" . $caminho2;
+                        $target3 = "uploads/" . $caminho3;
+
+                        if(file_exists($target)){
+                            $img = "<img src='$target' width='70' height='70'/>";
+                        } elseif(file_exists($target2)) {
+                            $img = "<img src='$target2' width='70' height='70'/>";
+                        } elseif(file_exists($target3)) {
+                            $img = "<img src='$target3' width='70' height='70'/>";
+                        } else {
+                            $img = "<img src='fotosPadrao/default.png' width='70' height='70'/>";
+                            
+                            /*$img = "<img src="."fotosPadrao/default.png"."width="."100"."height="."100"."/>";*/
+                        }
+
+                        echo "<tr><td>" . $mostraID[0] . "</td><td>" . $mostraNome[0] . "</td><td>" . $mostraLogin[0] . "</td><td>" . $mostraSenha[0] . "</td><td>". $img."</td></tr>";
                
                     }
                          } 
-            }
+            
             echo "</table>";
              
             ?>
