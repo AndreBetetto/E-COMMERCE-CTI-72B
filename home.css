@@ -55,6 +55,13 @@ h3{
     background-color: var(--yellow);
 }
 
+#capa{
+    text-align: center;
+    margin: 5px;
+    width: 99%;
+    height: 200px;
+}
+
 /* ------------------ menu hamburguer -------------------- */
 #icone {
     /* width: 10px;

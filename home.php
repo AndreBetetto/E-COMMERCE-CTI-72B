@@ -15,7 +15,7 @@
     <?php 
         include('navbar.php')
     ?>
-
+    <img id="capa" src="./imagens/image.png" alt="meramente ilustrativa">
     <footer>
 
     </footer>
