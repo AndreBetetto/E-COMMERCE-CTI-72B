@@ -26,7 +26,7 @@
                 <div class="barra">	
                     <nav class="links">
                     <a href="home.php"><div class="link">Home</div></a>
-                        <a href=""><div class="link">Produtos</div></a>
+                        <a href="produtos.php"><div class="link">Produtos</div></a>
                         <a href="logout.php"><div class="link">Cadastrar</div></a>
                         <a href=""><div class="link">Contato</div></a>
                     </nav>	
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="icons">
-                    <a href="#config"> <i id="icon" class="fa-solid fa-gear fa-2x"> </i> </a>
+                    <a href="adm.php"> <i id="icon" class="fa-solid fa-gear fa-2x"> </i> </a>
                     <a href="#carrinho"> <i id="icon" class="fa-solid fa-cart-shopping fa-2x"> </i> </a>
                     <a href="perfil.php"> <i id="icon" class="fa-solid fa-circle-user fa-2x"> </i> </a>
                 </div>
@@ -221,7 +221,7 @@
                     $mostraPromoporcentagemProd = pg_fetch_row(pg_query($conexao, $sqlPromoporcentagemProd));
 
 
-                    echo "<tr><td>" . $mostraIDProd[0] . "</td><td>" . $mostraTituloProd[0] . "</td><td>" . $mostraMaterialProd[0] . "</td><td>" . $mostraPrecoProd[0] . "</td><td>" . $mostraEstoqueProd[0] . "</td><td>" . $mostraPromocaoProd[0] . "</td><td>" . $mostraPromoporcentagem2Prod[0]; ?>  </td><td> <form action="editarprod.php" method="post"> <button type="submit" name="submit" id="<?php echo $mostraIDProd[0];?>-submit" value ="<?php echo $mostraIDProd[0];?>">editar</button></form></td></tr>;
+                    echo "<tr><td>" . $mostraIDProd[0] . "</td><td>" . $mostraTituloProd[0] . "</td><td>" . $mostraMaterialProd[0] . "</td><td>" . $mostraPrecoProd[0] . "</td><td>" . $mostraEstoqueProd[0] . "</td><td>" . $mostraPromocaoProd[0] . "</td><td>" . $mostraPromoporcentagemProd[0]; ?>  </td><td> <form action="editarprod.php" method="post"> <button type="submit" name="submit" id="<?php echo $mostraIDProd[0];?>-submit" value ="<?php echo $mostraIDProd[0];?>">editar</button></form></td></tr>;
                     <?php endfor; ?> <?php
                 } 
             

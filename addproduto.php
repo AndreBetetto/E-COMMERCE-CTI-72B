@@ -14,10 +14,10 @@ if($email != 'admin@gmail.com'){
     $promocao = $_POST['promocao'];
     $porcentagem = intval($_POST['porcentagem']);
 
-    if($promocao == 'sim') {
-        $boolPromo = true;
+    if($promocao == 'Sim') {
+        $boolPromo = 'true';
     } else {
-       $boolPromo = false;
+        $boolPromo = 'false';
     }
 
     echo $titulo . " - " . $descricao . " - " . $preco . " - " . $estoque . " - " . $promocao . " - " . $porcentagem;

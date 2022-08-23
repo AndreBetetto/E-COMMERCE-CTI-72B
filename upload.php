@@ -6,9 +6,25 @@
     header('Location: home.php');
     exit;
   }
-$target_dir = "/public_sites/andrebetetto/3bim/loja/uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
+
+  $str1 = $target_dir . $email . ".png";
+  $str2 = $target_dir . $email . ".jpg";
+  $str3 = $target_dir . $email . ".jpeg";
+
+  rename('uploads/'.$str1, 'uploads/lixo/'.$str1);
+  rename('uploads/'.$str2, 'uploads/lixo/'.$str2);
+  rename('uploads/'.$str3, 'uploads/lixo/'.$str3);
+
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+if(unlink($target_dir . $email . ".jpg")) {
+  echo "Arquivo deletado com sucesso";
+} elseif(unlink($target_dir . $email . ".png")) {
+  echo "Arquivo deletado com sucesso";
+} elseif(unlink($target_dir . $email . ".jpeg")) {
+  echo "Arquivo deletado com sucesso";
+}
 
 $filename   = $email; // 5dab1961e93a7-1571494241
 $extension  = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); // jpg
@@ -47,7 +63,7 @@ if($email == " ") {
 }
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 50000000) {
+if ($_FILES["fileToUpload"]["size"] > 500000000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
@@ -64,7 +80,9 @@ if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
+    
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $destination)) {
+    
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
   } else {
     echo "Sorry, there was an error uploading your file.";

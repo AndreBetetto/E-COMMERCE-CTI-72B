@@ -1,5 +1,5 @@
 <?php
-include ('conexao.php');
+include('conexao.php');
 session_start();
 
     $id = $_POST['id'];
@@ -19,9 +19,14 @@ session_start();
     echo $estoqueget;
     echo $promoget;
     echo $promoporcentagemget;
-    exit;
+    
+    if($promoget == 'Sim') {
+        $boolPromo = 'true';
+    } else {
+       $boolPromo = 'false';
+    }
 
-    $sql = "update produtosandre set titulo = '$tituloget', descricao = '$desc', material ='$materialget', preco= $precoget, estoque=$estoqueget, promocao='$promoget', promoporcentagem=$promoporcentagemget where id =$id";
+    $sql = "update produtosandre set titulo = '$tituloget', descricao = '$descget', material ='$materialget', preco= $precoget, estoque=$estoqueget, promocao='$boolPromo', promoporcentagem=$promoporcentagemget where id = $id";
     pg_query($conexao, $sql);
     header('Location: adm.php');
     exit;

@@ -27,7 +27,7 @@
         $_SESSION['logado'] = true;
         if($email != 'admin@gmail.com')
         {
-            header('Location: adm.php');
+            header('Location: home.php');
             exit();
         }
         else {

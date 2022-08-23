@@ -1,7 +1,7 @@
 <?php
     session_start();
     include('conexao.php');
-    $foto = $_SESSION['pathimagem'];
+    
 
 
 
@@ -31,7 +31,7 @@
                 <div class="barra">
                     <nav class="links">
                         <a href="home.php"><div class="link">Home</div></a>
-                        <a href=""><div class="link">Produtos</div></a>
+                        <a href="produtos.php"><div class="link">Produtos</div></a>
                         <a href="logout.php"><div class="link">Cadastrar</div></a>
                         <a href=""><div class="link">Contato</div></a>
                     </nav>
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="icons">
-                    <a href="#config"> <i id="icon" class="fa-solid fa-gear fa-2x"> </i> </a>
+                    <a href="adm.php"> <i id="icon" class="fa-solid fa-gear fa-2x"> </i> </a>
                     <a href="#carrinho"> <i id="icon" class="fa-solid fa-cart-shopping fa-2x"> </i> </a>
                     <a href="perfil.php"> <i id="icon" class="fa-solid fa-circle-user fa-2x"> </i> </a>
                 </div>
@@ -66,9 +66,18 @@
     <?php
         $email = $_SESSION['email'];
         $nome = $_SESSION['name'];
-        $target = "/public_sites/andrebetetto/3bim/loja/uploads/" . $foto;
+
+        $email2 = str_replace('.', '_', $email);
+
+        $caminho = $email2.'.jpg';
+        $caminho2 = $email2.'.png';
+        $caminho3 = $email2.'.jpeg';
+
+        $target = "uploads/" . $caminho;
+        $target2 = "uploads/" . $caminho2;
+        $target3 = "uploads/" . $caminho3;
         if($nome == '') : ?>
-                <!--<h2>Faça <a href="paginalogin.php">Login</a> ou <a href="cadasstro.php">Cadastre-se</a> para acessar seu perfil!</h2>-->
+                <!--<h2>FaÃ§a <a href="paginalogin.php">Login</a> ou <a href="cadasstro.php">Cadastre-se</a> para acessar seu perfil!</h2>-->
             <?php 
                 header('Location: paginalogin.php');
                 exit(); 
@@ -80,16 +89,27 @@
         </form>
         
        
-        <?php if(strlen($target) > 46):
-        $photo = $target;?>
+        <?php if(file_exists($target)) : ?>
 
             <img src="<?php echo $target; ?>" width="100" height="100"/>
             <br>
         
-            <?php endif; ?>
+            
+            <?php elseif(file_exists($target2)) : ?>
+
+            <img src="<?php echo $target2; ?>" width="100" height="100"/>
+            <br>
+
+    
+<?php elseif(file_exists($target3)) : ?>
+
+<img src="<?php echo $target3; ?>" width="100" height="100"/>
+<br>
+<?php endif; ?>   
+
 
         <?php 
-        if($target == "/public_sites/andrebetetto/3bim/loja/uploads/"): ?>
+        if(file_exists($target3) == false && file_exists($target) == false && file_exists($target2) == false): ?>
             <img src="fotosPadrao/default.png" width="100" height="100"/> <?php endif; ?> <br><br>
         
             <?php if($nome != '') : ?>
@@ -107,7 +127,7 @@
                     $pegaNum = pg_fetch_row(pg_query($conexao, $pegaNumSQL));
                     
                     if(intval($pegaNum[0]) <= 0){
-                        echo "Nenhum número cadastrado.";
+                        echo "Nenhum nÃºmero cadastrado.";
                     }
                     if(intval($pegaNum[0]) > 0):
                         for($i=1; $i <= intval($pegaNum[0]); $i++):
@@ -123,7 +143,7 @@
                 </label> <br>
             <form action="" method="POST">
 
-            <label>Adicionar número de telefone: </label> <input type="number" id="ddd" name="ddd" placeholder="ddd"> <input type="text" id="num" name="num" placeholder="numero de telefone">
+            <label>Adicionar nÃºmero de telefone: </label> <input type="number" id="ddd" name="ddd" placeholder="ddd"> <input type="text" id="num" name="num" placeholder="numero de telefone">
             <input type="submit" value="add" name="Adicionar">
 
             </form>
@@ -132,7 +152,7 @@
                 $ddd = $_POST["ddd"];
                 
                 if(intval($ddd) < 0 || intval($ddd) > 999 || strlen($n) < 8 || strlen($n) > 16) {
-                    echo "erro, digite um numero válido.";
+                    echo "erro, digite um numero vÃ¡lido.";
                     exit;
                 }
                 else {
@@ -142,7 +162,7 @@
                     $ver = pg_fetch_row(pg_query($conexao, $verifica));
                     $numVer = intval($ver[0]);
                     if($numVer > 4) {
-                        echo "Numero max. de telefones cadastrados alcançado.";
+                        echo "Numero max. de telefones cadastrados alcanÃ§ado.";
                     } else {
                         $qtdFinal = $numVer++;
                         $sqlAdd = "insert into telefoneandre (id_user, num, ddd, qtd) values ($idreal, '$n', $ddd1, $numVer)";
@@ -153,7 +173,7 @@
                 }
             ?>
         Telefone (celular):
-        Endereços:
+        EndereÃ§os:
             <?php endif;
             ?>
             
