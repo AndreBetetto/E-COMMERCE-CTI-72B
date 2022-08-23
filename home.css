@@ -37,6 +37,10 @@ header{
     padding: 10px 20px;
     color: var(--yellow);
 }
+#iconMenu{
+    padding: 10px;
+    color: var(--yellow);
+}
 .navbar{
     display:flex;
     justify-content: space-between ;

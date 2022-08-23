@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>PaginaLogin</title>
+    <title> LOGIN |  KeyFriends</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="csscadastro.css" />
