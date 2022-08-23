@@ -20,7 +20,7 @@
                 <div class="barra">	
                     <nav class="links">
                         <a href="home.php"><div class="link">Home</div></a>
-                        <a href=""><div class="link">Produtos</div></a>
+                        <a href="produtos.php"><div class="link">Produtos</div></a>
                         <a href="logout.php"><div class="link">Cadastrar</div></a>
                         <a href=""><div class="link">Contato</div></a>
                     </nav>	
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="icons">
-                    <a href="#config"> <i id="icon" class="fa-solid fa-gear fa-2x"> </i> </a>
+                    <a href="adm.php"> <i id="icon" class="fa-solid fa-gear fa-2x"> </i> </a>
                     <a href="#carrinho"> <i id="icon" class="fa-solid fa-cart-shopping fa-2x"> </i> </a>
                     <a href="perfil.php"> <i id="icon" class="fa-solid fa-circle-user fa-2x"> </i> </a>
                 </div>
