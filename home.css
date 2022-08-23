@@ -1,3 +1,19 @@
+:root {
+    --darker-blue: #01222f;
+    --dark-blue: #006073;
+    --blue:#0a9396;
+    --bright-blue: #94d2bd;
+    --yellow: #e9d8a6;
+    --orange: #ee9b00;
+    --dark-orange: #ca6702; 
+    --red: #bb3e03;
+    --dark-red: #ae2012;
+    --darker-red: #9b2226;
+    --darker-grey: #343a40;
+    --black: #000000;   
+    --white: #ffffff;
+  }
+
 *{
     padding: 0;
     margin: 0;
@@ -6,9 +22,10 @@
 html, body{
     width: 100%;
     height: 100%;
+    background-color: var(--orange) ;
 }
 header{
-    background-color:blueviolet;
+    background-color: var(--darker-blue);
 }
 .icons{
     display:flex;
@@ -18,7 +35,7 @@ header{
 }
 #icon{
     padding: 10px 20px;
-    color: black;
+    color: var(--yellow);
 }
 .navbar{
     display:flex;
@@ -31,8 +48,9 @@ h3{
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 3px;
-    background-color:#ffffff53;
+    background-color: var(--yellow);
 }
+
 /* ------------------ menu hamburguer -------------------- */
 #icone {
     /* width: 10px;
@@ -49,17 +67,16 @@ h3{
 }
 
 .barra{
-	background-color: #535353ee;
+	background-color: var(--blue);
 	height: 100%;
 	width: 300px;
 	position: absolute;
 	left: -300px;
-	transition: all .2s linear;
+	transition: all .15s linear;
 }
 
 .barra .link{
-	list-style: none;
-	background-color: rgba(142, 142, 142, 0.832); 
+	list-style: none; 
 }
 
 .links{
@@ -72,18 +89,18 @@ h3{
 }
 
 .link{
-	color: #f4f4f9;
+	color: var(--yellow);
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 12pt;
 	padding: 20px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
-	border-bottom: 2px solid #222;
-	transition:  all .2s linear;
+	border-top: 2px solid var(--darker-blue+60);
+	transition:  all .2s linear; 
 	opacity: 0;
 }
 .link:hover{
-	background-color: #34346acd;
+	background-color: #01222f;
 }
 
 #check:checked ~ .barra nav a .link{
@@ -116,7 +133,7 @@ h3{
 }
 .search > div::after{
     content: '';
-    background: black;
+    background: var(--yellow);
     width: 3px;
     height: 15px;
     position: absolute;
@@ -125,19 +142,19 @@ h3{
     transform: rotate(135deg);
 }
 .search > div > input{
-    color: black;
+    color: var(--yellow);
     font-size: 16px;
     background: transparent;
     width: 20px;
     height: 20px;
     padding: 10px;
-    border: solid 3px black;
+    border: solid 3px var(--yellow);
     outline: none;
     border-radius: 35px;
     transition: width 0.5s;
 }
 .search > div > input::placeholder{
-    color: black;
+    color: var(--yellow);
     opacity: 0;
     transition: opacity 150ms ease-out;
 }
