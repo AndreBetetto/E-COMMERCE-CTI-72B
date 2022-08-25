@@ -14,7 +14,7 @@
 </head>
 <body>
     <?php include('navbar.php')?>
-
+    
     <form action="" method="GET">
             <label>Busque por um produto: <input type="text" name="termoProd" required value="<?php if(isset($_GET['termoProd'])){echo $_GET['termoProd'];}?>"> </label>
             <input name="submit" type="Submit" value="buscar">

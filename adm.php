@@ -124,11 +124,7 @@
             <th>Estoque</th>
             <th>Promoção</th>
             <th>Porcentagem Promo </th>
-            <th>Editar</th>
-
-	    
-
-            
+            <th>Editar</th>            
         </tr>
     <?php
             if(isset($_GET['termoProd'])) {
