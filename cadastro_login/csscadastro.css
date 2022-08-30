@@ -30,10 +30,11 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 29vw;
+    width: 80vw;
     background: #343a40;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.807);
+    box-shadow: 5px 5px 10px rgb(0 0 0 / 81%);
     border-radius: 10px;
+    max-width: 400px;
 }
   
   .center h1{
