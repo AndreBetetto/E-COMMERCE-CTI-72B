@@ -13,13 +13,14 @@
     --black: #000000;   
     --white: #ffffff;
   }
+
+
 .perfil{
     background: #343a40;
     width: 40vw;
     left: 50%;
     right: 50%;
-    /* margin: 150px 100px; */
-    position: absolute;
+
     padding: 20px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.807);
