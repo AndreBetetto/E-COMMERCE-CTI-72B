@@ -7,7 +7,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Cadastro</title>
+    <title>CADASTRAR | KeyFriends</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="csscadastro.css" />

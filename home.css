@@ -37,6 +37,14 @@ header{
     padding: 10px 20px;
     color: var(--yellow);
 }
+#icon:hover{
+    transform: translateY(-2px);
+    color: grey;
+}
+#iconMenu{
+    padding: 10px;
+    color: var(--yellow);
+}
 .navbar{
     display:flex;
     justify-content: space-between ;
@@ -49,6 +57,13 @@ h3{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 3px;
     background-color: var(--yellow);
+}
+
+#capa{
+    text-align: center;
+    margin: 5px;
+    width: 99%;
+    height: 200px;
 }
 
 /* ------------------ menu hamburguer -------------------- */
@@ -134,7 +149,7 @@ h3{
 .search > div::after{
     content: '';
     background: var(--yellow);
-    width: 3px;
+    width: 4px;
     height: 15px;
     position: absolute;
     top: 40px;
@@ -148,7 +163,7 @@ h3{
     width: 20px;
     height: 20px;
     padding: 10px;
-    border: solid 3px var(--yellow);
+    border: solid 4px var(--yellow);
     outline: none;
     border-radius: 35px;
     transition: width 0.5s;
