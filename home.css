@@ -27,3 +27,12 @@ html, body{
 header{
     background-color: var(--darker-blue);
 }
+.grid{
+    display:grid; 
+    grid-template-columns:repeat(3,300px); 
+    grid-column-gap:10px;
+    grid-row-gap:10px;
+    width:1250px;
+    margin: 10px;
+}
+

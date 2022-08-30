@@ -17,7 +17,7 @@
     ?>
     <img id="capa" src="https://via.placeholder.com/1520x300" alt="meramente ilustrativa">
 
-    <section>
+    <section class="grid">
         <img src="https://via.placeholder.com/250" alt="Produto 1">
     </section>
 
