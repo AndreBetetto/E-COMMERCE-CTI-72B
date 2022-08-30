@@ -15,7 +15,7 @@
     <?php 
         include('navbar.php')
     ?>
-    <img id="capa" src="./imagens/image.png" alt="meramente ilustrativa">
+    <img id="capa" src="https://via.placeholder.com/1520x300" alt="meramente ilustrativa">
     <footer>
 
     </footer>
