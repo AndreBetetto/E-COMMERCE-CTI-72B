@@ -44,7 +44,7 @@
             <th>Nome</th>
             <th>Email</th>
 	        <th>Data de Login</th>
-	        <th>Senha</th>
+	        
             <th>imagem</th>
         </tr>
             <?php
@@ -61,10 +61,10 @@
                         $id = intval($idPG[$i]);
                         $sqlNome2 = "select nome from usuarioandre where id = {$id}";
                         $sqlLogin2 = "select login from usuarioandre where id = {$id}";
-                        $sqlSenha2 = "select senha from usuarioandre where id = {$id}";
+                        $sqlHora2 = "select hora from usuarioandre where id = {$id}";
                         $mostraNome2 = pg_fetch_row(pg_query($conexao, $sqlNome2));
                         $mostraLogin2 = pg_fetch_row(pg_query($conexao, $sqlLogin2));
-                        $mostraSenha2 = pg_fetch_row(pg_query($conexao, $sqlSenha2));
+                        $mostraHora2 = pg_fetch_row(pg_query($conexao, $sqlHora2));
 
                         $email = $mostraLogin2[0];
                         $email2 = str_replace('.', '_', $email);
@@ -84,7 +84,7 @@
                         } else {
                             $img = "<img src='fotosPadrao/default.png' width='70' height='70'/>";
                         }
-                        echo "<tr><td>" . $idPG[$i] . "</td><td>" . $mostraNome2[0] . "</td><td>" . $mostraLogin2[0] . "</td><td>" . $mostraSenha2[0] . "</td><td>".$img."</td></tr>";
+                        echo "<tr><td>" . $idPG[$i] . "</td><td>" . $mostraNome2[0] . "</td><td>" . $mostraLogin2[0] . "</td><td>" . $mostraHora2[0] . "</td><td>".$img."</td></tr>";
                      }
 
                 } else {
@@ -102,11 +102,11 @@
 
                         $sqlNome = "Select nome from usuarioandre where id = {$i}";
                         $sqlLogin = "Select login from usuarioandre where id = {$i}";
-                        $sqlSenha = "Select senha from usuarioandre where id = {$i}";
+                        $sqlHora = "Select hora from usuarioandre where id = {$i}";
                         $mostraID = pg_fetch_row(pg_query($conexao, $sqlID));
                         $mostraNome = pg_fetch_row(pg_query($conexao, $sqlNome));
                         $mostraLogin = pg_fetch_row(pg_query($conexao, $sqlLogin));
-                        $mostraSenha = pg_fetch_row(pg_query($conexao, $sqlSenha));
+                        $mostraHora = pg_fetch_row(pg_query($conexao, $sqlHora));
 
                         $email = $mostraLogin[0];
                         $email2 = str_replace('.', '_', $email);
@@ -129,7 +129,7 @@
                             /*$img = "<img src="."fotosPadrao/default.png"."width="."100"."height="."100"."/>";*/
                         }
 
-                        echo "<tr><td>" . $mostraID[0] . "</td><td>" . $mostraNome[0] . "</td><td>" . $mostraLogin[0] . "</td><td>" . $mostraSenha[0] . "</td><td>". $img."</td></tr>";
+                        echo "<tr><td>" . $mostraID[0] . "</td><td>" . $mostraNome[0] . "</td><td>" . $mostraLogin[0] . "</td><td>" . $mostraHora[0] . "</td><td>". $img."</td></tr>";
                
                     }
                          } 

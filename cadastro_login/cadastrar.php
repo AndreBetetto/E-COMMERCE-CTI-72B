@@ -22,7 +22,7 @@ if($row[0] == 1){
 } else {
     if($senha == $coonfirma)
     {
-        $sql = "INSERT INTO usuarioandre (login, senha, nome) VALUES ('$email', '$senha', '$nome')";
+        $sql = "INSERT INTO usuarioandre (login, senha, nome, hora) VALUES ('$email', '$senha', '$nome', current_timestampcurrent_timestamp)";
         pg_query($conexao, $sql);
         header('Location: paginalogin.php');
         exit;
