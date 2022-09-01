@@ -22,19 +22,7 @@
             <button onclick="location.href='produtos.php'" type="button">Limpar</button>
         </form>
 
-        <table border="2">
-        <tr>
-            <th>Id</th>
-            <th>Titulo</th>
-            <th>Material</th>
-            <th>Preço</th>
-            <th>Estoque</th>
-            <th>Promoção</th>
-            <th>Porcentagem Promo </th> 
-            
-        </tr>
-    
-    </table>
+        
     <?php echo $array[1003]['titulo']; ?>
     <footer>
 
