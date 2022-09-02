@@ -33,8 +33,9 @@ $source       = $_FILES["fileToUpload"]["tmp_name"];
 $_SESSION['pathimagem'] = $basename;
 $destination  = $target_dir . "{$basename}";
 
-/*move_uploaded_file( $_FILES["fileToUpload"]["tmp_name"], $destination );
-exit;*/
+move_uploaded_file( $_FILES["fileToUpload"]["tmp_name"], $destination );
+
+header('Clear-Site-Data: "cache", "cookies", "storage", "executionContexts"');
 
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

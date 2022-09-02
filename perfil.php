@@ -100,7 +100,7 @@
                                     $sqlNum = "select num from telefoneandre where id_user = $idreal and qtd = $i";
                                     $mostraDDD = pg_fetch_row(pg_query($conexao, $sqlDDD));
                                     $mostraNum = pg_fetch_row(pg_query($conexao, $sqlNum));?>
-                                    <br> Numero <?php echo $i.":".$mostraDDD[0]." - ".$mostraNum[0];?> <form action="apaganum.php" method="POST"><button type="submit" value="<?php echo $i; ?>" name="apagar" >apagar</button></form>
+                                    <br> Numero <?php echo $i.":  ".$mostraDDD[0]." ".$mostraNum[0];?> <form action="apaganum.php" method="POST"><button type="submit" value="<?php echo $i; ?>" name="apagar" >apagar</button></form>
 
                             <?php  endfor; endif; ?>   
                             
@@ -136,12 +136,59 @@
                             }
                             
                         }
-                    ?>
-                Telefone (celular):
-                EndereÃ§os:
+                    ?> <br>
+                Telefone (celular):<br><br><br>
                     <?php endif;
                     ?>
-  
+                   
+                <?php 
+                    $sqlend = "select qtd from enderecosandre where id_user = $idreal";
+                    $numrowend = pg_fetch_row(pg_query($conexao, $sqlend));
+                    if($numrowend <= 0) {
+                        echo "Nenhum endereÃ§o cadastrado.";
+                    } else {
+                        for($i = 0; $i <= $numrowend[0]; $i++) {
+                            $sqlendereco = "select * from enderecosandre where id_user = $idreal and qtd = $i";
+                            $resultado_lista=pg_fetch_all($resultado);
+                            echo "Endereço ".$i.": ".$resultado_lista['cep'].", ".$resultado_lista['endereco'].", ".$resultado_lista['bairro']." ".$resultado_lista['cidade']." ".$resultado_lista['uf']." ".$resultado_lista['complemento']."<br>";
+                        }
+                    } 
+                ?>
+                <br><br>
+                Adicionar endereço: <br>
+                <form action="" method="POST">
+                    <label>CEP: </label> <input type="text" id="cep" name="cep" placeholder="cep"> <br>
+                    <label>Endereço: </label> <input type="text" id="endereco" name="endereco" placeholder="endereco"> <br>
+                    <label>Bairro: </label> <input type="text" id="bairro" name="bairro" placeholder="bairro"> <br>
+                    <label>Cidade: </label> <input type="text" id="cidade" name="cidade" placeholder="cidade"> <br>
+                    <label>UF: </label> <input type="text" id="uf" name="uf" placeholder="uf"> <br>
+                    <label>Complemento: </label> <input type="text" id="complemento" name="complemento" placeholder="complemento"> <br>
+                    <input type="submit" value="add" name="Adicionar">
+                </form>
+
+                <?php
+                    $cep = $_POST["cep"];
+                    $endereco = $_POST["endereco"];
+                    $bairro = $_POST["bairro"];
+                    $cidade = $_POST["cidade"];
+                    $uf = $_POST["uf"];
+                    $complemento = $_POST["complemento"];
+                    $verifica = "select qtd from enderecosandre where id_user = $idreal order by qtd desc";
+                    $ver = pg_fetch_row(pg_query($conexao, $verifica));
+                    $numVer = intval($ver[0]);
+                    if($numVer > 4) {
+                        echo "Numero max. de endereÃ§os cadastrados alcanÃ§ado.";
+                    } else {
+                        $qtdFinal = $numVer++;
+                        $sqlAdd = "insert into enderecosandre (id_user, cep, endereco, bairro, cidade, uf, complemento, qtd) values ($idreal, '$cep', '$endereco', '$bairro', '$cidade', '$uf', '$complemento', $qtdFinal)";
+                        pg_query($conexao, $sqlAdd);
+                        header("Refresh: 0");
+                    }
+
+                ?>
+
+
+                
     </section>
    
     <footer>
