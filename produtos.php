@@ -17,20 +17,26 @@
     <?php include('navbar.php')?>
     
     <form action="backendprod.php" method="POST">
-            <label>Busque por um produto: <input type="text" name="termoProd" required value="<?php if(isset($_GET['termoProd'])){echo $_GET['termoProd'];}?>"> </label>
+            <label>Busque por um produto: 
+                <input type="text" name="termoProd" required value="
+                    <?php if(isset($_GET['termoProd']))
+                        {echo $_GET['termoProd'];}
+                    ?>"> 
+            </label>
             <input name="submit" type="Submit" value="buscar">
             <button onclick="location.href='produtos.php'" type="button">Limpar</button>
     </form>
 
     <?php
-        include "backProds.php";
+        include "backendprod.php";
         if ($rowProd == 0) {
             echo "Não foi encontrado nenhum produto !!!";
             return;
         }
+        echo "<div='grid'>";
         foreach($resultado_lista as $linha)
         {
-            $precoProd = number_format($linha['preco'], 2, ',', '.');
+            $precoProd = NUmber_format($linha['preco'], 2, ',','.');
             echo "<div> 
                     <a href='selecao_detalhes_front.php?id=".$linha['id']."'>
                         <img src='https://via.placeholder.com/250'/>
@@ -39,7 +45,7 @@
 
                 <div> 
                     <div> <p>".$linha['descricao']."</p> </div>
-                    <div> <p> R$ ".$preco."</div>";
+                    <div> <p> R$ ".$precoProd."</div>";
 
                     if($linha['estoque']<=0){
                         echo "<div> <span> Produto esgostado</span></div>";
@@ -51,9 +57,9 @@
                 echo "</div>";
             echo "</div>";
         }
+        echo "</div>";
 
     ?>
-    <?php /* echo $array[1003]['titulo']; */?> 
     <footer>
 
     </footer>
