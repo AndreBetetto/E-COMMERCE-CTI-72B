@@ -1,9 +1,9 @@
 <?php
-    include "../utils/conexao.php"; 
+    include('conexao.php');
 
-    $sql="SELECT * FROM produtoscrud WHERE excluido='n' ORDER BY descricao;";
+    $sql="SELECT * FROM produtosandre ORDER BY id";
     
-    $resultado= pg_query($conecta, $sql);
+    $resultado= pg_query($conexao, $sql);
     $qtde=pg_num_rows($resultado);
 
     $resultado_lista = null;
@@ -13,5 +13,5 @@
         $resultado_lista=pg_fetch_all($resultado);
     }
  
-    pg_close($conecta);
+    pg_close($conexao);
 ?>
