@@ -22,7 +22,8 @@ if($email != 'admin@gmail.com'){
 
     echo $titulo . " - " . $descricao . " - " . $preco . " - " . $estoque . " - " . $promocao . " - " . $porcentagem;
 
-    $sql = "insert into produtosandre (titulo, descricao, material, preco, estoque, promocao, promoporcentagem) values ('$titulo', '$descricao', '$material', $preco, $estoque, '$boolPromo', $porcentagem)";
+    $sql = "insert into produtosandre (titulo, descricao, material, preco, estoque, promocao, promoporcentagem) 
+        values ('$titulo', '$descricao', '$material', $preco, $estoque, '$boolPromo', $porcentagem)";
     pg_query($conexao, $sql);
     header('Location: adm.php');
     exit;
