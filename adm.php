@@ -44,7 +44,6 @@
             <th>Nome</th>
             <th>Email</th>
 	        <th>Data de Login</th>
-	        
             <th>imagem</th>
         </tr>
             <?php
