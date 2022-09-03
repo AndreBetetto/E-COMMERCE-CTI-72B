@@ -15,21 +15,22 @@
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="home.css">
+    <link rel=stylesheet type="text/css" href="adm.css">
     <title>ADMIN | KeyFriends</title>
 </head>
 <body>
     <?php include('navbar.php')?>
-    <div class=""> </div>
-    <div class="titleDB"> oi adm!!! <br><br>USUARIOS: </div>
-    <div class="userDB">
-<!-- --------------------------------------- BUSCA EM DB --------------------------------------- -->
-
-    <form action="" method="GET">
-            <label>Busque um usuario: <input type="text" name="termo" required value="<?php if(isset($_GET['termo'])){echo $_GET['termo'];}?>"> </label>
-            <input name="submit" type="Submit" value="buscar">
-            <button onclick="location.href='adm.php'" type="button">Limpar</button>
+    <div class="busca"> 
+        <div class="titleDB"> <p>Olá, administrador.<p> </div>
+        <div class="userDB">
+    <!-- --------------------------------------- BUSCA EM DB --------------------------------------- -->
+        <form action="" method="GET" class="busca-form">
+        <p id="titulo">Busque um usuário:</p> <input type="text" name="termo" required value="<?php if(isset($_GET['termo'])){echo $_GET['termo'];}?>"> 
+                <input name="submit" type="Submit" value="buscar">
+                <button onclick="location.href='adm.php'" type="button">Limpar</button>
         </form>
-
+        </div>
+    </div>
 <!-- ------------------------------------------------------------------------------------------- -->
 
     <?php /*
@@ -38,7 +39,7 @@
             echo $mostraLogin[0];
             exit;*/
             ?>
-    <table border="2">
+    <table class="table">
         <tr>
             <th>Id</th>
             <th>Nome</th>
@@ -76,13 +77,13 @@
                         $target3 = "uploads/" . $caminho3;
 
                         if(file_exists($target)){
-                            $img = "<img src='$target' width='70' height='70'/>";
+                            $img = "<img src='$target' class='img-perfil-adm'/>";
                         } elseif(file_exists($target2)) {
-                            $img = "<img src='$target2' width='70' height='70'/>";
+                            $img = "<img src='$target2' class='img-perfil-adm'/>";
                         } elseif(file_exists($target3)) {
-                            $img = "<img src='$target3' width='70' height='70'/>";
+                            $img = "<img src='$target3' class='img-perfil-adm'/>";
                         } else {
-                            $img = "<img src='fotosPadrao/default.png' width='70' height='70'/>";
+                            $img = "<img src='fotosPadrao/default.png' />";
                         }
                         echo "<tr><td>" . $idPG[$i] . "</td><td>" . $mostraNome2[0] . "</td><td>" . $mostraLogin2[0] . "</td><td>" . $mostraHora2[0] . "</td><td>".$img."</td></tr>";
                      }
@@ -118,13 +119,13 @@
                         $target3 = "uploads/" . $caminho3;
 
                         if(file_exists($target)){
-                            $img = "<img src='$target' width='70' height='70'/>";
+                            $img = "<img src='$target' class='img-perfil-adm'/>";
                         } elseif(file_exists($target2)) {
-                            $img = "<img src='$target2' width='70' height='70'/>";
+                            $img = "<img src='$target2' class='img-perfil-adm'/>";
                         } elseif(file_exists($target3)) {
-                            $img = "<img src='$target3' width='70' height='70'/>";
+                            $img = "<img src='$target3' class='img-perfil-adm'/>";
                         } else {
-                            $img = "<img src='fotosPadrao/default.png' width='70' height='70'/>";
+                            $img = "<img src='fotosPadrao/default.png' class='img-perfil-adm'/>";
                             
                             /*$img = "<img src="."fotosPadrao/default.png"."width="."100"."height="."100"."/>";*/
                         }
@@ -139,8 +140,8 @@
             ?>
     </table>
 
-        <form action="apagarConta.php" method="POST">
-            <label>Digite o ID da conta que será apagada: <input type="number" name="id" min="3"></label>
+        <form action="apagarConta.php" method="POST" class="form">
+        <p id="titulo">Digite o ID da conta que será apagada: <input type="number" name="id" min="3"></p>
             <input name="submit" type="Submit" value="apagar">
         </form>
 
@@ -150,13 +151,13 @@
 
 <!-- ----------------------------------------------- PRODUTOS ------------------------------------>
 
-    <form action="" method="GET">
-            <label>Busque por um produto: <input type="text" name="termoProd" required value="<?php if(isset($_GET['termoProd'])){echo $_GET['termoProd'];}?>"> </label>
+    <form action="" method="GET" class="form">
+    <p id="titulo">Busque por um produto: <input type="text" name="termoProd" required value="<?php if(isset($_GET['termoProd'])){echo $_GET['termoProd'];}?>"> </p>
             <input name="submit" type="Submit" value="buscar">
             <button onclick="location.href='adm.php'" type="button">Limpar</button>
         </form>
 
-        <table border="2">
+        <table border="2" class="table">
         <tr>
             <th>Id</th>
             <th>Titulo</th>
@@ -194,7 +195,9 @@
                         $mostraPromocao2Prod = pg_fetch_row(pg_query($conexao, $sqlPromocao2Prod));
                         $mostraPromoporcentagem2Prod = pg_fetch_row(pg_query($conexao, $sqlPromoporcentagem2Prod));
 
-                        echo "<tr><td>" . $idprod . "</td><td>" .$mostraTitulo2Prod[0] . "</td><td>" . $mostraMaterial2Prod[0] . "</td><td>" . $mostraPreco2Prod[0] . "</td><td>" . $mostraEstoque2Prod[0] . "</td><td>" . $mostraPromocao2Prod[0] . "</td><td>" . $mostraPromoporcentagem2Prod[0]; ?>  </td><td> <form action="editarprod.php" method="post"> <button input type="submit" name="submit" id="<?php echo $idprod;?>-submit" value ="<?php echo $idprod;?>">editar</button></form></td></tr>; 
+                        echo "<tr><td>" . $idprod . "</td><td>" .$mostraTitulo2Prod[0] . "</td><td>" . $mostraMaterial2Prod[0] . "</td><td>" . $mostraPreco2Prod[0] . "</td><td>" . $mostraEstoque2Prod[0] . "</td><td>" . $mostraPromocao2Prod[0] . "</td><td>" . $mostraPromoporcentagem2Prod[0]; ?>  
+                            </td><td> <form action="editarprod.php" method="post"> 
+                            <button input type="submit" name="submit" id="<?php echo $idprod;?>-submit" value ="<?php echo $idprod;?>"><i class="fa-solid fa-pen-to-square"></i></button></form></td></tr>; 
                         <?php endfor; endif;
                     
 
@@ -226,7 +229,7 @@
                     $mostraPromoporcentagemProd = pg_fetch_row(pg_query($conexao, $sqlPromoporcentagemProd));
 
 
-                    echo "<tr><td>" . $mostraIDProd[0] . "</td><td>" . $mostraTituloProd[0] . "</td><td>" . $mostraMaterialProd[0] . "</td><td>" . $mostraPrecoProd[0] . "</td><td>" . $mostraEstoqueProd[0] . "</td><td>" . $mostraPromocaoProd[0] . "</td><td>" . $mostraPromoporcentagemProd[0]; ?>  </td><td> <form action="editarprod.php" method="post"> <button type="submit" name="submit" id="<?php echo $mostraIDProd[0];?>-submit" value ="<?php echo $mostraIDProd[0];?>">editar</button></form></td></tr>;
+                    echo "<tr><td>" . $mostraIDProd[0] . "</td><td>" . $mostraTituloProd[0] . "</td><td>" . $mostraMaterialProd[0] . "</td><td>" . $mostraPrecoProd[0] . "</td><td>" . $mostraEstoqueProd[0] . "</td><td>" . $mostraPromocaoProd[0] . "</td><td>" . $mostraPromoporcentagemProd[0]; ?>  </td><td> <form action="editarprod.php" method="post"> <button type="submit" name="submit" id="<?php echo $mostraIDProd[0];?>-submit" value ="<?php echo $mostraIDProd[0];?>"><i class="fa-solid fa-pen-to-square"></i></button></form></td></tr>;
                     <?php endfor; ?> <?php
                 } 
             
@@ -234,43 +237,42 @@
             ?>
     </table>
 
-    <br><br><br><br>
-    <form action="addproduto.php" method="post">
-        <label>Titulo do produto: 
+    <form action="addproduto.php" method="post" class="form">
+    <p id="titulo">Titulo do produto: 
             <input type="text" name="titulo" placeholder="Titulo do produto..." required>
-        </label><br>
+    </p>	
 
-        <label>Descrição do produto: 
+        <p id="titulo">Descrição do produto: 
             <input type="text" name="desc" placeholder="Descrição do produto..." required>
-        </label><br>
+        </p>
 
-        <label>Material: 
+        <p id="titulo">Material: 
             <input type="text" name="material" placeholder="Material do produto..." required>
-        </label><br>
+        </p>
 
-        <label>Preço: 
+        <p id="titulo">Preço: 
             <input type="number" name="preco" placeholder="Preço do produto..." min="0" step="0.01" required>
-        </label><br>
+        </p>
 
-        <label>Estoque: 
+        <p id="titulo">Estoque: 
             <input type="number" name="estoque" placeholder="Quantidade de estoque do produto..." min="0" required>
-        </label><br>
+        </p>
 
-        <label>Está em promoção?</label>
-            <label>
+        <p id="titulo">Está em promoção?</label>
+            <p id="titulo">
                 <select name="promocao" id = "promocao">
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                 </select>
-            </label><br>
+            </p>
 
-        <label>Porcentagem da promoção: 
+        <p id="titulo">Porcentagem da promoção: 
             <input type="number" name="porcentagem" min="0" max="100" required>
-        </label><br><br>
+        </p>
 
-        <label>
+        <p id="titulo">
             <input type="submit" value="enviar">
-        </label><br>
+        </p>
     </form>
     
     
