@@ -1,8 +1,8 @@
 .grid{
     display:grid; 
-    grid-template-columns:repeat(3,300px); 
-    grid-column-gap:10px;
-    grid-row-gap:10px;
-    width:1250px;
-    margin: 10px;
+    grid-gap: 30px;
+    grid-template-columns:repeat(auto-fit,minmax(300px, 1fr)); 
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
 }

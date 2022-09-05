@@ -80,6 +80,7 @@ include('conexao.php');
 $buscaProd = $_POST["termoProd"];
 if($buscaProd != "" || $buscaProd != " ") {
     $sql="SELECT * FROM produtosandre ORDER BY id";
+    
     $resultado= pg_query($conexao, $sql);
     $qtde=pg_num_rows($resultado);
     $resultado_lista = null;

@@ -34,31 +34,30 @@
             echo "Não foi encontrado nenhum produto !!!";
             return;
         }
-        echo "<div='grid'>";
+            echo "<div class='grid'></div>";
+
             foreach($resultado_lista as $linha)
             {
                 $precoProd = NUmber_format($linha['preco'], 2, ',','.');
+                echo "<div class='grid'> 
+                    <a href='selecao_detalhes_front.php?id=".$linha['id']."'>
+                        <img src='https://via.placeholder.com/250'/>
+                    </a>
+                </div>";
+
                 echo "<div> 
-                        <a href='selecao_detalhes_front.php?id=".$linha['id']."'>
-                            <img src='https://via.placeholder.com/250'/>
-                        </a>
-                    </div>
+                    <div> <p>".$linha['descricao']."</p> </div>
+                    <div> <p> R$ ".$precoProd."</div>";
 
-                    <div> 
-                        <div> <p>".$linha['descricao']."</p> </div>
-                        <div> <p> R$ ".$precoProd."</div>";
-
-                        if($linha['estoque']<=0){
-                            echo "<div> <span> Produto esgostado</span></div>";
-                        }
-                        else{
-                            echo "<div> <span>".$linha['estoque']." em estoque </span></div>";
-                        }
-                        echo "<a href='carrinho.front.php?acao=add%codproduto=".$linha['id']."'>Comprar</a>";
-                    echo "</div>";
+                    if($linha['estoque']<=0){
+                        echo "<div> <span> Produto esgostado</span></div>";
+                    }
+                    else{
+                        echo "<div> <span>".$linha['estoque']." em estoque </span></div>";
+                    }
+                    echo "<a href='carrinho.front.php?acao=add%codproduto=".$linha['id']."'>Comprar</a>";
                 echo "</div>";
             }
-        echo "</div>";
 
     ?>
     <footer>
