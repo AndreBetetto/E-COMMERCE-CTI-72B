@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
-    <link rel=stylesheet type="text/css" href="home.css">
+    <link rel=stylesheet type="text/css" href="produtos.css">
     <link rel=stylesheet type="text/css" href="nav.css">
     <title>PRODUTOS | KeyFriends</title>
 </head>
@@ -34,7 +34,7 @@
             echo "Não foi encontrado nenhum produto !!!";
             return;
         }
-            echo "<div class='grid'></div>";
+            echo "<div class='grid'>";
 
             foreach($resultado_lista as $linha)
             {
@@ -58,6 +58,7 @@
                     echo "<a href='carrinho.front.php?acao=add%codproduto=".$linha['id']."'>Comprar</a>";
                 echo "</div>";
             }
+            echo "</div>";
 
     ?>
     <footer>
