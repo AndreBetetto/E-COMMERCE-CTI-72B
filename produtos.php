@@ -3,6 +3,7 @@
     include('conexao.php');
     include('backprodutos.php');
     $email = $_SESSION['email'];
+    $id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +56,7 @@
                     else{
                         echo "<div> <span>".$linha['estoque']." em estoque </span></div>";
                     }
-                    echo "<a href='carrinho.front.php?acao=add%codproduto=".$linha['id']."'>Comprar</a>";
+                    echo "<a href='addprodcar.php?id=add%codproduto=".$linha['id']."'>Comprar</a>";
                 echo "</div>";
             }
 
