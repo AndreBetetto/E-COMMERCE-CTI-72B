@@ -82,7 +82,7 @@
                         } elseif(file_exists($target3)) {
                             $img = "<img src='$target3' class='img-perfil-adm'/>";
                         } else {
-                            $img = "<img src='fotosPadrao/default.png' />";
+                            $img = "<img src='imagens/default.png' />";
                         }
                         echo "<tr><td>" . $idPG[$i] . "</td><td>" . $mostraNome2[0] . "</td><td>" . $mostraLogin2[0] . "</td><td>" . $mostraHora2[0] . "</td><td>".$img."</td></tr>";
                      }
@@ -124,7 +124,7 @@
                         } elseif(file_exists($target3)) {
                             $img = "<img src='$target3' class='img-perfil-adm'/>";
                         } else {
-                            $img = "<img src='fotosPadrao/default.png' class='img-perfil-adm'/>";
+                            $img = "<img src='imagens/default.png' class='img-perfil-adm'/>";
                             
                             /*$img = "<img src="."fotosPadrao/default.png"."width="."100"."height="."100"."/>";*/
                         }
