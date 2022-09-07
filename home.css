@@ -29,10 +29,26 @@ header{
 }
 .grid{
     display:grid; 
-    grid-template-columns:repeat(3,300px); 
-    grid-column-gap:10px;
-    grid-row-gap:10px;
-    width:1250px;
-    margin: 10px;
+    grid-gap: 30px;
+    grid-template-columns:repeat(auto-fit,minmax(250px, 1fr)); 
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
+}
+.textos{
+    color: #000000;
+    font-size: 18px;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 10px;
+    text-align: justify;
+}
+
+.verMais{
+    text-align: center;
+    color: var(--darker-red);
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 10px;
 }
 
