@@ -37,7 +37,7 @@ header{
 }
 #icon{
     padding: 10px 20px;
-    color: var(--yellow);
+    color: var(--orange);
 }
 #icon:hover{
     transform: translateY(-2px);
@@ -58,7 +58,7 @@ h3{
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 3px;
-    background-color: var(--yellow);
+    background-color: var(--orange);
 }
 
 #capa{
@@ -159,7 +159,7 @@ h3{
     transform: rotate(135deg);
 }
 .search > div > input{
-    color: var(--yellow);
+    color: var(--orange);
     font-size: 16px;
     background: transparent;
     width: 20px;
