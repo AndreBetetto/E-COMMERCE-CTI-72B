@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="produtos.css">
-    <link rel=stylesheet type="text/css" href="nav.css">
+    <!-- <link rel=stylesheet type="text/css" href="nav.css"> -->
     <title>Produtos | KeyFriends</title>
 </head>
 <body>

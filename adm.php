@@ -6,6 +6,7 @@
     {
         header('Location: home.php');
         exit();
+        echo "<script> alert('Apenas administradores tem acesso a essa página!') </script>";
     }
 ?>
 
