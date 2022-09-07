@@ -3,7 +3,7 @@
     --dark-blue: #006073;
     --blue:#0a9396;
     --bright-blue: #94d2bd;
-    --yellow: #e9d8a6;
+    --yellow: #ebdcae;
     --orange: #ee9b00;
     --dark-orange: #ca6702; 
     --red: #bb3e03;
@@ -11,7 +11,13 @@
     --darker-red: #9b2226;
     --darker-grey: #343a40;
     --black: #000000;   
+    --icones: #eee7da;
     --white: #ffffff;
+  }
+
+  nav{
+    top: 0;
+    position: sticky;
   }
 
 *{
@@ -25,7 +31,7 @@ html, body{
     background-color: var(--orange) ;
 }
 header{
-    background-color: var(--darker-blue);
+    background-color: #001219;
     /* position: sticky;
     top: 0; */
 }
@@ -34,14 +40,15 @@ header{
     justify-content: space-between;
     padding: 10px;
     margin-top: 10px;
+
 }
 #icon{
     padding: 10px 20px;
-    color: var(--orange);
+    color: var(--icones);
 }
 #icon:hover{
-    transform: translateY(-2px);
-    color: grey;
+    background-color: #081f28;
+
 }
 #iconMenu{
     padding: 10px;
@@ -51,15 +58,7 @@ header{
     display:flex;
     justify-content: space-between ;
 }
-h3{
-    margin: 20px;
-    padding: 10px;
-    text-align: center;
-    font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border-radius: 3px;
-    background-color: var(--orange);
-}
+
 
 #capa{
     text-align: center;
