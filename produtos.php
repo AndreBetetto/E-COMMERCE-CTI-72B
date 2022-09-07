@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="produtos.css">
     <link rel=stylesheet type="text/css" href="nav.css">
-    <title>PRODUTOS | KeyFriends</title>
+    <title>Produtos | KeyFriends</title>
 </head>
 <body>
     <?php include('navbar.php')?>
@@ -44,16 +44,17 @@
                             <img src='https://via.placeholder.com/250'/>
                         </a>
 
-                        <div> <p>".$linha['descricao']."</p> </div>
+                        <div> <p>".$linha['titulo']."</p> </div>
                         <div> <p> R$ ".$precoProd."</div>";
 
                         if($linha['estoque']<=0){
                             echo "<div> <span> Produto esgostado</span></div>";
+                            echo "<a href='#'>Avise-me quando chegar</a>";
                         }
                         else{
                             echo "<div> <span>".$linha['estoque']." em estoque </span></div>";
+                            echo "<a href='addprodcar.php?id=add%codproduto=".$linha['id']."'>Comprar</a>";
                         }
-                        echo "<a href='addprodcar.php?id=add%codproduto=".$linha['id']."'>Comprar</a>";
                     echo "</div>";
                 }
             echo "</div>";

@@ -34,17 +34,6 @@
         exit;
     }
     
-
-
-
     $sql = "insert into carrinhoandre (id_produto, qtd, id_user) values ($id, 1, $email)";
-
-
-
-
-
-
-
-
 
 ?>

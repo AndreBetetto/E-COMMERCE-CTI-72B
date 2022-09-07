@@ -16,7 +16,7 @@
     <script src="jquery.Jcrop.min.js"></script>
 
     <link rel="stylesheet" href="perfil.css">
-    <title>PERFIL | KeyFriends</title>
+    <title>Perfil de usuário | KeyFriends</title>
 </head>
 <body>
     <?php 
