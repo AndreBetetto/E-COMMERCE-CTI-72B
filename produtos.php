@@ -31,16 +31,16 @@
 
     <?php
         include "backendprod.php";
-        if ($rowProd == 0) {
+        if ($rowProd[0] == 0) {
             echo "Não foi encontrado nenhum produto !!!";
             return;
         }
             echo "<div class='grid'>";
                 foreach($resultado_lista as $linha)
                 {
-                    $precoProd = NUmber_format($linha['preco'], 2, ',','.');
+                    $precoProd = Number_format($linha['preco'], 2, ',','.');
                     echo "<div class='itens'> 
-                        <a href='selecao_detalhes_front.php?id=".$linha['id']."'>
+                        <a href='detalhes.php?id=".$linha['id']."'>
                             <img src='https://via.placeholder.com/250'/>
                         </a>
 
@@ -53,7 +53,7 @@
                         }
                         else{
                             echo "<div> <span>".$linha['estoque']." em estoque </span></div>";
-                            echo "<a href='addprodcar.php?id=add%codproduto=".$linha['id']."'>Comprar</a>";
+                            echo "<a href='addprodcar.php?id=".$linha['id']."'>Comprar</a>";
                         }
                     echo "</div>";
                 }

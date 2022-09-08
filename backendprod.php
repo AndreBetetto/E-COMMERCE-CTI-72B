@@ -77,8 +77,13 @@ include('conexao.php');
 }*/
 
 include('conexao.php');
+
+
+
 $buscaProd = $_POST["termoProd"];
 if($buscaProd != "" || $buscaProd != " ") {
+    $contProd = "SELECT COUNT(*) as total FROM produtosandre";
+    $rowProd = pg_fetch_row(pg_query($conexao, $contProd));
     $sql="SELECT * FROM produtosandre ORDER BY id";
     
     $resultado= pg_query($conexao, $sql);

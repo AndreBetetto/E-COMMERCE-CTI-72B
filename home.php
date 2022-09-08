@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    include ('conexao.php');
 ?>
 
 <!DOCTYPE html>
@@ -12,91 +12,86 @@
     <title>Home | KeyFriends</title>
 </head>
 <body>
-    <?php 
-        include('navbar.php')
-    ?>
+    <div class="main">
+        <?php 
+            include('navbar.php')
+        ?>
 
-    <div>
-        <a name="topo">este é o topo</a>
-        <img id="capa" src="https://via.placeholder.com/1520x400" alt="meramente ilustrativa">
-        <p class="textos">
-            A <b>KeyFriends</b> é uma empresa do segmento de chaveiros decorativos, sendo seu principal produto, 
-            chaveiros produzidos em impressora 3D. Buscamos trazer inovação para nossos clientes, com vários modelos 
-            incríveis e atrativos para decorar sua chave.
-        </p>
-    </div>
-
-    <section class="grid">
-        <div>
-            <img src="https://via.placeholder.com/250" alt="Produto 1">
-            <p> Esse é um produto da marca e bla bla bla bla bla Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div class="capa">
+            <a name="topo"></a>
+            <img id="capa" src="https://via.placeholder.com/1500x1000" alt="meramente ilustrativa">
+            <p class="textos">
+                A <b>KeyFriends</b> é uma empresa do segmento de decoração, sendo seu principal produto 
+                chaveiros produzidos em impressora 3D. Buscamos trazer inovação para nossos clientes, com vários modelos 
+                incríveis e diferentes, que podem decorar além de suas chaves, muitos outros objetos.
+            </p>
         </div>
+        <?php
+            echo "<div class='grid'>
+                <div class='gridFilho'>
+                    <img src='https://via.placeholder.com/250'/>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
+                </div>
 
-        <div>
-            <img src="https://via.placeholder.com/250" alt="Produto 1">
-            <p> Esse é um produto da marca e bla bla bla bla bla Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
+                <div class='gridFilho'>
+                    <img src='https://via.placeholder.com/250'/>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
+                </div>
 
-        <div>
-            <img src="https://via.placeholder.com/250" alt="Produto 1">
-            <p> Esse é um produto da marca e bla bla bla bla bla Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
+                <div class='gridFilho'>
+                    <img src='https://via.placeholder.com/250'/>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
+                </div>
 
-        <div>
-            <img src="https://via.placeholder.com/250" alt="Produto 1">
-            <p> Esse é um produto da marca e bla bla bla bla bla Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
+                <div class='gridFilho'>
+                    <img src='https://via.placeholder.com/250'/>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
+                </div>
 
-        <div>
-            <img src="https://via.placeholder.com/250" alt="Produto 1">
-            <p> Esse é um produto da marca e bla bla bla bla bla Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-
+                <div class='gridFilho'>
+                    <img src='https://via.placeholder.com/250'/>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
+                </div>    
+            </div>";
+        ?>
         <div class="verMais">
-             <a href="produtos.php"> Ver mais produtos</a> 
+            <a id="verMais" href="produtos.php">VER MAIS PRODUTOS</a>
         </div>
-    </section>
 
-    <?php
-        include ('backendprod.php');
-        if ($rowProd == 0) {
-            echo "Não foi encontrado nenhum produto !!!";
-            return;
-        }
-        echo "<div class='grid'>";
-            for($i=1; $i<=5; $i++)
-            {
-                foreach($resultado_lista as $linha)
-                {
-                    $precoProd = NUmber_format($linha['preco'], 2, ',','.');
-                    echo "<div class='itens'> 
-                        <a href='selecao_detalhes_front.php?id=".$linha['id']."'>
-                            <img src='https://via.placeholder.com/250'/>
-                        </a>
+        <div class="videoLegenda">
+            <div class="legenda">
+                <p>Conheça mais sobre o funcionamento de uma impressora 3D, e entenda o que tem de diferencial em nossos produtos</p>
+            </div>
 
-                        <div> <p>".$linha['titulo']."</p> </div>
-                        <div> <p> R$ ".$precoProd."</div>";
-
-                        if($linha['estoque']<=0){
-                            echo "<div> <span> Produto esgostado</span></div>";
-                            echo "<a href='#'>Avise-me quando chegar</a>";
-                        }
-                        else{
-                            echo "<div> <span>".$linha['estoque']." em estoque </span></div>";
-                            echo "<a href='addprodcar.php?id=add%codproduto=".$linha['id']."'>Comprar</a>";
-                        }
-                    echo "</div>";
-                }
-            }
-        echo "</div>";
-    ?>
-
-        
-    <footer>
-        <div>
-             <a href="#topo"> volte ao topo </a> 
-             <i class="fa-regular fa-circle-up fa-2x"></i> 
+            <div class="video">
+                <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/BPKnDjYu2nY" title="YouTube video player" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
         </div>
-    </footer>
+            
+        <footer>
+            <div class="all">
+                <div>
+                    <p id="only" >KeyFriends &copy</p> 
+                    <p id="only" >keyfriends@projetoscti.com</p>
+                </div>
+
+                <div class="integr">
+                    <li id="only" >01 - Ana Clara de Lima Bonalume</li>
+                    <li id="only">03 - André Luiz de Oliveira Betetto</li>
+                    <li id="only">20 - Isaac Levi Farias e Silva</li>
+                    <li id="only">36 - Beatriz Prado Soche </li>
+                </div>
+
+                <div>
+                    <a href="#topo" class="voltar"> <i class="fa-regular fa-circle-up fa-2x"></i> 
+                    </a> 
+                </div>                
+            </div>
+            
+        </footer>
+    </div>
 </body>
 </html>

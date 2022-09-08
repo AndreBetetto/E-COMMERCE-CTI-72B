@@ -1,0 +1,32 @@
+include ('backendprod.php');
+            
+            if (intval($rowProd[0]) == 0 || $rowProd[0] == null) {
+                echo "Não foi encontrado nenhum produto !!!". $rowProd[0];
+                echo $rowProd[0];
+                exit;
+
+for ($i=1001; $i<=1005; $i++)
+    {
+        $sql = "SELECT * FROM produtosandre WHERE id = $i";
+        $rowProd = pg_fetch_row(pg_query($conexao, $sql));
+
+        // ------------------- algo q nao funciona ------------------//
+        $precoProd = Number_format($rowProd['preco'], 2, ',','.');
+        echo "<div class='itens'> 
+            <a href='selecao_detalhes_front.php?id=".$rowProd['id']."'>
+                <img src='https://via.placeholder.com/250'/>
+            </a>
+
+            <div> <p>".$rowProd['titulo']."</p> </div>
+            <div> <p> R$ ".$precoProd."</div>";
+
+            if($rowProd['estoque']<=0){
+                echo "<div> <span> Produto esgostado</span></div>";
+                echo "<a href='#'>Avise-me quando chegar</a>";
+            }
+            else{
+                echo "<div> <span>".$rowProd['estoque']." em estoque </span></div>";
+                echo "<a href='addprodcar.php?id=add%codproduto=".$rowProd['id']."'>Comprar</a>";
+            }
+        echo "</div>";
+    }

@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav >
             <div class="menu">
                 <input type="checkbox" id="check">
                 <label for="check" id="icone"><i id="iconMenu" class="fa-solid fa-bars fa-2x"></i></label>
