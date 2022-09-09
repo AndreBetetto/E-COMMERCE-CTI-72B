@@ -87,6 +87,9 @@
                     <label class="campos">
                         <b>Preço:</b> <?php echo "R$ ".Number_format($precoProd, 2, ',','.') ?>
                     </label> 
+                    <label class="campos">
+                        <b><a href='addprodcar.php?id=<?php echo $linha['id']?>'>Comprar</a></b> 
+                    </label> 
                 </div>
                 
                 <div class="botoes">
