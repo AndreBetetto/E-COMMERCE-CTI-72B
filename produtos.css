@@ -11,3 +11,27 @@
    font-family:  Helvetica,Arial, sans-serif;
    font-size: 14px;
 }
+
+.btnCmp{
+    border-radius: 10px;
+    border: none;
+    background-color: darkgreen;
+    color:#000000;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0px;
+}
+
+.avs{
+    border-radius: 10px;
+    border: none;
+    background-color: #ca6702;
+    color:#000000;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0px;
+}

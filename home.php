@@ -74,7 +74,8 @@
         <footer>
             <div class="all">
                 <div>
-                    <p id="only" >KeyFriends &copy</p> 
+                    <p id="only"> Política de privacidade</p>
+                    <p id="only" >KeyFriends INC. &copy Todos os direitos reservados</p> 
                     <p id="only" >keyfriends@projetoscti.com</p>
                 </div>
 

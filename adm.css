@@ -82,23 +82,15 @@
 }
 
 #btnB{
-  border-radius: 3px;
-  padding: 5px;
-  margin: 5px;
-  color: black;
-  font-size: 15px;
-  background-color: rgba(127, 214, 127, 0.515);
-  border-color: rgb(0, 101, 0);
+  background: none;
+  border: none;
+  margin: 0px 5px;
 }
 
 #btnL{
-  border-radius: 3px;
-  padding: 5px;
-  margin: 5px;
-  color: black;
-  font-size: 15px;
-  background-color: rgba(255, 255, 0, 0.41);
-  border-color: rgb(233, 233, 88);
+  background: none;
+  border: none;
+  margin: 0px 5px;
 }
 
 #btnEx{

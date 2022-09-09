@@ -47,6 +47,7 @@ header{
 }
 #icon:hover{
     background-color: #081f28;
+    border-radius: 5px;
 
 }
 #iconMenu{

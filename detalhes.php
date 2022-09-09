@@ -88,7 +88,17 @@
                         <b>Preço:</b> <?php echo "R$ ".Number_format($precoProd, 2, ',','.') ?>
                     </label> 
                 </div>
+                
+                <div class="botoes">
+                    <div class="btn">
+                        <a class="addCar" href="addprodcar.php"> Adicionar ao carrinho</a>
+                    </div>
 
+                    <div class="btn">
+                        <a class="addCmp" href="addprodcar.php"> Comprar </a>
+                    </div>
+                </div>
+                
             </div>
         </div>
             

@@ -49,6 +49,7 @@
 .campos{
     padding: 10px;
     display: block;
+    color: #fff;
 }
 
 .voltar{
@@ -56,6 +57,42 @@
     display: flex;
     justify-content:right;
     padding: 10px;
+}
+
+.addCar{
+    border-radius: 10px;
+    border: none;
+    background-color: #ca6702;
+    color:#000000;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0px;
+}
+
+.addCmp{
+    border-radius: 10px;
+    border: none;
+    background-color: darkgreen;
+    color:#000000;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0px;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    margin: 5px 0px;
+    flex: 1 1 auto;
 }
 
 footer{

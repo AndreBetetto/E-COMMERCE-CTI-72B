@@ -49,11 +49,11 @@
 
                         if($linha['estoque']<=0){
                             echo "<div> <span> Produto esgostado</span></div>";
-                            echo "<a href='#'>Avise-me quando chegar</a>";
+                            echo "<a class='avs' href='#'>Avise-me quando chegar</a>";
                         }
                         else{
                             echo "<div> <span>".$linha['estoque']." em estoque </span></div>";
-                            echo "<a href='addprodcar.php?id=".$linha['id']."'>Comprar</a>";
+                            echo "<a class='btnCmp' href='addprodcar.php?id=".$linha['id']."'>Comprar</a>";
                         }
                     echo "</div>";
                 }

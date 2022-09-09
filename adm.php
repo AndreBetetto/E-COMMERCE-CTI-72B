@@ -34,8 +34,9 @@
                             if(isset($_GET['termo']))
                                 {echo $_GET['termo'];}
                         ?>" > 
-                <input id="btnB" name="submit" type="Submit" value="Buscar">
-                <button id="btnL" onclick="location.href='adm.php'" type="button">Limpar</button>
+                <!-- <input name="submit" type="Submit"> -->
+                <button id="btnB" name="submit" type="Submit"> <i class="fa-solid fa-magnifying-glass fa-2x"></i> </button>
+                <button id="btnL" onclick="location.href='adm.php'" type="button"> <i class="fa fa-duotone fa-circle-xmark fa-2x"></i> </button>
             </p> 
         </form>
         </div>
@@ -166,8 +167,8 @@
                     if(isset($_GET['termoProd']))
                     {echo $_GET['termoProd'];}?>"> 
 
-            <input id="btnB" name="submit" type="Submit" value="Buscar">
-            <button id="btnL" onclick="location.href='adm.php'" type="button">Limpar</button>
+                <button id="btnB" name="submit" type="Submit"> <i class="fa-solid fa-magnifying-glass fa-2x"></i> </button>           
+                <button id="btnL" onclick="location.href='adm.php'" type="button"> <i class="fa fa-duotone fa-circle-xmark fa-2x"></i> </button>
         </p>
     </form>
 
