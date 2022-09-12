@@ -35,7 +35,7 @@
 
                 <div class="icons">
                     <a href="adm.php"> <i id="icon" class="fa-solid fa-gear fa-2x"> </i> </a>
-                    <a href="#carrinho"> <i id="icon" class="fa-solid fa-cart-shopping fa-2x"> </i> </a>
+                    <a href="carrinho.php"> <i id="icon" class="fa-solid fa-cart-shopping fa-2x"> </i> </a>
                     <a href="perfil.php"> <i id="icon" class="fa-solid fa-circle-user fa-2x"> </i> </a>
                 </div>
             </div>

@@ -215,7 +215,7 @@
 
                 if(pg_num_rows($queryProd) > 0):
                     //for($i = 1000; $i <= pg_num_rows($queryProd)+999; $i++):
-                    for($i = 0; $i <= pg_num_rows($queryProd); $i++):
+                    for($i = 0; $i < pg_num_rows($queryProd); $i++):
                         $sqlsaida = pg_fetch_array(pg_query($conexao, $sqlProd), $i);
 
                         //$idprodPG = pg_fetch_row(pg_query($conexao, $sqlProdID), $i-1000);
@@ -236,15 +236,15 @@
                             
                             </td><td> <form action="editarprod.php" method="post"> 
                                 <button input type="submit" name="submit" 
-                                    id="<?php echo $idprod;?>-submit" 
-                                        value ="<?php echo $idprod;?>" >
+                                    id="<?php echo $sqlsaida['id'];?>-submit" 
+                                        value ="<?php echo $sqlsaida['id'];?>" >
                                 <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
                             </form></td></tr>
 
                             </td><td> <form action="excluirprod.php" method="post">
-                                <button id="btnEx" id="<?php echo $idprod;?>-submit" 
-                                    value ="<?php echo $idprod;?>"> 
+                                <button id="btnEx" id="<?php echo $sqlsaida['id'];?>-submit" 
+                                    value ="<?php echo $sqlsaida['id'];?>"> 
                                 <i class="fa-solid fa-trash-can fa-1x"> </i> 
                                 </button>
                             </form></td></tr>
@@ -282,15 +282,15 @@
                     echo "<tr><td>" . $mostraresult['id'] . "</td><td>" . $mostraresult['titulo']  . "</td><td>" . $mostraresult['material'] . "</td><td>" . number_format($mostraresult['preco'], 2) . "</td><td>" . $mostraresult['estoque'] ?>  
                         </td><td> <form action="editarprod.php" method="post"> 
                             <button type="submit" name="submit" 
-                                id="<?php echo $mostraIDProd[0];?>-submit" 
-                                    value ="<?php echo $mostraIDProd[0];?>">
+                                id="<?php echo $mostraresult['id'];?>-submit" 
+                                    value ="<?php echo $mostraresult['id'];?>">
                             <i class="fa-solid fa-pen-to-square"></i>
                             </button>
                         </form></td></tr>
 
                         </td><td> <form action="excluirprod.php" method="post">
-                            <button id="btnEx" id="<?php echo $idprod;?>-submit" 
-                                value ="<?php echo $idprod;?>"> 
+                            <button id="btnEx" id="<?php echo $mostraresult['id'];?>-submit" 
+                                value ="<?php echo $mostraresult['id'];?>"> 
                             <i class="fa-solid fa-trash-can fa-1x"> </i> 
                             </button>
                         </form></td></tr>
