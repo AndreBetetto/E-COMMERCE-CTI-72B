@@ -105,16 +105,27 @@
                 
 		        $cont = "SELECT COUNT(*) as total FROM usuarioandre";
                 $row = pg_fetch_row(pg_query($conexao, $cont));
-                for($i = 2; $i <= $row[0]+1; $i++){
-                    $sqlID = "Select id from usuarioandre where id = {$i}";
+                for($i = 0; $i < $row[0]; $i++){
+                    /*$sqlIDverifica = "select ID from usuarioandre where id = {$i}";
+                    $rverifica = pg_query($conexao, $sqlIDverifica);
+                    $verifica = pg_fetch_row($rverifica);
+                    if($verifica[0] == null)
+                    {
+                        $sim = true;
+                    }
+                    else {*/
+                        $sqlusuarios = "select * from usuarioandre order by id";
+                        $rusuarios = pg_query($conexao, $sqlusuarios);
+                        $mostra = pg_fetch_array($rusuarios, $i);
+                        $sqlID = "Select id from usuarioandre where id = {$i}";
                     
-                        $sqlNome = "Select nome from usuarioandre where id = {$i}";
-                        $sqlLogin = "Select login from usuarioandre where id = {$i}";
-                        $sqlHora = "Select hora from usuarioandre where id = {$i}";
-                        $mostraID = pg_fetch_row(pg_query($conexao, $sqlID));
-                        $mostraNome = pg_fetch_row(pg_query($conexao, $sqlNome));
-                        $mostraLogin = pg_fetch_row(pg_query($conexao, $sqlLogin));
-                        $mostraHora = pg_fetch_row(pg_query($conexao, $sqlHora));
+                        //$sqlNome = "Select nome from usuarioandre where id = {$i}";
+                        //$sqlLogin = "Select login from usuarioandre where id = {$i}";
+                        //$sqlHora = "Select hora from usuarioandre where id = {$i}";
+                        //$mostraID = pg_fetch_row(pg_query($conexao, $sqlID));
+                        //$mostraNome = pg_fetch_row(pg_query($conexao, $sqlNome));
+                        //$mostraLogin = pg_fetch_row(pg_query($conexao, $sqlLogin));
+                        //$mostraHora = pg_fetch_row(pg_query($conexao, $sqlHora));
 
                         $email = $mostraLogin[0];
                         $email2 = str_replace('.', '_', $email);
@@ -137,8 +148,10 @@
                             /*$img = "<img src="."fotosPadrao/default.png"."width="."100"."height="."100"."/>";*/
                         }
 
-                        echo "<tr><td>" . $mostraID[0] . "</td><td>" . $mostraNome[0] . "</td><td>" . $mostraLogin[0] . "</td><td>" . $mostraHora[0] . "</td><td>". $img."</td></tr>";
+                        echo "<tr><td>" . $mostra['id'] . "</td><td>" . $mostra['nome'] . "</td><td>" . $mostra['login'] . "</td><td>" . $mostra['hora'] . "</td><td>". $img."</td></tr>";
                
+                    //}
+                        
                     }
                          } 
             
