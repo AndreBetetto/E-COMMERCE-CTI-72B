@@ -39,7 +39,13 @@
             <th>mini desc</th>
 	        <th>remover produto</th>
         </tr>
+
+        
         <?php
+
+        
+
+
         for($i = 0; $i < $contagem[0]; $i++)
         {
             $sqlCarrinho = "select * from carrinhoandre where id_user = $id order by id_produto";
@@ -55,6 +61,7 @@
             //$titulo = $qtdeBusca[$i]['titulo'];
             //$qtd = $qtdeBusca[$i]['quantidade'];
             //$preco = $qtdeBusca[$i]['preco'];
+
             //$mini_desc = $qtdeBusca[$i]['descricao'];
             //$teste = "remover";
             //$idProd = $resultado_lista['id_prod'];
@@ -63,8 +70,22 @@
             //$resultado_lista[$i]['produto'] = pg_fetch_assoc($queryProd);
 
             //echo "<tr><td>" . $titulo . "</td><td>" . $qtd . "</td><td>" . $preco . "</td><td>" . $mini_desc . "</td><td>". $teste ."</td></tr>";
-            echo "<tr><td>" . $sqlmostra['titulo'] . "</td><td>" . $carrinho['qtd'] . "</td><td>R$ " . Number_format($sqlmostra['preco'], 2, ',','.') . "</td><td>" . substr($sqlmostra['descricao'], 0, 18) . "...</td><td>". "botao de remover.." ."</td></tr>";
+            echo "<tr><td>" . $sqlmostra['titulo'] . "</td><td>" . $carrinho['qtd'] . "</td><td>R$ " . Number_format($sqlmostra['preco'], 2, ',','.') . "</td><td>" . substr($sqlmostra['descricao'], 0, 18) . "...</td><td>". " <form method='post' action='menosprodcar.php'>".
+            "<button type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'> <i class='fa-solid fa-pen-to-square'></i>".
+            "</button></form>". 
+
+            "<form method='post' action='maisprodcar.php'> <button type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'> <i class='fa-solid fa-pen-to-square'></i>".
+            "</button></form>" ."</td></tr>";
         }
+        
+        
+        
+
+
+
+
+
+
         ?>
 </body>
 </html>
