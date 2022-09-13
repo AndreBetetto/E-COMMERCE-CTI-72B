@@ -35,6 +35,7 @@
             echo "Não foi encontrado nenhum produto !!!";
             return;
         }
+            echo "<div class='mae'>";
             echo "<div class='grid'>";
                 foreach($resultado_lista as $linha)
                 {
@@ -44,19 +45,28 @@
                             <img src='https://via.placeholder.com/250'/>
                         </a>
 
-                        <div> <p>".$linha['titulo']."</p> </div>
-                        <div> <p> R$ ".$precoProd."</div>";
+                        <div class='desc'> 
+                            <p>".$linha['titulo']."</p> 
+                            <p> R$ ".$precoProd."
+                        </div>";
 
-                        if($linha['estoque']<=0){
-                            echo "<div> <span> Produto esgostado</span></div>";
-                            echo "<a class='avs' href='#'>Avise-me quando chegar</a>";
-                        }
-                        else{
-                            echo "<div> <span>".$linha['estoque']." em estoque </span></div>";
-                            echo "<a class='btnCmp' href='addprodcar.php?id=".$linha['id']."'>Comprar</a>";
-                        }
+                            if($linha['estoque']<=0){
+                                echo 
+                                    "<div class='desc'> <span> Produto esgostado</span> </div>";
+
+                                echo "<div class='desc'> 
+                                    <a class='avs' href='#'>Avise-me quando chegar</a> </div>";
+                            }
+                            else{
+                                echo
+                                 "<div class='desc'> <span>".$linha['estoque']." em estoque </span> </div>";
+                                echo 
+                                    "<div class='desc'> 
+                                        <a class='btnCmp' href='addprodcar.php?id=".$linha['id']."'>Comprar</a> </div>";
+                            }
                     echo "</div>";
                 }
+            echo "</div>";
             echo "</div>";
 
     ?>
