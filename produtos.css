@@ -5,11 +5,29 @@
     justify-content: center;
     justify-items: center;
     padding: 20px;
+    width: 80%;
 }
+
+.mae{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
 .itens{
    text-align: center;
    font-family:  Helvetica,Arial, sans-serif;
    font-size: 14px;
+
+    padding: 10px;
+    background-color: azure;
+    border-radius:10px;
+}
+
+.desc{
+    display: block;
+    padding: 10px;
 }
 
 .btnCmp{
@@ -21,7 +39,7 @@
     text-decoration: none;
     width: 100%;
     padding: 10px;
-    margin: 5px 0px;
+    margin: 10px 0px;
 }
 
 .avs{
@@ -33,5 +51,5 @@
     text-decoration: none;
     width: 100%;
     padding: 10px;
-    margin: 5px 0px;
+    margin: 10px 0px;
 }
