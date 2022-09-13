@@ -49,7 +49,7 @@
         
         <div class="perfil">
             <form action="upload.php" method="post" enctype="multipart/form-data">
-                <label>Coloque aqui uma imagem: <input type="file" name="fileToUpload" id="fileToUpload"></label><br>
+                <label>Insira uma imagem de perfil: <input type="file" name="fileToUpload" id="fileToUpload"></label>
                 <input type="submit" value="salvar" name="salvarS">
             </form>
                 
@@ -57,61 +57,61 @@
                 <?php if(file_exists($target)) : ?>
 
                     <img src="<?php echo $target; ?>" width="100" height="100"/>
-                    <br>
-                
                     
                     <?php elseif(file_exists($target2)) : ?>
 
                     <img src="<?php echo $target2; ?>" width="100" height="100"/>
-                    <br>
-
             
                 <?php elseif(file_exists($target3)) : ?>
 
-                <img src="<?php echo $target3; ?>" width="100" height="100"/>
-                <br>
+                    <img src="<?php echo $target3; ?>" width="100" height="100"/>
                 <?php endif; ?>   
-
 
                 <?php 
                 if(file_exists($target3) == false && file_exists($target) == false && file_exists($target2) == false): ?>
                     <img src="fotosPadrao/default.png" width="100" height="100"/> <?php endif; ?> <br><br>
                 
                     <?php if($nome != '') : ?>
-                Nome: <?php echo $nome; ?> <br>
-                email: <?php echo $email; ?><br><br><br>
+                        <label> Nome: <?php echo $nome; ?> </label>
+                        <label> Email: <?php echo $email; ?> <label>
+                        <label>Telefone (celular):
+                            <?php
+                                $sqlID = "SELECT id from usuarioandre where login = '$email'";
 
-                    <label>Telefone (celular):
-                        <?php
-                            $sqlID = "SELECT id from usuarioandre where login = '$email'";
-
-                            $ID = pg_fetch_row(pg_query($conexao, $sqlID));
-                            $idreal = $ID[0];
-                            $_SESSION['id'] = $idreal;
-                            $pegaNumSQL = "SELECT COUNT(*) as total FROM telefoneandre where id_user = $idreal";
-                            $pegaNum = pg_fetch_row(pg_query($conexao, $pegaNumSQL));
+                                $ID = pg_fetch_row(pg_query($conexao, $sqlID));
+                                $idreal = $ID[0];
+                                $_SESSION['id'] = $idreal;
+                                $pegaNumSQL = "SELECT COUNT(*) as total FROM telefoneandre where id_user = $idreal";
+                                $pegaNum = pg_fetch_row(pg_query($conexao, $pegaNumSQL));
                             
-                            if(intval($pegaNum[0]) <= 0){
-                                echo "Nenhum nÃºmero cadastrado.";
-                            }
-                            if(intval($pegaNum[0]) > 0):
-                                for($i=1; $i <= intval($pegaNum[0]); $i++):
-                                    $sqlDDD = "select ddd from telefoneandre where id_user = $idreal and qtd = $i";
-                                    $sqlNum = "select num from telefoneandre where id_user = $idreal and qtd = $i";
-                                    $mostraDDD = pg_fetch_row(pg_query($conexao, $sqlDDD));
-                                    $mostraNum = pg_fetch_row(pg_query($conexao, $sqlNum));?>
-                                    <br> Numero <?php echo $i.":  ".$mostraDDD[0]." ".$mostraNum[0];?> <form action="apaganum.php" method="POST"><button type="submit" value="<?php echo $i; ?>" name="apagar" >apagar</button></form>
+                                if(intval($pegaNum[0]) <= 0){
+                                    echo "Nenhum nÃºmero cadastrado.";
+                                }
+                                if(intval($pegaNum[0]) > 0):
+                                    for($i=1; $i <= intval($pegaNum[0]); $i++):
+                                        $sqlDDD = "select ddd from telefoneandre where id_user = $idreal and qtd = $i";
+                                        $sqlNum = "select num from telefoneandre where id_user = $idreal and qtd = $i";
+                                        $mostraDDD = pg_fetch_row(pg_query($conexao, $sqlDDD));
+                                        $mostraNum = pg_fetch_row(pg_query($conexao, $sqlNum));?>
+                                        <label> Número 
+                                            <?php echo $i.":  ".$mostraDDD[0]." ".$mostraNum[0];?> 
+                                        </label>
+                                            <form action="apaganum.php" method="POST">
+                                                <button type="submit" value="<?php echo $i; ?>" name="apagar" >apagar</button>
+                                            </form>
 
-                            <?php  endfor; endif; ?>   
-                            
-                                
-                        </label> <br>
+                                    <?php  endfor; endif; ?>                               
+                        </label> 
+
                     <form action="" method="POST">
 
-                    <label>Adicionar nÃºmero de telefone: </label> <input type="number" id="ddd" name="ddd" placeholder="ddd"> <input type="text" id="num" name="num" placeholder="numero de telefone">
-                    <input type="submit" value="add" name="Adicionar">
-
+                        <label>Adicionar número de telefone: </label> 
+                            <input type="number" id="ddd" name="ddd" placeholder="ddd"> 
+                            <input type="text" id="num" name="num" placeholder="numero de telefone">
+                        
+                        <input type="submit" value="add" name="Adicionar">
                     </form>
+                    
                     <?php 
                         $n = strval($_POST["num"]);
                         $ddd = $_POST["ddd"];
