@@ -15,6 +15,7 @@
     $sql = "select * from usuarioandre where login = '$email'";
     $dados = pg_fetch_assoc(pg_query($conexao, $sql)); //id[0] é o id do usuario
     $id = intval($dados['id']);
+    $_SESSION['id'] = $id;
 
     if($email == null) {
         header('location: cadasstro.php');
@@ -73,7 +74,6 @@
             echo "<tr><td>" . $sqlmostra['titulo'] . "</td><td>" . $carrinho['qtd'] . "</td><td>R$ " . Number_format($sqlmostra['preco'], 2, ',','.') . "</td><td>" . substr($sqlmostra['descricao'], 0, 18) . "...</td><td>". " <form method='post' action='menosprodcar.php'>".
             "<button type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'> <i class='fa-solid fa-pen-to-square'></i>".
             "</button></form>". 
-
             "<form method='post' action='maisprodcar.php'> <button type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'> <i class='fa-solid fa-pen-to-square'></i>".
             "</button></form>" ."</td></tr>";
         }
@@ -89,3 +89,4 @@
         ?>
 </body>
 </html>
+1
