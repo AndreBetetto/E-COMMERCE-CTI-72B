@@ -250,14 +250,15 @@
                             <td>" . number_format($sqlsaida['preco'], 2). "</td>
                             <td>" . $sqlsaida['estoque']. "</td>
 
-                            <td> <form action='editarprod.php' method='post'> 
-                                    <button input type='submit' name='submit' 
+                            <td> <form action="editarprod.php" method="post"> 
+                                    <button input type="submit" name="submit" 
                                         id="<?php echo $sqlsaida['id'];?>-submit" 
                                             value ="<?php echo $sqlsaida['id'];?>" >
-                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-pen-to-square"></i>
                                     </button>
                                 </form>
                             </td>
+                        
 
                             <td> <form action="excluirprod.php" method="post">
                                     <button input type="submit" name="submit"
@@ -277,7 +278,7 @@
                 }
             } else {
 
-		$contProd = "SELECT COUNT(*) as total FROM produtosandre";
+		    $contProd = "SELECT COUNT(*) as total FROM produtosandre";
                 $rowProd = pg_fetch_row(pg_query($conexao, $contProd));
                 //for($i = 1001; $i <= $rowProd[0]+1000; $i++):
                 for($i = 0; $i < $rowProd[0]; $i++):

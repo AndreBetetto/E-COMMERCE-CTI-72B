@@ -31,8 +31,13 @@ section{
 }
 
 .infosPerfil{
-    display: block;
+    display: flex;
+    justify-content: space-evenly;
     padding: 20px;
+}
+
+.infos{
+    display: block;
 }
 
 .campos{
@@ -44,6 +49,26 @@ section{
 button{
     background: none;
     border: none;
+}
+
+.titleDB
+{
+    display: flex;
+    justify-content: center;
+    color: var(--darker-blue);
+    font-size: 30px;
+    font-family: sans-serif, Helvetica, Arial;
+    margin: 10px 0;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.save{
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #f0b342;
 }
 
 

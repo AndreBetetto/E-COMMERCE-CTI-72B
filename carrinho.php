@@ -69,7 +69,7 @@
             echo "<tr>
                 <td>" . $sqlmostra['titulo'] . "</td>
 
-                <td>". Number_format($sqlmostra['preco'],2, ',', '.')."</td>
+                <td> R$ ". Number_format($sqlmostra['preco'],2, ',', '.')."</td>
                 
                 <td>" ." 
                     <div class='alter'>
@@ -88,11 +88,10 @@
                         </form> 
                     </div> 
                 </td>
-                <td>". Number_format($precoTot, 2, ',','.') ."</td>
+                <td> R$ ". Number_format($precoTot, 2, ',','.') ."</td>
             </tr>";
         }
 
         ?>
 </body>
 </html>
-1

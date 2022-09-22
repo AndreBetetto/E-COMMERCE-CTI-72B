@@ -46,20 +46,27 @@
                         </a>
 
                         <div class='desc'> 
-                            <p>".$linha['titulo']."</p> 
-                            <p> R$ ".$precoProd."
+                            <p class='item'>".$linha['titulo']."</p> 
+                            <div class='estrelas'>
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                                <i class='fa-solid fa-star'></i>
+                            </div>
+                            <p class='item'> R$ ".$precoProd." </p>
                         </div>";
 
                             if($linha['estoque']<=0){
                                 echo 
-                                    "<div class='desc'> <span> Produto esgostado</span> </div>";
+                                    "<div class='desc'> <p> Produto esgostado</p> </div>";
 
                                 echo "<div class='desc'> 
                                     <a class='avs' href='#'>Avise-me quando chegar</a> </div>";
                             }
                             else{
                                 echo
-                                 "<div class='desc'> <span>".$linha['estoque']." em estoque </span> </div>";
+                                 "<div class='desc'> <p class='item'>".$linha['estoque']." em estoque </p> </div>";
                                 echo 
                                     "<div class='desc'> 
                                         <a class='btnCmp' href='addprodcar.php?id=".$linha['id']."'>Comprar</a> </div>";

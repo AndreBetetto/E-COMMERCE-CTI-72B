@@ -39,12 +39,15 @@
             exit(); 
         ?>    
         <?php endif; ?>
-        
+
+        <div class="titleDB"> <p>Meu perfil<p> </div>
+
         <div class="perfil">
             <form action="upload.php" method="post" enctype="multipart/form-data">
-                <label class="campos">Insira uma imagem de perfil: </label>
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                <input type="submit" value="Salvar" name="salvarS">
+                <label class="campos">Insira uma imagem de perfil: 
+                    <input class="save" type="file" name="fileToUpload" id="fileToUpload">
+                    <input class="save" type="submit" value="Salvar" name="salvarS">
+                </label>
             </form>
                 
                 <?php if(file_exists($target)) : ?>
@@ -62,8 +65,12 @@
 
                 <div class="infosPerfil">
                     <?php 
-                    if(file_exists($target3) == false && file_exists($target) == false && file_exists($target2) == false): ?>
-                        <img src="fotosPadrao/default.png" width="100" height="100"/> <?php endif; ?>
+                    echo "<div class='imagem'>";
+                        if(file_exists($target3) == false && file_exists($target) == false && file_exists($target2) == false): ?>
+                          <img src="imagens/default.png" width="100" height="100"/> <?php endif; ?>
+                    </div>
+
+                    <div class="infos">
                         <?php if($nome != '') : ?>
                             <label class="campos"> 
                                 <b>Nome:</b> <?php echo $nome; ?> 
@@ -101,10 +108,10 @@
                                                         <i class="fa-solid fa-trash-can fa-1x"> </i>
                                                     </button>
                                                 </form>
-
                                         <?php  endfor; endif; ?>                               
                             </label> 
                     </div>
+                </div>
 
                     <form action="" method="POST">
 
@@ -121,7 +128,7 @@
                         $n = strval($_POST["num"]);
                         $ddd = $_POST["ddd"];
                         
-                        if(intval($ddd) < 0 || intval($ddd) > 999 || strlen($n) < 8 || strlen($n) > 16) {
+                        /*if(intval($ddd) < 0 || intval($ddd) > 999 || strlen($n) < 8 || strlen($n) > 16) {
                             echo "erro, digite um numero válido";
                             exit;
                         }
@@ -139,9 +146,34 @@
                                 pg_query($conexao, $sqlAdd);
                                 header("Refresh: 0");
                             }   
-                        }
+                        }*/
                     ?>
                    
+                <div class="infos">   
+                    <label> Adicionar endereço: </label>
+                    <form action="" method="POST">
+                        <label class="campos">CEP: </label> 
+                            <input type="text" id="cep" name="cep" placeholder="00000-000">
+
+                        <label class="campos">Endereço: </label> 
+                            <input type="text" id="endereco" name="endereco" placeholder="Endereço"> 
+
+                        <label class="campos">Bairro: </label> 
+                            <input type="text" id="bairro" name="bairro" placeholder="Bairro"> 
+
+                        <label class="campos">Cidade: </label> 
+                            <input type="text" id="cidade" name="cidade" placeholder="Cidade"> 
+
+                        <label class="campos">UF: </label> 
+                            <input type="text" id="uf" name="uf" placeholder="UF"> 
+
+                        <label class="campos">Complemento: </label> 
+                            <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc"> 
+                        
+                        <input type="submit" value="add" name="Adicionar">
+                    </form>
+                </div>
+
                 <?php 
                     $sqlend = "select qtd from enderecosandre where id_user = $idreal";
                     $numrowend = pg_fetch_row(pg_query($conexao, $sqlend));
@@ -150,34 +182,11 @@
                     } else {
                         for($i = 0; $i <= $numrowend[0]; $i++) {
                             $sqlendereco = "select * from enderecosandre where id_user = $idreal and qtd = $i";
-                            $resultado_lista=pg_fetch_all($resultado);
+                            $resultado_lista=pg_fetch_all($resultado, $conexao);
                             echo "Endereço ".$i.": ".$resultado_lista['cep'].", ".$resultado_lista['endereco'].", ".$resultado_lista['bairro']." ".$resultado_lista['cidade']." ".$resultado_lista['uf']." ".$resultado_lista['complemento']."<br>";
                         }
                     } 
                 ?>
-
-                <label> Adicionar endereço: </label>
-                <form action="" method="POST">
-                    <label>CEP: </label> 
-                        <input type="text" id="cep" name="cep" placeholder="00000-000">
-
-                    <label>Endereço: </label> 
-                        <input type="text" id="endereco" name="endereco" placeholder="Endereço"> 
-
-                    <label>Bairro: </label> 
-                        <input type="text" id="bairro" name="bairro" placeholder="Bairro"> 
-
-                    <label>Cidade: </label> 
-                        <input type="text" id="cidade" name="cidade" placeholder="Cidade"> 
-
-                    <label>UF: </label> 
-                        <input type="text" id="uf" name="uf" placeholder="UF"> 
-
-                    <label>Complemento: </label> 
-                        <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc"> 
-                    
-                    <input type="submit" value="add" name="Adicionar">
-                </form>
 
                 <?php
                     $cep = $_POST["cep"];
