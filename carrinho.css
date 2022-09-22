@@ -13,6 +13,19 @@
     padding: 5px;
 }
 
+.titleDB
+{
+    display: flex;
+    justify-content: center;
+    color: var(--darker-blue);
+    font-size: 30px;
+    font-family: sans-serif, Helvetica, Arial;
+    margin: 10px 0;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 0;
+}
+
 :root {
     --darker-blue: #01222f;
     --dark-blue: #006073;

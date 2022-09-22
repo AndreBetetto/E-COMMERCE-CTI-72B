@@ -21,6 +21,7 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.807);
+    display: block;
 }
 
 section{
@@ -37,6 +38,7 @@ section{
 .campos{
     display: block;
     padding: 5px;
+    color: white;
 }
 
 button{

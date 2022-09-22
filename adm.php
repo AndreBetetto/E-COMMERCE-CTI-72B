@@ -101,7 +101,13 @@
                             $mostrabusca['hora'] = 'Usuário antigo.';
                         }
 
-                        echo "<tr><td>" . $mostrabusca['id'] . "</td><td>" . $mostrabusca['nome'] . "</td><td>" . $mostrabusca['login'] . "</td><td>" . $mostrabusca['hora'] . "</td><td>".$img."</td></tr>";
+                        echo "<tr>
+                            <td>" . $mostrabusca['id'] . "</td>
+                            <td>" . $mostrabusca['nome'] . "</td>
+                            <td>" . $mostrabusca['login'] . "</td>
+                            <td>" . $mostrabusca['hora'] . "</td>
+                            <td>".$img."</td>
+                        </tr>";
                      }
 
                 } else {
@@ -158,7 +164,13 @@
                         if($mostra['hora'] == null) {
                             $mostra['hora'] = 'Usuário antigo.';
                         }
-                        echo "<tr><td>" . $mostra['id'] . "</td><td>" . $mostra['nome'] . "</td><td>" . $mostra['login'] . "</td><td>" . $mostra['hora'] . "</td><td>". $img."</td></tr>";
+                        echo "<tr>
+                            <td>" . $mostra['id'] . "</td>
+                            <td>" . $mostra['nome'] . "</td>
+                            <td>" . $mostra['login'] . "</td>
+                            <td>" . $mostra['hora'] . "</td>
+                            <td>". $img."</td>
+                        </tr>";
                
                     //}
                         
@@ -231,23 +243,32 @@
 
                         //$mostraEstoque2Prod = pg_fetch_row(pg_query($conexao, $sqlEstoque2Prod));
 
-                        echo "<tr><td>" . $sqlsaida['id'] . "</td><td>" .$sqlsaida['titulo'] . "</td><td>" .$sqlsaida['material'] . "</td><td>" . number_format($sqlsaida['preco'], 2)  . "</td><td>" . $sqlsaida['estoque'] ?>  
-                            
-                            </td><td> <form action="editarprod.php" method="post"> 
-                                <button input type="submit" name="submit" 
-                                    id="<?php echo $sqlsaida['id'];?>-submit" 
-                                        value ="<?php echo $sqlsaida['id'];?>" >
-                                <i class="fa-solid fa-pen-to-square"></i>
-                                </button>
-                            </form></td></tr>
+                        echo "<tr>
+                            <td>" . $sqlsaida['id']. "</td>
+                            <td>" .$sqlsaida['titulo']. "</td>
+                            <td>" .$sqlsaida['material']. "</td>
+                            <td>" . number_format($sqlsaida['preco'], 2). "</td>
+                            <td>" . $sqlsaida['estoque']. "</td>
 
-                            </td><td> <form action="excluirprod.php" method="post">
-                                <button id="btnEx" id="<?php echo $sqlsaida['id'];?>-submit" 
-                                    value ="<?php echo $sqlsaida['id'];?>"> 
-                                <i class="fa-solid fa-trash-can fa-1x"> </i> 
-                                </button>
-                            </form></td></tr>
+                            <td> <form action='editarprod.php' method='post'> 
+                                    <button input type='submit' name='submit' 
+                                        id="<?php echo $sqlsaida['id'];?>-submit" 
+                                            value ="<?php echo $sqlsaida['id'];?>" >
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                </form>
+                            </td>
 
+                            <td> <form action="excluirprod.php" method="post">
+                                    <button input type="submit" name="submit"
+                                        id="btnEx" id="<?php echo $sqlsaida['id'];?>-submit" 
+                                            value ="<?php echo $sqlsaida['id'];?>"> 
+                                        <i class="fa-solid fa-trash-can fa-1x"> </i> 
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        
                         <?php endfor; endif;
                     
                 if(pg_num_rows($queryProd) <= 0)  {

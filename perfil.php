@@ -8,13 +8,6 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/css/jquery.Jcrop.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/js/jquery.Jcrop.js"></script>
-    <!-- <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" /> -->
-    <script src="jquery.min.js"></script>
-    <script src="jquery.Jcrop.min.js"></script>
-
     <link rel="stylesheet" href="perfil.css">
     <title>Perfil do usuário | KeyFriends</title>
 </head>
@@ -49,11 +42,11 @@
         
         <div class="perfil">
             <form action="upload.php" method="post" enctype="multipart/form-data">
-                <label>Insira uma imagem de perfil: <input type="file" name="fileToUpload" id="fileToUpload"></label>
-                <input type="submit" value="salvar" name="salvarS">
+                <label class="campos">Insira uma imagem de perfil: </label>
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Salvar" name="salvarS">
             </form>
                 
-            
                 <?php if(file_exists($target)) : ?>
 
                     <img src="<?php echo $target; ?>" width="100" height="100"/>
@@ -72,9 +65,16 @@
                     if(file_exists($target3) == false && file_exists($target) == false && file_exists($target2) == false): ?>
                         <img src="fotosPadrao/default.png" width="100" height="100"/> <?php endif; ?>
                         <?php if($nome != '') : ?>
-                            <label class="campos"> Nome: <?php echo $nome; ?> </label>
-                            <label class="campos"> Email: <?php echo $email; ?> <label>
-                            <label class="campos">Telefone (celular):
+                            <label class="campos"> 
+                                <b>Nome:</b> <?php echo $nome; ?> 
+                            </label>
+                            
+                            <label class="campos"> 
+                                <b>Email:</b> <?php echo $email; ?> 
+                            <label>
+                            
+                            <label class="campos">
+                                <b>Telefone (celular): </b>
                                 <?php
                                     $sqlID = "SELECT id from usuarioandre where login = '$email'";
 
@@ -112,7 +112,7 @@
                             <input type="number" id="ddd" name="ddd" placeholder="ddd"> 
                             <input type="text" id="num" name="num" placeholder="numero de telefone">
                         
-                        <button type="submit" name="adicionar" value="add">
+                        <button type="submit" value="add" name="adicionar">
                             <i class="fa fa-light fa-phone-plus"></i>
                         </button>
                     </form>
@@ -132,18 +132,14 @@
                             $ver = pg_fetch_row(pg_query($conexao, $verifica));
                             $numVer = intval($ver[0]);
                             if($numVer > 4) {
-                                echo "Numero max. de telefones cadastrados alcanÃ§ado.";
+                                echo "Numero max. de telefones cadastrados alcançados";
                             } else {
                                 $qtdFinal = $numVer++;
                                 $sqlAdd = "insert into telefoneandre (id_user, num, ddd, qtd) values ($idreal, '$n', $ddd1, $numVer)";
                                 pg_query($conexao, $sqlAdd);
                                 header("Refresh: 0");
-                            }
-                            
+                            }   
                         }
-                    ?>
-                    <label> Telefone (celular):</label>
-                    <?php endif;
                     ?>
                    
                 <?php 
@@ -202,7 +198,7 @@
                         header("Refresh: 0");
                     }
 
-                ?>
+                endif;?>
             
     </section>
    

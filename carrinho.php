@@ -2,7 +2,6 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <!-- <link rel=stylesheet type="text/css" href="adm.css"> -->
     <link rel=stylesheet type="text/css" href="carrinho.css">
     <title>Carrinho | KeyFriends</title>
 </head>
@@ -28,20 +27,18 @@
     //$qtdeBusca=pg_fetch_all($resultado);
     $resultado_lista = null;
 
+    $cont = "select count(*) from carrinhoandre where id_user = $id";
+    $contagem = pg_fetch_row(pg_query($conexao, $cont));
+    ?>
+    <div class="titleDB"> <p>Meu carrinho<p> </div>
+    <table class="table">
+        <tr>
+            <th>Produto</th>
+            <th>Preço unitário</th>
+            <th>Quantidade</th>
+            <th>Preço total</th>
+        </tr>
 
-        $cont = "select count(*) from carrinhoandre where id_user = $id";
-        $contagem = pg_fetch_row(pg_query($conexao, $cont));
-        ?>
-        <br><br><br><br><br>
-        <table class="table">
-            <tr>
-                <th>Produto</th>
-                <th>Quantidade</th>
-                <th>Preço</th>
-                <th>remover produto</th>
-            </tr>
-
-        
         <?php
 
         for($i = 0; $i < $contagem[0]; $i++)
@@ -68,21 +65,31 @@
             //$resultado_lista[$i]['produto'] = pg_fetch_assoc($queryProd);
 
             //echo "<tr><td>" . $titulo . "</td><td>" . $qtd . "</td><td>" . $preco . "</td><td>" . $mini_desc . "</td><td>". $teste ."</td></tr>";
-            echo "<tr><td>" . $sqlmostra['titulo'] . "</td><td>" . $carrinho['qtd'] . "</td><td>R$ " . Number_format($sqlmostra['preco'], 2, ',','.') . "</td><td>" ." 
-                <div class='alter'>
-                    <form method='post' action='menosprodcar.php'>".
-                        "<button class='alterProds' type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'> 
-                            <i class='fa-solid fa-minus'></i>".
-                        "</button>
-                    </form>". 
-                    
-                    "<form method='post' action='maisprodcar.php'> 
-                        <button class='alterProds' type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'> 
-                            <i class='fa-solid fa-plus'></i>".
-                        "</button>
-                    </form> 
-                </div>"
-            ."</td></tr>";
+            $precoTot = $sqlmostra['preco']* $carrinho['qtd'];
+            echo "<tr>
+                <td>" . $sqlmostra['titulo'] . "</td>
+
+                <td>". Number_format($sqlmostra['preco'],2, ',', '.')."</td>
+                
+                <td>" ." 
+                    <div class='alter'>
+                        <form method='post' action='menosprodcar.php'>".
+                            "<button class='alterProds' type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'> 
+                                <i class='fa-solid fa-minus'></i>".
+                            "</button>
+                        </form>". 
+
+                        $carrinho['qtd'] . 
+                        
+                        "<form method='post' action='maisprodcar.php'> 
+                            <button class='alterProds' type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'> 
+                                <i class='fa-solid fa-plus'></i>".
+                            "</button>
+                        </form> 
+                    </div> 
+                </td>
+                <td>". Number_format($precoTot, 2, ',','.') ."</td>
+            </tr>";
         }
 
         ?>
