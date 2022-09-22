@@ -5,3 +5,33 @@ usuario: projetoscti20
 senha : socafofo123
 host: projetoscti.com.br
 porta: 21
+
+deixa aqui guardado
+<?php
+            echo "<div class='grid'>
+                <div class='gridFilho'>
+                    <img src='https://via.placeholder.com/250'/>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
+                </div>
+
+                <div class='gridFilho'>
+                    <img src='https://via.placeholder.com/250'/>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
+                </div>
+
+                <div class='gridFilho'>
+                    <img src='https://via.placeholder.com/250'/>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
+                </div>
+
+                <div class='gridFilho'>
+                    <img src='https://via.placeholder.com/250'/>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
+                </div>
+
+                <div class='gridFilho'>
+                    <img src='https://via.placeholder.com/250'/>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
+                </div>    
+            </div>";
+        ?>

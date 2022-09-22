@@ -14,8 +14,68 @@
 <body>
     <div class="main">
         <?php 
-            include('navbar.php')
-        ?>
+            #include('navbar.php')
+        ?> 
+        <div class="mudacor"></div>
+        <div class="mae">
+            <div class="imagem-grande">
+                <img src="imagens/img-grande.png" alt="Imagem de Capa">
+                <div class="txt-centro"><p>Do futuro,</p><p>Para o seu bolso.</p></div>
+            </div>
+            <div class="texto" id="txt1">
+                <p>Alguns de nossos produtos:</p>
+            </div>
+            <div class="mae-imagens" >
+                <div class="imgs-home" id="img-home-1">
+                    <img src="imagens/img1.jpg" alt="chaveiro">
+                    <div class="txt-imgs-home"><p>Chaveiro de Gladiador</p></div>
+                </div>
+                <div class="imgs-home" id="maisvendido">
+                    <img  src="imagens/img2.jpg" alt="chaveiro2">
+                    <div class="txt-imgs-home"><p>Chaveiro Chocolatinho!</p></div>
+                </div>
+                <div class="imgs-home" id="img-home-3">
+                    <img  src="imagens/img3.jpg" alt="chaveiro3">
+                    <div class="txt-imgs-home"><p>Chaveiro S2 Amor</p></div>
+                </div>
+            </div>
+            <div class="texto" id="txt2">
+                <p>Veja todos os produtos:</p>
+            </div>
+            <div class="arrow">
+                <i id="arrow" class="fa-regular fa-circle-up fa-fade"></i>
+            </div>
+            <div class="mae-video">
+                <div class="txt-video">
+                    <p>Dê uma olhada no processo de produção de nossos chaveiros:</p>
+                </div>
+                <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/fNcBXWirC8s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="fim"></div>
+        </div>
+        <div class="footer">
+                <p id="txt-footer">@KeyFriends - Todos os direitos reservados</p>
+        </div>
+    </div>
+</body>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+   <!-- <div class="main"> 
+        
 
         <div class="capa">
             <a name="topo"></a>
@@ -26,34 +86,7 @@
                 incríveis e diferentes, que podem decorar além de suas chaves, muitos outros objetos.
             </p>
         </div>
-        <?php
-            echo "<div class='grid'>
-                <div class='gridFilho'>
-                    <img src='https://via.placeholder.com/250'/>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
-                </div>
-
-                <div class='gridFilho'>
-                    <img src='https://via.placeholder.com/250'/>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
-                </div>
-
-                <div class='gridFilho'>
-                    <img src='https://via.placeholder.com/250'/>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
-                </div>
-
-                <div class='gridFilho'>
-                    <img src='https://via.placeholder.com/250'/>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
-                </div>
-
-                <div class='gridFilho'>
-                    <img src='https://via.placeholder.com/250'/>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit cum ad</p>
-                </div>    
-            </div>";
-        ?>
+        CASO QUEIRA DE VOLTA O CODIGO, COLOCAR TEXTO PRESENTE EM "ADMIN.TXT" DE VOLTA AQUI.
         <div class="verMais">
             <a id="verMais" href="produtos.php">VER MAIS PRODUTOS</a>
         </div>
