@@ -8,6 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel=stylesheet type="text/css" href="home.css">
     <title>Home | KeyFriends</title>
 </head>
@@ -23,7 +25,7 @@
                 <div class="txt-centro"><p>Do futuro,</p><p>Para o seu bolso.</p></div>
             </div>
             <div class="texto" id="txt1">
-                <p>Alguns de nossos produtos:</p>
+                <p>Confira alguns de nossos produtos:</p>
             </div>
             <div class="mae-imagens" >
                 <div class="imgs-home" id="img-home-1">
@@ -37,6 +39,10 @@
                 <div class="imgs-home" id="img-home-3">
                     <img  src="imagens/img3.jpg" alt="chaveiro3">
                     <div class="txt-imgs-home"><p>Chaveiro S2 Amor</p></div>
+                </div>
+                <div class="imgs-home" id="maisvendido">
+                    <img  src="imagens/img2.jpg" alt="chaveiro2">
+                    <div class="txt-imgs-home"><p>Chaveiro Chocolatinho!</p></div>
                 </div>
             </div>
             <div class="texto" id="txt2">
@@ -58,9 +64,10 @@
         <div class="footer">
                 <p id="txt-footer">@KeyFriends - Todos os direitos reservados</p>
         </div>
+
     </div>
 </body>
-
+</html>
 
     
 
