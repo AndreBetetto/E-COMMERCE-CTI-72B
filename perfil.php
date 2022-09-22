@@ -125,10 +125,12 @@
                     </form>
                     
                     <?php 
-                        $n = strval($_POST["num"]);
-                        $ddd = $_POST["ddd"];
-                        
-                        /*if(intval($ddd) < 0 || intval($ddd) > 999 || strlen($n) < 8 || strlen($n) > 16) {
+                    if(isset($_POST['num']) && isset($_POST['ddd'])){
+                        $n = $_POST['num'];
+                        $ddd = $_POST['ddd'];
+                        //$n = strval($_POST["num"]);
+                        //$ddd = $_POST["ddd"];
+                        if(intval($ddd) < 0 || intval($ddd) > 999 || strlen($n) < 8 || strlen($n) > 16) {
                             echo "erro, digite um numero válido";
                             exit;
                         }
@@ -146,7 +148,9 @@
                                 pg_query($conexao, $sqlAdd);
                                 header("Refresh: 0");
                             }   
-                        }*/
+                    }
+                        
+                        }
                     ?>
                    
                 <div class="infos">   
@@ -182,7 +186,7 @@
                     } else {
                         for($i = 0; $i <= $numrowend[0]; $i++) {
                             $sqlendereco = "select * from enderecosandre where id_user = $idreal and qtd = $i";
-                            $resultado_lista=pg_fetch_all($resultado, $conexao);
+                            $resultado_lista=pg_fetch_all($conexao, $resultado );
                             echo "Endereço ".$i.": ".$resultado_lista['cep'].", ".$resultado_lista['endereco'].", ".$resultado_lista['bairro']." ".$resultado_lista['cidade']." ".$resultado_lista['uf']." ".$resultado_lista['complemento']."<br>";
                         }
                     } 
@@ -204,10 +208,12 @@
                         $qtdFinal = $numVer++;
                         $sqlAdd = "insert into enderecosandre (id_user, cep, endereco, bairro, cidade, uf, complemento, qtd) values ($idreal, '$cep', '$endereco', '$bairro', '$cidade', '$uf', '$complemento', $qtdFinal)";
                         pg_query($conexao, $sqlAdd);
+                        if(isset($_POST['']))
                         header("Refresh: 0");
                     }
 
                 endif;?>
+
             
     </section>
    
@@ -215,4 +221,5 @@
 
     </footer>
 </body>
+
 </html>
