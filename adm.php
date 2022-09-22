@@ -15,7 +15,6 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
-    <!-- <link rel=stylesheet type="text/css" href="home.css"> -->
     <link rel=stylesheet type="text/css" href="adm.css">
     <title>Área do administrador | KeyFriends</title>
 </head>
@@ -55,7 +54,7 @@
             <th>Nome</th>
             <th>Email</th>
 	        <th>Data de Login</th>
-            <th>imagem</th>
+            <th>Imagem</th>
         </tr>
             <?php
             if(isset($_GET['termo'])) {

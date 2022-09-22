@@ -80,7 +80,7 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
             </div>
 
             <div>
-                <input class="btnEnviar" type="submit" value="Enviar">
+                <input class="btnEnviar" type="submit" value="Alterar">
             </div>
         </div>
     </form>

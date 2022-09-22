@@ -86,19 +86,16 @@
                 <div>
                     <label class="campos">
                         <b>Preço:</b> <?php echo "R$ ".Number_format($precoProd, 2, ',','.') ?>
-                    </label> 
-                    <label class="campos">
-                        <b><a href='addprodcar.php?id=<?php echo $linha['id']?>'>Comprar</a></b> 
-                    </label> 
+                    </label>  
                 </div>
                 
                 <div class="botoes">
                     <div class="btn">
-                        <a class="addCar" href="addprodcar.php"> Adicionar ao carrinho</a>
+                        <a class="addCar" href='addprodcar.php?id=<?php echo $idProd?>'> Adicionar ao carrinho</a>
                     </div>
 
                     <div class="btn">
-                        <a class="addCmp" href="addprodcar.php"> Comprar </a>
+                        <a class="addCmp" href='addprodcar.php?id=<?php echo $idProd?>'> Comprar </a>
                     </div>
                 </div>
                 
