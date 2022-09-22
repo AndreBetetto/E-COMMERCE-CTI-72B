@@ -137,16 +137,41 @@
                         else {
                             echo $n;
                             $ddd1 = intval($ddd);
-                            $verifica = "select qtd from telefoneandre where id_user = $idreal order by qtd desc";
-                            $ver = pg_fetch_row(pg_query($conexao, $verifica));
-                            $numVer = intval($ver[0]);
-                            if($numVer > 4) {
+                            $verifica = "select count(*) from telefoneandre where id_user = $idreal";
+                            $verifica2 = "select qtd from telefoneandre where id_user = $idreal order by qtd desc";
+
+                            $ver = pg_fetch_all(pg_query($conexao, $verifica));
+                            $ver2 = pg_fetch_all(pg_query($conexao, $verifica2));
+
+                            $numVer = intval($ver[0]['count']);
+                            
+
+                            if($numVer > 3) {
                                 echo "Numero max. de telefones cadastrados alcançados";
                             } else {
-                                $qtdFinal = $numVer++;
-                                $sqlAdd = "insert into telefoneandre (id_user, num, ddd, qtd) values ($idreal, '$n', $ddd1, $numVer)";
+                                for($i = 0; $i < 3; $i++){
+                                    if($verifica2[$i]['qtd'] == 0) {
+                                        $qtdFinal = 1;
+                                    } else if($verifica2[$i]['qtd']  == 1) {
+                                        $qtdFinal = 2;
+                                    } else if($verifica2[$i]['qtd'] == 2) {
+                                        $qtdFinal = 3;
+                                    }
+
+                                }
+                                if($qtd == 0) {
+
+                                    $qtdFinal = 1;
+                                } else if($qtd == 1) {
+                                    $qtdFinal = 2;
+                                } else if($qtd == 2) {
+                                    $qtdFinal = 3;
+                                }
+
+                                $sqlAdd = "insert into telefoneandre (id_user, num, ddd, qtd) values ($idreal, '$n', $ddd1, $qtdver)";
                                 pg_query($conexao, $sqlAdd);
                                 header("Refresh: 0");
+
                             }   
                     }
                         
@@ -208,8 +233,6 @@
                         $qtdFinal = $numVer++;
                         $sqlAdd = "insert into enderecosandre (id_user, cep, endereco, bairro, cidade, uf, complemento, qtd) values ($idreal, '$cep', '$endereco', '$bairro', '$cidade', '$uf', '$complemento', $qtdFinal)";
                         pg_query($conexao, $sqlAdd);
-                        if(isset($_POST['']))
-                        header("Refresh: 0");
                     }
 
                 endif;?>
