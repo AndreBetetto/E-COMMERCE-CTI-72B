@@ -7,7 +7,7 @@
     
 
     $email = $_SESSION['email'];
-    echo $email;
+    // echo $email;
     
     if($email == null){
         echo "Você precisa estar logado para comprar";

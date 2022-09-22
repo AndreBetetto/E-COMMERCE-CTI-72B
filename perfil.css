@@ -16,14 +16,12 @@
 
 
 .perfil{
+    font-family: Arial, Helvetica, sans-serif;
     background: #343a40;
-    width: 40vw;
-    left: 50%;
-    right: 50%;
-
     padding: 20px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.807);
+    display: block;
 }
 
 section{
@@ -31,3 +29,46 @@ section{
     justify-content: center;
     align-items: center;
 }
+
+.infosPerfil{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.infos{
+    display: block;
+}
+
+.campos{
+    display: block;
+    padding: 5px;
+    color: white;
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+.titleDB
+{
+    display: flex;
+    justify-content: center;
+    color: var(--darker-blue);
+    font-size: 30px;
+    font-family: sans-serif, Helvetica, Arial;
+    margin: 10px 0;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.save{
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #f0b342;
+}
+
+

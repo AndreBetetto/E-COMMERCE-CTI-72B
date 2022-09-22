@@ -52,6 +52,8 @@
 .campos{
     padding: 10px;
     display: block;
+    color: #fff;
+    font-weight: bold;
 }
 
 .voltar{

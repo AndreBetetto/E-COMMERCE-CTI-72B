@@ -8,15 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/css/jquery.Jcrop.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/js/jquery.Jcrop.js"></script>
-    <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
-    <script src="jquery.min.js"></script>
-    <script src="jquery.Jcrop.min.js"></script>
-
     <link rel="stylesheet" href="perfil.css">
-    <title>Perfil de usuário | KeyFriends</title>
+    <title>Perfil do usuário | KeyFriends</title>
 </head>
 <body>
     <?php 
@@ -46,14 +39,17 @@
             exit(); 
         ?>    
         <?php endif; ?>
-        
+
+        <div class="titleDB"> <p>Meu perfil<p> </div>
+
         <div class="perfil">
             <form action="upload.php" method="post" enctype="multipart/form-data">
-                <label>Insira uma imagem de perfil: <input type="file" name="fileToUpload" id="fileToUpload"></label>
-                <input type="submit" value="salvar" name="salvarS">
+                <label class="campos">Insira uma imagem de perfil: 
+                    <input class="save" type="file" name="fileToUpload" id="fileToUpload">
+                    <input class="save" type="submit" value="Salvar" name="salvarS">
+                </label>
             </form>
                 
-            
                 <?php if(file_exists($target)) : ?>
 
                     <img src="<?php echo $target; ?>" width="100" height="100"/>
@@ -67,41 +63,55 @@
                     <img src="<?php echo $target3; ?>" width="100" height="100"/>
                 <?php endif; ?>   
 
-                <?php 
-                if(file_exists($target3) == false && file_exists($target) == false && file_exists($target2) == false): ?>
-                    <img src="fotosPadrao/default.png" width="100" height="100"/> <?php endif; ?> <br><br>
-                
-                    <?php if($nome != '') : ?>
-                        <label> Nome: <?php echo $nome; ?> </label>
-                        <label> Email: <?php echo $email; ?> <label>
-                        <label>Telefone (celular):
-                            <?php
-                                $sqlID = "SELECT id from usuarioandre where login = '$email'";
+                <div class="infosPerfil">
+                    <?php 
+                    echo "<div class='imagem'>";
+                        if(file_exists($target3) == false && file_exists($target) == false && file_exists($target2) == false): ?>
+                          <img src="imagens/default.png" width="100" height="100"/> <?php endif; ?>
+                    </div>
 
-                                $ID = pg_fetch_row(pg_query($conexao, $sqlID));
-                                $idreal = $ID[0];
-                                $_SESSION['id'] = $idreal;
-                                $pegaNumSQL = "SELECT COUNT(*) as total FROM telefoneandre where id_user = $idreal";
-                                $pegaNum = pg_fetch_row(pg_query($conexao, $pegaNumSQL));
+                    <div class="infos">
+                        <?php if($nome != '') : ?>
+                            <label class="campos"> 
+                                <b>Nome:</b> <?php echo $nome; ?> 
+                            </label>
                             
-                                if(intval($pegaNum[0]) <= 0){
-                                    echo "Nenhum nÃºmero cadastrado.";
-                                }
-                                if(intval($pegaNum[0]) > 0):
-                                    for($i=1; $i <= intval($pegaNum[0]); $i++):
-                                        $sqlDDD = "select ddd from telefoneandre where id_user = $idreal and qtd = $i";
-                                        $sqlNum = "select num from telefoneandre where id_user = $idreal and qtd = $i";
-                                        $mostraDDD = pg_fetch_row(pg_query($conexao, $sqlDDD));
-                                        $mostraNum = pg_fetch_row(pg_query($conexao, $sqlNum));?>
-                                        <label> Número 
-                                            <?php echo $i.":  ".$mostraDDD[0]." ".$mostraNum[0];?> 
-                                        </label>
-                                            <form action="apaganum.php" method="POST">
-                                                <button type="submit" value="<?php echo $i; ?>" name="apagar" >apagar</button>
-                                            </form>
+                            <label class="campos"> 
+                                <b>Email:</b> <?php echo $email; ?> 
+                            <label>
+                            
+                            <label class="campos">
+                                <b>Telefone (celular): </b>
+                                <?php
+                                    $sqlID = "SELECT id from usuarioandre where login = '$email'";
 
-                                    <?php  endfor; endif; ?>                               
-                        </label> 
+                                    $ID = pg_fetch_row(pg_query($conexao, $sqlID));
+                                    $idreal = $ID[0];
+                                    $_SESSION['id'] = $idreal;
+                                    $pegaNumSQL = "SELECT COUNT(*) as total FROM telefoneandre where id_user = $idreal";
+                                    $pegaNum = pg_fetch_row(pg_query($conexao, $pegaNumSQL));
+                                
+                                    if(intval($pegaNum[0]) <= 0){
+                                        echo "Nenhum número cadastrado";
+                                    }
+                                    if(intval($pegaNum[0]) > 0):
+                                        for($i=1; $i <= intval($pegaNum[0]); $i++):
+                                            $sqlDDD = "select ddd from telefoneandre where id_user = $idreal and qtd = $i";
+                                            $sqlNum = "select num from telefoneandre where id_user = $idreal and qtd = $i";
+                                            $mostraDDD = pg_fetch_row(pg_query($conexao, $sqlDDD));
+                                            $mostraNum = pg_fetch_row(pg_query($conexao, $sqlNum));?>
+                                            <label> Número 
+                                                <?php echo $i.":  ".$mostraDDD[0]." ".$mostraNum[0];?> 
+                                            </label>
+                                                <form action="apaganum.php" method="POST">
+                                                    <button type="submit" value="<?php echo $i; ?>" name="apagar" >
+                                                        <i class="fa-solid fa-trash-can fa-1x"> </i>
+                                                    </button>
+                                                </form>
+                                        <?php  endfor; endif; ?>                               
+                            </label> 
+                    </div>
+                </div>
 
                     <form action="" method="POST">
 
@@ -109,15 +119,17 @@
                             <input type="number" id="ddd" name="ddd" placeholder="ddd"> 
                             <input type="text" id="num" name="num" placeholder="numero de telefone">
                         
-                        <input type="submit" value="add" name="Adicionar">
+                        <button type="submit" value="add" name="adicionar">
+                            <i class="fa fa-light fa-phone-plus"></i>
+                        </button>
                     </form>
                     
                     <?php 
                         $n = strval($_POST["num"]);
                         $ddd = $_POST["ddd"];
                         
-                        if(intval($ddd) < 0 || intval($ddd) > 999 || strlen($n) < 8 || strlen($n) > 16) {
-                            echo "erro, digite um numero vÃ¡lido.";
+                        /*if(intval($ddd) < 0 || intval($ddd) > 999 || strlen($n) < 8 || strlen($n) > 16) {
+                            echo "erro, digite um numero válido";
                             exit;
                         }
                         else {
@@ -127,44 +139,54 @@
                             $ver = pg_fetch_row(pg_query($conexao, $verifica));
                             $numVer = intval($ver[0]);
                             if($numVer > 4) {
-                                echo "Numero max. de telefones cadastrados alcanÃ§ado.";
+                                echo "Numero max. de telefones cadastrados alcançados";
                             } else {
                                 $qtdFinal = $numVer++;
                                 $sqlAdd = "insert into telefoneandre (id_user, num, ddd, qtd) values ($idreal, '$n', $ddd1, $numVer)";
                                 pg_query($conexao, $sqlAdd);
                                 header("Refresh: 0");
-                            }
-                            
-                        }
-                    ?> <br>
-                Telefone (celular):<br><br><br>
-                    <?php endif;
+                            }   
+                        }*/
                     ?>
                    
+                <div class="infos">   
+                    <label> Adicionar endereço: </label>
+                    <form action="" method="POST">
+                        <label class="campos">CEP: </label> 
+                            <input type="text" id="cep" name="cep" placeholder="00000-000">
+
+                        <label class="campos">Endereço: </label> 
+                            <input type="text" id="endereco" name="endereco" placeholder="Endereço"> 
+
+                        <label class="campos">Bairro: </label> 
+                            <input type="text" id="bairro" name="bairro" placeholder="Bairro"> 
+
+                        <label class="campos">Cidade: </label> 
+                            <input type="text" id="cidade" name="cidade" placeholder="Cidade"> 
+
+                        <label class="campos">UF: </label> 
+                            <input type="text" id="uf" name="uf" placeholder="UF"> 
+
+                        <label class="campos">Complemento: </label> 
+                            <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc"> 
+                        
+                        <input type="submit" value="add" name="Adicionar">
+                    </form>
+                </div>
+
                 <?php 
                     $sqlend = "select qtd from enderecosandre where id_user = $idreal";
                     $numrowend = pg_fetch_row(pg_query($conexao, $sqlend));
                     if($numrowend <= 0) {
-                        echo "Nenhum endereÃ§o cadastrado.";
+                        echo "Nenhum endereço cadastrado";
                     } else {
                         for($i = 0; $i <= $numrowend[0]; $i++) {
                             $sqlendereco = "select * from enderecosandre where id_user = $idreal and qtd = $i";
-                            $resultado_lista=pg_fetch_all($resultado);
+                            $resultado_lista=pg_fetch_all($resultado, $conexao);
                             echo "Endereço ".$i.": ".$resultado_lista['cep'].", ".$resultado_lista['endereco'].", ".$resultado_lista['bairro']." ".$resultado_lista['cidade']." ".$resultado_lista['uf']." ".$resultado_lista['complemento']."<br>";
                         }
                     } 
                 ?>
-                <br><br>
-                Adicionar endereço: <br>
-                <form action="" method="POST">
-                    <label>CEP: </label> <input type="text" id="cep" name="cep" placeholder="cep"> <br>
-                    <label>Endereço: </label> <input type="text" id="endereco" name="endereco" placeholder="endereco"> <br>
-                    <label>Bairro: </label> <input type="text" id="bairro" name="bairro" placeholder="bairro"> <br>
-                    <label>Cidade: </label> <input type="text" id="cidade" name="cidade" placeholder="cidade"> <br>
-                    <label>UF: </label> <input type="text" id="uf" name="uf" placeholder="uf"> <br>
-                    <label>Complemento: </label> <input type="text" id="complemento" name="complemento" placeholder="complemento"> <br>
-                    <input type="submit" value="add" name="Adicionar">
-                </form>
 
                 <?php
                     $cep = $_POST["cep"];
@@ -177,7 +199,7 @@
                     $ver = pg_fetch_row(pg_query($conexao, $verifica));
                     $numVer = intval($ver[0]);
                     if($numVer > 4) {
-                        echo "Numero max. de endereÃ§os cadastrados alcanÃ§ado.";
+                        echo "Número máximo de endereços cadastrados alcançado";
                     } else {
                         $qtdFinal = $numVer++;
                         $sqlAdd = "insert into enderecosandre (id_user, cep, endereco, bairro, cidade, uf, complemento, qtd) values ($idreal, '$cep', '$endereco', '$bairro', '$cidade', '$uf', '$complemento', $qtdFinal)";
@@ -185,10 +207,8 @@
                         header("Refresh: 0");
                     }
 
-                ?>
-
-
-                
+                endif;?>
+            
     </section>
    
     <footer>

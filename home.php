@@ -93,7 +93,7 @@
 
         <div class="videoLegenda">
             <div class="legenda">
-                <p>Conheça mais sobre o funcionamento de uma impressora 3D, e entenda o que tem de diferencial em nossos produtos</p>
+                <p>Conheça mais sobre o funcionamento de uma impressora 3D, e entenda o diferencial em nossos produtos</p>
             </div>
 
             <div class="video">
