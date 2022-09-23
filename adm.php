@@ -224,8 +224,8 @@
                 $sqlProdID = "select id from produtosandre where CONCAT(id, upper(titulo), upper(material), preco) LIKE '%$buscaProd%' order by id";
                 $queryProd = pg_query($conexao, $sqlProd);
 
-                if(pg_num_rows($queryProd) > 0):
-                    //for($i = 1000; $i <= pg_num_rows($queryProd)+999; $i++):
+                if(pg_num_rows($queryProd) > 0){
+                   //for($i = 1000; $i <= pg_num_rows($queryProd)+999; $i++):
                     for($i = 0; $i < pg_num_rows($queryProd); $i++):
                         $sqlsaida = pg_fetch_array(pg_query($conexao, $sqlProd), $i);
 
@@ -250,27 +250,30 @@
                             <td>" . number_format($sqlsaida['preco'], 2). "</td>
                             <td>" . $sqlsaida['estoque']. "</td>
 
-                            <td> <form action="editarprod.php" method="post"> 
-                                    <button input type="submit" name="submit" 
-                                        id="<?php echo $sqlsaida['id'];?>-submit" 
-                                            value ="<?php echo $sqlsaida['id'];?>" >
-                                    <i class="fa-solid fa-pen-to-square"></i>
+                            <td> <form action='editarprod.php' method='post'> 
+                                    <button input type='submit' name='submit' 
+                                        id='".$sqlsaida['id']."-submit' value ='".$sqlsaida['id']."<i class='fa-solid fa-pen-to-square'></i>
+                                            
+                                    
                                     </button>
                                 </form>
                             </td>
                         
 
-                            <td> <form action="excluirprod.php" method="post">
-                                    <button input type="submit" name="submit"
-                                        id="btnEx" id="<?php echo $sqlsaida['id'];?>-submit" 
-                                            value ="<?php echo $sqlsaida['id'];?>"> 
-                                        <i class="fa-solid fa-trash-can fa-1x"> </i> 
+                            <td> <form action='excluirprod.php' method='post'>
+                                    <button input type='submit' name='submit'
+                                        id='btnEx' id='".$sqlsaida['id']."-submit' value =".$sqlsaida['id']."> <i class='fa-solid fa-trash-can fa-1x'> </i> 
+                                             
+                                         
                                     </button>
                                 </form>
                             </td>
-                        </tr>
+                        </tr>"; 
+                    endfor;
+                }
+                    
                         
-                        <?php endfor; endif;
+                        
                     
                 if(pg_num_rows($queryProd) <= 0)  {
                     echo "<tr><td colspan=4>" . "No Record Found" . "</td> </tr>";

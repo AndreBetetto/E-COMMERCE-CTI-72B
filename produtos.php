@@ -69,7 +69,7 @@
                                  "<div class='desc'> <p class='item'>".$linha['estoque']." em estoque </p> </div>";
                                 echo 
                                     "<div class='desc'> 
-                                        <a class='btnCmp' href='addprodcar.php?id=".$linha['id']."'>Comprar</a> </div>";
+                                        <a class='btnCmp' href='addprodsemsair.php?id=".$linha['id']."'>Comprar</a> </div>";
                             }
                     echo "</div>";
                 }
