@@ -15,9 +15,9 @@
 </head>
 <body>
     <div class="main">
-        <?php 
-            #include('navbar.php')
-        ?> 
+        <nav class="nav">   
+
+        </nav>
         <div class="mudacor"></div>
         <div class="mae">
             <div class="imagem-grande">
@@ -62,7 +62,8 @@
             <div class="fim"></div>
         </div>
         <div class="footer">
-                <p id="txt-footer">@KeyFriends - Todos os direitos reservados</p>
+                <p id="txt-footer"> &copy 2022 KeyFriends</p>
+                <p id="txt-footer"> Todos os direitos reservados</p>
         </div>
 
     </div>
