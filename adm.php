@@ -202,8 +202,13 @@
                     if(isset($_GET['termoProd']))
                     {echo $_GET['termoProd'];}?>"> 
 
-                <button id="btnB" name="submit" type="Submit"> <i class="fa-solid fa-magnifying-glass fa-2x"></i> </button>           
-                <button id="btnL" onclick="location.href='adm.php'" type="button"> <i class="fa fa-duotone fa-circle-xmark fa-2x"></i> </button>
+                <button id="btnB" name="submit" type="Submit"> 
+                    <i class="fa-solid fa-magnifying-glass fa-2x"></i> 
+                </button>   
+
+                <button id="btnL" onclick="location.href='adm.php'" type="button"> 
+                    <i class="fa fa-duotone fa-circle-xmark fa-2x"></i> 
+                </button>
         </p>
     </form>
 
@@ -252,19 +257,16 @@
 
                             <td> <form action='editarprod.php' method='post'> 
                                     <button input type='submit' name='submit' 
-                                        id='".$sqlsaida['id']."-submit' value ='".$sqlsaida['id']."<i class='fa-solid fa-pen-to-square'></i>
-                                            
-                                    
+                                        id='".$sqlsaida['id']."-submit' 
+                                        value ='".$sqlsaida['id']."<i class='fa-solid fa-pen-to-square'></i>
                                     </button>
                                 </form>
                             </td>
-                        
 
                             <td> <form action='excluirprod.php' method='post'>
                                     <button input type='submit' name='submit'
-                                        id='btnEx' id='".$sqlsaida['id']."-submit' value =".$sqlsaida['id']."> <i class='fa-solid fa-trash-can fa-1x'> </i> 
-                                             
-                                         
+                                        id='btnEx' id='".$sqlsaida['id']."-submit' 
+                                        value =".$sqlsaida['id']."> <i class='fa-solid fa-trash-can fa-1x'> </i> 
                                     </button>
                                 </form>
                             </td>
@@ -272,12 +274,8 @@
                     endfor;
                 }
                     
-                        
-                        
-                    
                 if(pg_num_rows($queryProd) <= 0)  {
                     echo "<tr><td colspan=4>" . "No Record Found" . "</td> </tr>";
-                
                 }
             } else {
 
@@ -303,21 +301,29 @@
                     if($mostraresult['estoque'] == null) {
                         $mostraresult['estoque'] = 0;
                     }
-                    echo "<tr><td>" . $mostraresult['id'] . "</td><td>" . $mostraresult['titulo']  . "</td><td>" . $mostraresult['material'] . "</td><td>" . number_format($mostraresult['preco'], 2) . "</td><td>" . $mostraresult['estoque'] ?>  
-                        </td><td> <form action="editarprod.php" method="post"> 
-                            <button type="submit" name="submit" 
-                                id="<?php echo $mostraresult['id'];?>-submit" 
+                    echo "<tr>
+                        <td>" . $mostraresult['id']."</td>
+                        <td>" . $mostraresult['titulo']."</td>
+                        <td>" . $mostraresult['material']."</td>
+                        <td>" . number_format($mostraresult['preco'], 2)."</td>
+                        <td>" . $mostraresult['estoque'] ?> </td>
+                        <td> <form action="editarprod.php" method="post"> 
+                                <button id="btnEx" type="submit" name="submit" 
+                                    id="<?php echo $mostraresult['id'];?>-submit" 
                                     value ="<?php echo $mostraresult['id'];?>">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            </button>
-                        </form></td></tr>
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                            </form>
+                        </td>
 
-                        </td><td> <form action="excluirprod.php" method="post">
-                            <button id="btnEx" id="<?php echo $mostraresult['id'];?>-submit" 
-                                value ="<?php echo $mostraresult['id'];?>"> 
-                            <i class="fa-solid fa-trash-can fa-1x"> </i> 
-                            </button>
-                        </form></td></tr>
+                        <td> <form action="excluirprod.php" method="post">
+                                <button id="btnEx" id="<?php echo $mostraresult['id'];?>-submit" 
+                                    value ="<?php echo $mostraresult['id'];?>"> 
+                                    <i class="fa-solid fa-trash-can fa-1x"> </i> 
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
 
                     <?php endfor; ?> <?php
                 } 

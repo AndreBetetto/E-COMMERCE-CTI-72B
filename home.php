@@ -15,15 +15,18 @@
 </head>
 <body>
     <div class="main">
-        <nav class="nav">   
-
+        <nav class="nav">
+            
         </nav>
-        <div class="mudacor"></div>
-        <div class="mae">
+        <div class="comeco">
+            <div class="mudacor"></div>
             <div class="imagem-grande">
                 <img src="imagens/img-grande.png" alt="Imagem de Capa">
                 <div class="txt-centro"><p>Do futuro,</p><p>Para o seu bolso.</p></div>
             </div>
+        </div>
+
+        <div class="mae">
             <div class="texto" id="txt1">
                 <p>Confira alguns de nossos produtos:</p>
             </div>
@@ -62,8 +65,7 @@
             <div class="fim"></div>
         </div>
         <div class="footer">
-                <p id="txt-footer"> &copy 2022 KeyFriends</p>
-                <p id="txt-footer"> Todos os direitos reservados</p>
+                <p id="txt-footer">@KeyFriends - Todos os direitos reservados</p>
         </div>
 
     </div>

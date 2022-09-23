@@ -36,46 +36,45 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
             </div>
 
             <div class="itens">
-                <div>
-                    precisa arrumar a centralização, flex nao funciona 
-                    <label class="campos">ID do produto: 
-                        <input type="text" value="<?php echo $id;?>" name="id" readonly>
-                    </label>
+                <div class="txt_field">
+                    <input class="alter" type="text" value="<?php echo $id;?>" name="id" readonly>
+                    <span></span>
+                    <label class="campos">ID do produto: </label>
                 </div>
 
-                <div>
-                    <label class="campos">Titulo do produto: 
-                        <input type="text" name="titulo" placeholder="Titulo do produto..." 
+                <div class="txt_field">
+                    <input class="alter" type="text" name="titulo" placeholder="Titulo do produto..." 
                             value="<?php echo $titulo[0]; ?>" required>
-                    </label>
+                    <span></span>
+                    <label class="campos">Titulo do produto: </label> 
                 </div>
                 
-                <div>
-                    <label class="campos">Descrição do produto: 
-                        <input type="text" name="desc" placeholder="Descrição do produto..." 
+                <div class="txt_field">
+                    <input class="alter" type="textarea" rows="5" name="desc" placeholder="Descrição do produto..." 
                             value="<?php echo $desc[0]; ?>" required>
-                    </label>
+                    <span></span>
+                    <label class="campos">Descrição do produto:</label>
                 </div>
                 
-                <div>
-                    <label class="campos">Material: 
-                        <input type="text" name="material" placeholder="Material do produto..."
+                <div class="txt_field">
+                    <input class="alter" type="text" name="material" placeholder="Material do produto..."
                             value="<?php echo $material[0]; ?>" required>
-                    </label>
+                        <span></span>
+                    <label class="campos">Material: </label>
                 </div>
                 
-                <div>    
-                    <label class="campos">Preço: 
-                        <input type="number" name="preco" placeholder="Preço do produto..." min="0" step="0.01" 
-                        value="<?php echo $preco[0]; ?>" required>
-                    </label>  
+                <div class="txt_field">  
+                    <input class="alter" type="number" name="preco" placeholder="Preço do produto..." min="0" step="0.01" 
+                        value="<?php echo $preco[0]; ?>" required> 
+                    <span></span> 
+                    <label class="campos">Preço:</label>  
                 </div>
                 
-                <div>    
-                    <label class="campos">Estoque: 
-                        <input type="number" name="estoque" placeholder="Quantidade de estoque do produto..." min="0" 
-                            value="<?php echo $estoque[0]; ?>" required>
-                    </label>  
+                <div class="txt_field">  
+                    <input class="alter" type="number" name="estoque" placeholder="Quantidade de estoque do produto..." min="0" 
+                            value="<?php echo $estoque[0]; ?>" required> 
+                    <span></span> 
+                    <label class="campos">Estoque:</label>
                 </div>
             </div>
 
