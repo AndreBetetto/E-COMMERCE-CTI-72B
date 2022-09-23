@@ -144,38 +144,44 @@
                             $ver2 = pg_fetch_all(pg_query($conexao, $verifica2));
 
                             $numVer = intval($ver[0]['count']);
+
+                            $qtd = 1;
+                            if(intval($ver2[0]['qtd']) > 2){
+                                echo "Numero max. de telefones cadastrados alcançados";
+                                $passou = false;
+                                //mensagem erro
+                            } elseif(intval($ver2[0]['qtd']) == 1) {
+                                $qtd = 2;
+                                $passou = true;
+                                
+                            } elseif(intval($ver2[0]['qtd']) == null)  {$qtd = 1; $passou = true;}
+                            if($passou == true){
+                                $sqlAdd = "insert into telefoneandre (id_user, ddd, num, qtd) values ($idreal, $ddd1, '$n', $qtd)";
+                                pg_query($conexao, $sqlAdd);
+                                $passou = false;
+                            }
                             
 
-                            if($numVer > 3) {
+                            /*if($numVer > 1) {
                                 echo "Numero max. de telefones cadastrados alcançados";
                             } else {
-                                for($i = 0; $i < 3; $i++){
-                                    if($verifica2[$i]['qtd'] == 0) {
-                                        $qtdFinal = 1;
-                                    } else if($verifica2[$i]['qtd']  == 1) {
-                                        $qtdFinal = 2;
-                                    } else if($verifica2[$i]['qtd'] == 2) {
-                                        $qtdFinal = 3;
+                                
+                                if($numVer == null) {
+                                    $qtd = 1;
+                                } else {
+                                    if($numVer == 1) {
+                                        $qtd = 2;
+                                    } else {
+                                        $qtd = 1;
                                     }
-
-                                }
-                                if($qtd == 0) {
-
-                                    $qtdFinal = 1;
-                                } else if($qtd == 1) {
-                                    $qtdFinal = 2;
-                                } else if($qtd == 2) {
-                                    $qtdFinal = 3;
-                                }
-
-                                $sqlAdd = "insert into telefoneandre (id_user, num, ddd, qtd) values ($idreal, '$n', $ddd1, $qtdver)";
-                                pg_query($conexao, $sqlAdd);
+                                }*/
+                                
+                                
                                 header("Refresh: 0");
-
                             }   
                     }
                         
-                        }
+                        
                     ?>
                    
                 <div class="infos">   
@@ -211,7 +217,8 @@
                     } else {
                         for($i = 0; $i <= $numrowend[0]; $i++) {
                             $sqlendereco = "select * from enderecosandre where id_user = $idreal and qtd = $i";
-                            $resultado_lista=pg_fetch_all($conexao, $resultado );
+
+                            $resultado_lista=pg_fetch_all(pg_query($conexao, $sqlendereco));
                             echo "Endereço ".$i.": ".$resultado_lista['cep'].", ".$resultado_lista['endereco'].", ".$resultado_lista['bairro']." ".$resultado_lista['cidade']." ".$resultado_lista['uf']." ".$resultado_lista['complemento']."<br>";
                         }
                     } 
@@ -226,12 +233,12 @@
                     $complemento = $_POST["complemento"];
                     $verifica = "select qtd from enderecosandre where id_user = $idreal order by qtd desc";
                     $ver = pg_fetch_row(pg_query($conexao, $verifica));
-                    $numVer = intval($ver[0]);
-                    if($numVer > 4) {
+                    $endVer = intval($ver[0]);
+                    if($endVer > 4) {
                         echo "Número máximo de endereços cadastrados alcançado";
                     } else {
-                        $qtdFinal = $numVer++;
-                        $sqlAdd = "insert into enderecosandre (id_user, cep, endereco, bairro, cidade, uf, complemento, qtd) values ($idreal, '$cep', '$endereco', '$bairro', '$cidade', '$uf', '$complemento', $qtdFinal)";
+                        $qtdFinal = $endVer++;
+                        $sqlAdd = "insert into enderecosandre (id_user, cep, endereco, bairro, cidade, uf, complemento, qtd) values ($idreal, '$cep', '$endereco', '$bairro', '$cidade', '$uf', '$complemento', $qtdFinal) where id_user = $idreal";
                         pg_query($conexao, $sqlAdd);
                     }
 

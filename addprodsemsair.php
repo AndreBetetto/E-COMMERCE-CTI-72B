@@ -36,7 +36,7 @@ session_start();
         //header('Location: carrinho.php');
         //exit;
     }
-        header('Location: carrinho.php');
+        header('Location: produtos.php');
         exit;
     //$sql = "insert into carrinhoandre (id_produto, qtd, id_user) values ($idprod, 1, $id[0])";
     
