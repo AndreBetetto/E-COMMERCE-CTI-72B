@@ -80,9 +80,9 @@
 
                         $email = $mostrabusca['login'];
                         $email2 = str_replace('.', '_', $email);
-                        $caminho = $email2.'.jpg';
-                        $caminho2 = $email2.'.png';
-                        $caminho3 = $email2.'.jpeg';
+                        $caminho = $email2.$mostrabusca['numberphoto'].'.jpg';
+                        $caminho2 = $email2.$mostrabusca['numberphoto'].'.png';
+                        $caminho3 = $email2.$mostrabusca['numberphoto'].'.jpeg';
                         $target = "uploads/" . $caminho;
                         $target2 = "uploads/" . $caminho2;
                         $target3 = "uploads/" . $caminho3;
@@ -139,12 +139,12 @@
                         //$mostraNome = pg_fetch_row(pg_query($conexao, $sqlNome));
                         //$mostraLogin = pg_fetch_row(pg_query($conexao, $sqlLogin));
                         //$mostraHora = pg_fetch_row(pg_query($conexao, $sqlHora));
-
+                        $numberfim = $mostra['numberphoto'];
                         $email = $mostra['login'];
                         $email2 = str_replace('.', '_', $email);
-                        $caminho = $email2.'.jpg';
-                        $caminho2 = $email2.'.png';
-                        $caminho3 = $email2.'.jpeg';
+                        $caminho = $email2.$numberfim.'.jpg';
+                        $caminho2 = $email2.$numberfim.'.png';
+                        $caminho3 = $email2.$numberfim.'.jpeg';
                         $target = "uploads/" . $caminho;
                         $target2 = "uploads/" . $caminho2;
                         $target3 = "uploads/" . $caminho3;
@@ -332,34 +332,10 @@
             ?>
     </table>
 
-    <div class="titleDB"> <p>Adicione um novo produto<p> </div>
-    <form action="addproduto.php" method="post" class="form">
-
-        <p id="titulo">Titulo do produto: 
-                <input type="text" name="titulo" placeholder="Titulo do produto..." required>
-        </p>	
-
-        <p id="titulo">Descrição do produto: 
-            <input type="text" name="desc" placeholder="Descrição do produto..." required>
-        </p>
-
-        <p id="titulo">Material: 
-            <input type="text" name="material" placeholder="Material do produto..." required>
-        </p>
-
-        <p id="titulo">Preço: 
-            <input type="number" name="preco" placeholder="Preço do produto..." min="0" step="0.01" required>
-        </p>
-
-        <p id="titulo">Estoque: 
-            <input type="number" name="estoque" placeholder="Quantidade de estoque do produto..." min="0" required>
-        </p>
-
-        <p id="titulo">
-            <input type="submit" value="enviar">
-        </p>
-    </form>
-    
+    <div class="novo">
+        <input class="tx" type="button" value="Novo produto">
+        <i class="fa-solid fa-circle-plus"></i> 
+    </div>
     
     <footer>
 
