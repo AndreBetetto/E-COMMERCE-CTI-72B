@@ -185,8 +185,7 @@
         <form action="apagarConta.php" method="POST" class="form">
             <p id="titulo">Digite o ID da conta que será apagada: 
                 <input id="inputs" type="number" name="id" min="3">
-                <button id="btnEx"> <i class="fa-solid fa-trash-can fa-2x"> </i> </button>
-                <!-- <input name="submit" type="Submit" value="">  -->
+                <button id="btnExcluir"> <i class="fa-solid fa-trash-can fa-2x"> </i> </button>
             </p>
         </form>
 
@@ -332,17 +331,14 @@
             ?>
     </table>
 
-    <a href="adicionarProd.php" id="btnAdd"> 
-        <div class="novo">
-            <button class="novo" type="submit">Novo produto</button>
-            <i class="fa-solid fa-circle-plus"></i> 
-        </div> 
-    </a> 
-   
-    <div class="novo">
-        <input class="tx" type="button" value="Novo produto">
-        <i class="fa-solid fa-circle-plus"></i> 
-    </div>
+    <div>
+        <a href="adicionarProd.php" id="btnAdd"> 
+            <button class="novo" type="submit">Novo produto
+                <i class="fa-solid fa-circle-plus"></i> 
+            </button>
+            
+        </a>
+    </div> 
     
     <footer>
 
