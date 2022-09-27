@@ -14,7 +14,7 @@
             <h1 class="titulo">Adicione um novo produto</h1>
         </div>
         
-        <form action="addproduto.php" method="post" class="form">
+        <form action="addproduto.php" method="post" class="form" enctype="multipart/form-data">
             <div class="itens">
                 <div class="txt_field">
                     <input type="text" name="titulo" required>
@@ -50,8 +50,33 @@
                     <input class="btnEnviar" type="submit" value="Enviar">
                 </div>
             </div>
+            <?php  if($_SESSION['erroupload'] == true) {
+        $erro = $_SESSION['nomeerroupload'];
+        echo "<script>alert('Erro ao fazer upload da imagem! erro: $erro')</script>";
+        $_SESSION['erroupload'] = false;
+        
+    } ?>
+            </div>
+            
+                
+                    
+                    <label>Insira uma imagem do produto: <input  type="file" name="fileToUpload" id="fileToUpload" required> </label>
+                    <label for="fotonum">Escolha o numero da foto: </label>
+                    <input type="hidden" value="<?php echo $id;?>" name="id" readonly>
+<select name="fotonum" id="fotonum">
+  <option value="1">foto 1</option>
+  <option value="2">foto 2</option>
+  <option value="3">foto 3</option>
+  <option value="4">foto 4</option>
+</select>
+                    
+                    <br><br><br><br>
+                    
+                
         </form>
         </div>
+        <br><br><br><br> <!-- POR FAVOR TIRAR ESSES Brs DEPOIS, MUITO ARIGATO, ass.: André. -->
+    
 </body>
 </html>
 

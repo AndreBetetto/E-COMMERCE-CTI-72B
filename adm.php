@@ -306,16 +306,19 @@
                         <td>" . $mostraresult['material']."</td>
                         <td>" . number_format($mostraresult['preco'], 2)."</td>
                         <td>" . $mostraresult['estoque'] ?> </td>
-                        <td> <form action="editarprod.php" method="post"> 
+                        <td> 
+                           <!-- <form action="editarprod.php" method="post"> 
                                 <button id="btnEx" type="submit" name="submit" 
-                                    id="<?php echo $mostraresult['id'];?>-submit" 
-                                    value ="<?php echo $mostraresult['id'];?>">
+                                    id="<?php //echo $mostraresult['id'];?>-submit" 
+                                    value ="<?php //echo $mostraresult['id'];?>">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
-                            </form>
+                            </form> -->
+                           <a href=editarprod.php?id=<?php echo $mostraresult['id']; ?>><i class="fa-solid fa-pen-to-square"></i></a> 
                         </td>
 
                         <td> <form action="excluirprod.php" method="post">
+                                <input type="hidden" value="<?php echo $mostraresult['id']; ?>" name="id">
                                 <button id="btnEx" id="<?php echo $mostraresult['id'];?>-submit" 
                                     value ="<?php echo $mostraresult['id'];?>"> 
                                     <i class="fa-solid fa-trash-can fa-1x"> </i> 
@@ -342,6 +345,9 @@
     
     <footer>
 
+    </footer>
+</body>
+</html>
     </footer>
 </body>
 </html>
