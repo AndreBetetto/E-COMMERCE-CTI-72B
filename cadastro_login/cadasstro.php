@@ -43,6 +43,19 @@ session_start();
                   <span></span>
                   <label>Nome</label>
               </div>
+
+              <div class="txt_field">
+                  <input type="text" name="cpf" required>
+                  <span></span>
+                  <label>CPF</label>
+              </div>
+
+              <div class="txt_field">
+                  <input type="text" name="tel" required>
+                  <span></span>
+                  <label>Telefone</label>
+              </div>
+
               <div class="txt_field">
                   <input type="email" name="email" required>
                   <span></span>

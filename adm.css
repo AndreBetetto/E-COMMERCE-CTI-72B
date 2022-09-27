@@ -110,3 +110,22 @@
     width: 100%;
     padding: 10px 0;
 }
+
+.novo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw;
+    font-family: 'Helvetica';
+    color: var(--darker-grey);
+}
+
+#btnAdd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 1vw;
+  font-size: 1.5vw;
+  color: var(--yellow);
+}

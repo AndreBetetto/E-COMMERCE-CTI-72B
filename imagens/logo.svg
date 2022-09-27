@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="350mm"
+   height="120mm"
+   viewBox="0 0 350 120"
+   version="1.1"
+   id="svg353"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview355"
+     pagecolor="#ffffff"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#ffffff"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:lockguides="true"
+     showborder="true"
+     inkscape:zoom="0.52724989"
+     inkscape:cx="715.03097"
+     inkscape:cy="297.77152"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs350" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g16941"
+       transform="matrix(1.968044,0,0,1.968044,-92.154775,-143.70671)">
+      <path
+         id="rect586"
+         style="fill:#ebe0bd;fill-opacity:1;stroke-width:4.9124"
+         d="m 57.135274,87.911296 h 7.451611 l -0.0422,12.951494 -1.78778,3.81534 1.767837,2.30585 -0.03729,11.44537 -1.12109,4.52226 1.220523,3.72582 -3.27614,4.43548 h -4.175471 z"
+         sodipodi:nodetypes="ccccccccccc" />
+      <path
+         id="path1295"
+         style="fill:#ebe0bd;fill-opacity:1;stroke-width:10"
+         inkscape:transform-center-x="-0.0062448441"
+         inkscape:transform-center-y="-1.1513386"
+         d="m 60.874837,73.751571 -11.539864,8.355045 4.380095,13.557312 14.246675,0.02377 4.42557,-13.542325 z m -0.01395,3.603397 a 1.8629032,1.8629032 0 0 1 1.862935,1.862936 1.8629032,1.8629032 0 0 1 -1.862935,1.862935 1.8629032,1.8629032 0 0 1 -1.862936,-1.862935 1.8629032,1.8629032 0 0 1 1.862936,-1.862936 z" />
+      <rect
+         style="fill:#ebe0bd;fill-opacity:1;stroke-width:7.57699"
+         id="rect1350"
+         width="30.523479"
+         height="8.1620665"
+         x="-42.749207"
+         y="115.90863"
+         transform="matrix(0.58226026,-0.81300246,0.79488914,0.60675469,0,0)" />
+      <circle
+         style="fill:none;fill-opacity:1;stroke:#ebe0bd;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+         id="path14777"
+         cx="66.887093"
+         cy="104.67743"
+         r="7.0080643" />
+      <rect
+         style="fill:#ebe0bd;fill-opacity:1;stroke:none;stroke-width:2.11066;stroke-dasharray:none;stroke-opacity:1"
+         id="rect15303"
+         width="28.87516"
+         height="7.223865"
+         x="127.96583"
+         y="16.02441"
+         transform="matrix(0.66630504,0.74567929,-0.7531727,0.65782283,0,0)" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:65.9362px;font-family:Lato;-inkscape-font-specification:'Lato Bold';fill:#ebe0bd;fill-opacity:1;stroke:#ebe0bd;stroke-width:2.14835;stroke-dasharray:none;stroke-opacity:1"
+       x="74.728401"
+       y="92.086128"
+       id="text16934"><tspan
+         sodipodi:role="line"
+         id="tspan16932"
+         style="stroke-width:2.14835"
+         x="74.728401"
+         y="92.086128">eyfriends</tspan></text>
+  </g>
+</svg>

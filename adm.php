@@ -332,35 +332,13 @@
             ?>
     </table>
 
-    <div class="titleDB"> <p>Adicione um novo produto<p> </div>
-    <form action="addproduto.php" method="post" class="form">
-
-        <p id="titulo">Titulo do produto: 
-                <input type="text" name="titulo" placeholder="Titulo do produto..." required>
-        </p>	
-
-        <p id="titulo">Descrição do produto: 
-            <input type="text" name="desc" placeholder="Descrição do produto..." required>
-        </p>
-
-        <p id="titulo">Material: 
-            <input type="text" name="material" placeholder="Material do produto..." required>
-        </p>
-
-        <p id="titulo">Preço: 
-            <input type="number" name="preco" placeholder="Preço do produto..." min="0" step="0.01" required>
-        </p>
-
-        <p id="titulo">Estoque: 
-            <input type="number" name="estoque" placeholder="Quantidade de estoque do produto..." min="0" required>
-        </p>
-
-        <p id="titulo">
-            <input type="submit" value="enviar">
-        </p>
-    </form>
-    
-    
+    <a href="adicionarProd.php" id="btnAdd"> 
+        <div class="novo">
+            <button class="novo" type="submit">Novo produto</button>
+            <i class="fa-solid fa-circle-plus"></i> 
+        </div> 
+    </a> 
+   
     <footer>
 
     </footer>
