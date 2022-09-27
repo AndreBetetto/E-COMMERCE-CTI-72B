@@ -141,10 +141,10 @@
                         //$mostraHora = pg_fetch_row(pg_query($conexao, $sqlHora));
                         $numberfim = $mostra['numberphoto'];
                         $email = $mostra['login'];
-                        $email2 = str_replace('.', '_', $email);
-                        $caminho = $email2.$numberfim.'.jpg';
-                        $caminho2 = $email2.$numberfim.'.png';
-                        $caminho3 = $email2.$numberfim.'.jpeg';
+                        $email21 = str_replace('.', '_', $email);
+                        $caminho = $email21.$numberfim.'.jpg';
+                        $caminho2 = $email21.$numberfim.'.png';
+                        $caminho3 = $email21.$numberfim.'.jpeg';
                         $target = "uploads/" . $caminho;
                         $target2 = "uploads/" . $caminho2;
                         $target3 = "uploads/" . $caminho3;

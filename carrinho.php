@@ -70,6 +70,7 @@
 
             //echo "<tr><td>" . $titulo . "</td><td>" . $qtd . "</td><td>" . $preco . "</td><td>" . $mini_desc . "</td><td>". $teste ."</td></tr>";
             $precoTot = $sqlmostra['preco']* $carrinho['qtd'];
+            
             echo "<tr>
                 <td>" . $sqlmostra['titulo'] . "</td>
 

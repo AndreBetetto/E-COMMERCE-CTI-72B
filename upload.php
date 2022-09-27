@@ -6,11 +6,15 @@
     header('Location: home.php');
     exit;
   }
- 
+  
+  $emailnormal = $_SESSION['email'];
+  $sqlnumberfim = "select numberphoto from usuarioandre where login = '$emailnormal'";
+  $resultnumberfim = pg_query($conexao, $sqlnumberfim);
+  $rownumberfim = pg_fetch_array($resultnumberfim);
 
-  $str1 = $target_dir . $email .  $_SESSION['numberfim']. ".png";
-  $str2 = $target_dir . $email .  $_SESSION['numberfim']. ".jpg";
-  $str3 = $target_dir . $email .  $_SESSION['numberfim']. ".jpeg";
+  $str1 = $target_dir . $email .  $rownumberfim. ".png";
+  $str2 = $target_dir . $email .  $rownumberfim. ".jpg";
+  $str3 = $target_dir . $email .  $rownumberfim. ".jpeg";
 
   rename('uploads/'.$str1, 'uploads/lixo/'.$str1);
   rename('uploads/'.$str2, 'uploads/lixo/'.$str2);
@@ -28,7 +32,7 @@ if(unlink($target_dir . $email .  $_SESSION['numberfim'].".jpg")) {
   echo "Arquivo deletado com sucesso";
 }
 
-$number1 = rand(1, 100);
+  $number1 = rand(1, 100);
   $number2 = rand(1, 100);
   $number3 = rand(1, 100);
 

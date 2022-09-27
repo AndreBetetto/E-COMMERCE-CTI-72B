@@ -39,10 +39,34 @@
             echo "<div class='grid'>";
                 foreach($resultado_lista as $linha)
                 {
+                    //$id = $linha['id'];
+                    //$sqlimg = "select numberphoto from produtosandre where id_prod = $id";
+                    //$numimg = pg_fetch_assoc(pg_query($conexao, $sqlimg));
+
+
+                    $caminho = $linha['id'].  $linha['numberphoto'].'.jpg';
+                    $caminho2 = $linha['id']. $linha['numberphoto'].'.png';
+                    $caminho3 = $linha['id']. $linha['numberphoto'].'.jpeg';
+
+                    $target  = "produtosimagem/" . $caminho;
+                    $target2 = "produtosimagem/" . $caminho2;
+                    $target3 = "produtosimagem/" . $caminho3;
+
+                    if(file_exists($target)) {
+                        $img = "<img src='$target' width='250' height='250'/>";
+                    } elseif(file_exists($target2)){
+                        $img = "<img src='$target2' width='250' height='250'/>";
+                    } elseif(file_exists($target3)){
+                        $img = "<img src='$target3' width='250' height='250'/>";
+                    } else {
+                        $img = "<img src='produtosimagem/default.png' width='250' height='250'/>";
+                    } 
+
                     $precoProd = Number_format($linha['preco'], 2, ',','.');
+                    //<img src='https://via.placeholder.com/250'/>
                     echo "<div class='itens'> 
                         <a href='detalhes.php?id=".$linha['id']."'>
-                            <img src='https://via.placeholder.com/250'/>
+                            $img;
                         </a>
 
                         <div class='desc'> 

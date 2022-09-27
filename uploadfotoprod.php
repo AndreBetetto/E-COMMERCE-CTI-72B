@@ -42,7 +42,7 @@ $number1 = rand(1, 100);
 $filename   = $idprod; // 5dab1961e93a7-1571494241
 $extension  = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); // jpg
 $basename   = $filename .  $numberfim. "." . $extension; // 5dab1961e93a7_1571494241.jpg
-$source       = $_FILES["fileToUpload"]["tmp_name"];
+$source       = $_FILES["fileToUploadprod"]["tmp_name"];
 $_SESSION['pathimagem'] = $basename;
 $destination  = $target_dir . "{$basename}";
 
@@ -103,7 +103,7 @@ if ($uploadOk == 0) {
   }
 }
 
-header('Location: perfil.php');
+header('Location: editarprod.php');
 exit;
 
 ?>
