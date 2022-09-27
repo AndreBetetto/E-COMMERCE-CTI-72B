@@ -1,6 +1,12 @@
 <?php
     session_start();
     include('conexao.php');
+    //header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    //header("Cache-Control: post-check=0, pre-check=0", false);  
+    //header("Cache-control: no-cache");
+    header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+    //header('http://projetoscti.com.br/projetoscti20/site/adm.php?nocache=987654321')
 ?>
 
 <!DOCTYPE html>
@@ -21,12 +27,13 @@
                 $nome = $_SESSION['name'];
                 $email = $_SESSION['email'];
                 $nome = $_SESSION['name'];
+                $nfim = $_SESSION['numberfim'];
 
                 $email2 = str_replace('.', '_', $email);
 
-                $caminho = $email2.'.jpg';
-                $caminho2 = $email2.'.png';
-                $caminho3 = $email2.'.jpeg';
+                $caminho = $email2.  $nfim.'.jpg';
+                $caminho2 = $email2. $nfim.'.png';
+                $caminho3 = $email2. $nfim.'.jpeg';
 
                 $target = "uploads/" . $caminho;
                 $target2 = "uploads/" . $caminho2;

@@ -3,7 +3,7 @@ include ('conexao.php');
 session_start();
 
 $id = intval($_POST['submit']);
-
+$_SESSION['idtemp'] = $id;
 $sqltitulo = "select titulo from produtosandre where id = $id";
 $titulo = pg_fetch_row(pg_query($conexao, $sqltitulo));
 $sqldesc = "select descricao from produtosandre where id = $id";
@@ -76,13 +76,26 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
                     <span></span> 
                     <label class="campos">Estoque:</label>
                 </div>
-            </div>
+
+    
 
             <div>
                 <input class="btnEnviar" type="submit" value="Alterar">
             </div>
         </div>
     </form>
-    
+    <br><br><br><br> <!-- POR FAVOR TIRAR ESSES Brs DEPOIS, MUITO ARIGATO, ass.: André. -->
+    <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
+                <div class="txt_field">  
+                    
+                    <label>Insira uma imagem do produto: <input  type="file" name="fileToUploadprod" id="fileToUploadprod"> </label>
+                    <input type="submit" value="Salvarfotoprod" name="salvarSProd">
+                    <br><br><br><br>
+                    
+                </div>
+                </form>
+                    
+            </div>
 </body>
 </html>
+

@@ -80,9 +80,9 @@
 
                         $email = $mostrabusca['login'];
                         $email2 = str_replace('.', '_', $email);
-                        $caminho = $email2.'.jpg';
-                        $caminho2 = $email2.'.png';
-                        $caminho3 = $email2.'.jpeg';
+                        $caminho = $email2.$mostrabusca['numberphoto'].'.jpg';
+                        $caminho2 = $email2.$mostrabusca['numberphoto'].'.png';
+                        $caminho3 = $email2.$mostrabusca['numberphoto'].'.jpeg';
                         $target = "uploads/" . $caminho;
                         $target2 = "uploads/" . $caminho2;
                         $target3 = "uploads/" . $caminho3;
@@ -139,12 +139,12 @@
                         //$mostraNome = pg_fetch_row(pg_query($conexao, $sqlNome));
                         //$mostraLogin = pg_fetch_row(pg_query($conexao, $sqlLogin));
                         //$mostraHora = pg_fetch_row(pg_query($conexao, $sqlHora));
-
+                        $numberfim = $mostra['numberphoto'];
                         $email = $mostra['login'];
                         $email2 = str_replace('.', '_', $email);
-                        $caminho = $email2.'.jpg';
-                        $caminho2 = $email2.'.png';
-                        $caminho3 = $email2.'.jpeg';
+                        $caminho = $email2.$numberfim.'.jpg';
+                        $caminho2 = $email2.$numberfim.'.png';
+                        $caminho3 = $email2.$numberfim.'.jpeg';
                         $target = "uploads/" . $caminho;
                         $target2 = "uploads/" . $caminho2;
                         $target3 = "uploads/" . $caminho3;
@@ -332,6 +332,7 @@
             ?>
     </table>
 
+<<<<<<< HEAD
     <a href="adicionarProd.php" id="btnAdd"> 
         <div class="novo">
             <button class="novo" type="submit">Novo produto</button>
@@ -339,6 +340,13 @@
         </div> 
     </a> 
    
+=======
+    <div class="novo">
+        <input class="tx" type="button" value="Novo produto">
+        <i class="fa-solid fa-circle-plus"></i> 
+    </div>
+    
+>>>>>>> ae0be604d1e88586f884f2f9af0e172517859899
     <footer>
 
     </footer>

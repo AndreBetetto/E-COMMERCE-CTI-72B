@@ -40,7 +40,7 @@
         </tr>
 
         <?php
-
+        $valortotal = 0;
         for($i = 0; $i < $contagem[0]; $i++)
         {
             $sqlCarrinho = "select * from carrinhoandre where id_user = $id order by id_produto";
@@ -48,7 +48,11 @@
             $carrinho = pg_fetch_assoc($queryCarrinho, $i);
             $carrinhoID = intval($carrinho['id_produto']);
 
-
+            $contador = "select count(*) from carrinhoandre where id_produto = $carrinhoID";
+            $numcont = pg_fetch_row(pg_query($conexao, $contador));
+            if($numcont == 0) {
+                echo "<tr><td colspan='4'>Nenhum produto no carrinho</td></tr>";
+            }
             $sqlpega = "select * from produtosandre where id = $carrinhoID order by id";
             $sqlmostra = pg_fetch_assoc(pg_query($conexao, $sqlpega));
             //$resultado_lista=pg_fetch_row($sqlProd);
@@ -90,8 +94,10 @@
                 </td>
                 <td> R$ ". Number_format($precoTot, 2, ',','.') ."</td>
             </tr>";
+            $valortotal = $valortotal + ($sqlmostra['preco'] * $carrinho['qtd']);
         }
-
+        echo "<tr><td colspan='4'> Preço total da compra: R$ ". Number_format($valortotal, 2, ',','.') ."</td></tr>";
         ?>
+    </table>
 </body>
 </html>
