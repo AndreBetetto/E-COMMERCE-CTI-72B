@@ -48,7 +48,11 @@
             $carrinho = pg_fetch_assoc($queryCarrinho, $i);
             $carrinhoID = intval($carrinho['id_produto']);
 
-
+            $contador = "select count(*) from carrinhoandre where id_produto = $carrinhoID";
+            $numcont = pg_fetch_row(pg_query($conexao, $contador));
+            if($numcont == 0) {
+                echo "<tr><td colspan='4'>Nenhum produto no carrinho</td></tr>";
+            }
             $sqlpega = "select * from produtosandre where id = $carrinhoID order by id";
             $sqlmostra = pg_fetch_assoc(pg_query($conexao, $sqlpega));
             //$resultado_lista=pg_fetch_row($sqlProd);
