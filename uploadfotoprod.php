@@ -7,10 +7,11 @@
     exit;
   }
   $idprod = $_SESSION['idtemp'];
-
-  $str1 = $target_dir . $idprod .  $_SESSION['numberprod'] . ".png";
-  $str2 = $target_dir . $idprod .  $_SESSION['numberprod'] . ".jpg";
-  $str3 = $target_dir . $idprod .  $_SESSION['numberprod'] . ".jpeg";
+  $numimagem = $_POST['fotonum'];
+  
+  $str1 = $target_dir . $idprod .  $numimagem . ".png";
+  $str2 = $target_dir . $idprod .  $numimagem . ".jpg";
+  $str3 = $target_dir . $idprod .  $numimagem . ".jpeg";
 
   rename('produtosimagem/'.$str1, 'produtosimagem/lixo/'.$str1);
   rename('produtosimagem/'.$str2, 'produtosimagem/lixo/'.$str2);
@@ -20,29 +21,22 @@
 
 $target_dir = "produtosimagem/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-if(unlink($target_dir . $idprod .  $_SESSION['numberprod'].".jpg")) {
+if(unlink($target_dir . $idprod .  $numimagem.".jpg")) {
   echo "Arquivo deletado com sucesso";
-} elseif(unlink($target_dir . $idprod .  $_SESSION['numberprod'].".png")) {
+} elseif(unlink($target_dir . $idprod .  $numimagem.".png")) {
   echo "Arquivo deletado com sucesso";
-} elseif(unlink($target_dir . $idprod .  $_SESSION['numberprod'].".jpeg")) {
+} elseif(unlink($target_dir . $idprod .  $numimagem.".jpeg")) {
   echo "Arquivo deletado com sucesso";
 }
 
-$number1 = rand(1, 100);
-  $number2 = rand(1, 100);
-  $number3 = rand(1, 100);
-
-  $numberfim = $number1 . $number2 . $number3;
-  $_SESSION['numberprod'] = $numberfim;
-
   $email2 = $_SESSION['email'];
-  $sqlnum = "update produtosandre set numberphoto = '$numberfim' where id = '$idprod'";
+  $sqlnum = "update produtosandre set numberphoto = '$numimagem' where id = '$idprod'";
   pg_query($conexao, $sqlnum);
 
 $filename   = $idprod; // 5dab1961e93a7-1571494241
 $extension  = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); // jpg
 $basename   = $filename .  $numberfim. "." . $extension; // 5dab1961e93a7_1571494241.jpg
-$source       = $_FILES["fileToUploadprod"]["tmp_name"];
+$source       = $_FILES["fileToUpload"]["tmp_name"];
 $_SESSION['pathimagem'] = $basename;
 $destination  = $target_dir . "{$basename}";
 
