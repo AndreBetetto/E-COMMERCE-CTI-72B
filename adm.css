@@ -81,20 +81,20 @@
   border-radius: 3px;
 }
 
-#btnB{
-  background: none;
-  border: none;
-  margin: 0px 5px;
-}
-
-#btnL{
+#btnB, #btnL{
   background: none;
   border: none;
   margin: 0px 5px;
 }
 
 #btnEx{
-  background-color: transparent;
+  background: none;
+  border: none;
+  color: white;
+}
+
+#btnExcluir{
+  background: none;
   border: none;
 }
 
@@ -109,4 +109,33 @@
     font-weight: bold;
     width: 100%;
     padding: 10px 0;
+}
+
+.novo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3vw;
+    font-family: 'Helvetica';
+    color: var(--darker-grey);
+    padding: 10px;
+    margin: 5px;
+    border: 1px;
+    border-radius: 10px;
+    background-color: rgba(92, 180, 92, 0.704);
+    border-color: rgb(0, 101, 0);
+}
+
+#btnAdd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 2vw;
+  text-decoration: none;
+  color: var(--yellow);
+}
+
+.fa-solid {
+  margin-left: 10px;
 }

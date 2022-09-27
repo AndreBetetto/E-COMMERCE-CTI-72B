@@ -41,8 +41,8 @@
 
 .itens{
     padding: 15px;
-    margin: 5px;
-    width: auto;
+    margin: 5px auto;
+    width: 35vw;
     border: 2px inset;
     border-radius: 10px;
     /* display: flex;
