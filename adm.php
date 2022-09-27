@@ -332,7 +332,6 @@
             ?>
     </table>
 
-<<<<<<< HEAD
     <a href="adicionarProd.php" id="btnAdd"> 
         <div class="novo">
             <button class="novo" type="submit">Novo produto</button>
@@ -340,13 +339,11 @@
         </div> 
     </a> 
    
-=======
     <div class="novo">
         <input class="tx" type="button" value="Novo produto">
         <i class="fa-solid fa-circle-plus"></i> 
     </div>
     
->>>>>>> ae0be604d1e88586f884f2f9af0e172517859899
     <footer>
 
     </footer>
