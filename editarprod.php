@@ -85,15 +85,16 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
         </div>
     </form>
     <br><br><br><br> <!-- POR FAVOR TIRAR ESSES Brs DEPOIS, MUITO ARIGATO, ass.: André. -->
-
+    <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
                 <div class="txt_field">  
-                    <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
-                    <label>Insira uma imagem do produto: <input  type="file" name="fileToUpload" id="fileToUpload"> </label>
-                    <input type="submit" value="Salvar" name="salvarS">
+                    
+                    <label>Insira uma imagem do produto: <input  type="file" name="fileToUploadprod" id="fileToUploadprod"> </label>
+                    <input type="submit" value="Salvarfotoprod" name="salvarSProd">
                     <br><br><br><br>
-                    </form>
                     
                 </div>
+                </form>
+                    
             </div>
 </body>
 </html>

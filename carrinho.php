@@ -40,7 +40,7 @@
         </tr>
 
         <?php
-
+        $valortotal = 0;
         for($i = 0; $i < $contagem[0]; $i++)
         {
             $sqlCarrinho = "select * from carrinhoandre where id_user = $id order by id_produto";
@@ -94,8 +94,10 @@
                 </td>
                 <td> R$ ". Number_format($precoTot, 2, ',','.') ."</td>
             </tr>";
+            $valortotal = $valortotal + ($sqlmostra['preco'] * $carrinho['qtd']);
         }
-
+        echo "<tr><td colspan='4'> Preço total da compra: R$ ". Number_format($valortotal, 2, ',','.') ."</td></tr>";
         ?>
+    </table>
 </body>
 </html>
