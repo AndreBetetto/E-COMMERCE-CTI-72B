@@ -5,7 +5,7 @@
 
     $idprod = substr($idget, -4); // id do produto
     $email = $_SESSION['email'];
-    
+
 ?>
 
 <!DOCTYPE html>
@@ -15,10 +15,11 @@
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="detalhes.css">
     <title>Home | KeyFriends</title>
+    
 </head>
 <body>
     <div class="main">
-        <?php 
+        <?php
             include('navbar.php')
         ?>
         <?php
@@ -32,25 +33,86 @@
             $material = $row['material'];
             $precoProd = $row['preco'];
             $estoque = $row['estoque'];
+            //header("Location: detalhes.php?id=$idprod");
+    
+
         ?>
         
-        <div class="titulo"> 
+
+        <div class="titulo">
             <h3> <?php echo $tituloProd ?></h3>
         </div>
 
         <div class="detalhes">
 
             <div class="imagem">
-                <img src='https://via.placeholder.com/400'/>
+                <a href="detalhes.php?id=<?php echo $num; ?>,num=<?php  echo $idprod; ?>" >baixar</a>
+                
+            <?php
+            function golink($idprod, $num){
+                $idprod = $idprod;
+                if($num == 4){
+                    $num = 1;
+                } else {
+                    $num++;
+                }
+                
+            }
+                $num = 1;
+
+
+
+                    //$caminho = $idProd.  $row['numberphoto'].'.jpg';
+                    //$caminho2 = $idProd. $row['numberphoto'].'.png';
+                    //$caminho3 = $idProd. $row['numberphoto'].'.jpeg';
+
+                    $caminho =  $idProd. $num.'.jpg';
+                    $caminho2 = $idProd. $num.'.png';
+                    $caminho3 = $idProd. $num.'.jpeg';
+
+                    $target  = "produtosimagem/" . $caminho;
+                    $target2 = "produtosimagem/" . $caminho2;
+                    $target3 = "produtosimagem/" . $caminho3;
+
+                    
+                    //
+                    // OBSERVAÇÃO: -----------
+                    // O PRODUTO PODE TER ATÉ 4 IMAGENS DIFERENTES, CASO QUEIRA APRESENTAR UMA DELAS USE O CÓDIGO ABAIXO:
+                    // $caminho = $linha['id'].  4 .'.jpg'; --> Apresenta a imagem 4 do produto
+                    // $caminho = $linha['id'].  4 .'.png'; --> Apresenta a imagem 4 do produto se for png.
+                    // $caminho = $linha['id'].  4 .'.jpeg'; --> Apresenta a imagem 4 do produto se for jpeg.
+                    //
+                    // $caminho = $linha['id'].  3 .'.jpg'; --> Apresenta a imagem 3 do produto
+                    // $caminho = $linha['id'].  2 .'.jpg'; --> Apresenta a imagem 2 do produto
+                    // $caminho = $linha['id'].  1 .'.jpg'; --> Apresenta a imagem 1 do produto
+                    //
+
+                    if(file_exists($target)) {
+                        $img = "<img src='$target' width='400' height='400'/>";
+                    } elseif(file_exists($target2)){
+                        $img = "<img src='$target2' width='400' height='400'/>";
+                    } elseif(file_exists($target3)){
+                        $img = "<img src='$target3' width='400' height='400'/>";
+                    } else {
+                        $img = "<img src='produtosimagem/default.png' width='400' height='400'/>";
+                    }
+
+                ?>
+
+                <!--<img src='https://via.placeholder.com/400'/>-->
+                <?php echo $img ?>
+
+                <br>
+
             </div>
 
             <div class="itens">
                 <div>
                     <label class="campos">
                         <b>ID do produto:</b> <?php echo $idProd ?>
-                    </label> 
+                    </label>
                 </div>
-                
+
                 <div>
                     <label class="campos">
                         <b>Título:</b> <?php echo $tituloProd ?>
@@ -74,19 +136,19 @@
                         <b>Estoque:</b>
                             <?php
                                 if(strval($estoque) <= 0)  {
-                                    echo "Produto indisponível<br>"; 
+                                    echo "Produto indisponível<br>";
                                     echo "<a href='#'>Avise-me quando chegar</a>";
                                 }else {
                                     echo $estoque." produtos em estoque";
-                                }   
-                            ?> 
+                                }
+                            ?>
                     </label>
                 </div>
 
                 <div>
                     <label class="campos">
                         <b>Preço:</b> <?php echo "R$ ".Number_format($precoProd, 2, ',','.') ?>
-                    </label>  
+                    </label>
                 </div>
 
                 <div class="estrelas">
@@ -96,7 +158,7 @@
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                 </div>
-                
+
                 <div class="botoes">
                     <div class="btn">
                         <a class="addCar" href='addprodcar.php?id=<?php echo $idProd?>'>
@@ -108,17 +170,17 @@
                         <a class="addCmp" href='addprodcar.php?id=<?php echo $idProd?>'> Comprar </a>
                     </div>
                 </div>
-                
+
             </div>
         </div>
-            
-           
+
+
 
 
         <footer>
             <div>
-                <a href="#topo" class="voltar"> <i class="fa-regular fa-circle-up fa-2x"></i> 
-                </a> 
+                <a href="#topo" class="voltar"> <i class="fa-regular fa-circle-up fa-2x"></i>
+                </a>
             </div>
         </footer>
     </div>
