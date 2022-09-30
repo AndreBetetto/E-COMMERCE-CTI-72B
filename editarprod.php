@@ -37,41 +37,42 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
 
             <div class="itens">
                 <div class="txt_field">
-                    <input class="alter" type="text" value="<?php echo $id;?>" name="id" readonly>
+                    <input class="alter" type="text" name="id" 
+                            value="<?php echo $id; ?>" readonly>
                     <span></span>
                     <label class="campos">ID do produto: </label>
                 </div>
 
                 <div class="txt_field">
-                    <input class="alter" type="text" name="titulo" placeholder="Titulo do produto..." 
+                    <input class="alter" type="text" name="titulo" 
                             value="<?php echo $titulo[0]; ?>" required>
                     <span></span>
                     <label class="campos">Titulo do produto: </label> 
                 </div>
                 
                 <div class="txt_field">
-                    <input class="alter" type="textarea" rows="5" name="desc" placeholder="Descrição do produto..." 
+                    <input class="alter" type="textarea" rows="5" name="desc" 
                             value="<?php echo $desc[0]; ?>" required>
                     <span></span>
                     <label class="campos">Descrição do produto:</label>
                 </div>
                 
                 <div class="txt_field">
-                    <input class="alter" type="text" name="material" placeholder="Material do produto..."
+                    <input class="alter" type="text" name="material" 
                             value="<?php echo $material[0]; ?>" required>
                         <span></span>
                     <label class="campos">Material: </label>
                 </div>
                 
                 <div class="txt_field">  
-                    <input class="alter" type="number" name="preco" placeholder="Preço do produto..." min="0" step="0.01" 
+                    <input class="alter" type="number" name="preco" min="0" step="0.01" 
                         value="<?php echo $preco[0]; ?>" required> 
                     <span></span> 
                     <label class="campos">Preço:</label>  
                 </div>
                 
                 <div class="txt_field">  
-                    <input class="alter" type="number" name="estoque" placeholder="Quantidade de estoque do produto..." min="0" 
+                    <input class="alter" type="number" name="estoque" min="0" 
                             value="<?php echo $estoque[0]; ?>" required> 
                     <span></span> 
                     <label class="campos">Estoque:</label>
