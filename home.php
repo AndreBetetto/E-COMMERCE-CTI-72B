@@ -36,7 +36,7 @@
                 <img class="logo" src="imagens/logo.svg" alt="logo">
 
                     <form action="#" class="search">
-                        <!-- <input id="input" type="text" name="search" placeholder="Pesquisar um produto..."><br><br> -->
+                        <input id="input" type="text" name="search" placeholder="Pesquisar um produto...">
                         <i id="nav-icon" class="fa-solid fa-magnifying-glass fa-2x"></i>
                         <input id="submit" type="submit" value="Submit" >
                     </form> 
