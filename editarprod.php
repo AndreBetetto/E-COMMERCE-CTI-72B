@@ -2,7 +2,10 @@
 include ('conexao.php');
 session_start();
 
-$id = intval($_POST['submit']);
+$idget = $_GET['id'];
+$idprod = substr($idget, -4);
+
+$id = intval($idprod);
 $_SESSION['idtemp'] = $id;
 $sqltitulo = "select titulo from produtosandre where id = $id";
 $titulo = pg_fetch_row(pg_query($conexao, $sqltitulo));
@@ -86,17 +89,30 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
         </div>
     </form>
     <br><br><br><br> <!-- POR FAVOR TIRAR ESSES Brs DEPOIS, MUITO ARIGATO, ass.: André. -->
-    <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
-                <div class="txt_field">  
+    <?php  if($_SESSION['erroupload'] == true) {
+        $erro = $_SESSION['nomeerroupload'];
+        echo "<script>alert('Erro ao fazer upload da imagem! erro: $erro')</script>";
+        $_SESSION['erroupload'] = false;
+        
+    } ?>
+            </div>
+            <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
+                
                     
-                    <label>Insira uma imagem do produto: <input  type="file" name="fileToUploadprod" id="fileToUploadprod"> </label>
-                    <input type="submit" value="Salvarfotoprod" name="salvarSProd">
+                    <label>Insira uma imagem do produto: <input  type="file" name="fileToUpload" id="fileToUpload"> </label>
+                    <label for="fotonum">Escolha o numero da foto: </label>
+                    <input type="hidden" value="<?php echo $id;?>" name="id" readonly>
+<select name="fotonum" id="fotonum">
+  <option value="1">foto 1</option>
+  <option value="2">foto 2</option>
+  <option value="3">foto 3</option>
+  <option value="4">foto 4</option>
+</select>
+                    <input type="submit" value="Salvar" name="salvarS">
                     <br><br><br><br>
                     
-                </div>
                 </form>
                     
-            </div>
 </body>
 </html>
 
