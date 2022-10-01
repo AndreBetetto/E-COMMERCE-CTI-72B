@@ -105,7 +105,7 @@
                             <td>" . $mostrabusca['id'] . "</td>
                             <td>" . $mostrabusca['nome'] . "</td>
                             <td>" . $mostrabusca['login'] . "</td>
-                            <td>" . substr($mostrabusca['hora'], -9)  . "</td>
+                            <td>" . substr($mostrabusca['hora'], 0, 16)  . "</td>
                             <td>".$img."</td>
                         </tr>";
                      }
@@ -168,7 +168,7 @@
                             <td>" . $mostra['id'] . "</td>
                             <td>" . $mostra['nome'] . "</td>
                             <td>" . $mostra['login'] . "</td>
-                            <td>" . $mostra['hora'] . "</td>
+                            <td>" . substr($mostra['hora'],0, 16) . "</td>
                             <td>". $img."</td>
                         </tr>";
                
