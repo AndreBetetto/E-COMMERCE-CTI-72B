@@ -105,7 +105,7 @@
                             <td>" . $mostrabusca['id'] . "</td>
                             <td>" . $mostrabusca['nome'] . "</td>
                             <td>" . $mostrabusca['login'] . "</td>
-                            <td>" . $mostrabusca['hora'] . "</td>
+                            <td>" . substr($mostrabusca['hora'], -9)  . "</td>
                             <td>".$img."</td>
                         </tr>";
                      }

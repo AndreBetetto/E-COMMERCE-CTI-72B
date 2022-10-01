@@ -222,10 +222,9 @@
                     if($numrowend <= 0) {
                         echo "Nenhum endereço cadastrado";
                     } else {
-                        for($i = 0; $i <= $numrowend[0]; $i++) {
+                        for($i = 0; $i <= 4; $i++) {
                             $sqlendereco = "select * from enderecosandre where id_user = $idreal and qtd = $i";
-
-                            $resultado_lista=pg_fetch_all(pg_query($conexao, $sqlendereco));
+                            $resultado_lista=pg_fetch_array(pg_query($conexao, $sqlendereco));
                             echo "Endereço ".$i.": ".$resultado_lista['cep'].", ".$resultado_lista['endereco'].", ".$resultado_lista['bairro']." ".$resultado_lista['cidade']." ".$resultado_lista['uf']." ".$resultado_lista['complemento']."<br>";
                         }
                     } 
@@ -241,16 +240,19 @@
                     $verifica = "select qtd from enderecosandre where id_user = $idreal order by qtd desc";
                     $ver = pg_fetch_row(pg_query($conexao, $verifica));
                     $endVer = intval($ver[0]);
-                    if($endVer > 4) {
-                        echo "Número máximo de endereços cadastrados alcançado";
-                    } else {
-                        $qtdFinal = $endVer++;
-                        $sqlAdd = "insert into enderecosandre (id_user, cep, endereco, bairro, cidade, uf, complemento, qtd) values ($idreal, '$cep', '$endereco', '$bairro', '$cidade', '$uf', '$complemento', $qtdFinal) where id_user = $idreal";
-                        pg_query($conexao, $sqlAdd);
+                    if(isset($_POST['submit'])){
+                        if($endVer == 4) {
+                        echo "Número máximo de endereços cadastrados";
+                    }elseif($endVer < 4) {
+                        $sqladdendereco = "insert into enderecosandre (id_user, cep, endereco, bairro, cidade, uf, complemento, qtd) values ($idreal, '$cep', '$endereco', '$bairro', '$cidade', '$uf', '$complemento', $endVer+1)";
+                        
+                        pg_query($conexao, $sqladdendereco);
                     }
-
-                endif;?>
-
+                
+                    }
+                    endif;
+                   ?>
+                    
             
     </section>
    
