@@ -45,11 +45,13 @@
                 
                 <img class="logo" src="imagens/logo.svg" alt="logo">
 
-                <form action="#" class="search">
-                    <input id="input" type="text" name="search" placeholder="Pesquisar um produto...">
+                <!-- PESQUISA -->
+                <form action="produtos.php" class="search">
+                    <input id="input" type="text" name="input" placeholder="Pesquisar um produto...">
                     <i id="nav-icon" class="fa-solid fa-magnifying-glass fa-2x"></i>
-                    <input id="submit" type="submit" value="Submit" >
+                    <input id="submit" type="submit" value="submit" >
                 </form> 
+                <!-- FIM PESQUISA -->
 
                 <div class="nav-icons"> 
                     <div class="opc">
@@ -61,7 +63,7 @@
                     </div>
                     
                     <a id="nav-icon" href="carrinho.php"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
-                    <a id="nav-icon" href="cadasstro.php"><i class="fa-solid fa-circle-user fa-2x"> </i></a>
+                    <a id="nav-icon" href="perfil.php"><i class="fa-solid fa-circle-user fa-2x"> </i></a>
                 </div>
             </nav>
 

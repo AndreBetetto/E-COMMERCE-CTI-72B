@@ -174,20 +174,60 @@
                 <div class="infos">   
                     <label> Adicionar endereço: </label>
                     <form action="" method="POST">
+                        <input type="text" id="cep" name="cep" placeholder="00000-000">
+                        <input type="submit" value="add" name="Adicionar">
+                    </form>
+
+                    <?php 
+                        if(isset($_POST['cep'])){
+                            $cep = $_POST['cep'];
+                            $cep = str_replace("-", "", $cep);
+                            $url = "https://viacep.com.br/ws/$cep/json/";
+                            $ch = curl_init($url);
+                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                            $response = curl_exec($ch);
+                            curl_close($ch);
+                            $data = json_decode($response, true);
+                            $_SESSION['cep'] = $cep;
+                            $_SESSION['rua'] = $data['logradouro'];
+                            $_SESSION['bairro'] = $data['bairro'];
+                            $_SESSION['cidade'] = $data['localidade'];
+                            $_SESSION['estado'] = $data['uf'];
+
+                            if($data['erro'] == true || $data['localidade'] == null) {
+                                echo "CEP inválido";
+                                $_SESSION['cep'] = null;
+                                $_SESSION['errocep'] = true;
+                            }
+                            header("Refresh: 0");
+                        }
+                        ?>
+
+                    <form action="" method="POST">
+                        <?php
+                            if($_SESSION['errocep'] == true) {
+                                echo "<script> alert('CEP inválido.') </script>";
+                                $_SESSION['errocep'] = false;
+                            }
+                        ?>
                         <label class="campos">CEP: </label> 
-                            <input type="text" id="cep" name="cep" placeholder="00000-000">
+                            <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
 
                         <label class="campos">Endereço: </label> 
-                            <input type="text" id="endereco" name="endereco" placeholder="Endereço"> 
+                            <input type="text" id="endereco" name="endereco" value="<?php echo $_SESSION['rua']; ?>" placeholder="Endereço" readonly > 
 
                         <label class="campos">Bairro: </label> 
-                            <input type="text" id="bairro" name="bairro" placeholder="Bairro"> 
+                            <input type="text" id="bairro" name="bairro" placeholder="Bairro" value="<?php echo $_SESSION['bairro']; ?>" readonly> 
 
                         <label class="campos">Cidade: </label> 
-                            <input type="text" id="cidade" name="cidade" placeholder="Cidade"> 
+                            <input type="text" id="cidade" name="cidade" placeholder="Cidade" value="<?php echo $_SESSION['cidade']; ?>" readonly> 
 
                         <label class="campos">UF: </label> 
-                            <input type="text" id="uf" name="uf" placeholder="UF"> 
+                            <input type="text" id="uf" name="uf" placeholder="UF" value="<?php echo $_SESSION['estado']; ?>" readonly>  
+
+                        <label class="campos">Número: </label> 
+                            <input type="text" id="num" name="num" placeholder="Número">  
 
                         <label class="campos">Complemento: </label> 
                             <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc"> 
@@ -197,6 +237,7 @@
                 </div>
 
                 <?php 
+                    
                     $sqlend = "select qtd from enderecosandre where id_user = $idreal";
                     $numrowend = pg_fetch_row(pg_query($conexao, $sqlend));
                     if($numrowend <= 0) {
@@ -231,6 +272,7 @@
                 
                     }
                     endif;
+                    
                    ?>
                     
             

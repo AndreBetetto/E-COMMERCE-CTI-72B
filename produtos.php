@@ -30,7 +30,15 @@
     </form>
 
     <?php
+        $busca = $_POST['input'];
+        $_SESSION['buscatermo'] = $busca;
+        if($busca != null){
+            $_SESSION['buscabool'] = true;
+        }
+        
         include "backendprod.php";
+
+
         if ($rowProd[0] == 0) {
             echo "Não foi encontrado nenhum produto !!!";
             return;
@@ -94,6 +102,7 @@
                 }
             echo "</div>";
             echo "</div>";
+            
 
     ?>
     <footer>
