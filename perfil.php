@@ -193,20 +193,48 @@
                 <div class="infos">   
                     <label> Adicionar endereço: </label>
                     <form action="" method="POST">
+                        <input type="text" id="cep" name="cep" placeholder="00000-000">
+                        <input type="submit" value="add" name="Adicionar">
+                    </form>
+
+                    <?php 
+                        if(isset($_POST['cep'])){
+                            $cep = $_POST['cep'];
+                            $cep = str_replace("-", "", $cep);
+                            $url = "https://viacep.com.br/ws/$cep/json/";
+                            $ch = curl_init($url);
+                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                            $response = curl_exec($ch);
+                            curl_close($ch);
+                            $data = json_decode($response, true);
+                            $rua = $data['logradouro'];
+                            $bairro = $data['bairro'];
+                            $cidade = $data['localidade'];
+                            $estado = $data['uf'];
+                            pg_query($conexao, $sqlAdd);
+                            header("Refresh: 0");
+                        }
+                        ?>
+
+                    <form action="" method="POST">
                         <label class="campos">CEP: </label> 
                             <input type="text" id="cep" name="cep" placeholder="00000-000">
 
                         <label class="campos">Endereço: </label> 
-                            <input type="text" id="endereco" name="endereco" placeholder="Endereço"> 
+                            <input type="text" id="endereco" name="endereco" placeholder="Endereço" readonly value="<?php if(isset($_POST['cep']) ?>"> 
 
                         <label class="campos">Bairro: </label> 
-                            <input type="text" id="bairro" name="bairro" placeholder="Bairro"> 
+                            <input type="text" id="bairro" name="bairro" placeholder="Bairro" readonly> 
 
                         <label class="campos">Cidade: </label> 
-                            <input type="text" id="cidade" name="cidade" placeholder="Cidade"> 
+                            <input type="text" id="cidade" name="cidade" placeholder="Cidade" readonly> 
 
                         <label class="campos">UF: </label> 
-                            <input type="text" id="uf" name="uf" placeholder="UF"> 
+                            <input type="text" id="uf" name="uf" placeholder="UF" readonly>  
+
+                        <label class="campos">Número: </label> 
+                            <input type="text" id="num" name="num" placeholder="Número">  
 
                         <label class="campos">Complemento: </label> 
                             <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc"> 
