@@ -58,6 +58,14 @@
                 </div>
             </nav>
 
+            <?php
+                if($_SESSION['naoAutorizado'] == true){
+                    echo "<script> alert('Apenas administradores tem acesso a essa página!') </script>";
+                    $_SESSION['naoAutorizado'] = false;
+                }
+            ?>
+            <div class="container-top">
+
             <div class="container-top">
                 <img id="img-grande" class="container-img" src="imagens/img-grande.png" alt="Fundo">
                 <div class="txt-centro"><p>Do Futuro</p> <p>para o seu bolso.</p></div>

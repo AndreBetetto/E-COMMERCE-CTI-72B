@@ -5,8 +5,9 @@
     if($email != 'admin@gmail.com')
     {
         header('Location: home.php');
+        $_SESSION['naoAutorizado'] = true;
         exit();
-        echo "<script> alert('Apenas administradores tem acesso a essa página!') </script>";
+        //echo "<script> alert('Apenas administradores tem acesso a essa página!') </script>";
     }
 ?>
 
