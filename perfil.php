@@ -18,9 +18,8 @@
     <title>Perfil do usuário | KeyFriends</title>
 </head>
 <body>
-    <?php 
-        include('navbar.php');
-    ?>
+    <?php include('navMenuFooter.php'); ?> 
+
     <section>
         <div class="perfilBody">
             <?php     

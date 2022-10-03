@@ -70,3 +70,43 @@
     background-color: var(--darker-blue);
     color: rgb(230, 226, 226);
   }
+
+
+  /* footer */ 
+
+  .footer{
+
+    background-color: var(--blue);
+    margin-top:auto; 
+    height: 12vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+#txt-footer
+{
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    width: 60%;
+    font-size: 1.0vw;
+    font-family: Helvetica;
+    color: var(--white);
+}
+#integrantes
+{
+    padding: 5px;
+}
+.integrantesTodos
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 30%;
+    font-size: 1.0vw;
+    font-family: Helvetica;
+    color: var(--white);
+}

@@ -8,7 +8,7 @@
 <body>
 <?php
     include('conexao.php');
-    include('navbar.php');
+    include('navMenuFooter.php');
     session_start();
     $email = $_SESSION['email'];
 

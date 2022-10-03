@@ -4,5 +4,4 @@
 
     $idget = $_POST['id'];
     echo $idget;
-
 ?>

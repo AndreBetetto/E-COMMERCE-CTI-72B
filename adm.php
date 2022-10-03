@@ -19,7 +19,7 @@
     <title>Área do administrador | KeyFriends</title>
 </head>
 <body>
-    <?php include('navbar.php')?>
+<?php include('navMenuFooter.php'); ?> 
     <div class="busca"> 
         <div class="titleDB"> <p>Seja bem vindo(a), administrador.<p> </div>
         <div class="userDB">
@@ -348,6 +348,4 @@
     </footer>
 </body>
 </html>
-    </footer>
-</body>
-</html>
+    

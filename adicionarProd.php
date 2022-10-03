@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="add.css" />
+    <link rel="stylesheet" href="editarprod.css" />
     <title>Adicionar Produto | KeyFriends</title>
 </head>
 <body>
-    <?php include('navbar.php')?>
+    <?php include('navMenuFooter.php'); ?> 
     <!-- <div class="titleDB"> <p>Adicione um novo produto<p> </div> -->
-    <div class="center">
+    <div class="detalhes">
         <div>
             <h1 class="titulo">Adicione um novo produto</h1>
         </div>
@@ -50,33 +50,46 @@
                     <input class="btnEnviar" type="submit" value="Enviar">
                 </div>
             </div>
-            <?php  if($_SESSION['erroupload'] == true) {
-        $erro = $_SESSION['nomeerroupload'];
-        echo "<script>alert('Erro ao fazer upload da imagem! erro: $erro')</script>";
-        $_SESSION['erroupload'] = false;
-        
-    } ?>
-            </div>
-            
-                
-                    
-                    <label>Insira uma imagem do produto: <input  type="file" name="fileToUpload" id="fileToUpload" required> </label>
-                    <label for="fotonum">Escolha o numero da foto: </label>
-                    <input type="hidden" value="<?php echo $id;?>" name="id" readonly>
-<select name="fotonum" id="fotonum">
-  <option value="1">foto 1</option>
-  <option value="2">foto 2</option>
-  <option value="3">foto 3</option>
-  <option value="4">foto 4</option>
-</select>
-                    
-                    <br><br><br><br>
-                    
-                
         </form>
-        </div>
-        <br><br><br><br> <!-- POR FAVOR TIRAR ESSES Brs DEPOIS, MUITO ARIGATO, ass.: André. -->
+
+
+    </div>
+
+    <?php  if($_SESSION['erroupload'] == true) {
+    $erro = $_SESSION['nomeerroupload'];
+    echo "<script>alert('Erro ao fazer upload da imagem! erro: $erro')</script>";
+    $_SESSION['erroupload'] = false;    
+    } ?>
     
+    <div class="detalhes">
+        <div class="titulo">
+            <h3>Insira imagem para o produto adicionado</h3>
+        </div>
+
+        <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
+            <div class="itens">
+                <div class="txt_field">
+                    <label for="fotonum" class="campos">Escolha o número da foto: </label>
+                    <select name="fotonum" id="fotonum">
+                        <option value="1">Foto 1</option>
+                        <option value="2">Foto 2</option>
+                        <option value="3">Foto 3</option>
+                        <option value="4">Foto 4</option>
+                    </select>
+                </div>
+
+                <div class="txt_field">
+                    <input  type="file" name="fileToUpload" id="fileToUpload" required>
+                    <input type="hidden" value="<?php echo $id;?>" name="id" readonly>
+                </div>
+
+                <div>
+                    <input class="btnEnviar" type="submit" value="Salvar" name="salvarS">  
+                </div>
+            </div>
+
+        </form>
+    </div>
 </body>
 </html>
 

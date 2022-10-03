@@ -28,9 +28,7 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
     <title>Editar Produto | KeyFriends</title>
 </head>
 <body>
-    <?php 
-        include('navbar.php')
-    ?>
+    <?php include('navMenuFooter.php'); ?> 
 
     <form action="sqledit.php" method="post">
         <div class="detalhes">
@@ -81,37 +79,48 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
                     <label class="campos">Estoque:</label>
                 </div>
 
-    
-
-            <div>
-                <input class="btnEnviar" type="submit" value="Alterar">
+                <div>
+                    <input class="btnEnviar" type="submit" value="Alterar">
+                </div>
             </div>
         </div>
     </form>
-    <br><br><br><br> <!-- POR FAVOR TIRAR ESSES Brs DEPOIS, MUITO ARIGATO, ass.: André. -->
+
     <?php  if($_SESSION['erroupload'] == true) {
         $erro = $_SESSION['nomeerroupload'];
         echo "<script>alert('Erro ao fazer upload da imagem! erro: $erro')</script>";
         $_SESSION['erroupload'] = false;
         
     } ?>
-            </div>
-            <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
-                
-                    
-                    <label>Insira uma imagem do produto: <input  type="file" name="fileToUpload" id="fileToUpload"> </label>
-                    <label for="fotonum">Escolha o numero da foto: </label>
-                    <input type="hidden" value="<?php echo $id;?>" name="id" readonly>
-<select name="fotonum" id="fotonum">
-  <option value="1">foto 1</option>
-  <option value="2">foto 2</option>
-  <option value="3">foto 3</option>
-  <option value="4">foto 4</option>
-</select>
-                    <input type="submit" value="Salvar" name="salvarS">
-                    <br><br><br><br>
-                    
-                </form>
+    <div class="detalhes">
+        <div class="titulo"> 
+            <h3> Insira imagens para <?php echo $titulo[0] ?> </h3>
+        </div>
+        <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
+            <div class="itens">
+                <div class="txt_field">
+                    <label class="campos" for="fotonum">Escolha o número da foto: </label>                   
+                    <select name="fotonum" id="fotonum">
+                        <option value="1">Foto 1</option>
+                        <option value="2">Foto 2</option>
+                        <option value="3">Foto 3</option>
+                        <option value="4">Foto 4</option>
+                    </select>
+                </div>
+
+                <div class="txt_field">
+                    <input class="after" type="file" name="fileToUpload" id="fileToUpload">
+                    <input class="after" type="hidden" value="<?php echo $id;?>" name="id" readonly>
+                    <span></span>
+                </div>
+
+                <div>
+                    <input class="btnEnviar" type="submit" value="Salvar" name="salvarS">  
+                </div> 
+            </div>                    
+        </form>
+    </div>
+    
                     
 </body>
 </html>
