@@ -27,8 +27,6 @@ if($email != 'admin@gmail.com'){
     pg_query($conexao, $sql);
 
     ///////////////////////////// UPLOAD DE IMAGEM /////////////////////////////
-    //header('Location: adm.php');
-    //exit;
     $sqlpegaid = "select id from produtosandre where titulo = '$titulo' and descricao = '$descricao' and material = '$material'";
     $result = pg_query($conexao, $sqlpegaid);
     $row = pg_fetch_array($result);

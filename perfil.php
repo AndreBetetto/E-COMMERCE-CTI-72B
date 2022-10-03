@@ -1,9 +1,6 @@
 <?php
     session_start();
     include('conexao.php');
-    //header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-    //header("Cache-Control: post-check=0, pre-check=0", false);  
-    //header("Cache-control: no-cache");
     header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
     header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     //header('http://projetoscti.com.br/projetoscti20/site/adm.php?nocache=987654321')
@@ -166,22 +163,6 @@
                                 pg_query($conexao, $sqlAdd);
                                 $passou = false;
                             }
-                            
-
-                            /*if($numVer > 1) {
-                                echo "Numero max. de telefones cadastrados alcançados";
-                            } else {
-                                
-                                if($numVer == null) {
-                                    $qtd = 1;
-                                } else {
-                                    if($numVer == 1) {
-                                        $qtd = 2;
-                                    } else {
-                                        $qtd = 1;
-                                    }
-                                }*/
-                                
                                 
                                 header("Refresh: 0");
                             }   

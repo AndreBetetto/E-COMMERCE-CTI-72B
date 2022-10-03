@@ -7,7 +7,6 @@
         header('Location: home.php');
         $_SESSION['naoAutorizado'] = true;
         exit();
-        //echo "<script> alert('Apenas administradores tem acesso a essa página!') </script>";
     }
 ?>
 
@@ -42,13 +41,6 @@
         </div>
     </div>
 <!-- ------------------------------------------------------------------------------------------- -->
-
-    <?php /*
-            $sqlLogin = "Select login from usuarioandre where id = 26";
-            $mostraLogin = pg_fetch_row(pg_query($sqlLogin));
-            echo $mostraLogin[0];
-            exit;*/
-            ?>
     <table class="table">
         <tr>
             <th>Id</th>
@@ -68,16 +60,6 @@
                     for($i = 0; $i < pg_num_rows($query); $i++) {
 
                         $mostrabusca = pg_fetch_array($query, $i);
-
-                        //$sqlquery = pg_query($conexao, $sqlID2);
-                        //$idPG = pg_fetch_row($sqlquery, $i);
-                        //$id = intval($idPG[$i]);
-                        //$sqlNome2 = "select nome from usuarioandre where id = {$id}";
-                        //$sqlLogin2 = "select login from usuarioandre where id = {$id}";
-                        //$sqlHora2 = "select hora from usuarioandre where id = {$id}";
-                        //$mostraNome2 = pg_fetch_row(pg_query($conexao, $sqlNome2));
-                        //$mostraLogin2 = pg_fetch_row(pg_query($conexao, $sqlLogin2));
-                        //$mostraHora2 = pg_fetch_row(pg_query($conexao, $sqlHora2));
 
                         $email = $mostrabusca['login'];
                         $email2 = str_replace('.', '_', $email);
@@ -109,46 +91,30 @@
                             <td>" . substr($mostrabusca['hora'], 0, 16)  . "</td>
                             <td>".$img."</td>
                         </tr>";
-                     }
+                    }
 
                 } else {
                     echo "<tr><td colspan=5>" . "No Record Found" . "</td> </tr>";
-                
                 }
             } else {
                 
 		        $cont = "SELECT COUNT(*) as total FROM usuarioandre";
                 $row = pg_fetch_row(pg_query($conexao, $cont));
                 for($i = 0; $i < $row[0]; $i++){
-                    /*$sqlIDverifica = "select ID from usuarioandre where id = {$i}";
-                    $rverifica = pg_query($conexao, $sqlIDverifica);
-                    $verifica = pg_fetch_row($rverifica);
-                    if($verifica[0] == null)
-                    {
-                        $sim = true;
-                    }
-                    else {*/
-                        $sqlusuarios = "select * from usuarioandre order by id";
-                        $rusuarios = pg_query($conexao, $sqlusuarios);
-                        $mostra = pg_fetch_array($rusuarios, $i);
-                        $sqlID = "Select id from usuarioandre where id = {$i}";
-                    
-                        //$sqlNome = "Select nome from usuarioandre where id = {$i}";
-                        //$sqlLogin = "Select login from usuarioandre where id = {$i}";
-                        //$sqlHora = "Select hora from usuarioandre where id = {$i}";
-                        //$mostraID = pg_fetch_row(pg_query($conexao, $sqlID));
-                        //$mostraNome = pg_fetch_row(pg_query($conexao, $sqlNome));
-                        //$mostraLogin = pg_fetch_row(pg_query($conexao, $sqlLogin));
-                        //$mostraHora = pg_fetch_row(pg_query($conexao, $sqlHora));
-                        $numberfim = $mostra['numberphoto'];
-                        $email = $mostra['login'];
-                        $email21 = str_replace('.', '_', $email);
-                        $caminho = $email21.$numberfim.'.jpg';
-                        $caminho2 = $email21.$numberfim.'.png';
-                        $caminho3 = $email21.$numberfim.'.jpeg';
-                        $target = "uploads/" . $caminho;
-                        $target2 = "uploads/" . $caminho2;
-                        $target3 = "uploads/" . $caminho3;
+                    $sqlusuarios = "select * from usuarioandre order by id";
+                    $rusuarios = pg_query($conexao, $sqlusuarios);
+                    $mostra = pg_fetch_array($rusuarios, $i);
+                    $sqlID = "Select id from usuarioandre where id = {$i}";
+                
+                    $numberfim = $mostra['numberphoto'];
+                    $email = $mostra['login'];
+                    $email21 = str_replace('.', '_', $email);
+                    $caminho = $email21.$numberfim.'.jpg';
+                    $caminho2 = $email21.$numberfim.'.png';
+                    $caminho3 = $email21.$numberfim.'.jpeg';
+                    $target = "uploads/" . $caminho;
+                    $target2 = "uploads/" . $caminho2;
+                    $target3 = "uploads/" . $caminho3;
 
                         if(file_exists($target)){
                             $img = "<img src='$target' class='img-perfil-adm'/>";
@@ -157,9 +123,7 @@
                         } elseif(file_exists($target3)) {
                             $img = "<img src='$target3' class='img-perfil-adm'/>";
                         } else {
-                            $img = "<img src='imagens/default.png' class='img-perfil-adm'/>";
-                            
-                            /*$img = "<img src="."fotosPadrao/default.png"."width="."100"."height="."100"."/>";*/
+                            $img = "<img src='imagens/default.png' class='img-perfil-adm'/>";                            
                         }
 
                         if($mostra['hora'] == null) {
@@ -172,7 +136,6 @@
                             <td>" . substr($mostra['hora'],0, 16) . "</td>
                             <td>". $img."</td>
                         </tr>";
-               
                     //}
                         
                     }
@@ -234,20 +197,6 @@
                     for($i = 0; $i < pg_num_rows($queryProd); $i++):
                         $sqlsaida = pg_fetch_array(pg_query($conexao, $sqlProd), $i);
 
-                        //$idprodPG = pg_fetch_row(pg_query($conexao, $sqlProdID), $i-1000);
-                        //$idprod = intval($idprodPG[0]);
-                        //$sqlTitulo2Prod = "select titulo from produtosandre where id = {$idprod}";
-                        //$sqlMaterial2Prod = "select material from produtosandre where id = {$idprod}";
-                        //$sqlPreco2Prod = "select preco from produtosandre where id = {$idprod}";
-
-                        //$sqlEstoque2Prod = "Select estoque from produtosandre where id = {$idprod}";
-
-                        //$mostraTitulo2Prod = pg_fetch_row(pg_query($conexao, $sqlTitulo2Prod));
-                        //$mostraMaterial2Prod = pg_fetch_row(pg_query($conexao, $sqlMaterial2Prod));
-                        //$mostraPreco2Prod = pg_fetch_row(pg_query($conexao, $sqlPreco2Prod));
-
-                        //$mostraEstoque2Prod = pg_fetch_row(pg_query($conexao, $sqlEstoque2Prod));
-
                         echo "<tr>
                             <td>" . $sqlsaida['id']. "</td>
                             <td>" .$sqlsaida['titulo']. "</td>
@@ -285,19 +234,6 @@
                 for($i = 0; $i < $rowProd[0]; $i++):
                     $mostraresult = pg_fetch_array(pg_query($conexao, "select * from produtosandre order by id"), $i);
 
-                    //$sqlIDProd = "Select id from produtosandre where id = {$i}";
-                    //$sqlTituloProd = "Select titulo from produtosandre where id = {$i}";
-                    //$sqlMaterialProd = "Select material from produtosandre where id = {$i}";
-                    //$sqlPrecoProd = "Select preco from produtosandre where id = {$i}";
-
-                    //$sqlEstoqueProd = "Select estoque from produtosandre where id = {$i}";
-
-                    //$mostraIDProd = pg_fetch_row(pg_query($conexao, $sqlIDProd));
-                    //$mostraTituloProd = pg_fetch_row(pg_query($conexao, $sqlTituloProd));
-                    //$mostraMaterialProd = pg_fetch_row(pg_query($conexao, $sqlMaterialProd));
-                    //$mostraPrecoProd = pg_fetch_row(pg_query($conexao, $sqlPrecoProd));
-
-                    //$mostraEstoqueProd = pg_fetch_row(pg_query($conexao, $sqlEstoqueProd));
                     if($mostraresult['estoque'] == null) {
                         $mostraresult['estoque'] = 0;
                     }
@@ -308,13 +244,6 @@
                         <td>" . number_format($mostraresult['preco'], 2)."</td>
                         <td>" . $mostraresult['estoque'] ?> </td>
                         <td> 
-                           <!-- <form action="editarprod.php" method="post"> 
-                                <button id="btnEx" type="submit" name="submit" 
-                                    id="<?php //echo $mostraresult['id'];?>-submit" 
-                                    value ="<?php //echo $mostraresult['id'];?>">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </button>
-                            </form> -->
                            <a href=editarprod.php?id=<?php echo $mostraresult['id']; ?>><i class="fa-solid fa-pen-to-square"></i></a> 
                         </td>
 

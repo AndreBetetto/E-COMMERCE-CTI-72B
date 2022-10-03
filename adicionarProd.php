@@ -69,15 +69,19 @@
         <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
             <div class="itens">
                 <div class="txt_field">
-                    <label for="fotonum" class="campos">Escolha o número da foto: </label>
-                    <select name="fotonum" id="fotonum">
-                        <option value="1">Foto 1</option>
-                        <option value="2">Foto 2</option>
-                        <option value="3">Foto 3</option>
-                        <option value="4">Foto 4</option>
-                    </select>
-                </div>
+                    <div>
+                        <label for="fotonum" class="campos">Escolha o número da foto: </label>  
+                    </div>
 
+                    <div>
+                        <select name="fotonum" id="fotonum">
+                            <option value="1">Foto 1</option>
+                            <option value="2">Foto 2</option>
+                            <option value="3">Foto 3</option>
+                            <option value="4">Foto 4</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="txt_field">
                     <input  type="file" name="fileToUpload" id="fileToUpload" required>
                     <input type="hidden" value="<?php echo $id;?>" name="id" readonly>

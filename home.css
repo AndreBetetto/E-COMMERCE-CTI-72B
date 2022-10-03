@@ -473,3 +473,14 @@ a:link {
     color: var(--orange);
     background-color: var(--bright-blue);
 }
+
+.menu-menu{
+    background-color: white;
+    border: 1px solid #CCC;
+    border-radius: 0.3em;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+    padding: 10px;
+    > li{
+        padding: 0.2em 0.4em;
+    }
+}

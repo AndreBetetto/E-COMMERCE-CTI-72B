@@ -32,10 +32,7 @@
             $descricaoProd = $row['descricao'];
             $material = $row['material'];
             $precoProd = $row['preco'];
-            $estoque = $row['estoque'];
-            //header("Location: detalhes.php?id=$idprod");
-    
-
+            $estoque = $row['estoque'];    
         ?>
         
 
@@ -60,12 +57,6 @@
             }
                 $num = 1;
 
-
-
-                    //$caminho = $idProd.  $row['numberphoto'].'.jpg';
-                    //$caminho2 = $idProd. $row['numberphoto'].'.png';
-                    //$caminho3 = $idProd. $row['numberphoto'].'.jpeg';
-
                     $caminho =  $idProd. $num.'.jpg';
                     $caminho2 = $idProd. $num.'.png';
                     $caminho3 = $idProd. $num.'.jpeg';
@@ -74,18 +65,6 @@
                     $target2 = "produtosimagem/" . $caminho2;
                     $target3 = "produtosimagem/" . $caminho3;
 
-                    
-                    //
-                    // OBSERVAÇÃO: -----------
-                    // O PRODUTO PODE TER ATÉ 4 IMAGENS DIFERENTES, CASO QUEIRA APRESENTAR UMA DELAS USE O CÓDIGO ABAIXO:
-                    // $caminho = $linha['id'].  4 .'.jpg'; --> Apresenta a imagem 4 do produto
-                    // $caminho = $linha['id'].  4 .'.png'; --> Apresenta a imagem 4 do produto se for png.
-                    // $caminho = $linha['id'].  4 .'.jpeg'; --> Apresenta a imagem 4 do produto se for jpeg.
-                    //
-                    // $caminho = $linha['id'].  3 .'.jpg'; --> Apresenta a imagem 3 do produto
-                    // $caminho = $linha['id'].  2 .'.jpg'; --> Apresenta a imagem 2 do produto
-                    // $caminho = $linha['id'].  1 .'.jpg'; --> Apresenta a imagem 1 do produto
-                    //
 
                     if(file_exists($target)) {
                         $img = "<img src='$target' width='400' height='400'/>";
@@ -99,7 +78,6 @@
 
                 ?>
 
-                <!--<img src='https://via.placeholder.com/400'/>-->
                 <?php echo $img ?>
 
                 <br>

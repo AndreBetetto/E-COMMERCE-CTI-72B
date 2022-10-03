@@ -55,20 +55,7 @@
             }
             $sqlpega = "select * from produtosandre where id = $carrinhoID order by id";
             $sqlmostra = pg_fetch_assoc(pg_query($conexao, $sqlpega));
-            //$resultado_lista=pg_fetch_row($sqlProd);
-
-            //$titulo = $qtdeBusca[$i]['titulo'];
-            //$qtd = $qtdeBusca[$i]['quantidade'];
-            //$preco = $qtdeBusca[$i]['preco'];
-
-            //$mini_desc = $qtdeBusca[$i]['descricao'];
-            //$teste = "remover";
-            //$idProd = $resultado_lista['id_prod'];
-            //$sqlProd = "select * from produtosandre where id_user = $id";
-            //$queryProd = pg_query($conexao, $sqlProd);
-            //$resultado_lista[$i]['produto'] = pg_fetch_assoc($queryProd);
-
-            //echo "<tr><td>" . $titulo . "</td><td>" . $qtd . "</td><td>" . $preco . "</td><td>" . $mini_desc . "</td><td>". $teste ."</td></tr>";
+        
             $precoTot = $sqlmostra['preco']* $carrinho['qtd'];
             
             echo "<tr>

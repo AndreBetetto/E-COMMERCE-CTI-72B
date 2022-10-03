@@ -52,7 +52,14 @@
                 </form> 
 
                 <div class="nav-icons"> 
-                    <a id="nav-icon" href="adm.php"> <i class="fa-solid fa-gear fa-2x"></i></a>
+                    <div class="opc">
+                        <a id="nav-icon" href="adm.php"> <i class="fa-solid fa-gear fa-2x"></i></a>
+                        <ul class="menu-menu">
+                            <li>Usuários</li>
+                            <li>Produtos</li>
+                        </ul>
+                    </div>
+                    
                     <a id="nav-icon" href="carrinho.php"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
                     <a id="nav-icon" href="cadasstro.php"><i class="fa-solid fa-circle-user fa-2x"> </i></a>
                 </div>
