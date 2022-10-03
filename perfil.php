@@ -208,30 +208,42 @@
                             $response = curl_exec($ch);
                             curl_close($ch);
                             $data = json_decode($response, true);
-                            $rua = $data['logradouro'];
-                            $bairro = $data['bairro'];
-                            $cidade = $data['localidade'];
-                            $estado = $data['uf'];
-                            pg_query($conexao, $sqlAdd);
+                            $_SESSION['cep'] = $cep;
+                            $_SESSION['rua'] = $data['logradouro'];
+                            $_SESSION['bairro'] = $data['bairro'];
+                            $_SESSION['cidade'] = $data['localidade'];
+                            $_SESSION['estado'] = $data['uf'];
+
+                            if($data['erro'] == true || $data['localidade'] == null) {
+                                echo "CEP inválido";
+                                $_SESSION['cep'] = null;
+                                $_SESSION['errocep'] = true;
+                            }
                             header("Refresh: 0");
                         }
                         ?>
 
                     <form action="" method="POST">
+                        <?php
+                            if($_SESSION['errocep'] == true) {
+                                echo "<script> alert('CEP inválido.') </script>";
+                                $_SESSION['errocep'] = false;
+                            }
+                        ?>
                         <label class="campos">CEP: </label> 
-                            <input type="text" id="cep" name="cep" placeholder="00000-000">
+                            <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
 
                         <label class="campos">Endereço: </label> 
-                            <input type="text" id="endereco" name="endereco" placeholder="Endereço" readonly value="<?php if(isset($_POST['cep']) ?>"> 
+                            <input type="text" id="endereco" name="endereco" value="<?php echo $_SESSION['rua']; ?>" placeholder="Endereço" readonly > 
 
                         <label class="campos">Bairro: </label> 
-                            <input type="text" id="bairro" name="bairro" placeholder="Bairro" readonly> 
+                            <input type="text" id="bairro" name="bairro" placeholder="Bairro" value="<?php echo $_SESSION['bairro']; ?>" readonly> 
 
                         <label class="campos">Cidade: </label> 
-                            <input type="text" id="cidade" name="cidade" placeholder="Cidade" readonly> 
+                            <input type="text" id="cidade" name="cidade" placeholder="Cidade" value="<?php echo $_SESSION['cidade']; ?>" readonly> 
 
                         <label class="campos">UF: </label> 
-                            <input type="text" id="uf" name="uf" placeholder="UF" readonly>  
+                            <input type="text" id="uf" name="uf" placeholder="UF" value="<?php echo $_SESSION['estado']; ?>" readonly>  
 
                         <label class="campos">Número: </label> 
                             <input type="text" id="num" name="num" placeholder="Número">  
@@ -244,6 +256,7 @@
                 </div>
 
                 <?php 
+                    
                     $sqlend = "select qtd from enderecosandre where id_user = $idreal";
                     $numrowend = pg_fetch_row(pg_query($conexao, $sqlend));
                     if($numrowend <= 0) {
@@ -278,6 +291,7 @@
                 
                     }
                     endif;
+                    
                    ?>
                     
             
