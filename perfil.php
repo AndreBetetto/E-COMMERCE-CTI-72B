@@ -42,98 +42,80 @@
             exit(); 
         ?>    
         <?php endif; ?>
-
-        <div class="detalhes">
-                <div class="titulo">
-                    <h3> Insira uma imagem de perfil </h3>
-                </div>
-                <form action="upload.php" method="post" enctype="multipart/form-data">
-                    <div class="itens">
-                        <div class="txt_field">
-                            <input class="after" type="file" name="fileToUpload" id="fileToUpload">
-                            <span></span>
-                        </div>
-
-                        <div>
-                            <input class="btnEnviar" type="submit" value="Salvar" name="salvarS">  
-                        </div>
-                    </div>    
-                </form>
-                
-                  
-        </div>
-
+    <div class="fullPerfil">
         <div class="detalhes">
             <div class="titulo">
                 <h3> Meu perfil</h3>
             </div>
 
-            <div class="itens">
+            <div class="itemPerfil">
                 <div class='imagem'>
                     <?php if(file_exists($target)) : ?>
-                        <img src="<?php echo $target; ?>" width="100" height="100"/>
+                        <img src="<?php echo $target; ?>" width="250" height="250"/>
                         
                     <?php elseif(file_exists($target2)) : ?>
-                        <img src="<?php echo $target2; ?>" width="100" height="100"/>
+                        <img src="<?php echo $target2; ?>" width="250" height="250"/>
 
                     <?php elseif(file_exists($target3)) : ?>
-                        <img src="<?php echo $target3; ?>" width="100" height="100"/>
+                        <img src="<?php echo $target3; ?>" width="250" height="250"/>
                     
                     <?php elseif(file_exists($target3) == false && file_exists($target) == false && file_exists($target2) == false): ?>
                         <img src="imagens/default.png" width="100" height="100"/> 
                     <?php endif ?>     
                 </div>
 
-                <div class="txt_field">
-                    <label class="campos">Nome</label>
-                    <span></span>
-                    <?php if($nome != '') : ?>
-                    <?php echo "<label class='inputs'>".$nome."</label>"; ?> 
-                    <span></span>
-                </div>
+                <div class="infos">
+                    <div class="txt_field">
+                        <label class="campos">Nome</label>
+                        <span></span>
+                        <?php if($nome != '') : ?>
+                        <?php echo "<label class='inputs'>".$nome."</label>"; ?> 
+                        <span></span>
+                    </div>
 
-                <div class="txt_field">
-                    <label class="campos">CPF</label>
-                    <span></span>
-                    <?php echo "<label class='inputs'>".$cpf."</label>"; ?> 
-                </div>
+                    <div class="txt_field">
+                        <label class="campos">CPF</label>
+                        <span></span>
+                        <?php echo "<label class='inputs'>".$cpf."</label>"; ?> 
+                    </div>
 
-                <div class="txt_field">
-                    <label class="campos">Email</label>
-                    <span></span>
-                    <?php echo "<label class='inputs'>".$email."</label>"; ?> 
-                </div>
+                    <div class="txt_field">
+                        <label class="campos">Email</label>
+                        <span></span>
+                        <?php echo "<label class='inputs'>".$email."</label>"; ?> 
+                    </div>
 
-                <div class="txt_field">
-                    <label class="campos">Telefone (celular)</label>
-                    <span></span>
-                    <?php
-                        $sqlID = "SELECT id from usuarioandre where login = '$email'";
+                    <div class="txt_field">
+                        <label class="campos">Telefone (celular)</label>
+                        <span></span>
+                        <?php
+                            $sqlID = "SELECT id from usuarioandre where login = '$email'";
 
-                        $ID = pg_fetch_row(pg_query($conexao, $sqlID));
-                        $idreal = $ID[0];
-                        $_SESSION['id'] = $idreal;
-                        $pegaNumSQL = "SELECT COUNT(*) as total FROM telefoneandre where id_user = $idreal";
-                        $pegaNum = pg_fetch_row(pg_query($conexao, $pegaNumSQL));
-                    
-                        if(intval($pegaNum[0]) <= 0){
-                            echo "Nenhum número cadastrado";
-                        }
-                        if(intval($pegaNum[0]) > 0):
-                            for($i=1; $i <= intval($pegaNum[0]); $i++):
-                                $sqlDDD = "select ddd from telefoneandre where id_user = $idreal and qtd = $i";
-                                $sqlNum = "select num from telefoneandre where id_user = $idreal and qtd = $i";
-                                $mostraDDD = pg_fetch_row(pg_query($conexao, $sqlDDD));
-                                $mostraNum = pg_fetch_row(pg_query($conexao, $sqlNum));?>
-                                <label class="inputs">
-                                    <?php echo " ".$mostraDDD[0]." ".$mostraNum[0];?> 
-                                    <form action="apaganum.php" method="POST">
-                                        <button type="submit" value="<?php echo $i; ?>" name="apagar" >
-                                            <i class="fa-solid fa-trash-can fa-1x"> </i>
-                                        </button>
-                                    </form>
-                                </label>
-                            <?php  endfor; endif; ?>    
+                            $ID = pg_fetch_row(pg_query($conexao, $sqlID));
+                            $idreal = $ID[0];
+                            $_SESSION['id'] = $idreal;
+                            $pegaNumSQL = "SELECT COUNT(*) as total FROM telefoneandre where id_user = $idreal";
+                            $pegaNum = pg_fetch_row(pg_query($conexao, $pegaNumSQL));
+                        
+                            if(intval($pegaNum[0]) <= 0){
+                                echo "Nenhum número cadastrado";
+                            }
+                            if(intval($pegaNum[0]) > 0):
+                                for($i=1; $i <= intval($pegaNum[0]); $i++):
+                                    $sqlDDD = "select ddd from telefoneandre where id_user = $idreal and qtd = $i";
+                                    $sqlNum = "select num from telefoneandre where id_user = $idreal and qtd = $i";
+                                    $mostraDDD = pg_fetch_row(pg_query($conexao, $sqlDDD));
+                                    $mostraNum = pg_fetch_row(pg_query($conexao, $sqlNum));?>
+                                    <label class="inputs">
+                                        <?php echo " ".$mostraDDD[0]." ".$mostraNum[0];?> 
+                                        <form action="apaganum.php" method="POST">
+                                            <button type="submit" value="<?php echo $i; ?>" name="apagar" >
+                                                <i class="fa-solid fa-trash-can fa-1x"> </i>
+                                            </button>
+                                        </form>
+                                    </label>
+                                <?php  endfor; endif; ?>    
+                    </div>
                 </div>
             </div>
         </div>
@@ -142,6 +124,21 @@
             <div class="titulo">
                 <h3>Dados Pessoais</h3>
             </div>
+
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <div class="itens">
+                        <div class="txt_field">
+                            <label class="campos">Imagem do perfil</label>
+                            <input class="after" type="file" name="fileToUpload" id="fileToUpload">
+                            <span></span>
+                        </div>
+
+                        <div>
+                            <input class="btnEnviar" type="submit" value="Salvar" name="salvarS">  
+                        </div>
+                    </div>    
+            </form>
+
             <form action="" method="post">
                 <div class="itens">
                     <div class="txt_field">
@@ -149,10 +146,7 @@
                         <input type="number" id="ddd" name="ddd" placeholder="ddd"> 
                         <input type="text" id="num" name="num" placeholder="numero de telefone">
                     
-                        <button type="submit" value="add" name="adicionar">
-                        <input type="submit" value="add" name="Adicionar">
-                            <i class="fa fa-light fa-phone-plus"></i>
-                        </button>
+                        <input class="btnEnviar" type="submit" value="Adicionar" name="add">
 
                         <?php 
                             if(isset($_POST['num']) && isset($_POST['ddd'])){
@@ -195,89 +189,98 @@
                             } ?>
                     </div>
                 </div>
+            </form>    
 
-                <div class="titulo">
-                    <h4>Endereço</h4>
+            <div class="linha">
+                <div class="tituloEnd">
+                    <h5>Endereço</h5>
                 </div>
-                <div class="itens">
+                <div class="itemEnder">
+                    
+                    <div class="infos">
+                        <div class="txt_field">
+                            <label for="cep" class="campos">Insira o CEP</label>
 
-                    <div class="txt_field">
-                        <label for="cep" class="campos">Insira o CEP</label>
+                            <form action="" method="POST">
+                                <?php
+                                    if($_SESSION['errocep'] == true) {
+                                        echo "<script> alert('CEP inválido.') </script>";
+                                        $_SESSION['errocep'] = false;
+                                    }
+                                ?>
+                                <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
+                                <input type="hidden" value="submit" name="pesquisa">
+                            </form>
+                                <?php 
+                                    if(isset($_POST['cep'])){
+                                        $cep = $_POST['cep'];
+                                        $cep = str_replace("-", "", $cep);
+                                        $url = "https://viacep.com.br/ws/$cep/json/";
+                                        $ch = curl_init($url);
+                                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                                        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                                        $response = curl_exec($ch);
+                                        curl_close($ch);
+                                        $data = json_decode($response, true);
+                                        $_SESSION['cep'] = $cep;
+                                        $_SESSION['rua'] = $data['logradouro'];
+                                        $_SESSION['bairro'] = $data['bairro'];
+                                        $_SESSION['cidade'] = $data['localidade'];
+                                        $_SESSION['estado'] = $data['uf'];
 
-                        <form action="" method="POST">
-                            <?php
-                                if($_SESSION['errocep'] == true) {
-                                    echo "<script> alert('CEP inválido.') </script>";
-                                    $_SESSION['errocep'] = false;
-                                }
-                            ?>
-                            <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
+                                        if($data['erro'] == true || $data['localidade'] == null) {
+                                            echo "CEP inválido";
+                                            $_SESSION['cep'] = null;
+                                            $_SESSION['errocep'] = true;
+                                        }
+                                    header("Refresh: 0");
+                                    } ?>
+                        </div>
+                    
+                        <form action="" method="post">
+                            <div class="txt_field">
+                                <label class="campos">Cidade: </label> 
+                                <input type="text" id="cidade" name="cidade" placeholder="Cidade" value="<?php echo $_SESSION['cidade']; ?>" readonly> 
+                                <span></span>
+                            </div>
 
-                        <?php 
-                            if(isset($_POST['cep'])){
-                                $cep = $_POST['cep'];
-                                $cep = str_replace("-", "", $cep);
-                                $url = "https://viacep.com.br/ws/$cep/json/";
-                                $ch = curl_init($url);
-                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                                $response = curl_exec($ch);
-                                curl_close($ch);
-                                $data = json_decode($response, true);
-                                $_SESSION['cep'] = $cep;
-                                $_SESSION['rua'] = $data['logradouro'];
-                                $_SESSION['bairro'] = $data['bairro'];
-                                $_SESSION['cidade'] = $data['localidade'];
-                                $_SESSION['estado'] = $data['uf'];
+                            <div class="txt_field">
+                                <label class="campos">Bairro: </label> 
+                                <input type="text" id="bairro" name="bairro" placeholder="Bairro" value="<?php echo $_SESSION['bairro']; ?>" readonly> 
+                            </div>
 
-                                if($data['erro'] == true || $data['localidade'] == null) {
-                                    echo "CEP inválido";
-                                    $_SESSION['cep'] = null;
-                                    $_SESSION['errocep'] = true;
-                                }
-                            header("Refresh: 0");
-                            } ?>
+                            <div class="txt_field">
+                                <label class="campos">UF: </label> 
+                                <input type="text" id="uf" name="uf" placeholder="UF" value="<?php echo $_SESSION['estado']; ?>" readonly> 
+                            </div>
+                    </div>    
+
+                    <div class="infos">
+                        <div class="txt_field">
+                            <label class="campos">Endereço</label>
+                            <input type="text" id="endereco" name="endereco" value="<?php echo $_SESSION['rua']; ?>" placeholder="Endereço" readonly >  
+                            <span></span>
+                        </div>
+
+                        <div class="txt_field">
+                            <label class="campos">Número: </label> 
+                            <input type="text" id="num" name="num" placeholder="Número">  
+                            <span></span>
+                        </div>
+
+                        <div class="txt_field">
+                            <label class="campos">Complemento: </label> 
+                            <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc">
+                        </div>
+
+                        
                     </div>
 
-                    <div class="txt_field">
-                        <label class="campos">Cidade: </label> 
-                        <input type="text" id="cidade" name="cidade" placeholder="Cidade" value="<?php echo $_SESSION['cidade']; ?>" readonly> 
-                        <span></span>
-                    </div>
-
-                    <div class="txt_field">
-                        <label class="campos">Bairro: </label> 
-                        <input type="text" id="bairro" name="bairro" placeholder="Bairro" value="<?php echo $_SESSION['bairro']; ?>" readonly> 
-                    </div>
-
-                    <div class="txt_field">
-                        <label class="campos">UF: </label> 
-                        <input type="text" id="uf" name="uf" placeholder="UF" value="<?php echo $_SESSION['estado']; ?>" readonly> 
-                    </div>
-
-                    <div class="txt_field">
-                        <label class="campos">Endereço</label>
-                        <input type="text" id="endereco" name="endereco" value="<?php echo $_SESSION['rua']; ?>" placeholder="Endereço" readonly >  
-                        <span></span>
-                    </div>
-
-                    <div class="txt_field">
-                        <label class="campos">Número: </label> 
-                        <input type="text" id="num" name="num" placeholder="Número">  
-                        <span></span>
-                    </div>
-
-                    <div class="txt_field">
-                        <label class="campos">Complemento: </label> 
-                        <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc">
-                    </div>
-
-                    <div>
-                        <input class="btnSalvar" type="submit" value="add" name="Adicionar">
-                    </div>
-                </div>
-            </form>
-        </div>
+                    </div class="txt_field">
+                            <input class="btnEnviar" type="submit" value="Salvar" name="add">
+                        </div>
+                    </form>
+            </div>
   
                 <?php 
                     
@@ -318,7 +321,7 @@
                     
                    ?>
                     
-            
+    </div>        
     </section>
    
     <footer>

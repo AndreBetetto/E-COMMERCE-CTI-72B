@@ -52,6 +52,15 @@ button{
     padding: 10px;
 }
 
+.tituloEnd{
+    font-size: 24px;
+    font-family: sans-serif, Helvetica, Arial;
+    color: var(--dark-orange); 
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+}
+
 .detalhes{
     font-size: 15px;
     font-family:  Helvetica, Arial, sans-serif;
@@ -67,9 +76,41 @@ button{
 
 }
 
+.imagem{
+    padding: 0px 20px;
+}
+
+.itemPerfil{
+    padding: 15px;
+    margin: 15px auto;
+    width: 35vw;
+    border: 2px inset;
+    border-radius: 10px;
+    display: flex;
+    justify-content:normal;
+}
+.itemEnder{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.linha{
+    border: 2px inset;
+    border-radius: 10px;
+    margin: 5px auto;
+    padding: 15px;
+    width: 35vw;
+}
+/* .fullPerfil{
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto 25px;
+    padding: 15px;
+} */
+
 .itens{
     padding: 15px;
-    margin: 5px auto;
+    margin: 15px auto;
     width: 35vw;
     border: 2px inset;
     border-radius: 10px;
