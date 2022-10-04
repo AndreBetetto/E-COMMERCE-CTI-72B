@@ -478,23 +478,24 @@ a:link {
     position: relative;
 }
 .menu-menu{
-    background-color: white;
+    background-color:#01222f;
     padding: 10px;
-    border: 1px solid #CCC;
+    border: 1px solid #01222f;
     border-radius:0.3em;
-    width: 95px;
+    width: 100px;
     position: absolute;
     box-shadow: 4px 4px 4px rgb(0,0,0,0.4);
     display: none;
 }
 #itemLink{
     font-family: 'Helvetica';
-    font-size: 15px;
-    color: #000000;
+    font-size: 16px;
+    color: var(--yellow);
     list-style: none;
 }
 #item:hover{
-    background-color: rgb(156, 155, 155);
+    color: var(--orange);
+    background-color: var(--bright-blue);
     box-shadow: 2px 2px 2px rgb(0,0,0,0.4);
     font-weight: bold;
     border-radius: 0.3em;

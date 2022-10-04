@@ -60,8 +60,8 @@
                         <span>
                             <a class="btn1" id="nav-icon" href="javascript://"> <i class="fa-solid fa-gear fa-2x"></i></a>
                             <ul class="menu-menu">
-                                <a id="itemLink" href="#"> <li id="item"> > Usuários</li> </a>
-                                <a id="itemLink" href="#"> <li id="item"> > Produtos</li> </a>
+                                <a id="itemLink" href="adm.php"> <li id="item"> > Usuários</li> </a>
+                                <a id="itemLink" href="adm.php"> <li id="item"> > Produtos</li> </a>
                             </ul>
                         </span>
                         
