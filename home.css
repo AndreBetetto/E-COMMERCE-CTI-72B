@@ -399,6 +399,8 @@ a:link {
 }
 #nav-icon:hover{
     background-color: rgba(255, 255, 255, 0.23);
+    border-radius: 0.3em;
+    padding: 5px;
 }
 
 
@@ -475,12 +477,17 @@ a:link {
 }
 
 .menu-menu{
-    background-color: white;
-    border: 1px solid #CCC;
+    display: none;
+}
+
+#item{
+    font-family: 'Helvetica';
+    list-style: none;
+    padding: 0.2em 0.4em;
+}
+#item:hover{
+    background-color: rgb(156, 155, 155);
+    font-weight: bold;
     border-radius: 0.3em;
-    box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
-    padding: 10px;
-    > li{
-        padding: 0.2em 0.4em;
-    }
+    cursor: pointer;
 }
