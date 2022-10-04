@@ -30,45 +30,90 @@ section{
     align-items: center;
 }
 
-.infosPerfil{
-    display: flex;
-    justify-content: space-evenly;
-    padding: 20px;
-}
-
-.infos{
-    display: block;
-}
-
-.campos{
-    display: block;
-    padding: 5px;
-    color: white;
-}
-
 button{
     background: none;
     border: none;
 }
 
-.titleDB
-{
-    display: flex;
-    justify-content: center;
-    color: var(--darker-blue);
-    font-size: 30px;
-    font-family: sans-serif, Helvetica, Arial;
-    margin: 10px 0;
+.campos{
+    padding: 10px;
+    display: block;
+    color: var(--dark-orange);
     font-weight: bold;
-    width: 100%;
-    padding: 10px 0;
 }
 
-.save{
-    padding: 5px;
-    border: 1px solid;
-    border-radius: 5px;
-    background-color: #f0b342;
+.titulo{
+    font-size: 24px;
+    font-family: sans-serif, Helvetica, Arial;
+    color: var(--dark-orange); 
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
 }
+
+.detalhes{
+    font-size: 15px;
+    font-family:  Helvetica, Arial, sans-serif;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px auto;
+
+    display: block;
+    width: 45vw;
+    background: #343a40;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.807);
+
+}
+
+.itens{
+    padding: 15px;
+    margin: 5px auto;
+    width: 35vw;
+    border: 2px inset;
+    border-radius: 10px;
+    /* display: flex;
+    justify-content:space-evenly; */
+}
+
+.btnEnviar{
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    width: 100%;
+    color: black;
+    font-size: 18px;
+    background-color: rgba(127, 214, 127, 0.515);
+    border-color: rgb(0, 101, 0);
+}
+
+orm .txt_field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+  }
+  
+  .inputs{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    background: none;
+    outline: none;
+  }
+
+  .txt_field span{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0px;
+    height: 2px;
+    background: var(--orange);
+    transition: .5s;
+  }
 
 
