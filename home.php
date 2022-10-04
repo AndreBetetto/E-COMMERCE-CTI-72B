@@ -55,10 +55,12 @@
 
                 <div class="nav-icons"> 
                     <div class="opc">
-                        <a id="nav-icon" href="adm.php"> <i class="fa-solid fa-gear fa-2x"></i></a>
+                        <span>
+                            <a class="menu-trigger" id="nav-icon" href="#"> <i class="fa-solid fa-gear fa-2x"></i></a>
+                        </span>
                         <ul class="menu-menu">
-                            <li>Usuários</li>
-                            <li>Produtos</li>
+                            <li id="item"> ° Usuários</li>
+                            <li id="item"> ° Produtos</li>
                         </ul>
                     </div>
                     
