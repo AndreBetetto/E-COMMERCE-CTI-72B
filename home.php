@@ -10,6 +10,8 @@
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="miniMenu.js"></script>
     <link rel=stylesheet type="text/css" href="home.css">
     <title>Home | KeyFriends</title>
 </head>
@@ -54,14 +56,15 @@
                 <!-- FIM PESQUISA -->
 
                 <div class="nav-icons"> 
-                    <div class="opc">
+                    <div class="opcao">
                         <span>
-                            <a class="menu-trigger" id="nav-icon" href="#"> <i class="fa-solid fa-gear fa-2x"></i></a>
+                            <a class="btn1" id="nav-icon" href="javascript://"> <i class="fa-solid fa-gear fa-2x"></i></a>
+                            <ul class="menu-menu">
+                                <a id="itemLink" href="#"> <li id="item"> > Usuários</li> </a>
+                                <a id="itemLink" href="#"> <li id="item"> > Produtos</li> </a>
+                            </ul>
                         </span>
-                        <ul class="menu-menu">
-                            <li id="item"> ° Usuários</li>
-                            <li id="item"> ° Produtos</li>
-                        </ul>
+                        
                     </div>
                     
                     <a id="nav-icon" href="carrinho.php"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>

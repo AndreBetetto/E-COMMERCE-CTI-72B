@@ -357,7 +357,6 @@ a:link {
 .nav-icons a
 {
     height: 5vh;
-    width: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;    
@@ -402,7 +401,6 @@ a:link {
     border-radius: 0.3em;
     padding: 5px;
 }
-
 
 /* footer */ 
 
@@ -476,18 +474,30 @@ a:link {
     background-color: var(--bright-blue);
 }
 
+.opcao{
+    position: relative;
+}
 .menu-menu{
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius:0.3em;
+    width: 95px;
+    position: absolute;
+    box-shadow: 4px 4px 4px rgb(0,0,0,0.4);
     display: none;
 }
-
-#item{
+#itemLink{
     font-family: 'Helvetica';
+    font-size: 15px;
+    color: #000000;
     list-style: none;
-    padding: 0.2em 0.4em;
 }
 #item:hover{
     background-color: rgb(156, 155, 155);
+    box-shadow: 2px 2px 2px rgb(0,0,0,0.4);
     font-weight: bold;
     border-radius: 0.3em;
+    padding: 0.4em 0.4em;
     cursor: pointer;
 }
