@@ -139,7 +139,7 @@ body{
     flex-direction:column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    /* height: 100%; isso estava cortando as dimensões do video*/
     width: 90vw;
 }
 
@@ -408,7 +408,7 @@ a:link {
 
     background-color: var(--blue);
     margin-top:auto; 
-    height: 12vw;
+    height: 15vw;
     width: 100%;
     display: flex;
     align-items: center;
