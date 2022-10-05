@@ -49,16 +49,6 @@ button{
     font-weight: bold;
     text-align: center;
     margin: 10px;
-    padding: 10px;
-}
-
-.tituloEnd{
-    font-size: 24px;
-    font-family: sans-serif, Helvetica, Arial;
-    color: var(--dark-orange); 
-    font-weight: bold;
-    text-align: center;
-    margin: 10px;
 }
 
 .detalhes{
@@ -67,10 +57,10 @@ button{
     border: 1px solid;
     border-radius: 10px;
     padding: 15px;
-    margin: 20px auto;
+    margin: 20px;
 
     display: block;
-    width: 45vw;
+    width: 42vw;
     background: #343a40;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.807);
 
@@ -101,12 +91,12 @@ button{
     padding: 15px;
     width: 35vw;
 }
-/* .fullPerfil{
+.fullPerfil{
     display: flex;
     justify-content: space-evenly;
     margin: auto 25px;
     padding: 15px;
-} */
+} 
 
 .itens{
     padding: 15px;

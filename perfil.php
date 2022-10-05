@@ -118,12 +118,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="detalhes">
-            <div class="titulo">
-                <h3>Dados Pessoais</h3>
-            </div>
 
             <form action="upload.php" method="post" enctype="multipart/form-data">
                     <div class="itens">
@@ -138,8 +132,16 @@
                         </div>
                     </div>    
             </form>
+        </div>
 
-            <form action="" method="post">
+        <div class="detalhes">
+            <div class="titulo">
+                <h3>Dados Pessoais</h3>
+            </div>
+
+            
+
+            <!--<form action="" method="post">
                 <div class="itens">
                     <div class="txt_field">
                         <label for="ddd" class="campos">Telefone</label>
@@ -148,7 +150,7 @@
                     
                         <input class="btnEnviar" type="submit" value="Adicionar" name="add">
 
-                        <?php 
+                         /*
                             if(isset($_POST['num']) && isset($_POST['ddd'])){
                                 $n = $_POST['num'];
                                 $ddd = $_POST['ddd'];
@@ -186,13 +188,13 @@
                                         
                                     header("Refresh: 0");
                                 }   
-                            } ?>
-                    </div>
+                            } ?>*/
+                    </div> 
                 </div>
-            </form>    
+            </form> -->  
 
             <div class="linha">
-                <div class="tituloEnd">
+                <div class="titulo">
                     <h5>Endereço</h5>
                 </div>
                 <div class="itemEnder">
@@ -280,9 +282,8 @@
                             <input class="btnEnviar" type="submit" value="Salvar" name="add">
                         </div>
                     </form>
-            </div>
-  
-                <?php 
+
+                    <?php 
                     
                     $sqlend = "select qtd from enderecosandre where id_user = $idreal";
                     $numrowend = pg_fetch_row(pg_query($conexao, $sqlend));
@@ -320,6 +321,9 @@
                     endif;
                     
                    ?>
+            </div>
+  
+                
                     
     </div>        
     </section>
