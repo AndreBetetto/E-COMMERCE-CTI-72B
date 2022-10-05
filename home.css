@@ -391,6 +391,7 @@ a:link {
     margin: 1vw;
     color: var(--yellow);
     background-color: rgb(255, 255, 255, 0);
+    padding: 5px;
 }
 #nav-icon:link
 {
