@@ -80,6 +80,13 @@
     border-color: rgb(0, 101, 0);
 }
 
+.btnEnviar:hover{
+  background-color: rgba(183, 183, 183, 0.727);
+  color: darkgreen;
+  font-weight: bold;
+  box-shadow: 3px 3px 3px rgb(0,0,0,0.5);
+}
+
 footer{
     background-color: #001219;
     height: 100px;

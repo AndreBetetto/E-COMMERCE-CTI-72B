@@ -45,7 +45,7 @@
 
 .table {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     border-collapse: collapse;
     width: 80%;
     margin: 0 auto;
@@ -109,4 +109,31 @@
     font-size: 1.0vw;
     font-family: Helvetica;
     color: var(--white);
+}
+
+.addCmp{
+  border-radius: 10px;
+  border: none;
+  background-color: darkgreen;
+  color:#000000;
+  text-align: center;
+  text-decoration: none;
+  font-family: Helvetica;
+  width: 23%;
+  padding: 10px;
+  margin: 5px 0px;
+}
+
+.addCmp:hover{
+  background-color: rgba(183, 183, 183, 0.727);
+  color: darkgreen;
+  font-weight: bold;
+  box-shadow: 3px 3px 3px rgb(0,0,0,0.5);
+}
+
+.btn{
+  display: flex;
+  justify-content: end;
+  margin: 5px auto;
+  width: 80%;
 }

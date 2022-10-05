@@ -81,21 +81,11 @@
   border-radius: 3px;
 }
 
-#btnB, #btnL{
-  background: none;
-  border: none;
-  margin: 0px 5px;
-}
-
-#btnEx{
+#btnB, #btnEx, #btnExcluir{
   background: none;
   border: none;
   color: white;
-}
-
-#btnExcluir{
-  background: none;
-  border: none;
+  margin: 0px 5px;
 }
 
 .titleDB
@@ -123,7 +113,15 @@
     border: 1px;
     border-radius: 10px;
     background-color: rgba(92, 180, 92, 0.704);
+    box-shadow: 3px 3px 3px rgb(0,0,0,0.5);
     border-color: rgb(0, 101, 0);
+}
+
+.novo:hover{
+    background-color: rgba(183, 183, 183, 0.727);
+    color: darkgreen;
+    font-weight: bold;
+    box-shadow: 3px 3px 3px rgb(0,0,0,0.5);
 }
 
 #btnAdd {
@@ -136,6 +134,9 @@
   color: var(--yellow);
 }
 
-.fa-solid {
+.fa-solid, #btnL {
   margin-left: 10px;
+  border: none;
+  background: none;
+  color: black;
 }

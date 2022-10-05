@@ -87,5 +87,9 @@
         echo "<tr><td colspan='4'> Preço total da compra: R$ ". Number_format($valortotal, 2, ',','.') ."</td></tr>";
         ?>
     </table>
+
+    <div class="btn">
+        <a class="addCmp" href='addprodcar.php?id=<?php echo $idProd?>'> Continuar compra </a>  
+    </div>
 </body>
 </html>

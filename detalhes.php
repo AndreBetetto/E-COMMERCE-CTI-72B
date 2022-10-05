@@ -93,39 +93,38 @@
 
                 <div>
                     <label class="campos">
-                        <b>Título:</b> <?php echo $tituloProd ?>
+                        <?php echo $tituloProd ?>
                     </label>
                 </div>
 
                 <div>
                     <label class="campos">
-                        <b>Descrição:</b> <?php echo $descricaoProd ?>
+                        <?php echo $descricaoProd ?>
                     </label>
                 </div>
 
                 <div>
                     <label class="campos">
-                        <b>Material:</b> <?php echo $material ?>
+                        <?php echo $material ?>
                     </label>
                 </div>
 
                 <div>
                     <label class="campos">
-                        <b>Estoque:</b>
-                            <?php
-                                if(strval($estoque) <= 0)  {
-                                    echo "Produto indisponível<br>";
-                                    echo "<a href='#'>Avise-me quando chegar</a>";
-                                }else {
-                                    echo $estoque." produtos em estoque";
-                                }
-                            ?>
+                        <?php
+                            if(strval($estoque) <= 0)  {
+                                echo "Produto indisponível<br>";
+                                echo "<a href='#'>Avise-me quando chegar</a>";
+                            }else {
+                                echo $estoque." produtos em estoque";
+                            }
+                        ?>
                     </label>
                 </div>
 
                 <div>
                     <label class="campos">
-                        <b>Preço:</b> <?php echo "R$ ".Number_format($precoProd, 2, ',','.') ?>
+                        <?php echo "<label class='preco'> R$ ".Number_format($precoProd, 2, ',','.')."</label>" ?>
                     </label>
                 </div>
 
