@@ -76,6 +76,7 @@
     border: none;
     background-color: #ca6702;
     color:#000000;
+    font-weight: bold;
     text-align: center;
     text-decoration: none;
     width: 100%;
@@ -95,6 +96,7 @@
     border: none;
     background-color: darkgreen;
     color:#000000;
+    font-weight: bold;
     text-align: center;
     text-decoration: none;
     width: 100%;
