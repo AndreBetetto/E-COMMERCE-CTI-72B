@@ -70,7 +70,7 @@ session_start();
               <div class="txt_field">
                   <input type="password" name="cpassword" required>
                   <span></span>
-                  <label>Confirm Password</label>
+                  <label>Confirmar senha</label>
               </div>
 
               <input name="submit" type="Submit" value="Sign Up">

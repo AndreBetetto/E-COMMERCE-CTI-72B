@@ -34,8 +34,7 @@
     border-radius: 10px;
     border: none;
     background-color: darkgreen;
-    color:#000000;
-    font-weight: bold;
+    color:#FFFF;
     text-align: center;
     text-decoration: none;
     width: 100%;
@@ -47,7 +46,6 @@
 .btnCmp:hover{
     background-color: rgba(183, 183, 183, 0.727);
     color: darkgreen;
-    font-weight: bold;
     box-shadow: 3px 3px 3px rgb(0,0,0,0.5);
 }
 
@@ -55,7 +53,7 @@
     border-radius: 10px;
     border: none;
     background-color: #ca6702;
-    color:#000000;
+    color:#FFFF;
     font-weight: bold;
     text-align: center;
     text-decoration: none;

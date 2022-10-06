@@ -14,7 +14,6 @@
     --white: #ffffff;
   }
 
-
 .perfil{
     font-family: Arial, Helvetica, sans-serif;
     background: #343a40;
@@ -132,7 +131,7 @@ form .txt_field{
     margin: 30px 0;
   }
   
-  .inputs{
+  .txt_field input, .txt_field .inputs{
     width: 100%;
     padding: 0 5px;
     height: 40px;
@@ -143,15 +142,24 @@ form .txt_field{
     outline: none;
   }
 
+  /* .txt_field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+  } */
+
   .txt_field span{
-    content: '';
+    /* content: '';
     position: absolute;
     top: 40px;
-    left: 0;
-    width: 0px;
+    left: 0; */
+    width: 100px;
     height: 2px;
     background: var(--orange);
     transition: .5s;
   }
-
 

@@ -137,3 +137,27 @@
   margin: 5px auto;
   width: 80%;
 }
+
+.carrinho{
+  display: flex;
+  justify-content: space-around;
+}
+
+.resumo{
+  display: flex;
+  justify-content: space-around;
+}
+
+.itens{
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--dark-blue);
+  border-radius: 10px;
+  padding: 10px;
+  font-family: Helvetica, sans-serif;
+  width: 40%;
+}
+
+.preco{
+  display: block;
+}

@@ -50,8 +50,11 @@
                 <!-- PESQUISA -->
                 <form action="produtos.php" class="search">
                     <input id="input" type="text" name="input" placeholder="Pesquisar um produto...">
-                    <i id="nav-icon" class="fa-solid fa-magnifying-glass fa-2x"></i>
-                    <input id="submit" type="submit" value="submit" >
+                    <label>
+                        <i id='nav-icon' class='fa-solid fa-magnifying-glass fa-2x'></i>
+                        <input id="submit" type="submit" value="submit" >
+                    </label>
+                    
                 </form> 
                 <!-- FIM PESQUISA -->
 
@@ -146,7 +149,7 @@
                     <a class="icon" href="#top"><i id="arrow" class="fa-regular fa-circle-up"></i></a>
             </div>
             <script src="menu.js"></script>
-            </div>
+        </div>
     </body>
 </html>
 

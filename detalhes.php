@@ -43,7 +43,6 @@
         <div class="detalhes">
 
             <div class="imagem">
-                <a href="detalhes.php?id=<?php echo $num; ?>,num=<?php  echo $idprod; ?>" >baixar</a>
                 
             <?php
             function golink($idprod, $num){
