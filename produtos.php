@@ -16,7 +16,7 @@
     <title>Produtos | KeyFriends</title>
 </head>
 <body>
-    <?php include('navbar.php')?>
+    <?php include('navMenuFooter.php')?>
     
     <form action="backendprod.php" method="POST">
             <label>Busque por um produto: 
@@ -81,7 +81,7 @@
                                 <i class='fa-solid fa-star'></i>
                                 <i class='fa-solid fa-star'></i>
                             </div>
-                            <p class='item'> R$ ".$precoProd." </p>
+                            <p class='itemP'> R$ ".$precoProd." </p>
                         </div>";
 
                             if($linha['estoque']<=0){

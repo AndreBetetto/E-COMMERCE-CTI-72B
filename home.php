@@ -39,7 +39,7 @@
                         <a href="#">
                             <i class="fa-solid fa-chart-line"></i> Estatísticas
                         </a>
-                        <a href="#">
+                        <a href="dev.php">
                             <i class="fa-solid fa-code"></i> Desenvolvedores
                         </a>
                     </div>
@@ -106,15 +106,15 @@
                         <div class="txt-imgs-home"><p>Chaveiro de Gladiador</p></div>
                     </div>
                     <div class="imgs-home" id="maisvendido">
-                        <img  src="imagens/img2.jpg" alt="chaveiro2">
+                        <img src="imagens/img2.jpg" alt="chaveiro2">
                         <div class="txt-imgs-home"><p>Chaveiro Chocolatinho!</p></div>
                     </div>
                     <div class="imgs-home" id="img-home-3">
-                        <img  src="imagens/img3.jpg" alt="chaveiro3">
+                        <img src="imagens/img3.jpg" alt="chaveiro3">
                         <div class="txt-imgs-home"><p>Chaveiro S2 Amor</p></div>
                     </div>
                     <div class="imgs-home" id="maisvendido">
-                        <img  src="imagens/img2.jpg" alt="chaveiro2">
+                        <img src="imagens/img2.jpg" alt="chaveiro2">
                         <div class="txt-imgs-home"><p>Chaveiro Chocolatinho!</p></div>
                     </div>
                 </div>

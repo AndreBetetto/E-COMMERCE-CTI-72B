@@ -20,7 +20,7 @@
 <body>
     <div class="main">
         <?php
-            include('navbar.php')
+            include('navMenuFooter.php')
         ?>
         <?php
             $sql = "SELECT * FROM produtosandre WHERE id = $idprod";
@@ -102,11 +102,11 @@
                     </label>
                 </div>
 
-                <div>
+                <!-- <div>
                     <label class="campos">
-                        <?php echo $material ?>
+                        <?php //echo $material ?>
                     </label>
-                </div>
+                </div> -->
 
                 <div>
                     <label class="campos">

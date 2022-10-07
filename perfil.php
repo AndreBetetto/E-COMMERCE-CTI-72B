@@ -23,6 +23,8 @@
                     $nome = $_SESSION['name'];
                     $email = $_SESSION['email'];
                     $nome = $_SESSION['name'];
+                    $cpf = $_SESSION['cpf'];
+                    $tel = $_SESSION['telefone'];
                     $nfim = $_SESSION['numberfim'];
 
                     $email2 = str_replace('.', '_', $email);
@@ -87,33 +89,7 @@
                         <div class="txt_field">
                             <label class="campos">Telefone (celular)</label>  
                             <span></span>  
-                            <?php
-                                $sqlID = "SELECT id from usuarioandre where login = '$email'";
-
-                                $ID = pg_fetch_row(pg_query($conexao, $sqlID));
-                                $idreal = $ID[0];
-                                $_SESSION['id'] = $idreal;
-                                $pegaNumSQL = "SELECT COUNT(*) as total FROM telefoneandre where id_user = $idreal";
-                                $pegaNum = pg_fetch_row(pg_query($conexao, $pegaNumSQL));
-                            
-                                if(intval($pegaNum[0]) <= 0){
-                                    echo "Nenhum número cadastrado";
-                                }
-                                if(intval($pegaNum[0]) > 0):
-                                    for($i=1; $i <= intval($pegaNum[0]); $i++):
-                                        $sqlDDD = "select ddd from telefoneandre where id_user = $idreal and qtd = $i";
-                                        $sqlNum = "select num from telefoneandre where id_user = $idreal and qtd = $i";
-                                        $mostraDDD = pg_fetch_row(pg_query($conexao, $sqlDDD));
-                                        $mostraNum = pg_fetch_row(pg_query($conexao, $sqlNum));?>
-                                        <label class="inputs">
-                                            <?php echo " ".$mostraDDD[0]." ".$mostraNum[0];?> 
-                                            <form action="apaganum.php" method="POST">
-                                                <button type="submit" value="<?php echo $i; ?>" name="apagar" >
-                                                    <i class="fa-solid fa-trash-can fa-1x"> </i>
-                                                </button>
-                                            </form>
-                                        </label>
-                                    <?php  endfor; endif; ?>
+                            <?php echo "<label class='inputs'>".$tel."</label>"; ?> 
                         </div>
                     </div>
                 </div>
@@ -137,60 +113,6 @@
                 <div class="titulo">
                     <h3>Dados Pessoais</h3>
                 </div>
-
-                
-
-                <!--<form action="" method="post">
-                    <div class="itens">
-                        <div class="txt_field">
-                            <label for="ddd" class="campos">Telefone</label>
-                            <input type="number" id="ddd" name="ddd" placeholder="ddd"> 
-                            <input type="text" id="num" name="num" placeholder="numero de telefone">
-                        
-                            <input class="btnEnviar" type="submit" value="Adicionar" name="add">
-
-                            /*
-                                if(isset($_POST['num']) && isset($_POST['ddd'])){
-                                    $n = $_POST['num'];
-                                    $ddd = $_POST['ddd'];
-                                    //$n = strval($_POST["num"]);
-                                    //$ddd = $_POST["ddd"];
-                                    if(intval($ddd) < 0 || intval($ddd) > 999 || strlen($n) < 8 || strlen($n) > 16) {
-                                        echo "erro, digite um numero válido";
-                                        exit;
-                                    }else {
-                                        echo $n;
-                                        $ddd1 = intval($ddd);
-                                        $verifica = "select count(*) from telefoneandre where id_user = $idreal";
-                                        $verifica2 = "select qtd from telefoneandre where id_user = $idreal order by qtd desc";
-
-                                        $ver = pg_fetch_all(pg_query($conexao, $verifica));
-                                        $ver2 = pg_fetch_all(pg_query($conexao, $verifica2));
-
-                                        $numVer = intval($ver[0]['count']);
-
-                                        $qtd = 1;
-                                        if(intval($ver2[0]['qtd']) > 2){
-                                            echo "Numero max. de telefones cadastrados alcançados";
-                                            $passou = false;
-                                            //mensagem erro
-                                        } elseif(intval($ver2[0]['qtd']) == 1) {
-                                            $qtd = 2;
-                                            $passou = true;
-                                            
-                                        } elseif(intval($ver2[0]['qtd']) == null)  {$qtd = 1; $passou = true;}
-                                        if($passou == true){
-                                            $sqlAdd = "insert into telefoneandre (id_user, ddd, num, qtd) values ($idreal, $ddd1, '$n', $qtd)";
-                                            pg_query($conexao, $sqlAdd);
-                                            $passou = false;
-                                        }
-                                            
-                                        header("Refresh: 0");
-                                    }   
-                                } ?>*/
-                        </div> 
-                    </div>
-                </form> -->  
 
                 <div class="linha">
                     <div class="titulo">
@@ -324,9 +246,7 @@
                         endif;
                         
                     ?>
-                </div>
-    
-                    
+                </div>     
                         
         </div>        
         </section>

@@ -206,15 +206,18 @@ body{
 }
 #img-home-1
 {
-    border: var(--darker-red) 0.5vw solid;
+    border: var(--darker-blue) 0.5vw solid;
+    border-radius: 10px;
 }
 #maisvendido
 {
     border: var(--dark-orange) 0.5vw solid;
+    border-radius: 10px;
 }
 #img-home-3
 {
     border: var(--blue) 0.5vw solid;
+    border-radius: 10px;
 }
 
 #txt2 {
@@ -283,13 +286,14 @@ a:link {
 .video
 {
     height: 100%;
-    width: 100%
+    width: 100%;
 }
 .video iframe
 {
     height: 100%;
     width: 100%;
-    box-shadow: 5px 7px 11px rgb(0 0 0 / 40%);
+    border-radius: 10px;
+    box-shadow: 5px 7px 11px rgb(0 0 0 / 70%);
 }
 
 
@@ -366,7 +370,7 @@ a:link {
     align-items: center;    
 }
 
-.searh input[type = 'submit']
+#submit
 {
     display: none;
 }

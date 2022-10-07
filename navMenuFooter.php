@@ -17,7 +17,7 @@
                         <a href="produtos.php"><div class="link">PRODUTOS</div></a>
                         <a href="logout.php"><div class="link">CADASTRAR</div></a>
                         <a href="#"><div class="link">ESTATÍSTICAS</div></a>
-                        <a href="#"><div class="link">DESENVOLVEDORES</div></a>
+                        <a href="dev.php"><div class="link">DESENVOLVEDORES</div></a>
 
                     </nav>	
                 </div>

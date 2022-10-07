@@ -31,39 +31,80 @@
     $contagem = pg_fetch_row(pg_query($conexao, $cont));
     ?>
     <div class="titleDB"> <p>Meu carrinho<p> </div>
-    <div class="carrinho">
-        <div class="itens">
-            <div>
-                <label>Chaveiro</label>
-                <div class='alter'>
-                        <form method='post' action='menosprodcar.php'>
-                            <button class='alterProds' type='submit' name='submit' id='1' value ='1'> 
-                                <i class='fa-solid fa-minus'></i>
-                            </button>
-                        </form>
+    <main class="carrinho">
+        <section class="prod">
+            <div class="itens">
+                <div class="imgTitulo">
+                    <img src="imagens/bia.jpg">
+                    <div class="titulo"> 
+                        <label id="title">Chaveiro</label>
+                        <div class='alter'>
+                                <form method='post' action='menosprodcar.php'>
+                                    <button class='alterProds' type='submit' name='submit' id='1' value ='1'> 
+                                        <i class='fa-solid fa-minus'></i>
+                                    </button>
+                                </form>
+                                <label class="qtde"> 5 </label>
+                                <form method='post' action='maisprodcar.php'> 
+                                    <button class='alterProds' type='submit' name='submit' id='1' value ='1'> 
+                                        <i class='fa-solid fa-plus'></i>
+                                    </button>
+                                </form> 
+                        </div> 
+                    </div>
+                </div>
 
-                        5
-                        
-                        <form method='post' action='maisprodcar.php'> 
-                            <button class='alterProds' type='submit' name='submit' id='1' value ='1'> 
-                                <i class='fa-solid fa-plus'></i>
-                            </button>
-                        </form> 
-                    </div> 
-            </div>
-
-            <div class="preco">
-                <label>Preço unitário </label>
-                <div>
-                    <label> R$ 3,40</label>
+                <div class="preco">
+                    <label>Preço unitário</label>
+                    <div class="val">
+                        <label> R$ 1400,00</label>
+                    </div>
                 </div>
             </div>
-        </div>
+            
+        </section>
+        
+        <section class="list">
+            <div class="resumo">
+                <span class="subtitulo">Resumo da compra</span>
+                <div class="menuResumo"> 
+                    <div class="menuItens">
+                        <div class="menuConteudo">
+                            <span>Chaveiro 1</span>
+                            <span>R$ 3,40</span>
+                        </div>
 
-        <div class="resumo">
+                        <div class="menuConteudo">
+                            <span>Chaveiro 2</span>
+                            <span>R$ 6,40</span>
+                        </div>
 
-        </div>
-    </div>
+                        <div class="menuConteudo">
+                            <span>Chaveiro 1</span>
+                            <span>R$ 3,40</span>
+                        </div>
+
+                        <div class="menuConteudo">
+                            <span>Chaveiro 1</span>
+                            <span>R$ 3,40</span>
+                        </div>
+
+                        <div class="menuConteudo">
+                            <span>Chaveiro 1</span>
+                            <span>R$ 3,40</span>
+                        </div>
+                    </div>
+
+                    <div class="menuTotal"> 
+                        <span>Total</span>
+                        <span>R$ 9,80</span>
+                    </div>
+                </div>
+                    
+                <a class="addCmp" href='addprodcar.php?id=<?php echo $idProd?>'> Finalizar compra </a>  
+            </div>
+        </section>
+    </main>
 
         <br> <br> <br> <br> 
     <table class="table">
@@ -122,8 +163,6 @@
         ?> 
     </table>
 
-    <div class="btn">
-        <a class="addCmp" href='addprodcar.php?id=<?php echo $idProd?>'> Continuar compra </a>  
-    </div>
+    
 </body>
 </html>
