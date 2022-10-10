@@ -148,15 +148,37 @@
                         if($tempqtd <100) {
                             $tempqtd = "0" . $tempqtd;
                         }
+                        
                         $carrinhoqtd = $carrinhoqtd . $tempqtd . ",";
 
                         $temppu = strval($sqlmostra['preco']);
-                        $temppu =  number_format($temppu, 2, ',','.');
+                        $temppu =  number_format($temppu, 2, ',','');
         
                         if($temppu <10){
                             $temppu = "0" . $temppu;
                         }
                         if($temppu <100){
+                            $temppu = "0" . $temppu;
+                        }
+                        if($temppu < 1000){
+                            $temppu = "0" . $temppu;
+                        }
+                        if($temppu < 10000){
+                            $temppu = "0" . $temppu;
+                        }
+                        if($temppu < 100000){
+                            $temppu = "0" . $temppu;
+                        }
+                        if($temppu < 1000000){
+                            $temppu = "0" . $temppu;
+                        }
+                        if($temppu < 10000000){
+                            $temppu = "0" . $temppu;
+                        }
+                        if($temppu < 100000000){
+                            $temppu = "0" . $temppu;
+                        }
+                        if($temppu < 1000000000){
                             $temppu = "0" . $temppu;
                         }
                         $carrinhopu = $carrinhopu . $temppu . "#";

@@ -36,9 +36,9 @@
 
         echo "Preços unitários: ";
         while ($tamanholistapu > 0) {
-            $preco = substr($listapreco, 0, 6);
+            $preco = substr($listapreco, 0,14);
             echo $preco . "<br>";
-            $listapreco = substr($listapreco, 7);
+            $listapreco = substr($listapreco, 15);
             $tamanholistapu = strlen($listapreco);
         }
         echo "----------------------------------------------<br><br>";
@@ -83,7 +83,7 @@
             {
                 $id = intval(substr($listaids, 0, 4));
                 $qtd = intval(substr($listaqtde, 0, 3));
-                $preco = substr($listapreco, 0, 6);
+                $preco = substr($listapreco, 0, 9);
                 $preco = str_replace(",", ".", $preco);
                 $preco = floatval($preco);
 

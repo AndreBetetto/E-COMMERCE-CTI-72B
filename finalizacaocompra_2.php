@@ -20,7 +20,7 @@
             <input type="text" name="nome" placeholder="Nome impresso no cartão">
             <input type="number" id="numerocartao" name="numerocartao" placeholder="Número do cartão">
             <input type="number" id="cvv" name="cvv" placeholder="Código do cartão (3 dígitos)">
-            <select name="parcelas" id="parcelas"></select>
+            <select name="parcelas" id="parcelas">
                 <option value="1">1x</option>
                 <option value="2">2x</option>
                 <option value="3">3x</option>
