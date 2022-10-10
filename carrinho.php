@@ -32,6 +32,7 @@
     ?>
     <div class="titleDB"> <p>Meu carrinho<p> </div>
     <?php 
+    echo "<main class='carrinho'>";
     for($i = 0; $i < $contagem[0]; $i++)
     {
         $sqlCarrinho = "select * from carrinhoandre where id_user = $id order by id_produto";
@@ -70,7 +71,7 @@
         
 
     echo "
-    <main class='carrinho'>
+    
         <section class='prod'>
             <div class='itens'>
                 <div class='imgTitulo'>". $img ."
@@ -133,9 +134,9 @@
         $valortotal = $valortotal + ($sqlmostra['preco'] * $carrinho['qtd']);
                         echo "
                         <div class='menuConteudo'>
-                            <span>".  $sqlmostra['titulo'].", ".$carrinho['qtd']." quantidadess."."</span>
+                            <span>".  $sqlmostra['titulo']."</span>
                             <span> R$ ". Number_format($sqlmostra['preco'] * $carrinho['qtd'], 2, ',','.')  ."</span>
-                        </div>
+                    
                         </div>";
                         $tempid = strval($carrinhoID);
                         $carrinhoid = $carrinhoid . $tempid . ",";
@@ -189,6 +190,8 @@
                     
                     /*
                     
+                    
+
                     */
                     echo "<div class='menuTotal'> 
                         <span>Total</span>
@@ -200,9 +203,6 @@
         </section>";
 
         
-        echo $_SESSION['carrinhoids'];
-        echo $_SESSION['carrinhoqtds'];
-        echo $_SESSION['carrinhopu'];
         ?>
     </main>
 

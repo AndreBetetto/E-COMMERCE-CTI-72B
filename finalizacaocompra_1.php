@@ -87,7 +87,7 @@
                                 <input type="text" id="endereco" name="endereco" value="<?php echo $_SESSION['rua']; ?>" placeholder="Endereço" readonly >  
                                 <span></span>
                             </div>
-
+                        <form action="finalizacaocompra_2.php" method="post">
                             <div class="txt_field">
                                 <label class="campos">Número: </label> 
                                 <input type="text" id="num" name="num" placeholder="Número">  
@@ -99,8 +99,11 @@
                                 <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc">
                                 <span></span>
                             </div>
-
-                            
+                            <div class="txt_field">
+                                <input type="submit" value="Continuar">
+                            </div>
+                        </form>
+                            <!-- <button><a href="finalizacaocompra_2.php">pagar</a></button>-->
                         </div>
                         </form>
 
