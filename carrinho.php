@@ -137,8 +137,34 @@
                             <span> R$ ". Number_format($sqlmostra['preco'] * $carrinho['qtd'], 2, ',','.')  ."</span>
                         </div>
                         </div>";
-                    }
+                        $tempid = strval($carrinhoID);
+                        $carrinhoid = $carrinhoid . $tempid . ",";
 
+                        $tempqtd = strval($carrinho['qtd']);
+                        if($tempqtd <10) {
+                            $tempqtd = "0" . $tempqtd;
+                        }
+                        if($tempqtd <100) {
+                            $tempqtd = "0" . $tempqtd;
+                        }
+                        $carrinhoqtd = $carrinhoqtd . $tempqtd . ",";
+
+                        $temppu = strval($sqlmostra['preco']);
+                        $temppu =  number_format($temppu, 2, ',','.');
+        
+                        if($temppu <10){
+                            $temppu = "0" . $temppu;
+                        }
+                        if($temppu <100){
+                            $temppu = "0" . $temppu;
+                        }
+                        $carrinhopu = $carrinhopu . $temppu . "#";
+                        
+                    }
+                    $_SESSION['carrinhoids'] = $carrinhoid;
+                    $_SESSION['carrinhoqtds'] = $carrinhoqtd;
+                    $_SESSION['carrinhopu'] = $carrinhopu;
+                    
                         
 
                         /*<div class="menuConteudo">
@@ -169,9 +195,14 @@
                         <span>R$ ".  $valortotal * $carrinho['qtd']. "</span>
                     </div>
                 </div>
-                <a class='addCmp' href='addprodcar.php?id=".$idProd."'> Finalizar compra </a>  
+                <a class='addCmp' href='finalizacaocompra_1.php'> Finalizar compra </a>  
             </div>
         </section>";
+
+        
+        echo $_SESSION['carrinhoids'];
+        echo $_SESSION['carrinhoqtds'];
+        echo $_SESSION['carrinhopu'];
         ?>
     </main>
 
