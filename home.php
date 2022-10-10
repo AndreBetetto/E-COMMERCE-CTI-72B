@@ -63,8 +63,8 @@
                         <span>
                             <a class="btn1" id="nav-icon" href="javascript://"> <i class="fa-solid fa-gear fa-2x"></i></a>
                             <ul class="menu-menu">
-                                <a id="itemLink" href="admUsuarios.php"> <li id="item"> > Usuários</li> </a>
-                                <a id="itemLink" href="admProdutos.php"> <li id="item"> > Produtos</li> </a>
+                                <a id="itemLink" href="admUsuarios.php"> <li id="item"> <i class="fa-solid fa-user"></i> Usuários</li> </a>
+                                <a id="itemLink" href="admProdutos.php"> <li id="item"> <i class="fa-solid fa-boxes-stacked"></i> Produtos</li> </a>
                             </ul>
                         </span>
                         

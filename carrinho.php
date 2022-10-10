@@ -101,7 +101,7 @@
                     </div>
                 </div>
                     
-                <a class="addCmp" href='addprodcar.php?id=<?php echo $idProd?>'> Finalizar compra </a>  
+                <a class="addCmp" href='addprodcar.php?id=<?php echo $idProd?>'> Confirmar compra </a>  
             </div>
         </section>
     </main>
