@@ -30,6 +30,7 @@
     </form>
 
     <?php
+    if($_SESSION['adicionado'] == true) { echo "<script>alert('Produto adicionado ao carrinho!');</script>"; $_SESSION['adicionado'] = false;}; 
         $busca = $_POST['input'];
         $_SESSION['buscatermo'] = $busca;
         if($busca != null){
