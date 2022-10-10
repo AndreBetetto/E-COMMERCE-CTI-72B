@@ -95,7 +95,7 @@
                     <div class='preco'>
                         <label>Preço unitário</label>
                         <div class='val'>
-                            <label> R$ ". Number_format($sqlmostra['preco'] * $carrinho['qtd'], 2, ',','.') ."</label>
+                            <label> R$ ". Number_format($sqlmostra['preco'], 2, ',','.') ."</label>
                         </div>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                     
                     echo "<div class='menuTotal'> 
                         <span>Total</span>
-                        <span>R$ ".  $valortotal * $carrinho['qtd']. "</span>
+                        <span>R$ ".  $valortotal."</span>
                     </div>
                 </div>
                     
