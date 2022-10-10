@@ -116,6 +116,7 @@
                     for($i = 0; $i < $contagem[0]; $i++)
                     {
                         $sqlCarrinho = "select * from carrinhoandre where id_user = $id order by id_produto";
+<<<<<<< Updated upstream
                         $queryCarrinho = pg_query($conexao, $sqlCarrinho);
                         $carrinho = pg_fetch_assoc($queryCarrinho, $i);
                         $carrinhoID = intval($carrinho['id_produto']);
@@ -128,6 +129,20 @@
                         $sqlpega = "select * from produtosandre where id = $carrinhoID order by id";
                         $sqlmostra = pg_fetch_assoc(pg_query($conexao, $sqlpega));
                         $valortotal = $valortotal + ($sqlmostra['preco'] * $carrinho['qtd']);
+=======
+        $queryCarrinho = pg_query($conexao, $sqlCarrinho);
+        $carrinho = pg_fetch_assoc($queryCarrinho, $i);
+        $carrinhoID = intval($carrinho['id_produto']);
+
+        $contador = "select count(*) from carrinhoandre where id_produto = $carrinhoID";
+        $numcont = pg_fetch_row(pg_query($conexao, $contador));
+        if($numcont[0] == 0) {
+            echo "Nenhum produto no carrinho";
+        }
+        $sqlpega = "select * from produtosandre where id = $carrinhoID order by id";
+        $sqlmostra = pg_fetch_assoc(pg_query($conexao, $sqlpega));
+        $valortotal = $valortotal + ($sqlmostra['preco'] * $carrinho['qtd']);
+>>>>>>> Stashed changes
                         echo "
                         <div class='menuConteudo'>
                             <span>".  $sqlmostra['titulo']."</span>
