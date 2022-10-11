@@ -190,13 +190,18 @@
                                     ?>
                                 </div>
 
-                                <?php echo 
+                                <?php 
+                                if($contagem[0] != 0):
+                                    
+                                
+                                echo 
                                     "<div class='menuTotal'> 
                                             <span>Total</span>
                                             <span>R$ ".  $valortotal."</span>
                                     </div>"; ?>
 
                                 <a class='addCmp' href='finalizacaocompra_1.php'> Finalizar compra </a>  
+                                <?php endif; ?>
                             </div>
                     </div>
             </div>
