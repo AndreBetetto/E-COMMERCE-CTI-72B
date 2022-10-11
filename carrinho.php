@@ -112,10 +112,15 @@
                     <?php
                     $cont = "select count(*) from carrinhoandre where id_user = $id";
                     $contagem = pg_fetch_row(pg_query($conexao, $cont));    
-                    
+                    if($contagem[0] == 0) {
+                        echo "Nenhum produto no carrinho. Deseja buscar por algum produto? <a href='produtos.php'>Clique aqui</a>";
+                        
+                        
+                    } else {
                     for($i = 0; $i < $contagem[0]; $i++)
                     {
                         $sqlCarrinho = "select * from carrinhoandre where id_user = $id order by id_produto";
+<<<<<<< HEAD
                         $queryCarrinho = pg_query($conexao, $sqlCarrinho);
                         $carrinho = pg_fetch_assoc($queryCarrinho, $i);
                         $carrinhoID = intval($carrinho['id_produto']);
@@ -140,6 +145,18 @@
                         $sqlpega = "select * from produtosandre where id = $carrinhoID order by id";
                         $sqlmostra = pg_fetch_assoc(pg_query($conexao, $sqlpega));
                         $valortotal = $valortotal + ($sqlmostra['preco'] * $carrinho['qtd']);
+=======
+        $queryCarrinho = pg_query($conexao, $sqlCarrinho);
+        $carrinho = pg_fetch_assoc($queryCarrinho, $i);
+        $carrinhoID = intval($carrinho['id_produto']);
+
+        $contador1 = "select count(*) from carrinhoandre where id_user = $id";
+        $numcont = pg_fetch_row(pg_query($conexao, $contador1));
+        
+            $sqlpega = "select * from produtosandre where id = $carrinhoID order by id";
+        $sqlmostra = pg_fetch_assoc(pg_query($conexao, $sqlpega));
+        $valortotal = $valortotal + ($sqlmostra['preco'] * $carrinho['qtd']);
+>>>>>>> 1425f237350755ae73feca0e069f0bc92eb9acbd
                         echo "
                         <div class='menuConteudo'>
                             <span>".  $sqlmostra['titulo']."</span>
@@ -190,6 +207,8 @@
                             $temppu = "0" . $temppu;
                         }
                         $carrinhopu = $carrinhopu . $temppu . "#";
+        }
+        
                         
                     }
                     $_SESSION['carrinhoids'] = $carrinhoid;
