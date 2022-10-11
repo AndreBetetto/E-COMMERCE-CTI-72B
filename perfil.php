@@ -25,8 +25,15 @@
                     $nome = $_SESSION['name'];
                     $cpf = $_SESSION['cpf'];
                     $tel = $_SESSION['telefone'];
-                    $nfim = $_SESSION['numberfim'];
+                    
 
+
+                    $sql = "SELECT * FROM usuarioandre WHERE login = '$email'";
+                    $result = pg_query($conexao, $sql);
+                    $row = pg_fetch_assoc($result);
+                    $nfim = $row['numberphoto'];
+                    
+                    $_SESSION['numberfim'] = $nfim;
                     $email2 = str_replace('.', '_', $email);
 
                     $caminho = $email2.  $nfim.'.jpg';
@@ -151,6 +158,7 @@
                                             $_SESSION['bairro'] = $data['bairro'];
                                             $_SESSION['cidade'] = $data['localidade'];
                                             $_SESSION['estado'] = $data['uf'];
+                                            
 
                                             if($data['erro'] == true || $data['localidade'] == null) {
                                                 echo "CEP inválido";
@@ -161,7 +169,7 @@
                                         } ?>
                             </div>
                         
-                            <form action="" method="post">
+                            <form action="addendereco.php" method="post">
                                 <div class="txt_field">
                                     <label class="campos">Cidade: </label> 
                                     <input type="text" id="cidade" name="cidade" placeholder="Cidade" value="<?php echo $_SESSION['cidade']; ?>" readonly> 
@@ -199,6 +207,8 @@
                                 <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc">
                                 <span></span>
                             </div>
+                            <input type="hidden" value="<?php echo $cep; ?>" name="cep" id="cep">
+                            
 
                             
                         </div>
@@ -207,21 +217,6 @@
                                 <input class="btnEnviar" type="submit" value="Salvar" name="add">
                             </div>
                         </form>
-
-                        <?php 
-                        
-                        $sqlend = "select qtd from enderecosandre where id_user = $idreal";
-                        $numrowend = pg_fetch_row(pg_query($conexao, $sqlend));
-                        if($numrowend <= 0) {
-                            echo "Nenhum endereço cadastrado";
-                        } else {
-                            for($i = 0; $i <= 4; $i++) {
-                                $sqlendereco = "select * from enderecosandre where id_user = $idreal and qtd = $i";
-                                $resultado_lista=pg_fetch_array(pg_query($conexao, $sqlendereco));
-                                echo "Endereço ".$i.": ".$resultado_lista['cep'].", ".$resultado_lista['endereco'].", ".$resultado_lista['bairro']." ".$resultado_lista['cidade']." ".$resultado_lista['uf']." ".$resultado_lista['complemento']."<br>";
-                            }
-                        } 
-                    ?>
 
                     <?php
                         $cep = $_POST["cep"];
@@ -233,17 +228,10 @@
                         $verifica = "select qtd from enderecosandre where id_user = $idreal order by qtd desc";
                         $ver = pg_fetch_row(pg_query($conexao, $verifica));
                         $endVer = intval($ver[0]);
-                        if(isset($_POST['submit'])){
-                            if($endVer == 4) {
-                            echo "Número máximo de endereços cadastrados";
-                        }elseif($endVer < 4) {
-                            $sqladdendereco = "insert into enderecosandre (id_user, cep, endereco, bairro, cidade, uf, complemento, qtd) values ($idreal, '$cep', '$endereco', '$bairro', '$cidade', '$uf', '$complemento', $endVer+1)";
-                            
-                            pg_query($conexao, $sqladdendereco);
-                        }
+                        
                     
-                        }
-                        endif;
+                        
+                    endif;
                         
                     ?>
                 </div>     

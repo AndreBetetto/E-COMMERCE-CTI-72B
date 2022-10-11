@@ -22,8 +22,14 @@ if($email != 'admin@gmail.com'){
 
     echo $titulo . " - " . $descricao . " - " . $preco . " - " . $estoque . " - " . $promocao . " - " . $porcentagem;
 
-    $sql = "insert into produtosandre (titulo, descricao, material, preco, estoque, promocao, promoporcentagem) 
-        values ('$titulo', '$descricao', '$material', $preco, $estoque, '$boolPromo', $porcentagem)";
+    $ml = 0.6*$preco;
+    $imp = 0.2*$preco;
+    $precototal = $preco + $ml + $imp;
+
+
+
+    $sql = "insert into produtosandre (titulo, descricao, material, preco, estoque, promocao, promoporcentagem, margemlucro, imposto, precoinicial ) 
+        values ('$titulo', '$descricao', '$material', $precototal, $estoque, '$boolPromo', $porcentagem, $ml, $imp, $preco)";
     pg_query($conexao, $sql);
 
     ///////////////////////////// UPLOAD DE IMAGEM /////////////////////////////

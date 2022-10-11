@@ -56,9 +56,9 @@
             }
                 $num = 1;
 
-                    $caminho =  $idProd. $num.'.jpg';
-                    $caminho2 = $idProd. $num.'.png';
-                    $caminho3 = $idProd. $num.'.jpeg';
+                    $caminho =  $idProd. '.jpg';
+                    $caminho2 = $idProd. '.png';
+                    $caminho3 = $idProd. '.jpeg';
 
                     $target  = "produtosimagem/" . $caminho;
                     $target2 = "produtosimagem/" . $caminho2;
