@@ -14,9 +14,18 @@
     <link rel=stylesheet type="text/css" href="produtos.css">
     <!-- <link rel=stylesheet type="text/css" href="nav.css"> -->
     <title>Produtos | KeyFriends</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
-    <?php include('navMenuFooter.php')?>
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+        </div>
+        <script>
+        $(function(){
+        $("#nav-placeholder").load("nav.html");
+        });
+        </script>
+        <!--end of Navigation bar-->
     
     <form action="backendprod.php" method="POST">
             <label>Busque por um produto: 
