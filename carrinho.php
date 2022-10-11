@@ -41,6 +41,8 @@
             echo " 
             <div class='titleDB'> <p>Meu carrinho<p> </div>
             <div class='carrinho'>";
+
+            echo "<div class='prod'>";
                 for($i = 0; $i < $contagem[0]; $i++)
                 {
                     $sqlCarrinho = "select * from carrinhoandre where id_user = $id order by id_produto";
@@ -77,7 +79,7 @@
                     } 
 
                     echo "
-                    <div class='prod'>
+                    
                         <div class='itens'>
                             <div class='imgTitulo'>". $img ."
                                 <div class='titulo'> 
@@ -105,8 +107,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>";
-                } ?>
+                    ";
+                } 
+                
+                echo "</div>";?>
             
                     <div class='list'>
                         <div class="resumo">

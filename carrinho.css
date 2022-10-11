@@ -112,7 +112,8 @@
   text-align: center;
   text-decoration: none;
   padding: 10px;
-  margin: 5px 0px;
+  margin: 25px 0px;
+  width: 100%;
   box-shadow: 3px 3px 3px rgb(0,0,0,0.5);
 }
 
@@ -132,9 +133,9 @@
 
 .carrinho{
   display: flex;
+  justify-content: center;
   flex-direction: row;
   gap: 2rem;
-  margin: auto 5%;
 }
 
 .itens{
@@ -145,6 +146,7 @@
   box-shadow: 4px 4px 4px rgb(0,0,0,0.7);
   border-radius: 10px;
   padding: 20px;
+  margin: 0px 25px 25px 25px;
   font-size: 16px;
   color:white;
 }
@@ -152,6 +154,8 @@
 .list{
   padding: 2rem;
   gap: 0.5rem;
+  height: fit-content;
+  width: 20%;
   border-radius: 10px;
   background-color: var(--dark-blue);
   box-shadow: 4px 4px 4px rgb(0,0,0,0.7);
