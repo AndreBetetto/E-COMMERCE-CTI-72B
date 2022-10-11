@@ -26,11 +26,7 @@
     $queryProd = pg_query($conexao, $sqlProd);
     //$qtdeBusca=pg_fetch_all($resultado);
     $resultado_lista = null;
-
-    $cont = "select count(*) from carrinhoandre where id_user = $id";
-    $contagem = pg_fetch_row(pg_query($conexao, $cont));
-    ?>
-    <?php 
+    
         $cont = "select count(*) from carrinhoandre where id_user = $id";
         $contagem = pg_fetch_row(pg_query($conexao, $cont));    
         if($contagem[0] == 0) {
