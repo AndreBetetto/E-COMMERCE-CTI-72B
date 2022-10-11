@@ -53,16 +53,16 @@
                 <div class="itemPerfil">
                     <div class='imagem'>
                         <?php if(file_exists($target)) : ?>
-                            <img src="<?php echo $target; ?>" width="250" height="250"/>
+                            <img src="<?php echo $target; ?>" width="200" height="200"/>
                             
                         <?php elseif(file_exists($target2)) : ?>
-                            <img src="<?php echo $target2; ?>" width="250" height="250"/>
+                            <img src="<?php echo $target2; ?>" width="200" height="200"/>
 
                         <?php elseif(file_exists($target3)) : ?>
-                            <img src="<?php echo $target3; ?>" width="250" height="250"/>
+                            <img src="<?php echo $target3; ?>" width="200" height="200"/>
                         
                         <?php elseif(file_exists($target3) == false && file_exists($target) == false && file_exists($target2) == false): ?>
-                            <img src="imagens/default.png" width="100" height="100"/> 
+                            <img src="imagens/default.png" width="200" height="200"/> 
                         <?php endif ?>     
                     </div>
 
@@ -169,12 +169,6 @@
                                 </div>
 
                                 <div class="txt_field">
-                                    <label class="campos">Bairro: </label> 
-                                    <input type="text" id="bairro" name="bairro" placeholder="Bairro" value="<?php echo $_SESSION['bairro']; ?>" readonly> 
-                                    <span></span>
-                                </div>
-
-                                <div class="txt_field">
                                     <label class="campos">UF: </label> 
                                     <input type="text" id="uf" name="uf" placeholder="UF" value="<?php echo $_SESSION['estado']; ?>" readonly> 
                                     <span></span>
@@ -182,6 +176,12 @@
                         </div>    
 
                         <div class="infos">
+                            <div class="txt_field">
+                                <label class="campos">Bairro: </label> 
+                                <input type="text" id="bairro" name="bairro" placeholder="Bairro" value="<?php echo $_SESSION['bairro']; ?>" readonly> 
+                                <span></span>
+                            </div>
+
                             <div class="txt_field">
                                 <label class="campos">Endereço</label>
                                 <input type="text" id="endereco" name="endereco" value="<?php echo $_SESSION['rua']; ?>" placeholder="Endereço" readonly >  

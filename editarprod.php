@@ -99,16 +99,6 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
         <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
             <div class="itens">
                 <div class="txt_field">
-                    <label class="campos" for="fotonum">Escolha o número da foto: </label>                   
-                    <select name="fotonum" id="fotonum">
-                        <option value="1">Foto 1</option>
-                        <option value="2">Foto 2</option>
-                        <option value="3">Foto 3</option>
-                        <option value="4">Foto 4</option>
-                    </select>
-                </div>
-
-                <div class="txt_field">
                     <input class="after" type="file" name="fileToUpload" id="fileToUpload">
                     <input class="after" type="hidden" value="<?php echo $id;?>" name="id" readonly>
                     <span></span>
