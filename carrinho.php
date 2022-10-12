@@ -207,8 +207,8 @@
                             <?php
                                 if($contagem[0] != 0):?>
                             <a class='addCmp' href='finaliza.php'> Finalizar compra </a>
-                            <?php endif; ?>
                             <a class='contC' href='produtos.php'> Continuar comprando </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
