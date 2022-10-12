@@ -26,19 +26,19 @@
     $queryProd = pg_query($conexao, $sqlProd);
     //$qtdeBusca=pg_fetch_all($resultado);
     $resultado_lista = null;
-    
+
         $cont = "select count(*) from carrinhoandre where id_user = $id";
-        $contagem = pg_fetch_row(pg_query($conexao, $cont));    
+        $contagem = pg_fetch_row(pg_query($conexao, $cont));
         if($contagem[0] == 0) {
-            echo 
+            echo
             "<div class='vazio'>
                 <span class='text'>Seu carrinho está vazio!!</span>
                 <i class='fa-solid fa-face-frown fa-5x'></i>
                 <a id='buton' href='produtos.php'> Confira nossos produtos </a>
             </div>";
-        } 
+        }
         else {
-            echo " 
+            echo "
             <div class='titleDB'> <p>Meu carrinho<p> </div>
             <div class='carrinho'>";
 
@@ -57,10 +57,10 @@
                     }
                     $sqlpega = "select * from produtosandre where id = $carrinhoID order by id";
                     $sqlmostra = pg_fetch_assoc(pg_query($conexao, $sqlpega));
-                
+
                     $precoTot = $sqlmostra['preco']* $carrinho['qtd'];
 
-                    $caminho = $sqlmostra['id'].  $sqlmostra['numberphoto'].'.jpg'; 
+                    $caminho = $sqlmostra['id'].  $sqlmostra['numberphoto'].'.jpg';
                     $caminho2 = $sqlmostra['id']. $sqlmostra['numberphoto'].'.png';
                     $caminho3 = $sqlmostra['id']. $sqlmostra['numberphoto'].'.jpeg';
 
@@ -76,27 +76,27 @@
                         $img = "<img src='$target3' width='150' height='150'/>";
                     } else {
                         $img = "<img src='produtosimagem/default.png' width='150' height='150'/>";
-                    } 
+                    }
 
                     echo "
-                    
+
                         <div class='itens'>
                             <div class='imgTitulo'>". $img ."
-                                <div class='titulo'> 
+                                <div class='titulo'>
                                     <label id='title'>". $sqlmostra['titulo'] ."</label>
                                     <div class='alter'>
                                             <form method='post' action='menosprodcar.php'>
-                                                <button class='alterProds' type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'> 
+                                                <button class='alterProds' type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'>
                                                     <i class='fa-solid fa-minus'></i>
                                                 </button>
                                             </form>
                                             <label class='qtde'>". $carrinho['qtd'] ."  </label>
-                                            <form method='post' action='maisprodcar.php'> 
-                                                <button class='alterProds' type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'> 
+                                            <form method='post' action='maisprodcar.php'>
+                                                <button class='alterProds' type='submit' name='submit' id='".$carrinhoID."-submit' value ='".$carrinhoID."'>
                                                     <i class='fa-solid fa-plus'></i>
                                                 </button>
-                                            </form> 
-                                    </div> 
+                                            </form>
+                                    </div>
                                 </div>
                             </div>
 
@@ -108,14 +108,14 @@
                             </div>
                         </div>
                     ";
-                } 
-                
+                }
+
                 echo "</div>";?>
-            
+
                     <div class='list'>
                         <span class="subtitulo">Resumo da compra</span>
                         <div class="resumo">
-                            <div class="menuResumo"> 
+                            <div class="menuResumo">
                                 <div class="menuItens">
                                     <?php
                                         for($i = 0; $i < $contagem[0]; $i++)
@@ -133,7 +133,7 @@
                                             $sqlpega = "select * from produtosandre where id = $carrinhoID order by id";
                                             $sqlmostra = pg_fetch_assoc(pg_query($conexao, $sqlpega));
                                             $valortotal = $valortotal + ($sqlmostra['preco'] * $carrinho['qtd']);
-                                            
+
                                             echo "
                                                 <div class='menuConteudo'>
                                                     <span>".  $sqlmostra['titulo']."</span>
@@ -149,12 +149,12 @@
                                             if($tempqtd <100) {
                                                 $tempqtd = "0" . $tempqtd;
                                             }
-                                    
+
                                             $carrinhoqtd = $carrinhoqtd . $tempqtd . ",";
 
                                             $temppu = strval($sqlmostra['preco']);
                                             $temppu =  number_format($temppu, 2, ',','');
-                            
+
                                             if($temppu <10){
                                                 $temppu = "0" . $temppu;
                                             }
@@ -190,19 +190,25 @@
                                     ?>
                                 </div>
 
-                                <?php echo 
-                                    "<div class='menuTotal'> 
+                                <?php
+                                if($contagem[0] != 0){
+
+                                echo
+                                    "<div class='menuTotal'>
                                             <span>Total</span>
                                             <span>R$ ".  $valortotal."</span>
-                                    </div>"; ?>
+                                    </div>"; }?>
 
-                               
+
                             </div>
                         </div>
 
                         <div class="btns">
-                            <a class='contC' href='produtos.php'> Continuar comprando </a>  
-                            <a class='addCmp' href='finaliza.php'> Finalizar compra </a>  
+                            <?php
+                                if($contagem[0] != 0):?>
+                            <a class='addCmp' href='finaliza.php'> Finalizar compra </a>
+                            <?php endif; ?>
+                            <a class='contC' href='produtos.php'> Continuar comprando </a>
                         </div>
                     </div>
                 </div>
