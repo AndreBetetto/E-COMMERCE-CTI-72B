@@ -27,11 +27,12 @@
 *{ padding: 0; margin: 0;}
 
 body{
-    min-height:100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh; 
     margin:0; position: relative; 
     background-color: #006073;
-    display: flex;
-    justify-content: center;
 }
 
 .main{
@@ -57,15 +58,13 @@ body{
 {
         .mae{
             width: 60vw !important;
+            margin: 0 auto;
         }
         .container-top
         {
             height: 93vh;
         }
-        .nav
-        {
-            height: 7vh;
-        }
+
         .nav-sticky
         {
             display: flex;
@@ -75,7 +74,6 @@ body{
             top: 0;
             position: relative;
             width: 100%;
-            height: 100vh;
         }
         .txt-descricao-img-grande 
         {
@@ -85,7 +83,6 @@ body{
             font-weight: bold;
         }
 }
-
 
 .container-top
 {
@@ -139,13 +136,11 @@ body{
 }
 .mae{
 
-    display:flex; 
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
     /* height: 100%; isso estava cortando as dimensões do video*/
     width: 90vw;
 }
+
 
 .texto
 {
@@ -318,24 +313,6 @@ a:link {
 
 /* --------------------------------- navbar ----------------------------------- */ 
 
-.nav
-{
-    display: flex;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    height: 10vh;
-    width: 100%;
-    background-color: var(--darker-blue);
-    z-index: 2;
-}
-
-.logo
-{
-    height: 80%;
-    flex-basis: 20%;
-    margin-left: 2vw;
-}
 
 .logoFooter{
     height: 30%;
@@ -343,170 +320,5 @@ a:link {
     margin-left: 2vw;
 }
 
-.search
-{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-basis: 60%;
-    height: 100%;
-}
 
-.nav-icons
-{
-    height: 100%;
-    display: flex;
-    flex-basis: 20%;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1vw;
-    margin-right: 2vw;
-}
-.nav-icons a
-{
-    height: 5vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-}
 
-#submit
-{
-    display: none;
-}
-#input
-{
-    background: transparent;
-    border: 4px solid var(--yellow);
-    border-radius: 2vw;
-    outline: none;
-    width: 60%;
-    padding-left: 2vw;
-    height: 4vh;
-    color: var(--yellow);
-    font-size: 1.2rem;
-    font-family: Helvetica, sans-serif;  
-}
-
-#input::placeholder 
-{
-    color: var(--yellow);
-    opacity: 0.5;
-}
-
-#nav-icon
-{
-    margin: 1vw;
-    color: var(--yellow);
-    background-color: rgb(255, 255, 255, 0);
-    padding: 5px;
-}
-#nav-icon:link
-{
-    text-decoration: none;
-}
-#nav-icon:hover{
-    background-color: rgba(255, 255, 255, 0.23);
-    border-radius: 0.3em;
-    padding: 5px;
-}
-
-/* footer */ 
-
-.footer{
-
-    background-color: var(--blue);
-    margin-top:auto; 
-    height: 15vw;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    
-}
-#txt-footer
-{
-    display: flex;
-    align-items: center;
-
-    height: 100%;
-    width: 60%;
-    font-size: 1.0vw;
-    font-family: Helvetica;
-    color: var(--white);
-}
-#integrantes
-{
-    padding: 5px;
-}
-.integrantesTodos
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 30%;
-    font-size: 1.0vw;
-    font-family: Helvetica;
-    color: var(--white);
-}
-
-/*---------------------------- menu --------------------------------------- */ 
-
-.btnAbrir{
-    color: var(--yellow);
-    font-size: 2vw;
-    padding: 10px;
-}
-
-.menu{
-    height: 100%;
-    width: 0px;
-    background-color:#01222f;
-    font-family: Helvetica;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    overflow: hidden;
-    transition: width 0.3s;
-}
-
-.menuNav a{
-    color: var(--yellow);
-    font-size: 20px;
-    display: block;
-    padding:12px 10px 12px 32px;
-}
-
-.menuNav a:hover{
-    color: white;
-    background-color: var(--bright-blue);
-}
-
-.opcao{
-    position: relative;
-}
-.menu-menu{
-    background-color:#01222f;
-    padding: 10px;
-    border: 1px solid #01222f;
-    border-radius:0.3em;
-    width: 100px;
-    position: absolute;
-    box-shadow: 4px 4px 4px rgb(0,0,0,0.4);
-    display: none;
-}
-#itemLink{
-    font-family: 'Helvetica';
-    font-size: 16px;
-    color: var(--yellow);
-    list-style: none;
-}
-#item:hover{
-    color: white;
-    background-color: var(--bright-blue);
-    box-shadow: 2px 2px 2px rgb(0,0,0,0.4);
-    border-radius: 0.3em;
-    padding: 0.4em 0.4em;
-    cursor: pointer;
-}

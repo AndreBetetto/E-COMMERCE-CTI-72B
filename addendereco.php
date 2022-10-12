@@ -32,5 +32,5 @@
 
     header('Location: perfil.php');
     exit;
-    
+
 ?>

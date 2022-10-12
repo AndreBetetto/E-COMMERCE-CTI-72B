@@ -17,7 +17,7 @@
     Itens:
     <?php
         $_SESSION['finalizou'] = false;
-    
+
         $listaids = $_SESSION['carrinhoids'];
         $listaqtde = $_SESSION['carrinhoqtds'];
         $listapreco = $_SESSION['carrinhopu'];
@@ -30,7 +30,7 @@
         $total = 0;
         $listaids = str_replace(",", "", $listaids);
         $listaqtde = str_replace(",", "", $listaqtde);
-        
+
         $tamanholistapu = strlen($listapreco);
         echo "<br><br>";
 
@@ -42,9 +42,9 @@
             $tamanholistapu = strlen($listapreco);
         }
         echo "----------------------------------------------<br><br>";
-        
+
         echo "lista de ids: <br>";
-        
+
         while (strlen($listaids) > 0) {
             $id = substr($listaids, 0, 4);
             echo $id."<br>";
@@ -53,7 +53,7 @@
         }
         echo "----------------------------------------------<br><br>";
         echo "lista de quantidades: <br>";
-        
+
         while (strlen($listaqtde) > 0) {
             $qtd = substr($listaqtde, 0, 3);
             echo $qtd."<br>";
@@ -61,9 +61,9 @@
         }
         echo "----------------------------------------------<br><br>".$total;
 
-        
+
     ?>
-    <form method="POST"> 
+    <form method="POST">
         <input type="hidden" value="submit" name="fim">
         <input type="submit" name="submit" value="Finalizar compra">
     </form>
@@ -97,7 +97,7 @@
                 $listapreco = substr($listapreco, 7);
                 $sql = "INSERT INTO vendasandre (id_user, id_prod, qtd, preco, nomeprod) VALUES ($iduser, $id, $qtd, $preco, '$nome')";
                 $result = pg_query($conexao, $sql);
-                
+
             }
             $sqlremovecarrinho = "DELETE FROM carrinhoandre WHERE id_user = $iduser";
             pg_query($conexao, $sqlremovecarrinho);

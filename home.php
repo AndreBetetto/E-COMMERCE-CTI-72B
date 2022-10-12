@@ -13,67 +13,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="miniMenu.js"></script>
     <link rel=stylesheet type="text/css" href="home.css">
+    <link rel=stylesheet type="text/css" href="nav.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>Home | KeyFriends</title>
 </head>
     <body>
         <a id="top"></a>
         <div class="main">
             <div class="nav-sticky">
-            <nav class="nav">
-                <div class="menuAbrir">
-                        <a href="#" class="btnAbrir" onclick="abrirMenu()">&#9776;</a> <!-- abrir -->
+                <!--Navigation bar-->
+                <div id="nav-placeholder">
+
                 </div>
 
-                <div class="menu" id="menu">
-                    <div class="menuNav">
-                        <a href="#" onclick="fecharMenu()">&times; Fechar</a>
-                        <a href="home.php"> 
-                            <i class="fa-solid fa-house"></i> Home
-                        </a>
-                        <a href="produtos.php">
-                            <i class="fa-solid fa-boxes-stacked"></i> Produtos
-                        </a>
-                        <a href="cadasstro.php">
-                            <i class="fa-solid fa-user-plus"></i> Cadastrar
-                        </a>
-                        <a href="#">
-                            <i class="fa-solid fa-chart-line"></i> Estatísticas
-                        </a>
-                        <a href="dev.php">
-                            <i class="fa-solid fa-code"></i> Desenvolvedores
-                        </a>
-                    </div>
-                </div>
-                
-                <img class="logo" src="imagens/logo.svg" alt="logo">
-
-                <!-- PESQUISA -->
-                <form action="produtos.php" class="search">
-                    <input id="input" type="text" name="input" placeholder="Pesquisar um produto...">
-                    <label>
-                        <i id='nav-icon' class='fa-solid fa-magnifying-glass fa-2x'></i>
-                        <input id="submit" type="submit" value="submit" >
-                    </label>
-                    
-                </form> 
-                <!-- FIM PESQUISA -->
-
-                <div class="nav-icons"> 
-                    <div class="opcao">
-                        <span>
-                            <a class="btn1" id="nav-icon" href="javascript://"> <i class="fa-solid fa-gear fa-2x"></i></a>
-                            <ul class="menu-menu">
-                                <a id="itemLink" href="admUsuarios.php"> <li id="item"> <i class="fa-solid fa-user"></i> Usuários</li> </a>
-                                <a id="itemLink" href="admProdutos.php"> <li id="item"> <i class="fa-solid fa-boxes-stacked"></i> Produtos</li> </a>
-                            </ul>
-                        </span>
-                        
-                    </div>
-                    
-                    <a id="nav-icon" href="carrinho.php"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
-                    <a id="nav-icon" href="perfil.php"><i class="fa-solid fa-circle-user fa-2x"> </i></a>
-                </div>
-            </nav>
+                <script>
+                    $(function(){
+                    $("#nav-placeholder").load("nav.html");
+                    });
+                </script>
+                <!--end of Navigation bar-->
+            </div>
 
             <?php
                 if($_SESSION['naoAutorizado'] == true){
@@ -81,18 +40,17 @@
                     $_SESSION['naoAutorizado'] = false;
                 }
             ?>
-            <div class="container-top">
 
             <div class="container-top">
                 <img id="img-grande" class="container-img" src="imagens/img-grande.png" alt="Fundo">
                 <div class="txt-centro"><p>Do Futuro</p> <p>para o seu bolso.</p></div>
-                    <div class="descricao-img-grande"> 
-                        <p class="txt-descricao-img-grande">Já pensou ter sempre com você um produto feito por meio de impressão 3D?
-                            Essas máquinas têm ganho cada vez mais destaque nos últimos anos, e revolucionando a forma como produzimos uma enorme variedade de itens.
-                            Com os produtos KeyFriends, você pode ter não só um chaveiro, mas também uma lembrança! Sendo uma ótima opção para presentear alguém especial.
-                            Isto é KeyFriends: Chaveiros modernos e estilosos feitos com alta tecnologia.
-                        </p> 
-                    </div>
+                        <div class="descricao-img-grande"> 
+                            <p class="txt-descricao-img-grande">Já pensou ter sempre com você um produto feito por meio de impressão 3D?
+                                Essas máquinas têm ganho cada vez mais destaque nos últimos anos, e revolucionando a forma como produzimos uma enorme variedade de itens.
+                                Com os produtos KeyFriends, você pode ter não só um chaveiro, mas também uma lembrança! Sendo uma ótima opção para presentear alguém especial.
+                                Isto é KeyFriends: Chaveiros modernos e estilosos feitos com alta tecnologia.
+                            </p> 
+                        </div>
                 </div>
             </div>
 
@@ -147,7 +105,7 @@
                         <p id="integrantes">36 - Beatriz Prado</p>
                     </div>
                     <a class="icon" href="#top"><i id="arrow" class="fa-regular fa-circle-up"></i></a>
-            </div>
+            </div>    
             <script src="menu.js"></script>
         </div>
     </body>

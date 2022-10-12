@@ -7,21 +7,21 @@ session_start();
     $idget2 = $_SERVER['REQUEST_URI'];
     $idprod2 = intval(substr($idget2, -4));
     $idprod = substr($idget, -4); // id do produto
-    
+
 
     $email = $_SESSION['email'];
     // echo $email;
-    
+
     if($email == null){
         echo "Você precisa estar logado para comprar";
         header('Location: login.php');
         exit;
     }
-    
+
 
     $sqlpegaid = "select id from usuarioandre where login = '$email'";
     $id = pg_fetch_row(pg_query($sqlpegaid)); //id[0] é o id do usuario
-    
+
     $sqlverificaqtd = "SELECT qtd FROM carrinhoandre WHERE id_user = $id[0] and id_produto = $idprod2";
     $rowverifica = pg_fetch_row(pg_query($conexao, $sqlverificaqtd));
 
@@ -37,5 +37,5 @@ session_start();
         $_SESSION['adicionado'] = true;
     }
         header('Location: produtos.php');
-        exit;   
+        exit;
 ?>

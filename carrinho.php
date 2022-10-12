@@ -113,8 +113,8 @@
                 echo "</div>";?>
             
                     <div class='list'>
+                        <span class="subtitulo">Resumo da compra</span>
                         <div class="resumo">
-                            <span class="subtitulo">Resumo da compra</span>
                             <div class="menuResumo"> 
                                 <div class="menuItens">
                                     <?php
@@ -190,20 +190,21 @@
                                     ?>
                                 </div>
 
-                                <?php 
-                                if($contagem[0] != 0):
-                                    
-                                
-                                echo 
+                                <?php echo 
                                     "<div class='menuTotal'> 
                                             <span>Total</span>
                                             <span>R$ ".  $valortotal."</span>
                                     </div>"; ?>
 
-                                <a class='addCmp' href='finalizacaocompra_1.php'> Finalizar compra </a>  
-                                <?php endif; ?>
+                               
                             </div>
+                        </div>
+
+                        <div class="btns">
+                            <a class='contC' href='produtos.php'> Continuar comprando </a>  
+                            <a class='addCmp' href='finaliza.php'> Finalizar compra </a>  
+                        </div>
                     </div>
-            </div>
+                </div>
 </body>
 </html>

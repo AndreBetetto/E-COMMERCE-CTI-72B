@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="detalhes.css">
     <title>Home | KeyFriends</title>
-    
+
 </head>
 <body>
     <div class="main">
@@ -32,9 +32,9 @@
             $descricaoProd = $row['descricao'];
             $material = $row['material'];
             $precoProd = $row['preco'];
-            $estoque = $row['estoque'];    
+            $estoque = $row['estoque'];
         ?>
-        
+
 
         <div class="titulo">
             <h3> <?php echo $tituloProd ?></h3>
@@ -43,7 +43,7 @@
         <div class="detalhes">
 
             <div class="imagem">
-                
+
             <?php
             function golink($idprod, $num){
                 $idprod = $idprod;
@@ -52,7 +52,7 @@
                 } else {
                     $num++;
                 }
-                
+
             }
                 $num = 1;
 

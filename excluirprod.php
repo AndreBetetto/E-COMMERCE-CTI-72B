@@ -6,6 +6,7 @@
     echo $idget;
     $sql = "delete from produtosandre where id = $idget";
     pg_query($conexao, $sql);
-    header('admProdutos.php');
+
+    header('Location: admProdutos.php');
     exit;
 ?>
