@@ -150,15 +150,6 @@
             </div>
         </div>
 
-
-
-
-        <footer>
-            <div>
-                <a href="#topo" class="voltar"> <i class="fa-regular fa-circle-up fa-2x"></i>
-                </a>
-            </div>
-        </footer>
     </div>
 </body>
 </html>
