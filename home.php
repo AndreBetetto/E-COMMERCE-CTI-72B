@@ -27,9 +27,9 @@
                 </div>
 
                 <script>
-                $(function(){
-                $("#nav-placeholder").load("nav.html");
-                });
+                    $(function(){
+                    $("#nav-placeholder").load("nav.html");
+                    });
                 </script>
                 <!--end of Navigation bar-->
             </div>

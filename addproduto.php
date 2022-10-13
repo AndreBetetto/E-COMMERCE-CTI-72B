@@ -9,7 +9,7 @@ if($email != 'admin@gmail.com'){
     $titulo = $_POST['titulo'];
     $descricao = $_POST['desc'];
     $material= $_POST['material'];
-    $preco = floatval($_POST['preco']); 
+    $preco = floatval($_POST['preco']);
     $estoque= intval($_POST['estoque']);
     $promocao = $_POST['promocao'];
     $porcentagem = intval($_POST['porcentagem']);
@@ -22,8 +22,14 @@ if($email != 'admin@gmail.com'){
 
     echo $titulo . " - " . $descricao . " - " . $preco . " - " . $estoque . " - " . $promocao . " - " . $porcentagem;
 
-    $sql = "insert into produtosandre (titulo, descricao, material, preco, estoque, promocao, promoporcentagem) 
-        values ('$titulo', '$descricao', '$material', $preco, $estoque, '$boolPromo', $porcentagem)";
+    $ml = 0.6*$preco;
+    $imp = 0.2*$preco;
+    $precototal = $preco + $ml + $imp;
+
+
+
+    $sql = "insert into produtosandre (titulo, descricao, material, preco, estoque, promocao, promoporcentagem, margemlucro, imposto, precoinicial )
+        values ('$titulo', '$descricao', '$material', $precototal, $estoque, '$boolPromo', $porcentagem, $ml, $imp, $preco)";
     pg_query($conexao, $sql);
 
     ///////////////////////////// UPLOAD DE IMAGEM /////////////////////////////
@@ -118,7 +124,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
   $_SESSION['erroupload'] = true;
-   
+
 // if everything is ok, try to upload file
 } else {
   $_SESSION['erroupload'] = false;

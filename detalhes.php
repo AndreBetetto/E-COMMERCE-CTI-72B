@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="detalhes.css">
     <title>Home | KeyFriends</title>
-    
+
 </head>
 <body>
     <div class="main">
@@ -32,9 +32,9 @@
             $descricaoProd = $row['descricao'];
             $material = $row['material'];
             $precoProd = $row['preco'];
-            $estoque = $row['estoque'];    
+            $estoque = $row['estoque'];
         ?>
-        
+
 
         <div class="titulo">
             <h3> <?php echo $tituloProd ?></h3>
@@ -43,7 +43,7 @@
         <div class="detalhes">
 
             <div class="imagem">
-                
+
             <?php
             function golink($idprod, $num){
                 $idprod = $idprod;
@@ -52,13 +52,13 @@
                 } else {
                     $num++;
                 }
-                
+
             }
                 $num = 1;
 
-                    $caminho =  $idProd. $num.'.jpg';
-                    $caminho2 = $idProd. $num.'.png';
-                    $caminho3 = $idProd. $num.'.jpeg';
+                    $caminho =  $idProd. '.jpg';
+                    $caminho2 = $idProd. '.png';
+                    $caminho3 = $idProd. '.jpeg';
 
                     $target  = "produtosimagem/" . $caminho;
                     $target2 = "produtosimagem/" . $caminho2;
@@ -150,15 +150,6 @@
             </div>
         </div>
 
-
-
-
-        <footer>
-            <div>
-                <a href="#topo" class="voltar"> <i class="fa-regular fa-circle-up fa-2x"></i>
-                </a>
-            </div>
-        </footer>
     </div>
 </body>
 </html>

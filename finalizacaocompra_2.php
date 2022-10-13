@@ -13,12 +13,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-    $numcasa = $_POST['num'];
-    $complemento = $_POST['complemento'];
-
-
-?>
     Complete as informações do pagamento:
         blablabla
         <form action="finalizacaocompra_3.php" method="POST">

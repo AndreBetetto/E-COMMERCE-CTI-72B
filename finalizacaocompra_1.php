@@ -19,7 +19,7 @@
                         <h5>Endereço</h5>
                     </div>
                     <div class="itemEnder">
-                        
+
                         <div class="infos">
                             <div class="txt_field">
                                 <label for="cep" class="campos">Insira o CEP</label>
@@ -35,7 +35,7 @@
                                     <input type="hidden" value="submit" name="pesquisa">
                                     <span></span>
                                 </form>
-                                    <?php 
+                                    <?php
                                         if(isset($_POST['cep'])){
                                             $cep = $_POST['cep'];
                                             $cep = str_replace("-", "", $cep);
@@ -60,42 +60,42 @@
                                         header("Refresh: 0");
                                         } ?>
                             </div>
-                        
+
                             <form action="finalizacaocompra_2.php" method="post">
                                 <div class="txt_field">
-                                    <label class="campos">Cidade: </label> 
-                                    <input type="text" id="cidade" name="cidade" placeholder="Cidade" value="<?php echo $_SESSION['cidade']; ?>" readonly> 
+                                    <label class="campos">Cidade: </label>
+                                    <input type="text" id="cidade" name="cidade" placeholder="Cidade" value="<?php echo $_SESSION['cidade']; ?>" readonly>
                                     <span></span>
                                 </div>
 
                                 <div class="txt_field">
-                                    <label class="campos">Bairro: </label> 
-                                    <input type="text" id="bairro" name="bairro" placeholder="Bairro" value="<?php echo $_SESSION['bairro']; ?>" readonly> 
+                                    <label class="campos">Bairro: </label>
+                                    <input type="text" id="bairro" name="bairro" placeholder="Bairro" value="<?php echo $_SESSION['bairro']; ?>" readonly>
                                     <span></span>
                                 </div>
 
                                 <div class="txt_field">
-                                    <label class="campos">UF: </label> 
-                                    <input type="text" id="uf" name="uf" placeholder="UF" value="<?php echo $_SESSION['estado']; ?>" readonly> 
+                                    <label class="campos">UF: </label>
+                                    <input type="text" id="uf" name="uf" placeholder="UF" value="<?php echo $_SESSION['estado']; ?>" readonly>
                                     <span></span>
                                 </div>
-                        </div>    
+                        </div>
 
                         <div class="infos">
                             <div class="txt_field">
                                 <label class="campos">Endereço</label>
-                                <input type="text" id="endereco" name="endereco" value="<?php echo $_SESSION['rua']; ?>" placeholder="Endereço" readonly >  
+                                <input type="text" id="endereco" name="endereco" value="<?php echo $_SESSION['rua']; ?>" placeholder="Endereço" readonly >
                                 <span></span>
                             </div>
                         <form action="finalizacaocompra_2.php" method="post">
                             <div class="txt_field">
-                                <label class="campos">Número: </label> 
-                                <input type="text" id="num" name="num" placeholder="Número">  
+                                <label class="campos">Número: </label>
+                                <input type="text" id="num" name="num" placeholder="Número">
                                 <span></span>
                             </div>
 
                             <div class="txt_field">
-                                <label class="campos">Complemento: </label> 
+                                <label class="campos">Complemento: </label>
                                 <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc">
                                 <span></span>
                             </div>
@@ -108,6 +108,6 @@
                         </form>
 
 
-                </div>     
+                </div>
 </body>
 </html>
