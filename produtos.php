@@ -27,7 +27,6 @@
         });
         </script>
         <!--end of Navigation bar-->
-<<<<<<< HEAD
     
     <form action="backendprod.php" method="POST">
             <label>Busque por um produto: 
@@ -39,8 +38,6 @@
             <input name="submit" type="Submit" value="buscar">
             <button onclick="location.href='produtos.php'" type="button">Limpar</button>
     </form>
-=======
->>>>>>> 35dc38c86df75cf0f7eebc21491c9f470c2074dd
 
     <?php
     if($_SESSION['adicionado'] == true) { echo "<script>alert('Produto adicionado ao carrinho!');</script>"; $_SESSION['adicionado'] = false;}; 
