@@ -25,6 +25,10 @@
                     $email = $_SESSION['email'];
                     $nome = $_SESSION['name'];
                     $tel = $_SESSION['telefone'];
+                    $sqlid = "SELECT id FROM usuarioandre WHERE login = '$email'";
+                        $resultid = pg_query($conexao, $sqlid);
+                        $rowid = pg_fetch_assoc($resultid);
+                        $id = $rowid['id'];
 
 
 
@@ -168,7 +172,9 @@
                                                 $_SESSION['errocep'] = true;
                                             }
                                         header("Refresh: 0");
-                                        } ?>
+                                        } 
+                                        
+                                        ?>
                             </div>
                     <?php 
                     if($_SESSION['cep'] != null): ?>
@@ -201,13 +207,46 @@
 
                             <div class="txt_field">
                                 <label class="campos">Número: </label>
-                                <input type="text" id="num" name="num" placeholder="Número" required>
+                                <input type="text" id="num" name="num" placeholder="Número" 
+                                <?php
+                                $sqlverificaa = "select count(*) as total from enderecosandre where id_usuario = $id";
+                                $resultverificaa = pg_query($conexao, $sqlverificaa);
+                                $rowverificaa = pg_fetch_assoc($resultverificaa);
+                                if($rowverificaa['total'] == 0) {
+                                    echo "";
+                                } else {
+                                    $sqlnum = "SELECT * FROM endereco WHERE id_usuario = '$id'";
+                                    $resultnum = pg_query($conn, $sqlnum);
+                                    $rownum = pg_fetch_assoc($resultnum);
+                                    $num = $rownum['numero'];
+                                    echo "value='$num'";
+                                }
+                                
+
+                                ?>
+                                required>
                                 <span></span>
                             </div>
 
                             <div class="txt_field">
                                 <label class="campos">Complemento: </label>
-                                <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc" required>
+                                <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc" 
+                                <?php 
+                                    
+                                    if($rowverificaa['total'] == 0) {
+                                        echo "";
+                                    } else {
+                                        $sqlnumc = "SELECT * FROM endereco WHERE id_usuario = '$id'";
+                                        $resultc = pg_query($conn, $sqlnum);
+                                        $rownumc = pg_fetch_assoc($resultnum);
+                                        $complemento = $rownum['complemento'];
+                                        if($_SESSION['num'] != null) {
+                                            echo "value = '$complemento'";
+                                        }
+                                    }
+                                ?>
+                                
+                                required>
                                 <span></span>
                             </div>
                             <input type="hidden" value="<?php echo $cep; ?>" name="cep" id="cep">
@@ -223,10 +262,14 @@
                     <?php endif; ?>
 
                     <?php
-                        $sqlid = "SELECT id FROM usuarioandre WHERE login = '$email'";
-                        $resultid = pg_query($conexao, $sqlid);
-                        $rowid = pg_fetch_assoc($resultid);
-                        $id = $rowid['id'];
+                        
+
+                        
+                        $sql = "select * from enderecosandre where id_usuario = '$id'";
+                        $result = pg_query($conexao, $sql);
+                        $row = pg_fetch_assoc($result);
+                        $_SESSION['num'] = $row['num'];
+                        $_SESSION['complemento'] = $row['complemento'];
 
                         $cep = $_POST["cep"];
                         $endereco = $_POST["endereco"];
@@ -234,9 +277,9 @@
                         $cidade = $_POST["cidade"];
                         $uf = $_POST["uf"];
                         $complemento = $_POST["complemento"];
-                        $verifica = "select qtd from enderecosandre where id_user = $id order by qtd desc";
-                        $ver = pg_fetch_row(pg_query($conexao, $verifica));
-                        $endVer = intval($ver[0]);
+                        //$verifica = "select qtd from enderecosandre where id_user = $id order by qtd desc";
+                        //$ver = pg_fetch_row(pg_query($conexao, $verifica));
+                        //$endVer = intval($ver[0]);
 
                     endif;
 

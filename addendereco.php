@@ -5,7 +5,7 @@
     $cep = strval($_POST["cep"]);
     $cep = $_SESSION['cep'];
     $cep = str_replace('-', '', $cep);
-    $num = $_POST["num"];
+    $num = intval($_POST["num"]);
 
     $endereco = $_POST["endereco"];
     $bairro = $_POST["bairro"];
