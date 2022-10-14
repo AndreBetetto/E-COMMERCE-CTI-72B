@@ -24,7 +24,6 @@
                     $nome = $_SESSION['name'];
                     $email = $_SESSION['email'];
                     $nome = $_SESSION['name'];
-                    $cpf = $_SESSION['cpf'];
                     $tel = $_SESSION['telefone'];
 
 
@@ -33,6 +32,8 @@
                     $result = pg_query($conexao, $sql);
                     $row = pg_fetch_assoc($result);
                     $nfim = $row['numberphoto'];
+                    $cpf = $row['cpf'];
+                    $_SESSION['cpf'] = $cpf;
 
                     $_SESSION['numberfim'] = $nfim;
                     $email2 = str_replace('.', '_', $email);
@@ -140,9 +141,10 @@
                                         }
                                     ?>
                                     <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
-                                    <input type="hidden" value="submit" name="pesquisa">
+                                    <input type="submit" value="submit" name="pesquisa">
                                     <span></span>
                                 </form>
+
                                     <?php
                                         if(isset($_POST['cep'])){
                                             $cep = $_POST['cep'];
@@ -168,7 +170,8 @@
                                         header("Refresh: 0");
                                         } ?>
                             </div>
-
+                    <?php 
+                    if($_SESSION['cep'] != null): ?>
                             <form action="addendereco.php" method="post">
                                 <div class="txt_field">
                                     <label class="campos">Cidade: </label>
@@ -198,13 +201,13 @@
 
                             <div class="txt_field">
                                 <label class="campos">Número: </label>
-                                <input type="text" id="num" name="num" placeholder="Número">
+                                <input type="text" id="num" name="num" placeholder="Número" required>
                                 <span></span>
                             </div>
 
                             <div class="txt_field">
                                 <label class="campos">Complemento: </label>
-                                <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc">
+                                <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc" required>
                                 <span></span>
                             </div>
                             <input type="hidden" value="<?php echo $cep; ?>" name="cep" id="cep">
@@ -217,19 +220,23 @@
                                 <input class="btnEnviar" type="submit" value="Salvar" name="add">
                             </div>
                         </form>
+                    <?php endif; ?>
 
                     <?php
+                        $sqlid = "SELECT id FROM usuarioandre WHERE login = '$email'";
+                        $resultid = pg_query($conexao, $sqlid);
+                        $rowid = pg_fetch_assoc($resultid);
+                        $id = $rowid['id'];
+
                         $cep = $_POST["cep"];
                         $endereco = $_POST["endereco"];
                         $bairro = $_POST["bairro"];
                         $cidade = $_POST["cidade"];
                         $uf = $_POST["uf"];
                         $complemento = $_POST["complemento"];
-                        $verifica = "select qtd from enderecosandre where id_user = $idreal order by qtd desc";
+                        $verifica = "select qtd from enderecosandre where id_user = $id order by qtd desc";
                         $ver = pg_fetch_row(pg_query($conexao, $verifica));
                         $endVer = intval($ver[0]);
-
-
 
                     endif;
 

@@ -5,6 +5,7 @@
     $cep = strval($_POST["cep"]);
     $cep = $_SESSION['cep'];
     $cep = str_replace('-', '', $cep);
+    $num = $_POST["num"];
 
     $endereco = $_POST["endereco"];
     $bairro = $_POST["bairro"];
@@ -24,9 +25,9 @@
     $count = $row["count"];
 
     if($count == 0){
-        $sqlinsert = "insert into enderecosandre (cep, endereco, bairro, cidade, uf, complemento, id_user) values ('$cep', '$endereco', '$bairro', '$cidade', '$uf', '$complemento', $id)";
+        $sqlinsert = "insert into enderecosandre (cep, endereco, bairro, cidade, uf, complemento, id_user, num) values ('$cep', '$endereco', '$bairro', '$cidade', '$uf', '$complemento', $id, $num)";
     } elseif($count == 1){
-        $sqlinsert = "update enderecosandre set cep = '$cep', endereco = '$endereco', bairro = '$bairro', cidade = '$cidade', uf = '$uf', complemento = '$complemento' where id_user = $id";
+        $sqlinsert = "update enderecosandre set cep = '$cep', endereco = '$endereco', bairro = '$bairro', cidade = '$cidade', uf = '$uf', complemento = '$complemento', num = $num where id_user = $id";
     }
     pg_query($conexao, $sqlinsert);
 

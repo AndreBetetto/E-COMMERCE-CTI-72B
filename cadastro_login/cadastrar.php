@@ -49,6 +49,6 @@ if($row[0] == 1){
 
 pg_close($conexao);
 
-header('Location: cadastro.php');
+header('Location: cadasstro.php');
 exit;
 ?>

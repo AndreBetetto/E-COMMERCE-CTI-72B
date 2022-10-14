@@ -78,7 +78,7 @@
 
                 ?>
 
-                <?php echo $img ?>
+                <?php echo $img; ?>
 
                 <br>
 
