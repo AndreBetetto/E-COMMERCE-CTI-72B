@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel=stylesheet type="text/css" href="carrinho.css">
     <title>Carrinho | KeyFriends</title>
+    <link rel="icon" href="logoAzul.png">
 </head>
 <body>
 <?php

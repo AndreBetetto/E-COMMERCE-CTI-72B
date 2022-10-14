@@ -15,6 +15,7 @@
     <!-- <link rel=stylesheet type="text/css" href="nav.css"> -->
     <title>Produtos | KeyFriends</title>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="icon" href="logoAzul.png">
 </head>
 <body>
         <!--Navigation bar-->

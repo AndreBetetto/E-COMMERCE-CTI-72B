@@ -26,6 +26,7 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
     <meta charset="UTF-8">
     <link rel="stylesheet" href="editarprod.css">
     <title>Editar Produto | KeyFriends</title>
+    <link rel="icon" href="logoAzul.png">
 </head>
 <body>
     <?php include('navMenuFooter.php'); ?> 

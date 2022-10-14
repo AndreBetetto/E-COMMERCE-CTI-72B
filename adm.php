@@ -17,6 +17,7 @@
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="adm.css">
     <title>Área do administrador | KeyFriends</title>
+    <link rel="icon" href="logoAzul.png">
 </head>
 <body>
 <?php include('navMenuFooter.php'); ?> 

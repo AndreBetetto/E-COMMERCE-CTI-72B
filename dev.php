@@ -11,6 +11,7 @@
     <link rel=stylesheet type="text/css" href="nav.css">
     <link rel=stylesheet type="text/css" href="dev.css">
     <title>Devs | KeyFriends</title>
+    <link rel="icon" href="logoAzul.png">
 </head>
 <body>
 

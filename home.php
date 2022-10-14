@@ -16,6 +16,7 @@
     <link rel=stylesheet type="text/css" href="nav.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>Home | KeyFriends</title>
+    <link rel="icon" href="logoAzul.png">
 </head>
     <body>
         <a id="top"></a>

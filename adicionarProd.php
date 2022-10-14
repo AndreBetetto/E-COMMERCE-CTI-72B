@@ -5,6 +5,7 @@
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="editarprod.css" />
     <title>Adicionar Produto | KeyFriends</title>
+    <link rel="icon" href="logoAzul.png">
 </head>
 <body>
     <?php include('navMenuFooter.php'); ?> 

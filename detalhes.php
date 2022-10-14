@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="detalhes.css">
     <title>Home | KeyFriends</title>
+    <link rel="icon" href="logoAzul.png">
 
 </head>
 <body>
