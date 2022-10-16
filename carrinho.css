@@ -237,3 +237,8 @@ body{
   background-color:rgba(183, 183, 183, 0.727);
   color: var(--dark-blue);
 }
+#img{
+  border-radius: 10px;
+  border: 1px solid;
+  box-shadow: 3px 3px 3px rgb(0, 0 ,0 , 0.3);
+}

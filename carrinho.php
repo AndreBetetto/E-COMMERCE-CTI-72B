@@ -78,13 +78,13 @@
                     $target3 = "produtosimagem/" . $caminho3;
 
                     if(file_exists($target)) {
-                        $img = "<img src='$target' width='150' height='150'/>";
+                        $img = "<img id='img' src='$target' width='150' height='150'/>";
                     } elseif(file_exists($target2)){
-                        $img = "<img src='$target2' width='150' height='150'/>";
+                        $img = "<img id='img' src='$target2' width='150' height='150'/>";
                     } elseif(file_exists($target3)){
-                        $img = "<img src='$target3' width='150' height='150'/>";
+                        $img = "<img id='img' src='$target3' width='150' height='150'/>";
                     } else {
-                        $img = "<img src='produtosimagem/default.png' width='150' height='150'/>";
+                        $img = "<img id='img' src='produtosimagem/default.png' width='150' height='150'/>";
                     }
 
                     echo "

@@ -60,20 +60,20 @@
                 </div>
                 <div class="mae-imagens" >
                     <div class="imgs-home" id="img-home-1">
-                        <img src="imagens/img1.jpg" alt="chaveiro">
-                        <div class="txt-imgs-home"><p>Chaveiro de Gladiador</p></div>
+                        <img src="imagens/imgpata.jpg" alt="chaveiro">
+                        <div class="txt-imgs-home"><p>Chaveiro Patinha</p></div>
                     </div>
                     <div class="imgs-home" id="maisvendido">
-                        <img src="imagens/img2.jpg" alt="chaveiro2">
-                        <div class="txt-imgs-home"><p>Chaveiro Chocolatinho!</p></div>
+                        <img src="imagens/imgchocolate.jpg" alt="chaveiro2">
+                        <div class="txt-imgs-home"><p>Chaveiro Chocolatinho</p></div>
                     </div>
                     <div class="imgs-home" id="img-home-3">
-                        <img src="imagens/img3.jpg" alt="chaveiro3">
+                        <img src="imagens/imgcoracao.jpg" alt="chaveiro3">
                         <div class="txt-imgs-home"><p>Chaveiro S2 Amor</p></div>
                     </div>
                     <div class="imgs-home" id="maisvendido">
-                        <img src="imagens/img2.jpg" alt="chaveiro2">
-                        <div class="txt-imgs-home"><p>Chaveiro Chocolatinho!</p></div>
+                        <img src="imagens/imgminie.jpg" alt="chaveiro2">
+                        <div class="txt-imgs-home"><p>Chaveiro Minnie</p></div>
                     </div>
                 </div>
                 <a href="produtos.php" class="texto" id="txt2">

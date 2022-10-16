@@ -11,7 +11,7 @@
     $num = $_POST["id"];
     $sql = "delete from usuarioandre where id = {$num}";
     pg_query($conexao, $sql);
-    header('Location: adm.php');
+    header('Location: admUsuarios.php');
     exit;
 ?>
 

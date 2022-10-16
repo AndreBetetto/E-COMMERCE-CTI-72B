@@ -43,7 +43,7 @@
                         ?>" > 
                 <!-- <input name="submit" type="Submit"> -->
                 <button id="btnB" name="submit" type="Submit"> <i id="bot" class="fa-solid fa-magnifying-glass fa-2x"></i> </button>
-                <button id="btnL" onclick="location.href='adm.php'" type="button"> <i id="bot" class="fa fa-duotone fa-circle-xmark fa-2x"></i> </button>
+                <button id="btnL" onclick="location.href='admUsuarios.php'" type="button"> <i id="bot" class="fa fa-duotone fa-circle-xmark fa-2x"></i> </button>
             </p> 
         </form>
         </div>
