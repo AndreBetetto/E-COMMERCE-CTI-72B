@@ -15,7 +15,7 @@
     $_SESSION['buscarContador'] = "SELECT COUNT(*) as total FROM usuarioandre where concat(nome, login) like '%{$busca}%'";
 
     pg_query($conexao, $sql);
-    header('Location: adm.php');
+    header('Location: admUsuarios.php');
     exit;
 ?>
 

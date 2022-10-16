@@ -38,7 +38,7 @@
                     <i class="fa-solid fa-magnifying-glass fa-2x"></i> 
                 </button>   
 
-                <button id="btnL" onclick="location.href='adm.php'" type="button"> 
+                <button id="btnL" onclick="location.href='admProdutos.php'" type="button"> 
                     <i class="fa fa-duotone fa-circle-xmark fa-2x"></i> 
                 </button>
         </p>

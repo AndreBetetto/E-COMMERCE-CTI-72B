@@ -24,7 +24,7 @@ session_start();
 
     $sql = "update produtosandre set titulo = '$tituloget', descricao = '$descget', material ='$materialget', preco= $precoget, estoque=$estoqueget where id = $id";
     pg_query($conexao, $sql);
-    header('Location: adm.php');
+    header('Location: admProdutos.php');
     exit;
     
 ?>
