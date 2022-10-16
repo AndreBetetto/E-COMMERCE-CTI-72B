@@ -11,18 +11,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
+    <<?php include "head.php" ?>
     <link rel=stylesheet type="text/css" href="detalhes.css">
     <title>Home | KeyFriends</title>
-    <link rel="icon" href="logoAzul.png">
 
 </head>
 <body>
     <div class="main">
-        <?php
-            include('navMenuFooter.php')
-        ?>
+            <!--Navigation bar-->
+            <div id="nav-placeholder">
+            </div>
+            <script>
+                $(function(){
+                $("#nav-placeholder").load("nav.html");
+                });
+            </script>
+            <script src="menu.js"></script>
+            <!--end of Navigation bar-->
         <?php
             $sql = "SELECT * FROM produtosandre WHERE id = $idprod";
             $result =pg_query($conexao, $sql);
@@ -78,7 +83,7 @@
 
                 ?>
 
-                <?php echo $img; ?>
+                <?php echo $img ?>
 
                 <br>
 

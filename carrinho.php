@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <?php include "head.php" ?>
     <link rel=stylesheet type="text/css" href="carrinho.css">
     <title>Carrinho | KeyFriends</title>
-    <link rel="icon" href="logoAzul.png">
 </head>
 <body>
+            <!--Navigation bar-->
+            <div id="nav-placeholder">
+            </div>
+            <script>
+                $(function(){
+                $("#nav-placeholder").load("nav.html");
+                });
+            </script>
+            <script src="menu.js"></script>
+            <!--end of Navigation bar-->
 <?php
     include('conexao.php');
-    include('navMenuFooter.php');
     session_start();
     $email = $_SESSION['email'];
 

@@ -13,14 +13,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
+    <?php include "head.php" ?>
     <link rel=stylesheet type="text/css" href="adm.css">
     <title>Área do administrador | KeyFriends</title>
-    <link rel="icon" href="logoAzul.png">
 </head>
 <body>
-<?php include('navMenuFooter.php'); ?> 
+            <!--Navigation bar-->
+            <div id="nav-placeholder">
+            </div>
+            <script>
+                $(function(){
+                $("#nav-placeholder").load("nav.html");
+                });
+            </script>
+            <script src="menu.js"></script>
+            <!--end of Navigation bar-->
     <div class="busca"> 
         <div class="titleDB"> <p>Seja bem vindo(a), administrador.<p> </div>
         <div class="userDB">
@@ -38,7 +45,7 @@
                     <i class="fa-solid fa-magnifying-glass fa-2x"></i> 
                 </button>   
 
-                <button id="btnL" onclick="location.href='admProdutos.php'" type="button"> 
+                <button id="btnL" onclick="location.href='adm.php'" type="button"> 
                     <i class="fa fa-duotone fa-circle-xmark fa-2x"></i> 
                 </button>
         </p>

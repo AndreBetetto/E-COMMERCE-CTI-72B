@@ -1,9 +1,9 @@
 login: admin@gmail.com
 senha: keyfriendsadm
 
+host: projetoscti.com.br
 usuario: projetoscti20
 senha : socafofo123
-host: projetoscti.com.br
 porta: 21
 
 deixa aqui guardado

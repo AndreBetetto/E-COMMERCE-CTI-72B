@@ -6,7 +6,7 @@
 
     if(empty($user) || empty($senha))
     {
-        header('Location: cadastro.php');
+        header('Location: cadasstro.php');
         exit();
     }
 

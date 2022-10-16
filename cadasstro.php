@@ -11,7 +11,6 @@ session_start();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="csscadastro.css" />
-    <link rel="icon" href="logoAzul.png">
   </head>
   <body>
     <div class="container">

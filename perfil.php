@@ -3,32 +3,36 @@
     include('conexao.php');
     header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
     header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-    //header('http://projetoscti.com.br/projetoscti20/site/admusuarios.php?nocache=987654321')
+    //header('http://projetoscti.com.br/projetoscti20/site/adm.php?nocache=987654321')
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
+    <<?php include "head.php" ?>
     <link rel="stylesheet" href="perfil.css">
     <title>Perfil do usuário | KeyFriends</title>
-    <link rel="icon" href="logoAzul.png">
 </head>
 <body>
     <div class="main">
-    <?php include('navMenuFooter.php'); ?>
+            <!--Navigation bar-->
+            <div id="nav-placeholder">
+            </div>
+            <script>
+                $(function(){
+                $("#nav-placeholder").load("nav.html");
+                });
+            </script>
+            <script src="menu.js"></script>
+            <!--end of Navigation bar-->
         <section>
             <div class="perfilBody">
                 <?php
                     $nome = $_SESSION['name'];
                     $email = $_SESSION['email'];
                     $nome = $_SESSION['name'];
+                    $cpf = $_SESSION['cpf'];
                     $tel = $_SESSION['telefone'];
-                    $sqlid = "SELECT id FROM usuarioandre WHERE login = '$email'";
-                        $resultid = pg_query($conexao, $sqlid);
-                        $rowid = pg_fetch_assoc($resultid);
-                        $id = $rowid['id'];
 
 
 
@@ -36,8 +40,6 @@
                     $result = pg_query($conexao, $sql);
                     $row = pg_fetch_assoc($result);
                     $nfim = $row['numberphoto'];
-                    $cpf = $row['cpf'];
-                    $_SESSION['cpf'] = $cpf;
 
                     $_SESSION['numberfim'] = $nfim;
                     $email2 = str_replace('.', '_', $email);
@@ -145,10 +147,9 @@
                                         }
                                     ?>
                                     <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
-                                    <input type="submit" value="submit" name="pesquisa">
+                                    <input type="hidden" value="submit" name="pesquisa">
                                     <span></span>
                                 </form>
-
                                     <?php
                                         if(isset($_POST['cep'])){
                                             $cep = $_POST['cep'];
@@ -172,12 +173,9 @@
                                                 $_SESSION['errocep'] = true;
                                             }
                                         header("Refresh: 0");
-                                        } 
-                                        
-                                        ?>
+                                        } ?>
                             </div>
-                    <?php 
-                    if($_SESSION['cep'] != null): ?>
+
                             <form action="addendereco.php" method="post">
                                 <div class="txt_field">
                                     <label class="campos">Cidade: </label>
@@ -207,46 +205,13 @@
 
                             <div class="txt_field">
                                 <label class="campos">Número: </label>
-                                <input type="text" id="num" name="num" placeholder="Número" 
-                                <?php
-                                $sqlverificaa = "select count(*) as total from enderecosandre where id_usuario = $id";
-                                $resultverificaa = pg_query($conexao, $sqlverificaa);
-                                $rowverificaa = pg_fetch_assoc($resultverificaa);
-                                if($rowverificaa['total'] == 0) {
-                                    echo "";
-                                } else {
-                                    $sqlnum = "SELECT * FROM endereco WHERE id_usuario = '$id'";
-                                    $resultnum = pg_query($conn, $sqlnum);
-                                    $rownum = pg_fetch_assoc($resultnum);
-                                    $num = $rownum['numero'];
-                                    echo "value='$num'";
-                                }
-                                
-
-                                ?>
-                                required>
+                                <input type="text" id="num" name="num" placeholder="Número">
                                 <span></span>
                             </div>
 
                             <div class="txt_field">
                                 <label class="campos">Complemento: </label>
-                                <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc" 
-                                <?php 
-                                    
-                                    if($rowverificaa['total'] == 0) {
-                                        echo "";
-                                    } else {
-                                        $sqlnumc = "SELECT * FROM endereco WHERE id_usuario = '$id'";
-                                        $resultc = pg_query($conn, $sqlnum);
-                                        $rownumc = pg_fetch_assoc($resultnum);
-                                        $complemento = $rownum['complemento'];
-                                        if($_SESSION['num'] != null) {
-                                            echo "value = '$complemento'";
-                                        }
-                                    }
-                                ?>
-                                
-                                required>
+                                <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc">
                                 <span></span>
                             </div>
                             <input type="hidden" value="<?php echo $cep; ?>" name="cep" id="cep">
@@ -259,27 +224,19 @@
                                 <input class="btnEnviar" type="submit" value="Salvar" name="add">
                             </div>
                         </form>
-                    <?php endif; ?>
 
                     <?php
-                        
-
-                        
-                        $sql = "select * from enderecosandre where id_usuario = '$id'";
-                        $result = pg_query($conexao, $sql);
-                        $row = pg_fetch_assoc($result);
-                        $_SESSION['num'] = $row['num'];
-                        $_SESSION['complemento'] = $row['complemento'];
-
                         $cep = $_POST["cep"];
                         $endereco = $_POST["endereco"];
                         $bairro = $_POST["bairro"];
                         $cidade = $_POST["cidade"];
                         $uf = $_POST["uf"];
                         $complemento = $_POST["complemento"];
-                        //$verifica = "select qtd from enderecosandre where id_user = $id order by qtd desc";
-                        //$ver = pg_fetch_row(pg_query($conexao, $verifica));
-                        //$endVer = intval($ver[0]);
+                        $verifica = "select qtd from enderecosandre where id_user = $idreal order by qtd desc";
+                        $ver = pg_fetch_row(pg_query($conexao, $verifica));
+                        $endVer = intval($ver[0]);
+
+
 
                     endif;
 

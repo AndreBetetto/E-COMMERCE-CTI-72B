@@ -23,13 +23,21 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <?php include "head.php" ?>
     <link rel="stylesheet" href="editarprod.css">
     <title>Editar Produto | KeyFriends</title>
-    <link rel="icon" href="logoAzul.png">
 </head>
 <body>
-    <?php include('navMenuFooter.php'); ?> 
+            <!--Navigation bar-->
+            <div id="nav-placeholder">
+            </div>
+            <script>
+                $(function(){
+                $("#nav-placeholder").load("nav.html");
+                });
+            </script>
+            <script src="menu.js"></script>
+            <!--end of Navigation bar-->
 
     <form action="sqledit.php" method="post">
         <div class="detalhes">
