@@ -152,9 +152,13 @@ body{
   color: var(--yellow);
 }
 
-.fa-solid, #btnL {
+#bot, #btnL {
   margin-left: 10px;
   border: none;
   background: none;
   color: black;
+}
+
+.exclui{
+  margin: 5vh 0;
 }

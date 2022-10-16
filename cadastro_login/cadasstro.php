@@ -7,11 +7,11 @@ session_start();
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>CADASTRAR | KeyFriends</title>
+    <title>Cadastro | KeyFriends</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="csscadastro.css" />
-    <link rel="icon" href="logoAzul.png">
+    <link rel="icon" href="imagens/logo.ico">
   </head>
   <body>
     <div class="container">

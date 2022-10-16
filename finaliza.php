@@ -11,6 +11,7 @@
     <link rel=stylesheet type="text/css" href="nav.css">
     <link rel=stylesheet type="text/css" href="fim.css">
     <title>Finalização | KeyFriends</title>
+    <link rel="icon" href="imagens/logo.ico">
 </head>
 <body>
     <div id="nav-placeholder">
@@ -20,6 +21,7 @@
         $("#nav-placeholder").load("nav.html");
         });
         </script>
+        <script src="menu.js"></script>
         <?php
     include ('conexao.php');
     session_start();

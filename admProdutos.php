@@ -42,11 +42,11 @@
                     {echo $_GET['termoProd'];}?>"> 
 
                 <button id="btnB" name="submit" type="Submit"> 
-                    <i class="fa-solid fa-magnifying-glass fa-2x"></i> 
+                    <i id="bot" class="fa-solid fa-magnifying-glass fa-2x"></i> 
                 </button>   
 
                 <button id="btnL" onclick="location.href='adm.php'" type="button"> 
-                    <i class="fa fa-duotone fa-circle-xmark fa-2x"></i> 
+                    <i id="bot" class="fa fa-duotone fa-circle-xmark fa-2x"></i> 
                 </button>
         </p>
     </form>
@@ -120,14 +120,14 @@
                         <td>" . number_format($mostraresult['preco'], 2)."</td>
                         <td>" . $mostraresult['estoque'] ?> </td>
                         <td> 
-                           <a href=editarprod.php?id=<?php echo $mostraresult['id']; ?>><i class="fa-solid fa-pen-to-square"></i></a> 
+                           <a href=editarprod.php?id=<?php echo $mostraresult['id']; ?>><i id="bot" class="fa-solid fa-pen-to-square"></i></a> 
                         </td>
 
                         <td> <form action="excluirprod.php" method="post">
                                 <input type="hidden" value="<?php echo $mostraresult['id']; ?>" name="id">
                                 <button id="btnEx" id="<?php echo $mostraresult['id'];?>-submit" 
                                     value ="<?php echo $mostraresult['id'];?>"> 
-                                    <i class="fa-solid fa-trash-can fa-1x"> </i> 
+                                    <i id="bot" class="fa-solid fa-trash-can fa-1x"> </i> 
                                 </button>
                             </form>
                         </td>
@@ -143,7 +143,7 @@
     <div>
         <a href="adicionarProd.php" id="btnAdd"> 
             <button class="novo" type="submit">Novo produto
-                <i class="fa-solid fa-circle-plus"></i> 
+                <i id="bot" class="fa-solid fa-circle-plus"></i> 
             </button>
             
         </a>

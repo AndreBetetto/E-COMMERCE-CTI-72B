@@ -14,6 +14,7 @@
     <link rel=stylesheet type="text/css" href="produtos.css">
     <!-- <link rel=stylesheet type="text/css" href="nav.css"> -->
     <title>Produtos | KeyFriends</title>
+    <link rel="icon" href="imagens/logo.ico">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>

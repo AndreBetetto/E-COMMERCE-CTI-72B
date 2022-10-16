@@ -12,11 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="miniMenu.js"></script>
+    <link rel="icon" href="imagens/logo.ico">
     <link rel=stylesheet type="text/css" href="home.css">
     <link rel=stylesheet type="text/css" href="nav.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>Home | KeyFriends</title>
-    <link rel="icon" href="logoAzul.png">
 </head>
     <body>
         <a id="top"></a>

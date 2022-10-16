@@ -6,4 +6,4 @@
 <script src="miniMenu.js"></script>
 <link rel=stylesheet type="text/css" href="nav.css">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<link rel="icon" href="logo.ico" type="image/x-icon" />
+<link rel="icon" href="imagens/logo.ico" type="image/x-icon" />

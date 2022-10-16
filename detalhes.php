@@ -11,10 +11,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <<?php include "head.php" ?>
+    <?php include "head.php" ?>
     <link rel=stylesheet type="text/css" href="detalhes.css">
-    <title>Home | KeyFriends</title>
-
+    <title>Detalhes | KeyFriends</title>
+    <link rel="icon" href="imagens/logo.ico">
 </head>
 <body>
     <div class="main">
@@ -92,7 +92,7 @@
             <div class="itens">
                 <div>
                     <label class="campos">
-                        <b>ID do produto:</b> <?php echo $idProd ?>
+                        <b>ID:</b> <?php echo $idProd ?>
                     </label>
                 </div>
 

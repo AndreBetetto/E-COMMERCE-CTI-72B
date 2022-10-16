@@ -9,9 +9,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <<?php include "head.php" ?>
+    <?php include "head.php" ?>
     <link rel="stylesheet" href="perfil.css">
     <title>Perfil do usuário | KeyFriends</title>
+    <link rel="icon" href="imagens/logo.ico">
 </head>
 <body>
     <div class="main">
@@ -62,7 +63,7 @@
         <div class="fullPerfil">
             <div class="detalhes">
                 <div class="titulo">
-                    <h3> Meu perfil</h3>
+                    <p> Meu perfil</p>
                 </div>
 
                 <div class="itemPerfil">
@@ -107,11 +108,12 @@
                             <?php echo "<label class='inputs'>".$tel."</label>"; ?>
                         </div>
                     </div>
+                    
                 </div>
 
                 <form action="upload.php" method="post" enctype="multipart/form-data">
                         <div class="itens">
-                            <div class="txt_field">
+                            <div class="txt_field2">
                                 <label class="campos">Imagem do perfil</label>
                                 <input class="after" type="file" name="fileToUpload" id="fileToUpload">
                                 <span></span>
@@ -126,13 +128,10 @@
 
             <div class="detalhes">
                 <div class="titulo">
-                    <h3>Dados Pessoais</h3>
+                    <p>Endereço</p>
                 </div>
 
                 <div class="linha">
-                    <div class="titulo">
-                        <h5>Endereço</h5>
-                    </div>
                     <div class="itemEnder">
 
                         <div class="infos">
@@ -146,9 +145,12 @@
                                             $_SESSION['errocep'] = false;
                                         }
                                     ?>
-                                    <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
-                                    <input type="hidden" value="submit" name="pesquisa">
+                                    <div class="boxCep">
+                                        <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
+                                        <input id="cepP" type="submit" value="Consultar" name="pesquisa">
+                                    </div>
                                     <span></span>
+                                    
                                 </form>
                                     <?php
                                         if(isset($_POST['cep'])){
@@ -211,7 +213,7 @@
 
                             <div class="txt_field">
                                 <label class="campos">Complemento: </label>
-                                <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc">
+                                <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala...">
                                 <span></span>
                             </div>
                             <input type="hidden" value="<?php echo $cep; ?>" name="cep" id="cep">
@@ -246,9 +248,6 @@
         </div>
         </section>
     </div>
-    <footer>
-
-    </footer>
 </body>
 
 </html>

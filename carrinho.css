@@ -13,7 +13,7 @@
     color: var(--darker-blue);
     font-size: 30px;
     font-family: sans-serif, Helvetica, Arial;
-    margin: 10px 0;
+    margin: 10vh 0 0 0;
     font-weight: bold;
     width: 100%;
     padding: 10px 0;
@@ -35,75 +35,15 @@
     --black: #000000;   
     --white: #e2e7f0;
   }
+body{
+    background-color: var(--orange);
+}
+
 
   *{
     font-family: Helvetica, sans-serif;
   }
 
-.table {
-    text-align: center;
-    border-collapse: collapse;
-    width: 80%;
-    margin: 0 auto;
-    border: 1px solid #232323;
-    color: var(--white);
-  }
-  
-  .table td, .table th {
-    border: 1px solid #232323;
-    padding: 7px;
-    margin: 2px;
-  }
-  
-  .table tr:nth-child(even){background-color: var(--dark-blue);}
-  .table tr:nth-child(odd){background-color: var(--dark-blue2);}
-  
-  .table tr:hover {background-color: #904e0d;}
-  
-  .table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    background-color: var(--darker-blue);
-    color: rgb(230, 226, 226);
-  }
-
-
-  /* footer */ 
-
-  .footer{
-
-    background-color: var(--blue);
-    margin-top:auto; 
-    height: 12vw;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    
-}
-#txt-footer
-{
-    display: flex;
-    align-items: center;
-
-    height: 100%;
-    width: 60%;
-    font-size: 1.0vw;
-    color: var(--white);
-}
-#integrantes
-{
-    padding: 5px;
-}
-.integrantesTodos
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 30%;
-    font-size: 1.0vw;
-    color: var(--white);
-}
 
 .addCmp{
   border-radius: 10px;
@@ -148,7 +88,7 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .itens{
@@ -159,13 +99,15 @@
   box-shadow: 4px 4px 4px rgb(0,0,0,0.7);
   border-radius: 10px;
   padding: 2rem;
-  margin: 0px 25px 25px 25px;
+  margin: 0px 30px 30px 30px;
   font-size: 16px;
   color:white;
+  width: 90%;
 }
 
 .list{
   padding: 2rem;
+  margin: 0px 30px;
   height: fit-content;
   width: 20%;
   border-radius: 10px;
@@ -177,12 +119,6 @@
   display: flex;
   flex-direction: column;
 }
-
-/* .resumo{
-   display: flex;
-  flex-direction: column;
-  
-} */
 
 .menuResumo{
   line-height: 25px;
@@ -271,7 +207,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  margin: 5% auto;
+  margin: 20vh auto;
   width: 40%;
   background-color: var(--dark-blue);
   box-shadow: 4px 4px 4px rgb(0,0,0,0.7);

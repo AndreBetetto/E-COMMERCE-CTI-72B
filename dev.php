@@ -10,10 +10,10 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel=stylesheet type="text/css" href="nav.css">
     <link rel=stylesheet type="text/css" href="dev.css">
+    <link rel="icon" href="imagens/logo.ico">
     <title>Devs | KeyFriends</title>
 </head>
 <body>
-
         <div id="nav-placeholder">
         </div>
         <script>
@@ -21,6 +21,7 @@
         $("#nav-placeholder").load("nav.html");
         });
         </script>
+        <script src="menu.js"></script>
         <main>
     <div class="devsgerais">
     

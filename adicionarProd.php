@@ -37,15 +37,27 @@
                 </div>
 
                 <div class="txt_field">
-                    <input type="text" name="material" required>
+                    <input type="number" name="custo" min="0" step="0.01" required>
                     <span></span>
-                    <label for="material">Material</label>
+                    <label for="preco">Preço de Custo</label> <!--aqui será preenchido com o valor de preço + adicionais-->
+                </div>
+
+                <div class="txt_field">
+                    <input type="number" name="lucro" min="0" step="0.01" required>
+                    <span></span>
+                    <label for="preco">Margem de Lucro</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="number" name="icms" min="0" step="0.01" required>
+                    <span></span>
+                    <label for="preco">ICMS</label>
                 </div>
 
                 <div class="txt_field">
                     <input type="number" name="preco" min="0" step="0.01" required>
                     <span></span>
-                    <label for="preco">Preço</label>
+                    <label for="preco">Preço de Venda</label>
                 </div>
 
                 <div class="txt_field">
@@ -60,22 +72,15 @@
             </div>
         </form>
 
-
-    </div>
-
-    <?php  if($_SESSION['erroupload'] == true) {
-    $erro = $_SESSION['nomeerroupload'];
-    echo "<script>alert('Erro ao fazer upload da imagem! erro: $erro')</script>";
-    $_SESSION['erroupload'] = false;    
-    } ?>
-    
-    <div class="detalhes">
-        <div class="titulo">
-            <h3>Insira imagem para o produto adicionado</h3>
-        </div>
-
+        <?php  if($_SESSION['erroupload'] == true) {
+        $erro = $_SESSION['nomeerroupload'];
+        echo "<script>alert('Erro ao fazer upload da imagem! erro: $erro')</script>";
+        $_SESSION['erroupload'] = false;    
+        } ?>
+        
         <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
             <div class="itens">
+                <label class="campoImg">Imagem do produto</label>
                 <div class="txt_field">
                     <input  type="file" name="fileToUpload" id="fileToUpload" required>
                     <input type="hidden" value="<?php echo $id;?>" name="id" readonly>
@@ -88,6 +93,8 @@
 
         </form>
     </div>
+
+    
 </body>
 </html>
 

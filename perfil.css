@@ -13,6 +13,9 @@
     --black: #000000;   
     --white: #ffffff;
   }
+body{
+    background-color: var(--orange);
+}
 
 .perfil{
     font-family: Arial, Helvetica, sans-serif;
@@ -42,12 +45,12 @@ button{
 }
 
 .titulo{
-    font-size: 24px;
+    font-size: 30px;
     font-family: sans-serif, Helvetica, Arial;
     color: var(--dark-orange); 
     font-weight: bold;
     text-align: center;
-    margin: 10px;
+    margin: 5px;
 }
 
 .detalhes{
@@ -86,14 +89,14 @@ button{
 .linha{
     border: 2px inset;
     border-radius: 10px;
-    margin: 5px auto;
+    margin: auto;
     padding: 15px;
-    width: 35vw;
+    width: 39vw;
 }
 .fullPerfil{
     display: flex;
     justify-content: space-evenly;
-    margin: auto 25px;
+    margin: 10vh 25px;
     padding: 15px;
 } 
 
@@ -103,8 +106,12 @@ button{
     width: 35vw;
     border: 2px inset;
     border-radius: 10px;
-    /* display: flex;
-    justify-content:space-evenly; */
+}
+
+.alter{
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid;
 }
 
 .btnEnviar{
@@ -125,10 +132,41 @@ button{
     box-shadow: 3px 3px 3px rgb(0,0,0,0.5);
 }
 
+.boxCep{
+    display: flex;
+    justify-content: space-between;
+}
+
+#cepP{
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 2.5px;
+    margin: 5px;
+    width: 50%;
+    color: black;
+    background-color: rgba(183, 183, 183, 0.727) ;
+}
+
+#cepP:hover{
+    color: rgba(183, 183, 183, 0.727);
+    background-color: darkgreen;
+}
+
+.infos{
+    width: 50%;
+    margin: 0 10px;
+}
+
 form .txt_field{
     position: relative;
     border-bottom: 2px solid #adadad;
     margin: 30px 0;
+  }
+
+  .txt_field2{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 15px 0;
   }
   
   .txt_field input, .txt_field .inputs{

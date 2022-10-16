@@ -14,13 +14,17 @@
     --white: #ffffff;
   }
 
+body{
+  background-color: var(--orange);
+  font-family:  Helvetica, Arial, sans-serif;
+}
+
 .detalhes{
     font-size: 15px;
-    font-family:  Helvetica, Arial, sans-serif;
     border: 1px solid;
     border-radius: 10px;
     padding: 15px;
-    margin: 20px auto;
+    margin: 15vh auto 5vh auto;
 
     display: block;
     width: 45vw;
@@ -31,7 +35,6 @@
 
 .titulo{
     font-size: 24px;
-    font-family: sans-serif, Helvetica, Arial;
     color: var(--dark-orange); 
     font-weight: bold;
     text-align: center;
@@ -41,7 +44,7 @@
 
 .itens{
     padding: 15px;
-    margin: 5px auto;
+    margin: 15px auto;
     width: 35vw;
     border: 2px inset;
     border-radius: 10px;
@@ -53,6 +56,13 @@
     padding: 10px;
     display: block;
     color: #fff;
+    font-weight: bold;
+}
+
+.campoImg{
+    padding: 10px;
+    display: block;
+    color: var(--dark-orange);
     font-weight: bold;
 }
 
@@ -128,14 +138,14 @@ form .txt_field{
     left: 0;
     width: 0px;
     height: 2px;
-    background: var(--orange);
+    background: var(--dark-orange);
     transition: .5s;
   }
   
   .txt_field input:focus ~ label,
   .txt_field input:valid ~ label{
     top: -5px;
-    color: var(--orange);
+    color: var(--dark-orange);
   }
   
   .txt_field input:focus ~ span::before,

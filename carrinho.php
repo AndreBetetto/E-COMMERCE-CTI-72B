@@ -6,16 +6,16 @@
     <title>Carrinho | KeyFriends</title>
 </head>
 <body>
-            <!--Navigation bar-->
-            <div id="nav-placeholder">
-            </div>
-            <script>
-                $(function(){
-                $("#nav-placeholder").load("nav.html");
-                });
-            </script>
-            <script src="menu.js"></script>
-            <!--end of Navigation bar-->
+    <!--Navigation bar-->
+    <div id="nav-placeholder">
+    </div>
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("nav.html");
+        });
+    </script>
+    <script src="menu.js"></script>
+    <!--end of Navigation bar-->
 <?php
     include('conexao.php');
     session_start();

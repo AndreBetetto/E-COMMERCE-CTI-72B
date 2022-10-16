@@ -6,10 +6,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title> LOGIN |  KeyFriends</title>
+    <title> Login |  KeyFriends</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="csscadastro.css" />
+    <link rel="icon" href="imagens/logo.ico">
   </head>
   <body>
 	      

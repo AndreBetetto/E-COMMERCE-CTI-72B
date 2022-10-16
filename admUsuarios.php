@@ -42,8 +42,8 @@
                                 {echo $_GET['termo'];}
                         ?>" > 
                 <!-- <input name="submit" type="Submit"> -->
-                <button id="btnB" name="submit" type="Submit"> <i class="fa-solid fa-magnifying-glass fa-2x"></i> </button>
-                <button id="btnL" onclick="location.href='adm.php'" type="button"> <i class="fa fa-duotone fa-circle-xmark fa-2x"></i> </button>
+                <button id="btnB" name="submit" type="Submit"> <i id="bot" class="fa-solid fa-magnifying-glass fa-2x"></i> </button>
+                <button id="btnL" onclick="location.href='adm.php'" type="button"> <i id="bot" class="fa fa-duotone fa-circle-xmark fa-2x"></i> </button>
             </p> 
         </form>
         </div>
@@ -154,12 +154,15 @@
             ?>
     </table>
 
+    <div class="exclui">
         <form action="apagarConta.php" method="POST" class="form">
             <p id="titulo">Digite o ID da conta que será apagada: 
                 <input id="inputs" type="number" name="id" min="3">
-                <button id="btnExcluir"> <i class="fa-solid fa-trash-can fa-2x"> </i> </button>
+                <button id="btnExcluir"> <i id="bot" class="fa-solid fa-trash-can fa-2x"> </i> </button>
             </p>
         </form>
+    </div>
+        
 
     </div>
 

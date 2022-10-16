@@ -39,10 +39,11 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
             <script src="menu.js"></script>
             <!--end of Navigation bar-->
 
-    <form action="sqledit.php" method="post">
-        <div class="detalhes">
-            <div class="titulo"> 
-                <h3> <?php echo $titulo[0] ?></h3>
+    
+    <div class="detalhes">
+        <form action="sqledit.php" method="post">
+            <div> 
+                <h1 class="titulo"> <?php echo $titulo[0] ?></h1>
             </div>
 
             <div class="itens">
@@ -66,19 +67,33 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
                     <span></span>
                     <label class="campos">Descrição do produto:</label>
                 </div>
-                
+
                 <div class="txt_field">
-                    <input class="alter" type="text" name="material" 
-                            value="<?php echo $material[0]; ?>" required>
-                        <span></span>
-                    <label class="campos">Material: </label>
+                    <input class="alter" type="number" name="custo" min="0" step="0.01" 
+                            value="<?php echo $custo[0]; ?>" required>
+                    <span></span>
+                    <label for="preco">Preço de Custo</label> <!--aqui será preenchido com o valor de preço + adicionais-->
+                </div>
+
+                <div class="txt_field">
+                    <input type="number" name="lucro" min="0" step="0.01" 
+                            value="<?php echo $lucro[0]; ?>" required>
+                    <span></span>
+                    <label for="preco">Margem de Lucro</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="number" name="icms" min="0" step="0.01"
+                            value="<?php echo $icms[0]; ?>" required>
+                    <span></span>
+                    <label for="preco">ICMS</label>
                 </div>
                 
                 <div class="txt_field">  
                     <input class="alter" type="number" name="preco" min="0" step="0.01" 
                         value="<?php echo $preco[0]; ?>" required> 
                     <span></span> 
-                    <label class="campos">Preço:</label>  
+                    <label class="campos">Preço final:</label>  
                 </div>
                 
                 <div class="txt_field">  
@@ -92,21 +107,17 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
                     <input class="btnEnviar" type="submit" value="Alterar">
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
 
-    <?php  if($_SESSION['erroupload'] == true) {
-        $erro = $_SESSION['nomeerroupload'];
-        echo "<script>alert('Erro ao fazer upload da imagem! erro: $erro')</script>";
-        $_SESSION['erroupload'] = false;
+        <?php  if($_SESSION['erroupload'] == true) {
+            $erro = $_SESSION['nomeerroupload'];
+            echo "<script>alert('Erro ao fazer upload da imagem! erro: $erro')</script>";
+            $_SESSION['erroupload'] = false;
+        } ?>
         
-    } ?>
-    <div class="detalhes">
-        <div class="titulo"> 
-            <h3> Insira imagens para <?php echo $titulo[0] ?> </h3>
-        </div>
         <form action="uploadfotoprod.php" method="post" enctype="multipart/form-data">
             <div class="itens">
+                <label class="campoImg">Alterar imagem para <?php echo $titulo[0] ?></label>
                 <div class="txt_field">
                     <input class="after" type="file" name="fileToUpload" id="fileToUpload">
                     <input class="after" type="hidden" value="<?php echo $id;?>" name="id" readonly>
@@ -118,9 +129,8 @@ $estoque = pg_fetch_row(pg_query($conexao, $sqlestoque));
                 </div> 
             </div>                    
         </form>
-    </div>
-    
-                    
+
+    </div>             
 </body>
 </html>
 
