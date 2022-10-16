@@ -95,7 +95,13 @@
                 </div>
                 <div class="footer">
                     <img class="logoFooter" src="imagens/logo.svg" alt="logo">
-                    <p id="txt-footer">&copy; 2022 KeyFriends - Todos os direitos reseverdos</p>
+                    <div id="txt-footer">
+                        <p>&copy; 2022 KeyFriends - Todos os direitos reseverdos</p>
+                        <a id="fornecedor" href="https://www.instagram.com/lucas_gianezi/"> 
+                            <p><i class="fa-brands fa-instagram"></i> lucas_gianezi - Fornecedor</p> 
+                        </a>
+                    </div>
+                    
                     <div class="integrantesTodos">
                         <p id="title-footer">Desenvolvedores</p>
                         <p id="integrantes">01 - Ana Bonalume</p>

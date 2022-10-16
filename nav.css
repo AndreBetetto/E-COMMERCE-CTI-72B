@@ -23,15 +23,12 @@
 {
     display: flex;
     align-items: center;
-<<<<<<< HEAD
     position: sticky;
     top: 0;
     height: 7vh;
-=======
     position: fixed;
     top: 0;
     height: 8vh;
->>>>>>> 35dc38c86df75cf0f7eebc21491c9f470c2074dd
     width: 100%;
     background-color: var(--darker-blue);
     z-index: 2;
@@ -80,17 +77,14 @@
     border-radius: 2vw;
     outline: none;
     width: 60%;
-<<<<<<< HEAD
     padding-left: 2vw;
     height: 4vh;
     color: var(--yellow);
     font-size: 1.2rem;
-=======
     padding: 0.2vw;
     height: 4vh;
     color: var(--yellow);
     font-size: 1rem;
->>>>>>> 35dc38c86df75cf0f7eebc21491c9f470c2074dd
     font-family: Helvetica, sans-serif;  
 }
 
@@ -132,14 +126,23 @@
 #txt-footer
 {
     display: flex;
-    align-items: center;
-
-    height: 100%;
-    width: 60%;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 1rem;
+    width: 40%;
     font-size: 1.0vw;
     font-family: Helvetica;
     color: var(--white);
 }
+
+#fornecedor{
+    color: white;
+}
+
+#fornecedor:hover{
+    color: #ee9b00;
+}
+
 #integrantes
 {
     padding: 5px;

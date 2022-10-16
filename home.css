@@ -252,6 +252,9 @@ a:link {
     color: var(--yellow);
     text-decoration: none;
 }
+#arrow:hover{
+    color: #ee9b00;
+}
 .mae-video
 {
     display: flex;
@@ -296,6 +299,7 @@ a:link {
     font-weight: bold;
     margin: 15px 0px 15px 0px;
 }
+
 .fim
 {
     height: 10vw;
