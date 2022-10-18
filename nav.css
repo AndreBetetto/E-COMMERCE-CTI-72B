@@ -109,6 +109,15 @@ a{
     padding: 2vh;
     border-radius: 0.5vh;
 }
+
+#nav-lupa{
+    width: 1.5vh;
+    color: var(--yellow);
+    background-color: rgb(255, 255, 255, 0);
+    padding: 2vh;
+    border-radius: 0.5vh;
+}
+
 #nav-icon:link
 {
     text-decoration: none;
@@ -188,7 +197,6 @@ a{
 .menuNav a{
     color: var(--yellow);
     font-size: 2.5vh;
-    font-family: 'Roboto Slab';
     display: block;
     padding:12px 10px 12px 32px;
 }

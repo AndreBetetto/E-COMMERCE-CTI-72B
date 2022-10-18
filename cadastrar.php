@@ -20,7 +20,7 @@ $row = pg_fetch_row(pg_query($sql));
 
 if($row[0] == 1){
     $_SESSION['user_existe'] = true;
-    header('Location: cadastro.php');
+    header('Location: cadasstro.php');
 
     /*aparecer erro que usuario ja existe*/
     $_SESSION['erro_cadastro'] = true;
@@ -49,6 +49,6 @@ if($row[0] == 1){
 
 pg_close($conexao);
 
-header('Location: cadastro.php');
+header('Location: cadasstro.php');
 exit;
 ?>

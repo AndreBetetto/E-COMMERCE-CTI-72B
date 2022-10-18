@@ -13,12 +13,23 @@
     <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="perfil.css">
     <title>Perfil do usuário | KeyFriends</title>
-    <link rel="icon" href="logoAzul.png">
+    <link rel="icon" href="logo.ico">
 </head>
 <body>
     <div class="main">
-    <?php include('navMenuFooter.php'); ?>
-        <section>
+        <div class="nav-sticky">
+            <!--Navigation bar-->
+            <div id="nav-placeholder">
+
+            </div>
+            <script>
+                $(function(){
+                $("#nav-placeholder").load("nav.html");
+                });
+            </script>
+            <!--end of Navigation bar-->
+        </div>
+    <section>
             <div class="perfilBody">
                 <?php
                     $nome = $_SESSION['name'];
@@ -109,7 +120,7 @@
 
                 <form action="upload.php" method="post" enctype="multipart/form-data">
                         <div class="itens">
-                            <div class="txt_field">
+                            <div class="txt_field2">
                                 <label class="campos">Imagem do perfil</label>
                                 <input class="after" type="file" name="fileToUpload" id="fileToUpload">
                                 <span></span>
@@ -124,13 +135,10 @@
 
             <div class="detalhes">
                 <div class="titulo">
-                    <h3>Dados Pessoais</h3>
+                    <h3>Endereço</h3>
                 </div>
 
                 <div class="linha">
-                    <div class="titulo">
-                        <h5>Endereço</h5>
-                    </div>
                     <div class="itemEnder">
 
                         <div class="infos">
@@ -144,9 +152,10 @@
                                             $_SESSION['errocep'] = false;
                                         }
                                     ?>
-                                    <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
-                                    <input type="submit" value="submit" name="pesquisa">
-                                    <span></span>
+                                    <div class="boxCep">
+                                        <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
+                                        <input id="cepP" type="submit" value="Consultar" name="pesquisa">
+                                    </div>
                                 </form>
 
                                     <?php

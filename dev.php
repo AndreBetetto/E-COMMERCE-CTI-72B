@@ -37,7 +37,7 @@
                 <p>
                     Tivemos a oportunidade de conhecer de pertinho esse equipamento, e ver detalhadamente o seu funcionamento. Usamos produtos da mais alta qualidade para 
                     essa produção. A matéria prima de nossos chaveiros é os chamados filamentos de PLA, a qual consiste em um ermoplástico biodegradável de origem natural e de fontes 
-                    renováveis, como amido de milho ou cana-de-açúcar. Esse tipo de filamento, está sendo um dos mais escolhidos atualmmente para essas produções, devido sua facilidade
+                    renováveis, como amido de milho ou cana-de-açúcar. Esse tipo de filamento, está sendo um dos mais escolhidos atualmente para essas produções, devido sua facilidade
                     de impressão, alta dureza, resistência e claro um melhor acabamento no item final.
                 </p>
 
