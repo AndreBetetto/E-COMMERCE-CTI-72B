@@ -9,31 +9,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <?php include "head.php" ?>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="perfil.css">
     <title>Perfil do usuário | KeyFriends</title>
-    <link rel="icon" href="imagens/logo.ico">
+    <link rel="icon" href="logoAzul.png">
 </head>
 <body>
     <div class="main">
-            <!--Navigation bar-->
-            <div id="nav-placeholder">
-            </div>
-            <script>
-                $(function(){
-                $("#nav-placeholder").load("nav.html");
-                });
-            </script>
-            <script src="menu.js"></script>
-            <!--end of Navigation bar-->
+    <?php include('navMenuFooter.php'); ?>
         <section>
             <div class="perfilBody">
                 <?php
                     $nome = $_SESSION['name'];
                     $email = $_SESSION['email'];
                     $nome = $_SESSION['name'];
-                    $cpf = $_SESSION['cpf'];
                     $tel = $_SESSION['telefone'];
+                    $sqlid = "SELECT id FROM usuarioandre WHERE login = '$email'";
+                    $resultid = pg_query($conexao, $sqlid);
+                    $rowid = pg_fetch_assoc($resultid);
+                    $id = $rowid['id'];
 
 
 
@@ -41,6 +36,8 @@
                     $result = pg_query($conexao, $sql);
                     $row = pg_fetch_assoc($result);
                     $nfim = $row['numberphoto'];
+                    $cpf = $row['cpf'];
+                    $_SESSION['cpf'] = $cpf;
 
                     $_SESSION['numberfim'] = $nfim;
                     $email2 = str_replace('.', '_', $email);
@@ -63,7 +60,7 @@
         <div class="fullPerfil">
             <div class="detalhes">
                 <div class="titulo">
-                    <p> Meu perfil</p>
+                    <h3> Meu perfil</h3>
                 </div>
 
                 <div class="itemPerfil">
@@ -108,12 +105,11 @@
                             <?php echo "<label class='inputs'>".$tel."</label>"; ?>
                         </div>
                     </div>
-                    
                 </div>
 
                 <form action="upload.php" method="post" enctype="multipart/form-data">
                         <div class="itens">
-                            <div class="txt_field2">
+                            <div class="txt_field">
                                 <label class="campos">Imagem do perfil</label>
                                 <input class="after" type="file" name="fileToUpload" id="fileToUpload">
                                 <span></span>
@@ -128,10 +124,13 @@
 
             <div class="detalhes">
                 <div class="titulo">
-                    <p>Endereço</p>
+                    <h3>Dados Pessoais</h3>
                 </div>
 
                 <div class="linha">
+                    <div class="titulo">
+                        <h5>Endereço</h5>
+                    </div>
                     <div class="itemEnder">
 
                         <div class="infos">
@@ -145,13 +144,11 @@
                                             $_SESSION['errocep'] = false;
                                         }
                                     ?>
-                                    <div class="boxCep">
-                                        <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
-                                        <input id="cepP" type="submit" value="Consultar" name="pesquisa">
-                                    </div>
+                                    <input type="text" id="cep" name="cep" placeholder="00000-000" value="<?php echo $_SESSION['cep']; ?>">
+                                    <input type="submit" value="submit" name="pesquisa">
                                     <span></span>
-                                    
                                 </form>
+
                                     <?php
                                         if(isset($_POST['cep'])){
                                             $cep = $_POST['cep'];
@@ -175,9 +172,12 @@
                                                 $_SESSION['errocep'] = true;
                                             }
                                         header("Refresh: 0");
-                                        } ?>
+                                        } 
+                                        
+                                        ?>
                             </div>
-
+                    <?php 
+                    if($_SESSION['cep'] != null): ?>
                             <form action="addendereco.php" method="post">
                                 <div class="txt_field">
                                     <label class="campos">Cidade: </label>
@@ -207,13 +207,46 @@
 
                             <div class="txt_field">
                                 <label class="campos">Número: </label>
-                                <input type="text" id="num" name="num" placeholder="Número">
+                                <input type="text" id="num" name="num" placeholder="Número" 
+                                <?php
+                                $sqlverificaa = "select count(*) as total from enderecosandre where id_user = $id";
+                                $resultverificaa = pg_query($conexao, $sqlverificaa);
+                                $rowverificaa = pg_fetch_assoc($resultverificaa);
+                                if($rowverificaa['total'] == 0) {
+                                    echo "";
+                                } else {
+                                    $sqlnum = "SELECT * FROM enderecosandre WHERE id_user = $id";
+                                    $resultnum = pg_query($conexao, $sqlnum);
+                                    $rownum = pg_fetch_assoc($resultnum);
+                                    $num = strval($rownum['num']);
+                                    echo "value='$num' ";
+                                }
+                                
+
+                                ?>
+                                required>
                                 <span></span>
                             </div>
 
                             <div class="txt_field">
                                 <label class="campos">Complemento: </label>
-                                <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala...">
+                                <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa, condomínio, sala, etc" 
+                                <?php 
+                                    
+                                    if($rowverificaa['total'] == 0) {
+                                        echo "";
+                                    } else {
+                                        $sqlnumc = "SELECT * FROM enderecosandre WHERE id_user = $id";
+                                        $resultc = pg_query($conexao, $sqlnum);
+                                        $rownumc = pg_fetch_assoc($resultnum);
+                                        $complemento = strval($rownum['complemento']);
+                                        if($_SESSION['complemento'] != null) {
+                                            echo "value = '$complemento'";
+                                        }
+                                    }
+                                ?>
+                                
+                                required>
                                 <span></span>
                             </div>
                             <input type="hidden" value="<?php echo $cep; ?>" name="cep" id="cep">
@@ -226,19 +259,27 @@
                                 <input class="btnEnviar" type="submit" value="Salvar" name="add">
                             </div>
                         </form>
+                    <?php endif; ?>
 
                     <?php
+                        
+
+                        
+                        $sql = "select * from enderecosandre where id_user = $id";
+                        $result = pg_query($conexao, $sql);
+                        $row = pg_fetch_assoc($result);
+                        $_SESSION['num'] = $row['num'];
+                        $_SESSION['complemento'] = $row['complemento'];
+
                         $cep = $_POST["cep"];
                         $endereco = $_POST["endereco"];
                         $bairro = $_POST["bairro"];
                         $cidade = $_POST["cidade"];
                         $uf = $_POST["uf"];
                         $complemento = $_POST["complemento"];
-                        $verifica = "select qtd from enderecosandre where id_user = $idreal order by qtd desc";
-                        $ver = pg_fetch_row(pg_query($conexao, $verifica));
-                        $endVer = intval($ver[0]);
-
-
+                        //$verifica = "select qtd from enderecosandre where id_user = $id order by qtd desc";
+                        //$ver = pg_fetch_row(pg_query($conexao, $verifica));
+                        //$endVer = intval($ver[0]);
 
                     endif;
 
@@ -248,6 +289,9 @@
         </div>
         </section>
     </div>
+    <footer>
+
+    </footer>
 </body>
 
 </html>

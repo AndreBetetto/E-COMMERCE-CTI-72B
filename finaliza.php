@@ -26,6 +26,7 @@
     include ('conexao.php');
     session_start();
     $iduser = $_SESSION['id'];
+    $email = $_SESSION['email'];
 ?>
 
 <?php
@@ -78,6 +79,28 @@
         $listaids = str_replace(",", "", $listaids);
         $listaqtde = str_replace(",", "", $listaqtde);
         $tamanholistapu = strlen($listapreco);
+
+
+        
+        $to = "andre.betetto@unesp.br";
+         $subject = "This is subject";
+         
+         $message = "<b>This is HTML message.</b>";
+         $message .= "<h1>This is headline.</h1>";
+         
+         $header = "From:abc@somedomain.com \r\n";
+         $header .= "MIME-Version: 1.0\r\n";
+         $header .= "Content-type: text/html\r\n";
+         
+         $retval = mail($to,$subject,$message,$header);
+         
+         if( $retval == true ) {
+            echo "<br><br>Message sent successfully...";
+         }else {
+            echo "<br><br>Message could not be sent...";
+         }
+      
+
            
             $_SESSION['finalizou'] = true;
             for($i = 0; $i < $total; $i++)
@@ -98,6 +121,8 @@
                 $listapreco = substr($listapreco, 7);
                 $sql = "INSERT INTO vendasandre (id_user, id_prod, qtd, preco, nomeprod) VALUES ($iduser, $id, $qtd, $preco, '$nome')";
                 $result = pg_query($conexao, $sql);
+                $sqlremove = "update produtosandre set qtd = qtd - $qtd where id = $id";
+                pg_query($conexao, $sqlremove);
 
             }
             $sqlremovecarrinho = "DELETE FROM carrinhoandre WHERE id_user = $iduser";
