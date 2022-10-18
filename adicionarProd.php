@@ -70,7 +70,7 @@
                     <input class="btnEnviar" type="submit" value="Enviar">
                 </div>
             </div>
-        </form>
+        </form> 
 
         <?php  if($_SESSION['erroupload'] == true) {
         $erro = $_SESSION['nomeerroupload'];
