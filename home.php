@@ -42,7 +42,7 @@
             ?>
 
             <div class="container-top">
-                <img id="img-grande" class="container-img" src="imagens/img-grande.png" alt="Fundo">
+                <img id="img-grande" class="container-img" src="imagens/img-grande.jpg" alt="Fundo">
                 <div class="txt-centro"><p>Do Futuro</p> <p>para o seu bolso.</p></div>
                         <div class="descricao-img-grande"> 
                             <p class="txt-descricao-img-grande">Já pensou ter sempre com você um produto feito por meio de impressão 3D?
@@ -60,19 +60,19 @@
                 </div>
                 <div class="mae-imagens" >
                     <div class="imgs-home" id="img-home-1">
-                        <img src="imagens/imgpata.jpg" alt="chaveiro">
+                        <img src="imagens/chvPatinha.jpg" alt="chaveiro">
                         <div class="txt-imgs-home"><p>Chaveiro Patinha</p></div>
                     </div>
                     <div class="imgs-home" id="maisvendido">
-                        <img src="imagens/imgchocolate.jpg" alt="chaveiro2">
+                        <img src="imagens/chvChoco.jpg" alt="chaveiro2">
                         <div class="txt-imgs-home"><p>Chaveiro Chocolatinho</p></div>
                     </div>
                     <div class="imgs-home" id="img-home-3">
-                        <img src="imagens/imgcoracao.jpg" alt="chaveiro3">
+                        <img src="imagens/chvCoracao.jpg" alt="chaveiro3">
                         <div class="txt-imgs-home"><p>Chaveiro S2 Amor</p></div>
                     </div>
                     <div class="imgs-home" id="maisvendido">
-                        <img src="imagens/imgminie.jpg" alt="chaveiro2">
+                        <img src="imagens/chvMinnie.jpg" alt="chaveiro2">
                         <div class="txt-imgs-home"><p>Chaveiro Minnie</p></div>
                     </div>
                 </div>

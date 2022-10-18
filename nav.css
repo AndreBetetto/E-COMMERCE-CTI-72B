@@ -18,7 +18,12 @@
 {
     width: 100%;
 }
-
+#logo
+{
+    height: 80%;
+    flex-basis: 20%;
+    margin-left: 2vw;
+}
 .nav
 {
     display: flex;
@@ -36,9 +41,8 @@
 
 .logo
 {
-    height: 80%;
-    flex-basis: 20%;
-    margin-left: 2vw;
+    height: 6.5vh;
+    width: auto;
 }
 
 .nav-icons
@@ -98,10 +102,12 @@ a{
 
 #nav-icon
 {
-    margin: 1vw;
+    height: 1.5vh;
+    width: 1.5vh;
     color: var(--yellow);
     background-color: rgb(255, 255, 255, 0);
-    padding: 5px;
+    padding: 2vh;
+    border-radius: 0.5vh;
 }
 #nav-icon:link
 {
@@ -109,8 +115,6 @@ a{
 }
 #nav-icon:hover{
     background-color: rgba(255, 255, 255, 0.23);
-    border-radius: 0.3em;
-    padding: 5px;
 }
 /* footer */ 
 
@@ -183,7 +187,8 @@ a{
 
 .menuNav a{
     color: var(--yellow);
-    font-size: 20px;
+    font-size: 2.5vh;
+    font-family: 'Roboto Slab';
     display: block;
     padding:12px 10px 12px 32px;
 }
