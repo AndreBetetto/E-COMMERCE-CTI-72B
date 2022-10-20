@@ -97,7 +97,7 @@
                     <img class="logoFooter" src="imagens/logo.svg" alt="logo">
                     <div id="txt-footer">
                         <p>&copy; 2022 KeyFriends - Todos os direitos reseverdos</p>
-                        <a id="fornecedor" href="https://www.instagram.com/lucas_gianezi/"> 
+                        <a id="fornecedor" href="https://www.instagram.com/lucas_gianezi/" target="_blank"> 
                             <p><i class="fa-brands fa-instagram"></i> lucas_gianezi - Fornecedor</p> 
                         </a>
                     </div>
