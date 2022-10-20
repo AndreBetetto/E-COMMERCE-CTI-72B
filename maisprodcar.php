@@ -11,7 +11,7 @@
     $row = pg_fetch_row($result);
 
     if($row[0] >= $rowverifica[0]) {
-        echo "Não há mais estoque deste produto.";
+        echo "<script> alert('Não há mais estoque deste produto.') </script>";
         $_SESSION['estoqueerro'] = true;
         header('location: carrinho.php');
         exit;
