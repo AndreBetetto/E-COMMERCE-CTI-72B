@@ -215,6 +215,12 @@ body{
     border-radius: 10px;
 }
 
+#img-home-1:hover, #maisvendido:hover, #img-home-3:hover{
+    border: #ffffff 0.5vw solid;
+    border-radius: 10px;
+    transition: 0.7s;
+}
+
 #txt2 {
     display: flex;
     flex-direction: column;

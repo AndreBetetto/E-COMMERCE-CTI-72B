@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="perfil.css">
     <title>Perfil do usuário | KeyFriends</title>
     <link rel="icon" href="logo.ico">
+    <?php include "head.php" ?>
 </head>
 <body>
     <div class="main">
@@ -27,6 +28,7 @@
                 $("#nav-placeholder").load("nav.html");
                 });
             </script>
+            <script src="menu.js"></script>
             <!--end of Navigation bar-->
         </div>
     <section>

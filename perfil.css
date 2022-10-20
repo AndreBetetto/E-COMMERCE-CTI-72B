@@ -96,7 +96,7 @@ button{
 .fullPerfil{
     display: flex;
     justify-content: space-evenly;
-    margin: 10vh 25px;
+    margin: 8vh 25px 1vh 25px;
     padding: 15px;
 } 
 

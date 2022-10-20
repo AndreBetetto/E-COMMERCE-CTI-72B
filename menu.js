@@ -5,3 +5,7 @@ function abrirMenu(){
 function fecharMenu(){
     document.getElementById('menu').style.width = "0px";
 }
+
+function estatic(){
+    alert("Esta página não está disponível ainda!"); 
+}

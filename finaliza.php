@@ -121,7 +121,7 @@
                 $listapreco = substr($listapreco, 7);
                 $sql = "INSERT INTO vendasandre (id_user, id_prod, qtd, preco, nomeprod) VALUES ($iduser, $id, $qtd, $preco, '$nome')";
                 $result = pg_query($conexao, $sql);
-                $sqlremove = "update produtosandre set qtd = qtd - $qtd where id = $id";
+                $sqlremove = "update produtosandre set estoque = estoque - $qtd where id = $id";
                 pg_query($conexao, $sqlremove);
 
             }
