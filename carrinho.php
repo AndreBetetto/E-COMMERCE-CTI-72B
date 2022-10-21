@@ -127,6 +127,10 @@
                             <div class="menuResumo">
                                 <div class="menuItens">
                                     <?php
+                                    if($_SESSION['estoqueerro'] == true){
+                                        echo "<script>alert('Estoque insuficiente!')</script>";
+                                        $_SESSION['estoqueerro'] = false;
+                                    }
                                         for($i = 0; $i < $contagem[0]; $i++)
                                         {
                                             $sqlCarrinho = "select * from carrinhoandre where id_user = $id order by id_produto";

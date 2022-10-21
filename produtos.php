@@ -32,12 +32,13 @@
                 <!--end of Navigation bar-->
 
     <?php
-    if($_SESSION['adicionado'] == true) { echo "<script>alert('Produto adicionado ao carrinho!');</script>"; $_SESSION['adicionado'] = false;}; 
-        $busca = $_POST['input'];
-        $_SESSION['buscatermo'] = $busca;
-        if($busca != null){
-            $_SESSION['buscabool'] = true;
+        if($_POST['submit'] != null) {
+            $pesquisa = $_POST['input'];
+            $_SESSION['pesquisa'] = $pesquisa;
+            $_SESSION['pesquisado'] = true;
         }
+        echo "<br><br><br>".$_SESSION['pesquisa'];
+        exit;
         
         include "backendprod.php";
 
@@ -54,7 +55,7 @@
                     $caminho = $linha['id'].  $linha['numberphoto'].'.jpg';
                     $caminho2 = $linha['id']. $linha['numberphoto'].'.png';
                     $caminho3 = $linha['id']. $linha['numberphoto'].'.jpeg';
-
+ 
                     $target  = "produtosimagem/" . $caminho;
                     $target2 = "produtosimagem/" . $caminho2;
                     $target3 = "produtosimagem/" . $caminho3;
