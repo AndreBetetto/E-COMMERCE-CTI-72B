@@ -42,36 +42,36 @@ session_start();
               <div class="txt_field">
                   <input type="text" name="name" required>
                   <span></span>
-                  <label>Nome</label>
+                  <label>Nome*</label>
               </div>
 
               <div class="txt_field">
                   <input type="text" name="cpf" required>
                   <span></span>
-                  <label>CPF</label>
+                  <label>CPF*</label>
               </div>
 
               <div class="txt_field">
                   <input type="text" name="tel" required>
                   <span></span>
-                  <label>Telefone</label>
+                  <label>Telefone*</label>
               </div>
 
               <div class="txt_field">
                   <input type="email" name="email" required>
                   <span></span>
-                  <label>E-mail</label>
+                  <label>E-mail*</label>
               </div>
               <div class="txt_field">
                   <input type="password" name="password" required>
                   <span></span>
-                  <label>Senha</label>
+                  <label>Senha*</label>
               </div>
 
               <div class="txt_field">
                   <input type="password" name="cpassword" required>
                   <span></span>
-                  <label>Confirmar senha</label>
+                  <label>Confirmar senha*</label>
               </div>
 
               <input name="submit" type="Submit" value="Sign Up">
