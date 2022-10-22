@@ -4,29 +4,31 @@ session_start();
 
 //$buscaProd != "" || $buscaProd != " "
 
-$buscaProd = $_SESSION["buscatermo"];
 
-if($_SESSION['buscabool'] == false) {
-    $contProd = "SELECT COUNT(*) as total FROM produtosandre";
+
+if($_SESSION['pesquisado'] == true) {
+    $buscaProd = $_SESSION['pesquisa'];
+    $contProd = "SELECT COUNT(*) as total FROM produtosandre where CONCAT(id, titulo, material) LIKE '%$buscaProd%'";
     $rowProd = pg_fetch_row(pg_query($conexao, $contProd));
-    $sql="SELECT * FROM produtosandre ORDER BY id";
-    
-    $resultado= pg_query($conexao, $sql);
+    //$sql="SELECT * FROM produtosandre where CONCAT(id, titulo, material) LIKE '%$buscaProd%' ORDER BY id";
+    $sql3="SELECT * FROM produtosandre where CONCAT(id, titulo) LIKE '%andre%' ORDER BY id";
+
+    $resultado = pg_query($conexao, $sql3);
     $qtde=pg_num_rows($resultado);
-    $resultado_lista = null;
+    $resultado_lista5 = null;
     if ($qtde > 0)
     {
         $resultado_lista=pg_fetch_all($resultado);
     }
     pg_close($conexao);
     
-} else {
-    $contProd = "SELECT COUNT(*) as total FROM produtosandre where CONCAT(id, titulo, material) LIKE 'andre'";
-    $rowProd = pg_fetch_row(pg_query($conexao, $contProd));
-    //$sql="SELECT * FROM produtosandre where CONCAT(id, titulo, material) LIKE '%$buscaProd%' ORDER BY id";
-    $sql="SELECT * FROM produtosandre where CONCAT(id, titulo, material) LIKE '%andre%' ORDER BY id";
+} elseif($_SESSION['pesquisado'] == false) {
 
-    $resultado = pg_query($conexao, $sql);
+    $contProd = "SELECT COUNT(*) as total FROM produtosandre";
+    $rowProd = pg_fetch_row(pg_query($conexao, $contProd));
+    $sql="SELECT * FROM produtosandre ORDER BY id";
+    
+    $resultado= pg_query($conexao, $sql);
     $qtde=pg_num_rows($resultado);
     $resultado_lista = null;
     if ($qtde > 0)
