@@ -123,7 +123,6 @@
                 $result = pg_query($conexao, $sql);
                 $sqlremove = "update produtosandre set estoque = estoque - $qtd where id = $id";
                 pg_query($conexao, $sqlremove);
-
             }
             $sqlremovecarrinho = "DELETE FROM carrinhoandre WHERE id_user = $iduser";
             pg_query($conexao, $sqlremovecarrinho);
