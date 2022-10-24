@@ -25,20 +25,20 @@
 
                 <script>
                     $(function(){
-                    $("#nav-placeholder").load("nav.html");
+                    $("#nav-placeholder").load("nav.php");
                     });
                 </script>
                 <script src="menu.js"></script>
                 <!--end of Navigation bar-->
 
     <?php
-        if($_POST['submit'] != null) {
+        /*if($_POST['submit'] != null) {
             $pesquisa = $_POST['input'];
             $_SESSION['pesquisa'] = $pesquisa;
             $_SESSION['pesquisado'] = true;
         }
         echo "<br><br><br>".$_SESSION['pesquisa'];
-        exit;
+        exit;*/
         
         include "backendprod.php";
 
@@ -46,67 +46,133 @@
         if ($rowProd[0] == 0) {
             echo "Não foi encontrado nenhum produto !!!";
             return;
-        }
+        } elseif(isset($_GET['termoProd'])){
+            $buscaProd = strtoupper($_GET["termoProd"]);
+            $sqlProd = "select * from produtosandre where CONCAT(id, upper(titulo), upper(material), preco) LIKE '%$buscaProd%' order by id ";
+            $sqlProdID = "select id from produtosandre where CONCAT(id, upper(titulo), upper(material), preco) LIKE '%$buscaProd%' order by id";
+            $queryProd = pg_query($conexao, $sqlProd);
             echo "<div class='mae'>";
             echo "<div class='grid'>";
-                foreach($resultado_lista as $linha)
-                {
-                    
-                    $caminho = $linha['id'].  $linha['numberphoto'].'.jpg';
-                    $caminho2 = $linha['id']. $linha['numberphoto'].'.png';
-                    $caminho3 = $linha['id']. $linha['numberphoto'].'.jpeg';
- 
-                    $target  = "produtosimagem/" . $caminho;
-                    $target2 = "produtosimagem/" . $caminho2;
-                    $target3 = "produtosimagem/" . $caminho3;
+                
+            foreach($resultado_lista as $linha)
+            {
+                
+                $caminho = $linha['id'].  $linha['numberphoto'].'.jpg';
+                $caminho2 = $linha['id']. $linha['numberphoto'].'.png';
+                $caminho3 = $linha['id']. $linha['numberphoto'].'.jpeg';
 
-                    if(file_exists($target)) {
-                        $img = "<img src='$target' width='250' height='250'/>";
-                    } elseif(file_exists($target2)){
-                        $img = "<img src='$target2' width='250' height='250'/>";
-                    } elseif(file_exists($target3)){
-                        $img = "<img src='$target3' width='250' height='250'/>";
-                    } else {
-                        $img = "<img src='produtosimagem/default.png' width='250' height='250'/>";
-                    } 
+                $target  = "produtosimagem/" . $caminho;
+                $target2 = "produtosimagem/" . $caminho2;
+                $target3 = "produtosimagem/" . $caminho3;
 
-                    $precoProd = Number_format($linha['preco'], 2, ',','.');
-                    echo "<div class='itens'> 
-                        <a href='detalhes.php?id=".$linha['id']."'>
-                            $img
-                        </a>
+                if(file_exists($target)) {
+                    $img = "<img src='$target' width='250' height='250'/>";
+                } elseif(file_exists($target2)){
+                    $img = "<img src='$target2' width='250' height='250'/>";
+                } elseif(file_exists($target3)){
+                    $img = "<img src='$target3' width='250' height='250'/>";
+                } else {
+                    $img = "<img src='produtosimagem/default.png' width='250' height='250'/>";
+                } 
 
-                        <div class='desc'> 
-                            <p class='item'>".$linha['titulo']."</p> 
-                            <div class='estrelas'>
-                                <i class='fa-solid fa-star'></i>
-                                <i class='fa-solid fa-star'></i>
-                                <i class='fa-solid fa-star'></i>
-                                <i class='fa-solid fa-star'></i>
-                                <i class='fa-solid fa-star'></i>
-                            </div>
-                            <p class='itemP'> R$ ".$precoProd." </p>
-                        </div>";
+                $precoProd = Number_format($linha['preco'], 2, ',','.');
+                echo "<div class='itens'> 
+                    <a href='detalhes.php?id=".$linha['id']."'>
+                        $img
+                    </a>
 
-                            if($linha['estoque']<=0){
-                                echo 
-                                    "<div class='desc'> <p> Produto esgostado</p> </div>";
+                    <div class='desc'> 
+                        <p class='item'>".$linha['titulo']."</p> 
+                        <div class='estrelas'>
+                            <i class='fa-solid fa-star'></i>
+                            <i class='fa-solid fa-star'></i>
+                            <i class='fa-solid fa-star'></i>
+                            <i class='fa-solid fa-star'></i>
+                            <i class='fa-solid fa-star'></i>
+                        </div>
+                        <p class='itemP'> R$ ".$precoProd." </p>
+                    </div>";
 
-                                echo "<div class='desc'> 
-                                    <a class='avs' href='#'>Avise-me quando chegar</a> </div>";
-                            }
-                            else{
-                                echo
-                                 "<div class='desc'> <p class='item'>".$linha['estoque']." em estoque </p> </div>";
-                                echo 
-                                    "<div class='desc'> 
-                                        <a class='btnCmp' href='addprodsemsair.php?num=1,id=".$linha['id']."'>Comprar</a> </div>";
-                            }
-                    echo "</div>";
-                }
+                        if($linha['estoque']<=0){
+                            echo 
+                                "<div class='desc'> <p> Produto esgostado</p> </div>";
+
+                            echo "<div class='desc'> 
+                                <a class='avs' href='#'>Avise-me quando chegar</a> </div>";
+                        }
+                        else{
+                            echo
+                                "<div class='desc'> <p class='item'>".$linha['estoque']." em estoque </p> </div>";
+                            echo 
+                                "<div class='desc'> 
+                                    <a class='btnCmp' href='addprodsemsair.php?num=1,id=".$linha['id']."'>Comprar</a> </div>";
+                        }
+                echo "</div>";
+            }
             echo "</div>";
             echo "</div>";
-            
+        } else {
+            echo "<div class='mae'>";
+            echo "<div class='grid'>";
+                
+            foreach($resultado_lista as $linha)
+            {
+                
+                $caminho = $linha['id'].  $linha['numberphoto'].'.jpg';
+                $caminho2 = $linha['id']. $linha['numberphoto'].'.png';
+                $caminho3 = $linha['id']. $linha['numberphoto'].'.jpeg';
+
+                $target  = "produtosimagem/" . $caminho;
+                $target2 = "produtosimagem/" . $caminho2;
+                $target3 = "produtosimagem/" . $caminho3;
+
+                if(file_exists($target)) {
+                    $img = "<img src='$target' width='250' height='250'/>";
+                } elseif(file_exists($target2)){
+                    $img = "<img src='$target2' width='250' height='250'/>";
+                } elseif(file_exists($target3)){
+                    $img = "<img src='$target3' width='250' height='250'/>";
+                } else {
+                    $img = "<img src='produtosimagem/default.png' width='250' height='250'/>";
+                } 
+
+                $precoProd = Number_format($linha['preco'], 2, ',','.');
+                echo "<div class='itens'> 
+                    <a href='detalhes.php?id=".$linha['id']."'>
+                        $img
+                    </a>
+
+                    <div class='desc'> 
+                        <p class='item'>".$linha['titulo']."</p> 
+                        <div class='estrelas'>
+                            <i class='fa-solid fa-star'></i>
+                            <i class='fa-solid fa-star'></i>
+                            <i class='fa-solid fa-star'></i>
+                            <i class='fa-solid fa-star'></i>
+                            <i class='fa-solid fa-star'></i>
+                        </div>
+                        <p class='itemP'> R$ ".$precoProd." </p>
+                    </div>";
+
+                        if($linha['estoque']<=0){
+                            echo 
+                                "<div class='desc'> <p> Produto esgostado</p> </div>";
+
+                            echo "<div class='desc'> 
+                                <a class='avs' href='#'>Avise-me quando chegar</a> </div>";
+                        }
+                        else{
+                            echo
+                                "<div class='desc'> <p class='item'>".$linha['estoque']." em estoque </p> </div>";
+                            echo 
+                                "<div class='desc'> 
+                                    <a class='btnCmp' href='addprodsemsair.php?num=1,id=".$linha['id']."'>Comprar</a> </div>";
+                        }
+                echo "</div>";
+            }
+            echo "</div>";
+            echo "</div>";
+        }
 
     ?>
     <footer>

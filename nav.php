@@ -44,8 +44,12 @@
    
 
     <!-- PESQUISA -->
-    <form action="produtos.php" class="search">
-        <input id="input" type="text" name="input" placeholder="Pesquisar um produto...">
+    <form action="produtos.php" method="get" class="search">
+        <input id="input" type="text" name="input" placeholder="Pesquisar um produto..." 
+            value="<?php 
+                if(isset($_GET['termoProd']))
+                {echo $_GET['termoProd'];}?>">
+                
         <i id="nav-lupa" class="fa-solid fa-magnifying-glass fa-2x"></i>
         <input id="submit" type="submit" value="submit" >
     </form> 

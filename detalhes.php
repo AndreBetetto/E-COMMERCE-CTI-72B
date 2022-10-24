@@ -23,7 +23,7 @@
             </div>
             <script>
                 $(function(){
-                $("#nav-placeholder").load("nav.html");
+                $("#nav-placeholder").load("nav.php");
                 });
             </script>
             <script src="menu.js"></script>
