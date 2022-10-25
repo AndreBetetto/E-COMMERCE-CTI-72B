@@ -145,8 +145,7 @@
             
         </a>
     </div> 
-<br><br>
-    <a href="https://projetoscti.com.br/projetoscti20/site/addcompra.php">Adicionar compra! </a>
+    <!-- <a href="https://projetoscti.com.br/projetoscti20/site/addcompra.php">Adicionar compra! </a> -->
     
     <footer>
 
