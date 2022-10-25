@@ -55,7 +55,6 @@
         <tr>
             <th>Id</th>
             <th>Titulo</th>
-            <th>Material</th>
             <th>Preço</th>
             <th>Estoque</th>
             <th>Editar </th>  
@@ -76,7 +75,6 @@
                         echo "<tr>
                             <td>" . $sqlsaida['id']. "</td>
                             <td>" .$sqlsaida['titulo']. "</td>
-                            <td>" .$sqlsaida['material']. "</td>
                             <td>" . number_format($sqlsaida['preco'], 2). "</td>
                             <td>" . $sqlsaida['estoque']. "</td>
 
@@ -116,7 +114,6 @@
                     echo "<tr>
                         <td>" . $mostraresult['id']."</td>
                         <td>" . $mostraresult['titulo']."</td>
-                        <td>" . $mostraresult['material']."</td>
                         <td>" . number_format($mostraresult['preco'], 2)."</td>
                         <td>" . $mostraresult['estoque'] ?> </td>
                         <td> 
