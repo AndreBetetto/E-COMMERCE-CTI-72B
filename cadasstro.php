@@ -11,6 +11,7 @@ session_start();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="csscadastro.css" />
+    <script src="validadorsenha.js"></script>
   </head>
   <body>
     <div class="container">
@@ -62,9 +63,10 @@ session_start();
                   <label>E-mail</label>
               </div>
               <div class="txt_field">
-                  <input type="password" name="password" required>
+                  <input type="password" name="password" id="senha" required>
                   <span></span>
                   <label>Senha</label>
+                  <div id="medidor"></div>
               </div>
 
               <div class="txt_field">

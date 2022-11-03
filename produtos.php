@@ -95,7 +95,7 @@
 
                         if($linha['estoque']<=0){
                             echo 
-                                "<div class='desc'> <p> Produto esgostado</p> </div>";
+                                "<div class='desc'> <p> Produto esgotado</p> </div>";
 
                             echo "<div class='desc'> 
                                 <a class='avs' href='#'>Avise-me quando chegar</a> </div>";
