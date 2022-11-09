@@ -189,7 +189,7 @@ padding: 1rem;
 
     <div class="txt">
         <p class="text">Ficamos muito felizes por você ter escolhido a KeyFriends e aquirido</p>
-        <p class="text">nossos produtos, esperamos que goste de sua compra e volte sempre</p>
+        <p class="text">nossos produtos, esperamos que goste de seu chaveiro e volte sempre</p>
         <p class="text">para realizar novas compras!</p>
     </div>
 

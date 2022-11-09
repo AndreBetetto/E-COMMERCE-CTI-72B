@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel=stylesheet type="text/css" href="nav.css">
     <link rel=stylesheet type="text/css" href="dev.css">
+    <link rel="stylesheet" href="estatistica.css">
     <link rel="icon" href="imagens/logo.ico">
     <title>Estatísticas | KeyFriends</title>
 </head>
@@ -23,9 +24,13 @@
     </script>
     <script src="menu.js"></script>
     <main> 
-        <br><br><br><br>
-        <a href="Movimento de Caixa.pdf" target="_blank">Confira nosso controle de caixa aqui </a>
-        <a href="resultados.pdf" target="_blank"> Confira nosso balanceamento de gastos</a>
+        <div class="botoes">
+            <p class="titulo">Acompanhe como foi nossas vendas no período de nossa inauguração: </p>
+            <div class="bot">
+                <a id="btn" href="Movimento de Caixa.pdf" target="_blank">Controle de caixa </a>
+                <a id="btn" href="resultados.pdf" target="_blank">Balanceamento de gastos</a>
+            </div>
+        </div>
     </main>
 </body>
 </html>
