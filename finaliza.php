@@ -126,7 +126,7 @@
             }
             $sqlremovecarrinho = "DELETE FROM carrinhoandre WHERE id_user = $iduser";
             pg_query($conexao, $sqlremovecarrinho);
-        
+            include ('enviaking.php');
     ?>
 
 

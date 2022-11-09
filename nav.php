@@ -29,7 +29,7 @@
                 <a href="cadasstro.php">
                     <i class="fa-solid fa-user-plus"></i> Cadastrar
                 </a>
-                <a href="#" onclick="estatic()">
+                <a href="estatistica.php">
                     <i class="fa-solid fa-chart-line"></i> Estatísticas
                 </a>
                 <a href="dev.php">

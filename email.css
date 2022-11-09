@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body{
+    width: 71rem;
+}
+
+#marca{
+    padding: 1%;
+    color: #ee9b00;
+}
+
+.header{
+    margin: 1% 0 0 0;
+    background-color:#ee9b00;
+    width: 71rem;
+}
+
+#imgGrande{
+    width: 71rem;
+    height:22rem;
+}
+
+.titulo{
+    text-align: center;
+    padding: 4%;
+    color: #ee9b00;
+    font-size: 2.9rem;
+}
+
+.container{
+    width: 71rem;
+}
+
+.txt{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.text{
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 1%;
+    color: #4b535c;
+}
+
+.btnCompre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#btn{
+    width: fit-content;
+    padding: 1.3rem 3rem;
+    margin: 3%;
+    background-color: #ee9b00;
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.link{
+    margin: 1% 0 0 0;
+    width: 71rem;
+    background-color:#ee9b00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#icon{
+    padding: 4% 0;
+    color: #ee9b00;
+}
+
+.fa-solid{
+    color:white;
+    padding: 30%;
+    background-color: aqua;
+    border-radius: 100%;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;  
+}
+
+#txt-footer
+{
+    font-size: 1.2rem;
+    color: #4b535c;
+}
+
+.logoFooter{
+    height: 15%;
+    width: 30%;
+    margin-left: 20rem;
+    padding: 1rem;
+}
