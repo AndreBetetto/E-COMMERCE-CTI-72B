@@ -25,7 +25,7 @@
     <script src="menu.js"></script>
     <main> 
         <div class="botoes">
-            <p class="titulo">Acompanhe como foi nossas vendas no período de nossa inauguração: </p>
+            <p class="titulo">Acompanhe como foi nossas vendas no período de inauguração: </p>
             <div class="bot">
                 <a id="btn" href="Movimento de Caixa.pdf" target="_blank">Controle de caixa </a>
                 <a id="btn" href="resultados.pdf" target="_blank">Balanceamento de gastos</a>
