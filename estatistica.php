@@ -28,6 +28,7 @@
             <p class="titulo">Acompanhe como foi nossas vendas no período de inauguração: </p>
             <div class="bot">
                 <a id="btn" href="Movimento de Caixa.pdf" target="_blank">Controle de caixa </a>
+                <a id="btn" href="Movimento de Estoque.pdf" target="_blank">Controle de estoque </a>
                 <a id="btn" href="resultados.pdf" target="_blank">Balanceamento de gastos</a>
             </div>
         </div>

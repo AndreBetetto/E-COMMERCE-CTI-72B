@@ -65,8 +65,7 @@ $mail->CharSet='UTF-8'; //Configurar conjunto de caracteres da mensagem em HTML
 //Replace the plain text body with one created manually
 $mail->Body = '<head>
 <meta charset="UTF-8">
-<!-- <link rel="stylesheet" href="email.css"> -->
-<script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="http://projetoscti.com.br/projetoscti20/site/email.css"> 
 <style>
     *{
 margin: 0;
@@ -107,12 +106,12 @@ width: 71rem;
 }
 
 .txt{
-width: 100%;
-display: flex;
-flex-direction: column;
+width: 100% !important; 
+display: flex !important;
+flex-direction: column !important;
 }
 
-.text{
+.text, .txt{
 text-align: center;
 font-size: 1.8rem;
 padding: 1%;
@@ -120,10 +119,10 @@ color: #4b535c;
 }
 
 .btnCompre{
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100%;
+display: flex !important;
+justify-content: center !important;
+align-items: center !important;
+width: 100% !important;
 }
 
 #btn{
@@ -182,19 +181,20 @@ padding: 1rem;
 </head>
 
 <body>
+<script src="https://kit.fontawesome.com/60a756ccae.js" crossorigin="anonymous"></script>
 <div class="header">
     <p id="marca">KeyFriends</p>
 </div>
 
-<img id="imgGrande" src="imagens/img-grande.jpg" alt="capa do email">
+<img id="imgGrande" src="http://projetoscti.com.br/projetoscti20/site/imagens/img-grande.jpg" alt="capa do email">
 
 <div class="container">
     <h1 class="titulo">Agradecemos por sua compra!</h1>
 
     <div class="txt">
-        <p class="text">Ficamos muito felizes por você ter escolhido a KeyFriends e aquirido</p>
-        <p class="text">nossos produtos, esperamos que goste de seu chaveiro e volte sempre</p>
-        <p class="text">para realizar novas compras!</p>
+        Ficamos muito felizes por você ter escolhido a KeyFriends e aquirido
+        nossos produtos, esperamos que goste de seu chaveiro e volte sempre
+        para realizar novas compras!
     </div>
 
     <div class="btnCompre">
@@ -212,7 +212,7 @@ padding: 1rem;
         <p>&copy; 2022 KeyFriends - Todos os direitos reseverdos</p>
     </div>
 
-    <img class="logoFooter" src="imagens/logo.svg" alt="logo">
+    <img class="logoFooter" src="http://projetoscti.com.br/projetoscti20/site/imagens/logo.png" alt="logo">
 </footer>
 </body>'; //Mensagem em HTML
 
