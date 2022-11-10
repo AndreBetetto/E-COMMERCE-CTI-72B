@@ -14,7 +14,12 @@
     --white: #ffffff;
   }
 body{
-    background-color: var(--orange);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: linear-gradient( 35deg, hsl(24deg 100% 55%) 0%, hsl(27deg 99% 57%) 7%, hsl(30deg 98% 60%) 13%, hsl(33deg 97% 62%) 19%, hsl(36deg 96% 65%) 25%, hsl(39deg 94% 67%) 31%, hsl(42deg 92% 70%) 37%, hsl(45deg 90% 72%) 43%, hsl(43deg 90% 70%) 49%, hsl(41deg 90% 67%) 56%, #f6be55 63%, hsl(37deg 90% 62%) 70%, hsl(35deg 90% 60%) 78%, hsl(33deg 90% 58%) 87%, hsl(30deg 89% 55%) 100% );
+    min-height: 100vh; 
+    margin:0; 
+    position: relative; 
 }
 
 .perfil{
@@ -40,7 +45,7 @@ button{
 .campos{
     padding: 10px;
     display: block;
-    color: var(--dark-orange);
+    color: var(--orange);
     font-weight: bold;
 }
 
@@ -63,7 +68,7 @@ button{
 
     display: block;
     width: 42vw;
-    background: #343a40;
+    background: var(--darker-blue);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.807);
 
 }
@@ -119,17 +124,14 @@ button{
     padding: 5px;
     margin: 5px;
     width: 100%;
-    color: black;
     font-size: 18px;
-    background-color: rgba(127, 214, 127, 0.515);
-    border-color: rgb(0, 101, 0);
+    color: var(--darker-blue);
+    background-color: var(--orange));   
 }
 
 .btnEnviar:hover{
-    background-color: rgba(183, 183, 183, 0.727);
-    color: darkgreen;
-    font-weight: bold;
-    box-shadow: 3px 3px 3px rgb(0,0,0,0.5);
+    background-color: var(--white);
+    color: var;
 }
 
 .boxCep{

@@ -1,4 +1,8 @@
 <?php
+
+session_start();
+$email = $_SESSION['email'];
+include ('conexao.php');
 /*
  * This example shows settings to use when sending via Google's Gmail servers.
  */
@@ -49,7 +53,7 @@ $mail->From='keyfriends@projetoscti.com.br'; //Preencher com a sua conta Gmail
 $mail->FromName='KeyFriends'; //Preencher com o nome do remetente
 
 //Set who the message is to be sent to
-$mail->addAddress('beatriz.p.soche@unesp.br'); //Preencher com o email e nome de quem receberá a mensagem
+$mail->addAddress($email); //Preencher com o email e nome de quem receberá a mensagem
 
 //Set the subject line
 $mail->Subject = 'KeyFriends agradece sua compra!'; //Preencher com o assunto do email
